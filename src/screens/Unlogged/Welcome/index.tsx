@@ -7,6 +7,7 @@ import { ScreenWrapper } from '../../../templates/ScreenWrapper'
 import { SignInForm } from '../../../components/forms/SignIn'
 
 import { promoteGoodMoments } from "../../../constants/texts"
+import { AUTHENTICATION_SCREEN } from "../../../constants/screens"
 
 import {
   AnimatedView,
@@ -62,13 +63,14 @@ export const WelcomeScreen = ({
   }
 
   const onSignIn = ({ areaCode, phoneNumber }: OnSignInProps) => {
-    console.log('areaCode = ', areaCode)
-    console.log('phoneNumber = ', phoneNumber)
+    console.log(areaCode, phoneNumber)
+
+    navigation.navigate(AUTHENTICATION_SCREEN)
   }
 
   const onSocialSignIn = ({ google, facebook }: OnSocialSignInProps) => {
-    console.log('google = ', google)
-    console.log('facebook = ', facebook)
+    if (google) console.log('login with google')
+    else if (facebook) console.log('login with facebook')
   }
 
   return (
@@ -78,12 +80,12 @@ export const WelcomeScreen = ({
           <AnimatedView style={transform}>
             <ContentWrapper>
               <AppNameImage
-                source={require('../../../../images/BlueAppName.png')}
+                source={require('../../../../assets/images/BlueAppName.png')}
                 resizeMode="contain"
               />
               <SubTitle>{promoteGoodMoments}</SubTitle>
               <AppImage
-                source={require('../../../../images/Image1.png')}
+                source={require('../../../../assets/images/Image1.png')}
                 resizeMode="contain"
               />
               <FormWrapper>
@@ -97,7 +99,7 @@ export const WelcomeScreen = ({
         ) : (
           <AnimatedLottieView
             ref={animationRef}
-            source={require('../../../../animations/WelcomeAnimation.json')}
+            source={require('../../../../assets/animations/WelcomeAnimation.json')}
             onAnimationFinish={onFinish}
             loop={false}
             autoPlay={false}

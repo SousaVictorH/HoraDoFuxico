@@ -42,12 +42,12 @@ export const SignInForm = ({ onSignIn, onSocialSignIn }: Props) => {
         <SocialSignInLabel>{orConectUsing}</SocialSignInLabel>
         <SocialMediaButtonsContainer>
           <SocialMediaButton
-            iconSource={require('../../../../images/icons/icon_google.png')}
+            iconSource={require('../../../../assets/icons/icon_google.png')}
             appearance="Google"
             onPress={() => onSocialSignIn({ google: true, facebook: false })}
           />
           <SocialMediaButton
-            iconSource={require('../../../../images/icons/icon_facebook.png')}
+            iconSource={require('../../../../assets/icons/icon_facebook.png')}
             appearance="Facebook"
             onPress={() => onSocialSignIn({ google: false, facebook: true })}
           />
