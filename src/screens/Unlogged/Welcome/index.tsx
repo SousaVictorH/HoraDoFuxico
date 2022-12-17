@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from "react"
-import { Animated } from "react-native"
+import { Animated, Easing } from "react-native"
 
 import AnimatedLottieView from "lottie-react-native"
 
 import { ScreenWrapper } from '../../../templates/ScreenWrapper'
 import { SignInForm } from '../../../components/forms/SignIn'
+
+import { promoteGoodMoments } from "../../../constants/texts"
 
 import {
   AnimatedView,
@@ -19,7 +21,9 @@ import { Props, OnSignInProps, OnSocialSignInProps } from "./types"
 export const WelcomeScreen = ({
   navigation
 }: Props) => {
-  const [animation] = useState(new Animated.Value(0))
+  const [viewAnimation] = useState(new Animated.Value(0))
+  const [opacityAnimation] = useState(new Animated.Value(0))
+
   const [animationFinished, setAnimationFinished] = useState(false)
 
   const animationRef = useRef<any>(null)
@@ -27,12 +31,19 @@ export const WelcomeScreen = ({
   const onFinish = () => {
     setAnimationFinished(true)
 
-    // Animate
-    Animated.spring(animation, {
-      toValue: 85,
-      tension: 10,
-      useNativeDriver: true
-    }).start();
+    // Start animations
+    Animated.parallel([
+      Animated.spring(viewAnimation, {
+        toValue: 85,
+        useNativeDriver: true
+      }),
+      Animated.timing(opacityAnimation, {
+        toValue: 1,
+        easing: Easing.cubic,
+        duration: 300,
+        useNativeDriver: true
+      })
+    ]).start()
   }
 
   useEffect(() => {
@@ -45,8 +56,9 @@ export const WelcomeScreen = ({
 
   const transform = {
     transform: [
-      { translateY: animation }
-    ]
+      { translateY: viewAnimation }
+    ],
+    opacity: opacityAnimation
   }
 
   const onSignIn = ({ areaCode, phoneNumber }: OnSignInProps) => {
@@ -69,7 +81,7 @@ export const WelcomeScreen = ({
                 source={require('../../../../images/BlueAppName.png')}
                 resizeMode="contain"
               />
-              <SubTitle>Promova bons momentos de socialização... </SubTitle>
+              <SubTitle>{promoteGoodMoments}</SubTitle>
               <AppImage
                 source={require('../../../../images/Image1.png')}
                 resizeMode="contain"

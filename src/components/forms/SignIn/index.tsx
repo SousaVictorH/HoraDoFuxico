@@ -4,6 +4,8 @@ import { FormContainer } from "../FormContainer"
 import { PhoneInput } from "../../inputs/PhoneInput"
 import SocialMediaButton from "../../buttons/SocialMediaButton"
 
+import { phoneSignIn, orConectUsing } from "../../../constants/texts"
+
 import {
   Label,
   FormButton,
@@ -24,7 +26,7 @@ export const SignInForm = ({ onSignIn, onSocialSignIn }: Props) => {
 
   return (
     <FormContainer>
-      <Label>Login com o telefone</Label>
+      <Label>{phoneSignIn}</Label>
       <PhoneInput
         areaCode={areaCode}
         setAreaCode={setAreaCode}
@@ -33,12 +35,11 @@ export const SignInForm = ({ onSignIn, onSocialSignIn }: Props) => {
       />
       <FormButton
         onPress={handleSignIn}
-        text="entrar"
         marginTop="lg"
       />
       <SocialSignInWrapper>
         <SocialDiv />
-        <SocialSignInLabel>ou conecte usando</SocialSignInLabel>
+        <SocialSignInLabel>{orConectUsing}</SocialSignInLabel>
         <SocialMediaButtonsContainer>
           <SocialMediaButton
             iconSource={require('../../../../images/icons/icon_google.png')}

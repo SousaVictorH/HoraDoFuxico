@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { enter } from '../../../constants/texts';
+
 import { ButtonProps } from './types';
 import { Container, Text } from './styles';
 
@@ -32,4 +34,5 @@ Button.defaultProps = {
   marginTop: 'none',
   marginBottom: 'none',
   height: 58,
+  text: enter
 };
