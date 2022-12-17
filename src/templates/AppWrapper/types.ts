@@ -1,9 +1,9 @@
-import {ThemeType} from '../../styles/types';
+import { ThemeType } from '../../styles/types';
 
 export type AppWrapperProps = {
   theme?: ThemeType;
   children: React.ReactNode;
-  justifyContent?: 'flex-start' | 'center' | 'flex-end';
+  onLayout: () => void;
 };
 
 export type ThemeProviderProps = {

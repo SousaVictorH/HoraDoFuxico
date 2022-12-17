@@ -30,7 +30,7 @@ export const WelcomeScreen = ({
     // Animate
     Animated.spring(animation, {
       toValue: 85,
-      bounciness: 9,
+      tension: 10,
       useNativeDriver: true
     }).start();
   }

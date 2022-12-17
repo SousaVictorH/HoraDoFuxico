@@ -1,6 +1,9 @@
-import { FontSizeRules } from './types';
+import { FontFamilyRules, FontSizeRules } from './types';
 
-export const fontFamily = 'Roboto';
+export const fontFamily: FontFamilyRules = {
+  normal: 'Poppins',
+  bold: 'PoppinsBold'
+}
 
 export const elements: FontSizeRules = {
   heading: {

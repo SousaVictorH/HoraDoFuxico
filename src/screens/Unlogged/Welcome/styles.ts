@@ -17,8 +17,13 @@ export const AnimatedView = styled(Animated.View)`
 export const ContentWrapper = styled.View`
   position: relative;
   width: 100%;
-  height: ${getWindowHeight() - 105}px;
+  height: ${getWindowHeight() - 85}px;
   align-items: center;
+  justify-content: space-between;
+
+  ${({ theme }: ThemeProps) => css`
+    padding-bottom: ${theme.spacings.xlg};
+  `}
 `
 
 export const AppNameImage = styled.Image`
@@ -35,7 +40,7 @@ export const SubTitle = styled.Text`
     font-size: ${theme.typography.elements.heading.fontSize};
     font-weigth: ${theme.typography.elements.heading.fontWeight};
     line-height: ${theme.typography.elements.heading.lineHeight};
-    font-family: ${theme.typography.fontFamily};
+    font-family: ${theme.typography.fontFamily.normal};
   `}
 `
 

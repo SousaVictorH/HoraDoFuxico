@@ -66,6 +66,11 @@ export type AppearanceOptions =
 
 export type SocialMediaAppearenceOptions = 'Facebook' | 'Google' | 'Twitter';
 
+export type FontFamilyRules = {
+  normal: string;
+  bold: string;
+}
+
 export type TypographyWeights = 'normal' | 'bold' | '100px' | '200px' | '300px' | '400px' | '500px' | '600px' | '700px';
 
 type TypographyElementProps = {
@@ -78,7 +83,7 @@ type TypographyElementProps = {
 export type ElementOptions = 'heading' | 'body' | 'secondary' | 'caption';
 
 export type TypographyType = {
-  fontFamily: string;
+  fontFamily: FontFamilyRules;
   elements: FontSizeRules;
 };
 

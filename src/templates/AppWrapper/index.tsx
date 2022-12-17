@@ -6,10 +6,10 @@ import { Container } from './styles';
 import ThemeProvider from './ThemeProvider';
 import { AppWrapperProps } from './types';
 
-export default function AppWrapper({ children, theme }: AppWrapperProps) {
+export default function AppWrapper({ children, theme, onLayout }: AppWrapperProps) {
   return (
     <ThemeProvider theme={theme}>
-      <Container>{children}</Container>
+      <Container onLayout={onLayout}>{children}</Container>
     </ThemeProvider>
   );
 }

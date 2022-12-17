@@ -32,7 +32,7 @@ export const Text = styled.Text`
   text-transform: uppercase;
 
   ${({ theme }: ThemeProps & TextProps) => css`
-    font-family: ${theme.typography.fontFamily};
+    font-family: ${theme.typography.fontFamily.normal};
     font-weight: ${theme.typography.elements.heading.fontWeight};
     font-size: ${theme.typography.elements.body.fontSize};
     line-height: ${theme.typography.elements.body.lineHeight};
