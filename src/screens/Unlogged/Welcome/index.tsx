@@ -3,11 +3,11 @@ import { Animated, Easing } from "react-native"
 
 import AnimatedLottieView from "lottie-react-native"
 
-import { ScreenWrapper } from '../../../templates/ScreenWrapper'
-import { SignInForm } from '../../../components/forms/SignIn'
+import { ScreenWrapper } from 'templates/ScreenWrapper'
+import { SignInForm } from 'components/forms/SignIn'
 
-import { promoteGoodMoments } from "../../../constants/texts"
-import { AUTHENTICATION_SCREEN } from "../../../constants/screens"
+import { promoteGoodMoments } from "constants/texts"
+import { AUTHENTICATION_SCREEN } from "constants/screens"
 
 import {
   AnimatedView,
@@ -15,7 +15,7 @@ import {
   AppNameImage,
   SubTitle,
   AppImage,
-  FormWrapper
+  FormContainer
 } from "./styles"
 import { Props, OnSignInProps, OnSocialSignInProps } from "./types"
 
@@ -41,7 +41,7 @@ export const WelcomeScreen = ({
       Animated.timing(opacityAnimation, {
         toValue: 1,
         easing: Easing.cubic,
-        duration: 300,
+        duration: 200,
         useNativeDriver: true
       })
     ]).start()
@@ -88,12 +88,12 @@ export const WelcomeScreen = ({
                 source={require('../../../../assets/images/Image1.png')}
                 resizeMode="contain"
               />
-              <FormWrapper>
+              <FormContainer>
                 <SignInForm
                   onSignIn={onSignIn}
                   onSocialSignIn={onSocialSignIn}
                 />
-              </FormWrapper>
+              </FormContainer>
             </ContentWrapper>
           </AnimatedView>
         ) : (

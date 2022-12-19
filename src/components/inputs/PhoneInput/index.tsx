@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { TextInput } from 'react-native'
-import { phoneMask } from '../../../utils/phone'
+import { phoneMask } from 'utils/phone'
 
 import {
   InputsWrapper,

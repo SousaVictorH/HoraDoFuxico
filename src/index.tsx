@@ -1,8 +1,5 @@
 import { useCallback } from "react";
 
-import AppWrapper from "./templates/AppWrapper"
-import { Router } from "./routes"
-
 import * as SplashScreen from 'expo-splash-screen';
 
 import {
@@ -10,6 +7,9 @@ import {
   Poppins_400Regular,
   Poppins_700Bold
 } from '@expo-google-fonts/poppins';
+
+import { AppWrapper } from "./templates/AppWrapper"
+import { Router } from "./routes"
 
 SplashScreen.preventAutoHideAsync(); // Keep the splash screen visible while we fetch resources
 

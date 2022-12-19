@@ -1,10 +1,10 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
-import { WELCOME_SCREEN, AUTHENTICATION_SCREEN } from '../constants/screens'
+import { WELCOME_SCREEN, AUTHENTICATION_SCREEN } from 'constants/screens'
 
-import { WelcomeScreen } from '../screens/Unlogged/Welcome'
-import { AuthenticationScreen } from '../screens/Unlogged/Authentication'
+import { WelcomeScreen } from 'screens/Unlogged/Welcome'
+import { AuthenticationScreen } from 'screens/Unlogged/Authentication'
 
 import { RootStackParamList } from './types'
 import { defaultScreenSettings } from './settings'

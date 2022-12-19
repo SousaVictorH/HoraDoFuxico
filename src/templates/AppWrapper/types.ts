@@ -1,4 +1,4 @@
-import { ThemeType } from '../../styles/types';
+import { ThemeType } from 'styles/types';
 
 export type AppWrapperProps = {
   theme?: ThemeType;

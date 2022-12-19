@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components/native"
 import { Animated } from "react-native"
 
-import { ThemeProps } from "../../../styles/types"
-import { getWindowWidth, getWindowHeight } from "../../../utils/dimensions"
+import { ThemeProps } from "styles/types"
+import { getWindowWidth, getWindowHeight } from "utils/dimensions"
 
 export const AnimatedView = styled(Animated.View)`
   position: absolute;
@@ -49,7 +49,7 @@ export const AppImage = styled.Image`
   height: 248px;
 `
 
-export const FormWrapper = styled.View`
+export const FormContainer = styled.View`
   flex: 1;
   width: 100%;
 

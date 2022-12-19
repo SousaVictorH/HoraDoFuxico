@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { enter } from '../../../constants/texts';
+import { enter } from 'constants/texts';
 
 import { ButtonProps } from './types';
 import { Container, Text } from './styles';

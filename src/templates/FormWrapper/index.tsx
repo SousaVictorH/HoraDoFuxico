@@ -1,7 +1,7 @@
 import { Container } from "./styles"
 import { Props } from "./types"
 
-export const FormContainer = ({ children }: Props) => {
+export const FormWrapper = ({ children }: Props) => {
   return (
     <Container>
       {children}

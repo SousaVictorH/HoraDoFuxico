@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { ThemeType, AppearanceOptions } from '../../../styles/types';
+import { ThemeType, AppearanceOptions } from 'styles/types';
 
 type AppearanceProps = {
   theme: ThemeType;

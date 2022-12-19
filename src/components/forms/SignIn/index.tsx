@@ -1,10 +1,10 @@
 import { useState } from "react"
 
-import { FormContainer } from "../FormContainer"
-import { PhoneInput } from "../../inputs/PhoneInput"
-import SocialMediaButton from "../../buttons/SocialMediaButton"
+import { FormWrapper } from "templates/FormWrapper"
+import { PhoneInput } from "components/inputs/PhoneInput"
+import SocialMediaButton from "components/buttons/SocialMediaButton"
 
-import { phoneSignIn, orConectUsing } from "../../../constants/texts"
+import { phoneSignIn, orConectUsing } from "constants/texts"
 
 import {
   Label,
@@ -25,7 +25,7 @@ export const SignInForm = ({ onSignIn, onSocialSignIn }: Props) => {
   }
 
   return (
-    <FormContainer>
+    <FormWrapper>
       <Label>{phoneSignIn}</Label>
       <PhoneInput
         areaCode={areaCode}
@@ -53,6 +53,6 @@ export const SignInForm = ({ onSignIn, onSocialSignIn }: Props) => {
           />
         </SocialMediaButtonsContainer>
       </SocialSignInWrapper>
-    </FormContainer>
+    </FormWrapper>
   )
 }

@@ -1,8 +1,8 @@
 
 import styled, { css } from "styled-components/native";
-import { Button } from '../../buttons/Button'
+import { Button } from 'components/buttons/Button'
 
-import { ThemeProps } from "../../../styles/types";
+import { ThemeProps } from "styles/types";
 
 export const Label = styled.Text`
   ${({ theme }: ThemeProps) => css`

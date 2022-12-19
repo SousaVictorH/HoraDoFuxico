@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components/native';
 
-import { ThemeProps } from '../../../styles/types';
+import { ThemeProps } from 'styles/types';
 
 import { getButtonAppearance, getTextAppearance } from './appearance';
 import { ButtonWrapperProps, TextProps } from './types';

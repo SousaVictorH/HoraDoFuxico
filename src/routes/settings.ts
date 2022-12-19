@@ -1,3 +1,4 @@
 export const defaultScreenSettings = {
-  headerShown: false
+  headerShown: false,
+  gestureEnabled: false
 }

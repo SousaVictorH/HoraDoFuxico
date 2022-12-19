@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { ThemeType, SocialMediaAppearenceOptions } from '../../../styles/types';
+import { ThemeType, SocialMediaAppearenceOptions } from 'styles/types';
 
 type AppearanceProps = {
   theme: ThemeType;

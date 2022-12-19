@@ -66,6 +66,10 @@ export type AppearanceOptions =
 
 export type SocialMediaAppearenceOptions = 'Facebook' | 'Google' | 'Twitter';
 
+export type ButtonTextAppearanceOptions =
+  | 'primary'
+  | 'secondary'
+
 export type FontFamilyRules = {
   normal: string;
   bold: string;
