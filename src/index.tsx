@@ -1,12 +1,10 @@
-import { useCallback } from "react";
+import { useCallback } from "react"
 
-import * as SplashScreen from 'expo-splash-screen';
+import * as SplashScreen from 'expo-splash-screen'
+import { useFonts } from 'expo-font'
 
-import {
-  useFonts,
-  Poppins_400Regular,
-  Poppins_700Bold
-} from '@expo-google-fonts/poppins';
+import { Poppins_400Regular, Poppins_600SemiBold } from '@expo-google-fonts/poppins'
+import { Baskervville_400Regular } from '@expo-google-fonts/baskervville'
 
 import { AppWrapper } from "./templates/AppWrapper"
 import { Router } from "./routes"
@@ -16,7 +14,8 @@ SplashScreen.preventAutoHideAsync(); // Keep the splash screen visible while we 
 export default () => {
   const [fontsLoaded] = useFonts({
     Poppins: Poppins_400Regular,
-    PoppinsBold: Poppins_700Bold
+    PoppinsBold: Poppins_600SemiBold,
+    Baskervville: Baskervville_400Regular
   });
 
   const onLayoutRootView = useCallback(async () => {

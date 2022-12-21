@@ -23,7 +23,7 @@ export const LeftInput = styled.TextInput`
     border-radius: ${theme.borderRadius.xxs};
     font-size: ${theme.typography.elements.caption.fontSize};
     background-color: ${theme.colors.technical.input_background};
-    font-family: ${theme.typography.fontFamily.normal};
+    font-family: ${theme.typography.fontFamily.poppins};
     color: ${theme.colors.support.black};
   `}
 `
@@ -39,6 +39,6 @@ export const RightInput = styled.TextInput`
     padding: 0 ${theme.spacings.lg};
     background-color: ${theme.colors.technical.input_background};
     color: ${theme.colors.support.black};
-    font-family: ${theme.typography.fontFamily.normal};
+    font-family: ${theme.typography.fontFamily.poppins};
   `}
 `

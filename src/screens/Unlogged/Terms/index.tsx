@@ -19,7 +19,7 @@ import {
 } from './styles'
 import { Props } from "./types"
 
-const snapPoint = getWindowHeight() * 0.8
+const modalHeight = getWindowHeight() * 0.8
 
 export const TermsScreen = ({
   navigation
@@ -55,8 +55,8 @@ export const TermsScreen = ({
       </ContentWrapper>
       <Modalize
         ref={modalizeRef}
-        modalHeight={snapPoint}
-        snapPoint={snapPoint}
+        modalHeight={modalHeight}
+        snapPoint={modalHeight}
         children={<TermsModal />}
       />
     </ScreenWrapper>

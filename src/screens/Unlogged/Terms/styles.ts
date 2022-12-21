@@ -26,7 +26,7 @@ export const SubTitle = styled.Text`
     font-size: ${theme.typography.elements.heading.fontSize};
     font-weigth: ${theme.typography.elements.heading.fontWeight};
     line-height: ${theme.typography.elements.heading.lineHeight};
-    font-family: ${theme.typography.fontFamily.normal};
+    font-family: ${theme.typography.fontFamily.baskervville};
   `}
 `
 

@@ -9,7 +9,7 @@ export const Label = styled.Text`
     font-size: ${theme.typography.elements.body.fontSize};
     font-weigth: ${theme.typography.elements.body.fontWeight};
     line-height: ${theme.typography.elements.body.lineHeight};
-    font-family: ${theme.typography.fontFamily.normal};
+    font-family: ${theme.typography.fontFamily.poppins};
   `}
 `
 
@@ -47,7 +47,7 @@ export const SocialSignInLabel = styled.Text`
     font-size: ${theme.typography.elements.secondary.fontSize};
     font-weigth: ${theme.typography.elements.secondary.fontWeight};
     line-height: ${theme.typography.elements.secondary.lineHeight};
-    font-family: ${theme.typography.fontFamily.normal};
+    font-family: ${theme.typography.fontFamily.poppins};
     color: ${theme.colors.neutrals.neutral_80};
     background-color: ${theme.colors.background.offLight};
   `}

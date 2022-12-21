@@ -1,13 +1,14 @@
 import { FontFamilyRules, FontSizeRules } from './types';
 
 export const fontFamily: FontFamilyRules = {
-  normal: 'Poppins',
-  bold: 'PoppinsBold'
+  poppins: 'Poppins',
+  poppinsBold: 'PoppinsBold',
+  baskervville: 'Baskervville'
 }
 
 export const elements: FontSizeRules = {
   heading: {
-    fontSize: '20px',
+    fontSize: '24px',
     fontWeight: '500px',
     lineHeight: '32px'
   },

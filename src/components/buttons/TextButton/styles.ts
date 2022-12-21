@@ -9,7 +9,7 @@ export const Text = styled.Text`
     font-size: ${theme.typography.elements.secondary.fontSize};
     font-weigth: ${theme.typography.elements.secondary.fontWeight};
     line-height: ${theme.typography.elements.secondary.lineHeight};
-    font-family: ${theme.typography.fontFamily.normal};
+    font-family: ${theme.typography.fontFamily.poppins};
     ${getTextAppearance}
   `}
 `

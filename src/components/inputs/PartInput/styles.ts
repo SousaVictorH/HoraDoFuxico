@@ -25,7 +25,7 @@ export const Input = styled.TextInput`
 
   ${({ theme }: ThemeProps) => css`
     font-size: ${theme.typography.elements.caption.fontSize};
-    font-family: ${theme.typography.fontFamily.normal};
+    font-family: ${theme.typography.fontFamily.poppins};
     color: ${theme.colors.support.black};
   `}
 `

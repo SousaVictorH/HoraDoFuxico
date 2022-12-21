@@ -12,7 +12,7 @@ export const Label = styled.Text`
     font-size: ${theme.typography.elements.body.fontSize};
     font-weigth: ${theme.typography.elements.body.fontWeight};
     line-height: ${theme.typography.elements.body.lineHeight};
-    font-family: ${theme.typography.fontFamily.normal};
+    font-family: ${theme.typography.fontFamily.poppins};
   `}
 `
 

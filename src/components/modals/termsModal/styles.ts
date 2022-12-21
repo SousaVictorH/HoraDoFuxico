@@ -12,18 +12,20 @@ export const Title = styled.Text`
     font-size: ${theme.typography.elements.heading.fontSize};
     font-weigth: ${theme.typography.elements.heading.fontWeight};
     line-height: ${theme.typography.elements.heading.lineHeight};
-    font-family: ${theme.typography.fontFamily.normal};
+    font-family: ${theme.typography.fontFamily.baskervville};
     margin-bottom: ${theme.spacings.xxl};
     color: ${theme.colors.support.black};
   `}
 `
 
 export const SectionTitle = styled.Text`
+  letter-spacing: 0.8px;
+
   ${({ theme }: ThemeProps) => css`
     font-size: ${theme.typography.elements.body.fontSize};
     font-weigth: ${theme.typography.elements.body.fontWeight};
     line-height: ${theme.typography.elements.body.lineHeight};
-    font-family: ${theme.typography.fontFamily.normal};
+    font-family: ${theme.typography.fontFamily.poppinsBold};
     margin-bottom: ${theme.spacings.xlg};
     color: ${theme.colors.support.black};
   `}
@@ -34,7 +36,7 @@ export const SectionDescription = styled.Text`
     font-size: ${theme.typography.elements.body.fontSize};
     font-weigth: ${theme.typography.elements.body.fontWeight};
     line-height: ${theme.typography.elements.body.lineHeight};
-    font-family: ${theme.typography.fontFamily.normal};
+    font-family: ${theme.typography.fontFamily.poppins};
     margin-bottom: ${theme.spacings.xlg};
     color: ${theme.colors.neutrals.neutral_80};
   `}
