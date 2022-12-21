@@ -4,8 +4,6 @@ import { ThemeProps } from "styles/types"
 import { getTextAppearance } from './appearence'
 import { TextProps } from './types'
 
-export const Container = styled.TouchableOpacity``
-
 export const Text = styled.Text`
   ${({ theme }: ThemeProps & TextProps) => css`
     font-size: ${theme.typography.elements.secondary.fontSize};

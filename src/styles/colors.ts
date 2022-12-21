@@ -7,7 +7,7 @@ import {
 
 export const backgroundColors: BackgroundColors = {
   light: '#FFFFFF',
-  offLight: '#f2f2f2',
+  offLight: '#fcfcfc',
   dark: '#1D1617',
 };
 

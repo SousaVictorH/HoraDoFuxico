@@ -6,5 +6,6 @@ export const borderRadius: BorderRadiusType = {
   xs: '8px',
   sm: '14px',
   md: '15px',
-  lg: '18px'
+  lg: '18px',
+  xlg: '31px'
 };

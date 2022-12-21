@@ -2,6 +2,7 @@ import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { AuthCodeForm } from 'components/forms/AuthCode'
 
 import { promoteFun } from 'constants/texts'
+import { TERMS_SCREEN } from 'constants/screens'
 
 import {
   ContentWrapper,
@@ -16,7 +17,9 @@ export const AuthenticationScreen = ({
   navigation
 }: Props) => {
   const onSubmit = (token: string) => {
-    console.log('token: ', token)
+    console.log(token)
+
+    navigation.navigate(TERMS_SCREEN)
   }
 
   const onResendCode = () => {

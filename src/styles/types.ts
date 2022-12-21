@@ -105,6 +105,7 @@ export type BorderRadiusType = {
   sm: string;
   md: string;
   lg: string;
+  xlg: string;
 };
 
 export type SpacingsTypes = {

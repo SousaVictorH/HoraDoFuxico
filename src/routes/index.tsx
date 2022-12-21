@@ -1,10 +1,15 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
-import { WELCOME_SCREEN, AUTHENTICATION_SCREEN } from 'constants/screens'
+import {
+  WELCOME_SCREEN,
+  AUTHENTICATION_SCREEN,
+  TERMS_SCREEN
+} from 'constants/screens'
 
 import { WelcomeScreen } from 'screens/Unlogged/Welcome'
 import { AuthenticationScreen } from 'screens/Unlogged/Authentication'
+import { TermsScreen } from 'screens/Unlogged/Terms'
 
 import { RootStackParamList } from './types'
 import { defaultScreenSettings } from './settings'
@@ -23,6 +28,11 @@ export const Router = () => {
         <Stack.Screen
           name={AUTHENTICATION_SCREEN}
           component={AuthenticationScreen}
+          options={defaultScreenSettings}
+        />
+        <Stack.Screen
+          name={TERMS_SCREEN}
+          component={TermsScreen}
           options={defaultScreenSettings}
         />
       </Stack.Navigator>

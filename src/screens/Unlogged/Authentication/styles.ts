@@ -7,7 +7,7 @@ export const ContentWrapper = styled.View`
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding-top: 100px;
+  padding-top: 85px;
 `
 
 export const AppNameImage = styled.Image`
@@ -43,6 +43,6 @@ export const FormContainer = styled.View`
 
   ${({ theme }: ThemeProps) => css`
     margin-top: ${theme.spacings.xxxl};
-    padding: 0px 29px;
+    padding: ${theme.spacings.none} ${theme.spacings.xxl};
   `}
 `

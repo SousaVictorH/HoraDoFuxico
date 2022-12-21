@@ -9,6 +9,7 @@ export type ButtonProps = {
   marginBottom: keyof SpacingsTypes;
   marginTop: keyof SpacingsTypes;
   height: number;
+  disabled?: boolean
 };
 
 export type ButtonWrapperProps = Pick<

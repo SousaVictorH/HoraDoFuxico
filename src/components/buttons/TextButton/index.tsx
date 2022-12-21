@@ -1,4 +1,4 @@
-import { Container, Text } from './styles'
+import { Text } from './styles'
 import { Props } from "./types"
 
 export const TextButton = ({
@@ -8,12 +8,13 @@ export const TextButton = ({
   appearance
 }: Props) => {
   return (
-    <Container
+    <Text
       onPress={onPress}
+      appearance={appearance}
       style={style}
     >
-      <Text appearance={appearance}>{text}</Text>
-    </Container>
+      {text}
+    </Text>
   )
 }
 

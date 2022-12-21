@@ -12,8 +12,13 @@ export const Button = ({
   marginTop,
   marginBottom,
   appearance,
+  disabled,
   style
 }: ButtonProps) => {
+  const handlePress = () => {
+    !disabled && onPress()
+  }
+
   return (
     <Container
       marginTop={marginTop}
@@ -21,7 +26,7 @@ export const Button = ({
       height={height}
       appearance={appearance}
       activeOpacity={1}
-      onPress={onPress}
+      onPress={handlePress}
       style={style}
     >
       <Text appearance={appearance}>{text}</Text>
@@ -34,5 +39,6 @@ Button.defaultProps = {
   marginTop: 'none',
   marginBottom: 'none',
   height: 58,
-  text: enter
+  text: enter,
+  disabled: false
 };

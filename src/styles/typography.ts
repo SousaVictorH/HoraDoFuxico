@@ -7,8 +7,8 @@ export const fontFamily: FontFamilyRules = {
 
 export const elements: FontSizeRules = {
   heading: {
-    fontSize: '24px',
-    fontWeight: '400px',
+    fontSize: '20px',
+    fontWeight: '500px',
     lineHeight: '32px'
   },
   body: {

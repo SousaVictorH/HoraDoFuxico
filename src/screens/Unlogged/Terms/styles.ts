@@ -1,29 +1,13 @@
 import styled, { css } from "styled-components/native"
-import { Animated } from "react-native"
 
 import { ThemeProps } from "styles/types"
-import { getWindowWidth, getWindowHeight } from "utils/dimensions"
-
-export const AnimatedView = styled(Animated.View)`
-  position: absolute;
-  height: ${getWindowHeight()}px;
-  width: ${getWindowWidth()}px;
-
-  ${({ theme }: ThemeProps) => css`
-    padding: 0px ${theme.spacings.xlg};
-  `}
-`
 
 export const ContentWrapper = styled.View`
-  position: relative;
+  flex: 1;
   width: 100%;
-  height: ${getWindowHeight() - 85}px;
   align-items: center;
   justify-content: space-between;
-
-  ${({ theme }: ThemeProps) => css`
-    padding-bottom: ${theme.spacings.xlg};
-  `}
+  padding-top: 85px;
 `
 
 export const AppNameImage = styled.Image`
@@ -45,8 +29,13 @@ export const SubTitle = styled.Text`
 `
 
 export const AppImage = styled.Image`
-  width: 262px;
-  height: 248px;
+  height: 225px;
+  width: 90%;
+  min-width: 300px;
+
+  ${({ theme }: ThemeProps) => css`
+    margin-top: ${theme.spacings.xxl};
+  `}
 `
 
 export const FormContainer = styled.View`
@@ -55,5 +44,6 @@ export const FormContainer = styled.View`
 
   ${({ theme }: ThemeProps) => css`
     margin-top: ${theme.spacings.xxxl};
+    padding: ${theme.spacings.none} ${theme.spacings.xxl};
   `}
 `

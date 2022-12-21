@@ -16,6 +16,10 @@ export function getButtonAppearance({ theme, appearance }: AppearanceProps) {
       background-color: ${theme.colors.support.darkBlue};
       border: 1px solid ${theme.colors.support.darkBlue};
     `,
+    disabled: () => css`
+      background-color: ${theme.colors.neutrals.neutral_20};
+      border: 1px solid ${theme.colors.neutrals.neutral_20};
+    `
   };
 
   if (!appearance) return ''
@@ -31,6 +35,9 @@ export function getTextAppearance({ theme, appearance }: AppearanceProps) {
     secondary: () => css`
       color: ${theme.colors.support.white};
     `,
+    disabled: () => css`
+      color: ${theme.colors.support.white};
+    `
   };
 
   if (!appearance) return ''
