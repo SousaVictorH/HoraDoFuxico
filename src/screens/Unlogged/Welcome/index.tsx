@@ -35,7 +35,7 @@ export const WelcomeScreen = ({
     // Start animations
     Animated.parallel([
       Animated.spring(viewAnimation, {
-        toValue: 85,
+        toValue: 100,
         useNativeDriver: true
       }),
       Animated.timing(opacityAnimation, {

@@ -16,7 +16,7 @@ export const AuthenticationScreen = ({
   navigation
 }: Props) => {
   const onSubmit = (token: string) => {
-    console.log(token)
+    console.log('token: ', token)
   }
 
   const onResendCode = () => {

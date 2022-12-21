@@ -12,16 +12,14 @@ export const AuthCodeForm = ({
   onSubmit,
   onResendCode
 }: Props) => {
-  const [token, setToken] = useState('')
-
-  const handleSubmit = () => {
+  const handleSubmit = (token: string) => {
     onSubmit(token)
   }
+
   return (
     <FormWrapper>
       <Label>{singInWithCode}</Label>
       <TokenInput
-        setToken={setToken}
         onSubmit={handleSubmit}
       />
       <Button
