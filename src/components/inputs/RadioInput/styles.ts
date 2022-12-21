@@ -2,14 +2,13 @@ import styled, { css } from 'styled-components/native';
 
 import { ThemeProps } from 'styles/types';
 
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity`
   height: 20px;
-  width: 100%;
   align-items: center;
   flex-direction: row;
 `;
 
-export const Radio = styled.TouchableOpacity`
+export const Radio = styled.View`
   height: 24px;
   width: 24px;
   justify-content: center;
@@ -34,7 +33,6 @@ export const RadioInner = styled.View`
 export const Text = styled.Text`
   ${({ theme }: ThemeProps) => css`
     font-size: ${theme.typography.elements.body.fontSize};
-    font-weigth: ${theme.typography.elements.body.fontWeight};
     line-height: ${theme.typography.elements.body.lineHeight};
     font-family: ${theme.typography.fontFamily.poppins};
     margin-left: ${theme.spacings.md};

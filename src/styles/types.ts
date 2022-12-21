@@ -80,7 +80,7 @@ export type TypographyWeights = 'normal' | 'bold' | '100px' | '200px' | '300px' 
 
 type TypographyElementProps = {
   fontSize: string;
-  fontWeight: TypographyWeights;
+  fontWeight?: TypographyWeights;
   lineHeight?: string;
   textDecoration?: string;
 };

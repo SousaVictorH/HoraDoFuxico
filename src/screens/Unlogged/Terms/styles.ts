@@ -24,7 +24,6 @@ export const SubTitle = styled.Text`
     margin-top: ${theme.spacings.xxxl};
     margin-bottom: ${theme.spacings.xxl};
     font-size: ${theme.typography.elements.heading.fontSize};
-    font-weigth: ${theme.typography.elements.heading.fontWeight};
     line-height: ${theme.typography.elements.heading.lineHeight};
     font-family: ${theme.typography.fontFamily.baskervville};
   `}

@@ -6,6 +6,9 @@ import AnimatedLottieView from "lottie-react-native"
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignInForm } from 'components/forms/SignIn'
 
+import { animations } from "resources/animations"
+import { images } from "resources/images"
+
 import { promoteGoodMoments } from "constants/texts"
 import { AUTHENTICATION_SCREEN } from "constants/screens"
 
@@ -80,12 +83,12 @@ export const WelcomeScreen = ({
           <AnimatedView style={transform}>
             <ContentWrapper>
               <AppNameImage
-                source={require('../../../../assets/images/BlueAppName.png')}
+                source={images.blueAppName.path}
                 resizeMode="contain"
               />
               <SubTitle>{promoteGoodMoments}</SubTitle>
               <AppImage
-                source={require('../../../../assets/images/Image1.png')}
+                source={images.image1.path}
                 resizeMode="contain"
               />
               <FormContainer>
@@ -99,7 +102,7 @@ export const WelcomeScreen = ({
         ) : (
           <AnimatedLottieView
             ref={animationRef}
-            source={require('../../../../assets/animations/WelcomeAnimation.json')}
+            source={animations.welcomeAnimation.path}
             onAnimationFinish={onFinish}
             loop={false}
             autoPlay={false}

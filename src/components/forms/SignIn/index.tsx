@@ -5,6 +5,7 @@ import { PhoneInput } from "components/inputs/PhoneInput"
 import SocialMediaButton from "components/buttons/SocialMediaButton"
 
 import { phoneSignIn, orConectUsing } from "constants/texts"
+import { icons } from "resources/icons"
 
 import {
   Label,
@@ -42,12 +43,12 @@ export const SignInForm = ({ onSignIn, onSocialSignIn }: Props) => {
         <SocialSignInLabel>{orConectUsing}</SocialSignInLabel>
         <SocialMediaButtonsContainer>
           <SocialMediaButton
-            iconSource={require('../../../../assets/icons/icon_google.png')}
+            iconSource={icons.googleIcon.path}
             appearance="Google"
             onPress={() => onSocialSignIn({ google: true, facebook: false })}
           />
           <SocialMediaButton
-            iconSource={require('../../../../assets/icons/icon_facebook.png')}
+            iconSource={icons.facebookIcon.path}
             appearance="Facebook"
             onPress={() => onSocialSignIn({ google: false, facebook: true })}
           />

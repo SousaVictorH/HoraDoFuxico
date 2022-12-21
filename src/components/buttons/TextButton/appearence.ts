@@ -14,7 +14,6 @@ export function getTextAppearance({ theme, appearance }: AppearanceProps) {
     secondary: () => css`
       color: ${theme.colors.support.darkBlue};
       font-size: ${theme.typography.elements.body.fontSize};
-      font-weight: ${theme.typography.elements.body.fontWeight};
       line-height: ${theme.typography.elements.body.lineHeight};
     `,
   };

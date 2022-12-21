@@ -7,7 +7,6 @@ import { ThemeProps } from "styles/types";
 export const Label = styled.Text`
   ${({ theme }: ThemeProps) => css`
     font-size: ${theme.typography.elements.body.fontSize};
-    font-weigth: ${theme.typography.elements.body.fontWeight};
     line-height: ${theme.typography.elements.body.lineHeight};
     font-family: ${theme.typography.fontFamily.poppins};
   `}
@@ -45,7 +44,6 @@ export const SocialSignInLabel = styled.Text`
 
   ${({ theme }: ThemeProps) => css`
     font-size: ${theme.typography.elements.secondary.fontSize};
-    font-weigth: ${theme.typography.elements.secondary.fontWeight};
     line-height: ${theme.typography.elements.secondary.lineHeight};
     font-family: ${theme.typography.fontFamily.poppins};
     color: ${theme.colors.neutrals.neutral_80};

@@ -3,6 +3,7 @@ import { useRef } from 'react'
 import { Modalize } from 'react-native-modalize'
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
+import { images } from 'resources/images'
 
 import { TermsForm } from 'components/forms/Terms'
 import { dontWorry } from 'constants/texts'
@@ -38,12 +39,12 @@ export const TermsScreen = ({
     <ScreenWrapper>
       <ContentWrapper>
         <AppNameImage
-          source={require('../../../../assets/images/OrangeAppName.png')}
+          source={images.orangeAppName.path}
           resizeMode="contain"
         />
         <SubTitle>{dontWorry}</SubTitle>
         <AppImage
-          source={require('../../../../assets/images/Image3.png')}
+          source={images.image3.path}
           resizeMode="contain"
         />
         <FormContainer>

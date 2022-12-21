@@ -13,8 +13,11 @@ export const RadioInput = ({
   style
 }: Props) => {
   return (
-    <Container style={style}>
-      <Radio onPress={onPress}>
+    <Container
+      onPress={onPress}
+      style={style}
+    >
+      <Radio>
         {active && <RadioInner />}
       </Radio>
       {text && (

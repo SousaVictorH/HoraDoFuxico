@@ -33,7 +33,6 @@ export const Text = styled.Text`
 
   ${({ theme }: ThemeProps & TextProps) => css`
     font-family: ${theme.typography.fontFamily.poppins};
-    font-weight: ${theme.typography.elements.heading.fontWeight};
     font-size: ${theme.typography.elements.body.fontSize};
     line-height: ${theme.typography.elements.body.lineHeight};
     ${getTextAppearance}

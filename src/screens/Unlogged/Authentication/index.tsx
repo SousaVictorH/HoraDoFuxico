@@ -4,6 +4,8 @@ import { AuthCodeForm } from 'components/forms/AuthCode'
 import { promoteFun } from 'constants/texts'
 import { TERMS_SCREEN } from 'constants/screens'
 
+import { images } from 'resources/images'
+
 import {
   ContentWrapper,
   AppNameImage,
@@ -30,12 +32,12 @@ export const AuthenticationScreen = ({
     <ScreenWrapper scroll >
       <ContentWrapper>
         <AppNameImage
-          source={require('../../../../assets/images/YellowAppName.png')}
+          source={images.yellowAppName.path}
           resizeMode="contain"
         />
         <SubTitle>{promoteFun}</SubTitle>
         <AppImage
-          source={require('../../../../assets/images/Image2.png')}
+          source={images.image2.path}
           resizeMode="contain"
         />
         <FormContainer>
