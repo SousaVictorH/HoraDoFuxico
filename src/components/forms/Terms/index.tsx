@@ -4,7 +4,7 @@ import { FormWrapper } from "templates/FormWrapper"
 
 import {
   reedOur,
-  terms,
+  useTerms,
   readNagreed,
   next
 } from 'constants/texts'
@@ -33,7 +33,7 @@ export const TermsForm = ({
         {reedOur}
         <TextButton
           onPress={onShowTerms}
-          text={terms}
+          text={useTerms}
           appearance="secondary"
         />
       </Label>

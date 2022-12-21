@@ -13,7 +13,7 @@ export const backgroundColors: BackgroundColors = {
 
 export const neutralColors: NeutralsColors = {
   black: '#15181E',
-  neutral_80: '#313131',
+  neutral_80: '#3C3C3C',
   neutral_60: '#556077',
   neutral_40: '#949DB2',
   neutral_20: '#cfcfcf',

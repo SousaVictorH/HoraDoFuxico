@@ -1,5 +1,7 @@
 import styled, { css } from "styled-components/native"
 
+import { TermsModal as Modal } from "components/modals/termsModal"
+
 import { ThemeProps } from "styles/types"
 
 export const ContentWrapper = styled.View`
@@ -45,5 +47,11 @@ export const FormContainer = styled.View`
   ${({ theme }: ThemeProps) => css`
     margin-top: ${theme.spacings.xxxl};
     padding: ${theme.spacings.none} ${theme.spacings.xxl};
+  `}
+`
+
+export const TermsModal = styled(Modal)`
+  ${({ theme }: ThemeProps) => css`
+    padding: ${theme.spacings.xxl} ${theme.spacings.xxl};
   `}
 `

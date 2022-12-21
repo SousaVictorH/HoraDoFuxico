@@ -1,22 +1,33 @@
+import { useRef } from 'react'
+
+import { Modalize } from 'react-native-modalize'
+
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 
 import { TermsForm } from 'components/forms/Terms'
 import { dontWorry } from 'constants/texts'
+
+import { getWindowHeight } from 'utils/dimensions'
 
 import {
   ContentWrapper,
   AppNameImage,
   SubTitle,
   AppImage,
-  FormContainer
+  FormContainer,
+  TermsModal
 } from './styles'
 import { Props } from "./types"
+
+const snapPoint = getWindowHeight() * 0.8
 
 export const TermsScreen = ({
   navigation
 }: Props) => {
+  const modalizeRef = useRef<Modalize>(null)
+
   const onShowTerms = () => {
-    console.log('show terms')
+    modalizeRef.current?.open()
   }
 
   const onNext = () => {
@@ -42,6 +53,12 @@ export const TermsScreen = ({
           />
         </FormContainer>
       </ContentWrapper>
+      <Modalize
+        ref={modalizeRef}
+        modalHeight={snapPoint}
+        snapPoint={snapPoint}
+        children={<TermsModal />}
+      />
     </ScreenWrapper>
   )
 }
