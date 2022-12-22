@@ -17,7 +17,7 @@ export const AnimatedView = styled(Animated.View)`
 export const ContentWrapper = styled.View`
   position: relative;
   width: 100%;
-  height: ${getWindowHeight() - 85}px;
+  height: ${getWindowHeight() - 70}px;
   align-items: center;
   justify-content: space-between;
 

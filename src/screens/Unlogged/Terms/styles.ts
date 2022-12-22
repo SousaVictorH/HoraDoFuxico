@@ -9,7 +9,7 @@ export const ContentWrapper = styled.View`
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding-top: 85px;
+  padding-top: 70px;
 `
 
 export const AppNameImage = styled.Image`

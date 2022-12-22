@@ -4,36 +4,45 @@ import { createStackNavigator } from '@react-navigation/stack'
 import {
   WELCOME_SCREEN,
   AUTHENTICATION_SCREEN,
-  TERMS_SCREEN
+  TERMS_SCREEN,
+  SIGN_UP_SCREEN
 } from 'constants/screens'
 
 import { WelcomeScreen } from 'screens/Unlogged/Welcome'
 import { AuthenticationScreen } from 'screens/Unlogged/Authentication'
 import { TermsScreen } from 'screens/Unlogged/Terms'
+import { SignUpScreen } from 'screens/Unlogged/SignUp'
 
 import { RootStackParamList } from './types'
-import { defaultScreenSettings } from './settings'
+import { defaultScreenOptions } from './options'
 
 const Stack = createStackNavigator<RootStackParamList>();
 
 export const Router = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={WELCOME_SCREEN} >
+      <Stack.Navigator
+        initialRouteName={WELCOME_SCREEN}
+      >
         <Stack.Screen
           name={WELCOME_SCREEN}
           component={WelcomeScreen}
-          options={defaultScreenSettings}
+          options={defaultScreenOptions}
         />
         <Stack.Screen
           name={AUTHENTICATION_SCREEN}
           component={AuthenticationScreen}
-          options={defaultScreenSettings}
+          options={defaultScreenOptions}
         />
         <Stack.Screen
           name={TERMS_SCREEN}
           component={TermsScreen}
-          options={defaultScreenSettings}
+          options={defaultScreenOptions}
+        />
+        <Stack.Screen
+          name={SIGN_UP_SCREEN}
+          component={SignUpScreen}
+          options={defaultScreenOptions}
         />
       </Stack.Navigator>
     </NavigationContainer>

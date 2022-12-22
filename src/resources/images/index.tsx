@@ -8,6 +8,9 @@ export const images = {
   image3: {
     path: require('../../../assets/images/Image3.png')
   },
+  appName: {
+    path: require('../../../assets/images/AppName.png')
+  },
   blueAppName: {
     path: require('../../../assets/images/BlueAppName.png')
   },

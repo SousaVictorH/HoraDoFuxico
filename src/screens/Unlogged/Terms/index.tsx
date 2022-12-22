@@ -4,6 +4,7 @@ import { Modalize } from 'react-native-modalize'
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { images } from 'resources/images'
+import { SIGN_UP_SCREEN } from 'constants/screens'
 
 import { TermsForm } from 'components/forms/Terms'
 import { dontWorry } from 'constants/texts'
@@ -32,7 +33,7 @@ export const TermsScreen = ({
   }
 
   const onNext = () => {
-    console.log('onNext')
+    navigation.navigate(SIGN_UP_SCREEN)
   }
 
   return (
