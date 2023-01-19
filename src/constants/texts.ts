@@ -14,6 +14,7 @@ export const readNagreed = "Li e concordo"
 // Buttons
 export const enter = "entrar"
 export const next = "próximo"
+export const add = "Adicionar"
 
 export const terms = "Termos de uso e políticas de privacidade"
 
@@ -30,4 +31,4 @@ export const providedDataDescription = "3.1. A Hora do fuxico poderá usar, arma
 
 export const nameInputPlaceholder = "Qual o nome do fuxiqueiro?*"
 export const birthDateInputPlaceholder = "Qual a idade?*"
-export const phoneInputPlaceholder = "Deseja adicionar uma foto do fuxiqueiro?"
+export const photoInputPlaceholder = "Deseja adicionar uma foto do fuxiqueiro?"

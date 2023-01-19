@@ -39,7 +39,6 @@ export const SignUpForm = ({
           maxLength={10}
         />
         <PhotoInput
-          photo={photo}
           setPhoto={setPhoto}
         />
         <FormButton
