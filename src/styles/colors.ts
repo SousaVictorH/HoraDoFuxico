@@ -15,9 +15,9 @@ export const neutralColors: NeutralsColors = {
   black: '#15181E',
   neutral_80: '#3C3C3C',
   neutral_60: '#556077',
-  neutral_40: '#949DB2',
+  neutral_40: '#4A596B',
   neutral_20: '#cfcfcf',
-  neutral_10: '#F3F3F7',
+  neutral_10: '#A1A8B3',
   white: '#FFFFFF',
 };
 

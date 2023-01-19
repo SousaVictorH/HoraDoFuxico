@@ -120,6 +120,7 @@ export type SpacingsTypes = {
   xlg: string;
   xxl: string;
   xxxl: string;
+  auto: string;
 };
 
 export type BreakPointsTypes = {

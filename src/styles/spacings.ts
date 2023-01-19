@@ -10,5 +10,6 @@ export const spacings: SpacingsTypes = {
   lg: '18px',
   xlg: '20px',
   xxl: '30px',
-  xxxl: '50px'
+  xxxl: '50px',
+  auto: 'auto'
 };

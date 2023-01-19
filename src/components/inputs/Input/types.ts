@@ -10,5 +10,6 @@ export type Props = {
   setValue: (text: string) => void
   keyboardType?: KeyboardTypeOptions
   maxLength?: number
-  style?: StyleProp<ViewStyle>;
+  style?: StyleProp<ViewStyle>
+  placeholder?: string
 }

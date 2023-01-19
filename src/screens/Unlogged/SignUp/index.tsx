@@ -16,10 +16,10 @@ export const SignUpScreen = ({
 }: Props) => {
   const handleSubmit = ({
     name,
-    age,
+    birthDate,
     photo
   }: handleSubmitProps) => {
-    console.log(name, age, photo)
+    console.log(name, birthDate, photo)
   }
 
   return (

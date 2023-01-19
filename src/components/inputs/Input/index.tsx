@@ -10,7 +10,8 @@ export const Input = React.forwardRef(({
   value,
   setValue,
   maxLength,
-  style
+  style,
+  placeholder
 }: Props, ref?: Ref<TextInputType>) => {
   return (
     <TextInput
@@ -21,12 +22,12 @@ export const Input = React.forwardRef(({
       keyboardType={keyboardType}
       maxLength={maxLength}
       style={style}
+      placeholder={placeholder}
     />
   )
 })
 
 Input.defaultProps = {
   autoFocus: false,
-  value: '',
-  maxLength: 1
+  value: ''
 }

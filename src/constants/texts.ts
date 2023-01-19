@@ -27,3 +27,7 @@ export const gossipTimeDescription = "2.1. Para que A Hora do fuxico, primeiro a
 
 export const providedData = "3. DADOS FORNECIDOS, COLETADOS, USADOS E ARMAZEADOS"
 export const providedDataDescription = "3.1. A Hora do fuxico poderá usar, armazenar, processar os dados coletados, informações e registros de acesso para as seguintes finalidades dos Serviços prestados:\n\n(i) Fiscalizar a idade dos participantes envolvidos\n\n(ii) para aprimorar as suas funcionalidades;\n\n(iii) Permitir ou bloquear usuários com intenções indevidas\n\n(iv) em caso de suspeita de fraudes, violação de direitos de terceiros ou outros ilícitos praticados pelos Usuários, para fins de investigação por terceiros prejudicados e/ou por autoridades competentes;\n\n(v) para mapeamento de informacções de mercado e elaboração de relatórios de dados"
+
+export const nameInputPlaceholder = "Qual o nome do fuxiqueiro?*"
+export const birthDateInputPlaceholder = "Qual a idade?*"
+export const phoneInputPlaceholder = "Deseja adicionar uma foto do fuxiqueiro?"

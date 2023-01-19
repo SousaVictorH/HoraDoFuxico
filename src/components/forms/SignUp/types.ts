@@ -1,13 +1,13 @@
 export type Props = {
   onSignUp: ({
     name,
-    age,
+    birthDate,
     photo
   }: handleSubmitProps) => void
 }
 
 type handleSubmitProps = {
   name: string
-  age: number
+  birthDate: string
   photo: string
 }

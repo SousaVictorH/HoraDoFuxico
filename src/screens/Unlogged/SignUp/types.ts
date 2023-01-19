@@ -5,6 +5,6 @@ export type Props = StackScreenProps<RootStackParamList>;
 
 export type handleSubmitProps = {
   name: string
-  age: number
+  birthDate: string
   photo: string
 }

@@ -1,22 +1,27 @@
 import { useState } from "react"
 
 import { FormWrapper } from "templates/FormWrapper"
-import { Input } from "components/inputs/Input"
 
-import { next } from "constants/texts"
+import { next, nameInputPlaceholder, birthDateInputPlaceholder } from "constants/texts"
+import { maskDate, validateBirthDate } from "utils/date"
 
-import {
-  FormButton,
-  ContentWrapper
-} from './styles'
+import { FormButton, ContentWrapper, Input, PhotoInput } from './styles'
 import { Props } from "./types"
 
 export const SignUpForm = ({
   onSignUp
 }: Props) => {
   const [name, setName] = useState('')
-  const [age, setAge] = useState(-1)
+  const [birthDate, setBirthDate] = useState('')
   const [photo, setPhoto] = useState('')
+
+  const handleSignUp = () => {
+    console.log(name)
+    console.log(birthDate)
+
+    console.log(validateBirthDate(birthDate))
+    // onSignUp({ name, birthDate, photo })
+  }
 
   return (
     <FormWrapper>
@@ -24,11 +29,22 @@ export const SignUpForm = ({
         <Input
           value={name}
           setValue={(text: string) => setName(text)}
+          placeholder={nameInputPlaceholder}
+        />
+        <Input
+          value={birthDate}
+          setValue={(text: string) => setBirthDate(maskDate(text))}
+          placeholder={birthDateInputPlaceholder}
+          keyboardType="numeric"
+          maxLength={10}
+        />
+        <PhotoInput
+          photo={photo}
+          setPhoto={setPhoto}
         />
         <FormButton
-          onPress={() => onSignUp({ name, age, photo })}
+          onPress={handleSignUp}
           text={next}
-          marginTop="lg"
         />
       </ContentWrapper>
     </FormWrapper>

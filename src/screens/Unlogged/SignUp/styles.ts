@@ -15,8 +15,7 @@ export const Image = styled.Image`
   width: 229px;
 
   ${({ theme }: ThemeProps) => css`
-    margin-top: ${theme.spacings.xxxl};
-    margin-bottom: ${theme.spacings.xlg};
+    margin: ${theme.spacings.xxxl} ${theme.spacings.none};
   `}
 `
 
