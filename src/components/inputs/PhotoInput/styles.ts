@@ -2,6 +2,7 @@
 import styled, { css } from "styled-components/native"
 
 import { ThemeProps } from "styles/types"
+import { ButtonTextProps } from './types'
 
 export const Container = styled.View`
   ${({ theme }: ThemeProps) => css`
@@ -40,10 +41,10 @@ export const ButtonIcon = styled.Image`
 `
 
 export const ButtonText = styled.Text`
-  ${({ theme }: ThemeProps) => css`
+  ${({ theme, photo }: ThemeProps & ButtonTextProps) => css`
     font-size: ${theme.typography.elements.body.fontSize};
     font-family: ${theme.typography.fontFamily.poppins};
-    color: ${theme.colors.support.black};
     margin-left: ${theme.spacings.md};
+    color: ${photo ? theme.colors.support.orange : theme.colors.support.black};
   `}
 `

@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export const maskDate = (date: string) => {
   let d = date.replace(/\D/g, '').slice(0, 10);
 
@@ -11,27 +13,34 @@ export const maskDate = (date: string) => {
   return d
 }
 
-export const validateDate = (date: Date) => {
-  if (Object.prototype.toString.call(date) === "[object Date]") {
-    if (!isNaN(date.getTime())) return true
-    else return false
+export const validateBirthDate = (d: string) => {
+  const currentDate = moment(new Date())
+  const date = moment(d, "DD/MM/YYYY")
+
+  if (date.isValid()) {
+    const age = currentDate.diff(date, 'years')
+
+    // Validate age
+    if (age > 120) return {
+      isValid: false,
+      message: 'Voce realmente tem mais de 120 anos? :O'
+    }
+
+    if (age < 18) return {
+      isValid: false,
+      message: 'Menores de idade nao sao permitidos no aplicativo :('
+    }
+
+    return {
+      isValid: true,
+      message: ''
+    }
   }
 
-  return false
-}
-
-export const validateBirthDate = (d: string) => {
-  const date = new Date(d)
-
-  // Is valid
-  if (!validateDate(date)) return false
-
-  const age = calculateAge(date)
-
-  // Validate age
-  if (age >= 120 || age <= 18) return false
-
-  return true
+  return {
+    isValid: false,
+    message: 'Data de aniversário contém erro.'
+  }
 }
 
 export const calculateAge = (birthDate: Date) => {

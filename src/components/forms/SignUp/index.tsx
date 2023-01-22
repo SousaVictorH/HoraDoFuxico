@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Alert } from "react-native"
 
 import { FormWrapper } from "templates/FormWrapper"
 
@@ -16,11 +17,10 @@ export const SignUpForm = ({
   const [photo, setPhoto] = useState('')
 
   const handleSignUp = () => {
-    console.log(name)
-    console.log(birthDate)
+    const { isValid, message } = validateBirthDate(birthDate)
 
-    console.log(validateBirthDate(birthDate))
-    // onSignUp({ name, birthDate, photo })
+    if (isValid) onSignUp({ name, birthDate, photo })
+    else Alert.alert('Warning', message)
   }
 
   return (
@@ -39,6 +39,7 @@ export const SignUpForm = ({
           maxLength={10}
         />
         <PhotoInput
+          photo={photo}
           setPhoto={setPhoto}
         />
         <FormButton

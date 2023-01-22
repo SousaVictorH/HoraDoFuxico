@@ -14,6 +14,7 @@ import { photoInputPlaceholder, add } from 'constants/texts'
 import { icons } from 'resources/icons';
 
 export const PhotoInput = ({
+  photo,
   setPhoto,
   style
 }: Props) => {
@@ -46,10 +47,13 @@ export const PhotoInput = ({
       <Caption>{photoInputPlaceholder}</Caption>
       <ButtonWrapper onPress={() => pickImage()}>
         <ButtonIcon
-          source={icons.addPhotoIcon.path}
+          source={photo ?
+            icons.addPhotoOrangeIcon.path :
+            icons.addPhotoIcon.path
+          }
           resizeMode="contain"
         />
-        <ButtonText>{add}</ButtonText>
+        <ButtonText photo={photo}>{add}</ButtonText>
       </ButtonWrapper>
     </Container>
   )

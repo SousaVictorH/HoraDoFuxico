@@ -7,5 +7,8 @@ export const icons = {
   },
   addPhotoIcon: {
     path: require('../../../assets/icons/add_photo.png')
+  },
+  addPhotoOrangeIcon: {
+    path: require('../../../assets/icons/add_photo_active.png')
   }
 }
