@@ -1,3 +1,5 @@
+import { useStore } from "store"
+
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { AuthCodeForm } from 'components/forms/AuthCode'
 
@@ -18,14 +20,16 @@ import { Props } from "./types"
 export const AuthenticationScreen = ({
   navigation
 }: Props) => {
+  const { setToken } = useStore()
+
   const onSubmit = (token: string) => {
-    console.log(token)
+    setToken(token)
 
     navigation.navigate(TERMS_SCREEN)
   }
 
   const onResendCode = () => {
-    console.log('onResendCode')
+    // Resend Code
   }
 
   return (

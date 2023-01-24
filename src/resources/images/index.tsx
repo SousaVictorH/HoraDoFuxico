@@ -19,5 +19,8 @@ export const images = {
   },
   orangeAppName: {
     path: require('../../../assets/images/OrangeAppName.png')
+  },
+  whiteAppName: {
+    path: require('../../../assets/images/WhiteAppName.png')
   }
 }

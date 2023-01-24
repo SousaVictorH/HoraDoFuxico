@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react"
 import { Animated, Easing } from "react-native"
-
 import AnimatedLottieView from "lottie-react-native"
+
+import { useStore } from "store"
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignInForm } from 'components/forms/SignIn'
@@ -25,6 +26,8 @@ import { Props, OnSignInProps, OnSocialSignInProps } from "./types"
 export const WelcomeScreen = ({
   navigation
 }: Props) => {
+  const { setPhoneNumber } = useStore()
+
   const [viewAnimation] = useState(new Animated.Value(0))
   const [opacityAnimation] = useState(new Animated.Value(0))
 
@@ -66,7 +69,7 @@ export const WelcomeScreen = ({
   }
 
   const onSignIn = ({ areaCode, phoneNumber }: OnSignInProps) => {
-    console.log(areaCode, phoneNumber)
+    setPhoneNumber(areaCode + phoneNumber)
 
     navigation.navigate(AUTHENTICATION_SCREEN)
   }

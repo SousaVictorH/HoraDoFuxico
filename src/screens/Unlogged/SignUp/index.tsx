@@ -1,8 +1,10 @@
-import { ScreenWrapper } from 'templates/ScreenWrapper'
+import { useStore } from "store"
 
+import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignUpForm } from 'components/forms/SignUp'
 
 import { images } from 'resources/images'
+import { HOME_SCREEN } from "constants/screens"
 
 import {
   ContentWrapper,
@@ -14,12 +16,16 @@ import { handleSubmitProps, Props } from "./types"
 export const SignUpScreen = ({
   navigation
 }: Props) => {
+  const { setPersonalData } = useStore()
+
   const handleSubmit = ({
     name,
     birthDate,
     photo
   }: handleSubmitProps) => {
-    console.log(name, birthDate, photo)
+    setPersonalData(name, birthDate, photo)
+
+    navigation.navigate(HOME_SCREEN)
   }
 
   return (

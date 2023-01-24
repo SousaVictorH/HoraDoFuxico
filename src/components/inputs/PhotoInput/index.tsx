@@ -20,32 +20,39 @@ export const PhotoInput = ({
 }: Props) => {
   const [status, requestPermission] = ImagePicker.useMediaLibraryPermissions();
 
-  const pickImage = async () => {
+  const requestImage = async () => {
     // Check permissions
     if (!status?.granted) {
       // If no permission ask for it
-      const response = await ImagePicker.requestMediaLibraryPermissionsAsync()
+      const response = await requestPermission()
 
-      if (response.status === 'granted') {
+      if (response.status !== 'granted') {
         // If no permission allowed throw alert
         Alert.alert('Warning', 'Permission denied')
+      } else {
+        // Else pick image
+        pickImage()
       }
     } else {
-      const result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.All,
-        allowsEditing: true,
-        aspect: [4, 3],
-        quality: 1,
-      })
-
-      if (!result.canceled) setPhoto(result.assets[0].uri)
+      pickImage()
     }
-  };
+  }
+
+  const pickImage = async () => {
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    })
+
+    if (!result.canceled) setPhoto(result.assets[0].uri)
+  }
 
   return (
     <Container style={style}>
       <Caption>{photoInputPlaceholder}</Caption>
-      <ButtonWrapper onPress={() => pickImage()}>
+      <ButtonWrapper onPress={() => requestImage()}>
         <ButtonIcon
           source={photo ?
             icons.addPhotoOrangeIcon.path :
