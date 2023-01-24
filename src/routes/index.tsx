@@ -6,17 +6,16 @@ import {
   AUTHENTICATION_SCREEN,
   TERMS_SCREEN,
   SIGN_UP_SCREEN,
-  HOME_SCREEN
+  TAB_NAVIGATOR
 } from 'constants/screens'
+
+import { TabNavigator } from './TabNavigator'
 
 // Unlogged
 import { WelcomeScreen } from 'screens/Unlogged/Welcome'
 import { AuthenticationScreen } from 'screens/Unlogged/Authentication'
 import { TermsScreen } from 'screens/Unlogged/Terms'
 import { SignUpScreen } from 'screens/Unlogged/SignUp'
-
-// Logged
-import { HomeScreen } from 'screens/Logged/Home'
 
 import { RootStackParamList } from './types'
 import { defaultScreenOptions } from './options'
@@ -50,8 +49,8 @@ export const Router = () => {
           options={defaultScreenOptions}
         />
         <Stack.Screen
-          name={HOME_SCREEN}
-          component={HomeScreen}
+          name={TAB_NAVIGATOR}
+          component={TabNavigator}
           options={defaultScreenOptions}
         />
       </Stack.Navigator>

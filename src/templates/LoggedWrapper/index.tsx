@@ -13,7 +13,6 @@ export const LoggedWrapper = ({
       <ContentWrapper>
         {children}
       </ContentWrapper>
-      {/* <Footer /> */}
     </Container>
   )
 }

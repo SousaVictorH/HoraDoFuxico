@@ -7,7 +7,7 @@ import {
 } from './styles'
 import { Props } from "./types"
 
-export const HomeScreen = ({
+export const NotificationsScreen = ({
   navigation
 }: Props) => {
   const {
@@ -18,7 +18,7 @@ export const HomeScreen = ({
 
   return (
     <LoggedWrapper navigation={navigation}>
-      <Text>Home Screen</Text>
+      <Text>Notifications Screen</Text>
     </LoggedWrapper>
   )
 }
