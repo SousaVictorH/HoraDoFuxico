@@ -5,7 +5,7 @@ export const TabBarContainer = styled.View`
   flex-direction: row;
   height: 85px;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 
   ${({ theme }: ThemeProps) => css`

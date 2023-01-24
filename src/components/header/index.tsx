@@ -1,12 +1,11 @@
 import { images } from 'resources/images'
-import { icons } from 'resources/icons'
 
 import {
   Container,
   AppNameImage,
-  Button,
-  ButtonIcon
+  Button
 } from "./styles"
+import { ToggleIcon } from 'resources/svgIcons'
 
 export const Header = () => {
   const handlePress = () => {
@@ -16,10 +15,7 @@ export const Header = () => {
   return (
     <Container>
       <Button onPress={handlePress}>
-        <ButtonIcon
-          source={icons.toggleIcon.path}
-          resizeMode="contain"
-        />
+        <ToggleIcon height={22} width={22} />
       </Button>
       <AppNameImage
         source={images.whiteAppName.path}

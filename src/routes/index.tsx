@@ -26,7 +26,7 @@ export const Router = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={WELCOME_SCREEN}
+        initialRouteName={TAB_NAVIGATOR}
       >
         <Stack.Screen
           name={WELCOME_SCREEN}
