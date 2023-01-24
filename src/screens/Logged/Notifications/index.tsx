@@ -1,8 +1,9 @@
 import { LoggedWrapper } from 'templates/LoggedWrapper'
 
-import { useStore } from 'store'
+import { noMoreNotifications } from 'constants/texts'
 
 import {
+  ContentWrapper,
   Text
 } from './styles'
 import { Props } from "./types"
@@ -10,15 +11,11 @@ import { Props } from "./types"
 export const NotificationsScreen = ({
   navigation
 }: Props) => {
-  const {
-    name,
-    birthDate,
-    photo
-  } = useStore()
-
   return (
     <LoggedWrapper navigation={navigation}>
-      <Text>Notifications Screen</Text>
+      <ContentWrapper>
+        <Text>{noMoreNotifications}</Text>
+      </ContentWrapper>
     </LoggedWrapper>
   )
 }

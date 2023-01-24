@@ -69,7 +69,7 @@ export const WelcomeScreen = ({
   }
 
   const onSignIn = ({ areaCode, phoneNumber }: OnSignInProps) => {
-    setPhoneNumber(areaCode + phoneNumber)
+    setPhoneNumber(`(${areaCode}) ${phoneNumber}`)
 
     navigation.navigate(AUTHENTICATION_SCREEN)
   }

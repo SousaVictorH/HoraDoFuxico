@@ -43,14 +43,11 @@ export const validateBirthDate = (d: string) => {
   }
 }
 
-export const calculateAge = (birthDate: Date) => {
-  const currentDate = new Date()
+export const calculateAge = (d: string) => {
+  const currentDate = moment(new Date())
+  const date = moment(d, "DD/MM/YYYY")
 
-  const diff = birthDate.getTime() - currentDate.getTime()
+  const age = currentDate.diff(date, 'years')
 
-  const daysOld = Math.floor(diff / (1000 * 60 * 60 * 24))
-
-  const yearsOld = Number((daysOld / 365).toFixed(0))
-
-  return yearsOld
+  return age
 }

@@ -1,8 +1,9 @@
 import { LoggedWrapper } from 'templates/LoggedWrapper'
 
-import { useStore } from 'store'
+import { helpText } from 'constants/texts'
 
 import {
+  ContentWrapper,
   Text
 } from './styles'
 import { Props } from "./types"
@@ -10,15 +11,11 @@ import { Props } from "./types"
 export const HelpScreen = ({
   navigation
 }: Props) => {
-  const {
-    name,
-    birthDate,
-    photo
-  } = useStore()
-
   return (
     <LoggedWrapper navigation={navigation}>
-      <Text>Help Screen</Text>
+      <ContentWrapper>
+        <Text>{helpText}</Text>
+      </ContentWrapper>
     </LoggedWrapper>
   )
 }

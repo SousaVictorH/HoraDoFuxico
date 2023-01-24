@@ -2,8 +2,14 @@ import { LoggedWrapper } from 'templates/LoggedWrapper'
 
 import { useStore } from 'store'
 
+import { calculateAge } from 'utils/date'
+
 import {
-  Text
+  ProfileWrapper,
+  ProfileImage,
+  ProfileName,
+  ProfileAge,
+  ContentWrapper
 } from './styles'
 import { Props } from "./types"
 
@@ -16,9 +22,21 @@ export const HomeScreen = ({
     photo
   } = useStore()
 
+  const age = calculateAge(birthDate)
+
   return (
     <LoggedWrapper navigation={navigation}>
-      <Text>Home Screen</Text>
+      <ProfileWrapper>
+        <ProfileImage
+          source={{ uri: photo }}
+          resizeMode="cover"
+        />
+        <ProfileName>{name}</ProfileName>
+        <ProfileAge>{age} anos</ProfileAge>
+      </ProfileWrapper>
+      <ContentWrapper>
+        {/** CONTENT */}
+      </ContentWrapper>
     </LoggedWrapper>
   )
 }

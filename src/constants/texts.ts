@@ -32,3 +32,6 @@ export const providedDataDescription = "3.1. A Hora do fuxico poderá usar, arma
 export const nameInputPlaceholder = "Nome do fuxiqueiro?*"
 export const birthDateInputPlaceholder = "Data de nascimento?*"
 export const photoInputPlaceholder = "Deseja adicionar uma foto do fuxiqueiro?"
+
+export const noMoreNotifications = "Sem mais notificações"
+export const helpText = "Texto de ajuda"
