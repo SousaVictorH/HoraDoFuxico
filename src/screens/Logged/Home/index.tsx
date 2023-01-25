@@ -1,6 +1,8 @@
 import { LoggedWrapper } from 'templates/LoggedWrapper'
+import { Connect } from 'components/connect'
 
 import { useStore } from 'store'
+import { images } from 'resources/images'
 
 import { calculateAge } from 'utils/date'
 
@@ -19,7 +21,9 @@ export const HomeScreen = ({
   const {
     name,
     birthDate,
-    photo
+    photo,
+    connected,
+    setIsConnected
   } = useStore()
 
   const age = calculateAge(birthDate)
@@ -28,14 +32,21 @@ export const HomeScreen = ({
     <LoggedWrapper navigation={navigation}>
       <ProfileWrapper>
         <ProfileImage
-          source={{ uri: photo }}
+          source={photo ? { uri: photo } : images.defaultUser.path}
           resizeMode="cover"
         />
         <ProfileName>{name}</ProfileName>
         <ProfileAge>{age} anos</ProfileAge>
       </ProfileWrapper>
       <ContentWrapper>
-        {/** CONTENT */}
+        {
+          !connected ? (
+            <Connect setIsConnected={setIsConnected} />
+          ) : (
+            null
+            // <PersonalData />
+          )
+        }
       </ContentWrapper>
     </LoggedWrapper>
   )

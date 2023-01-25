@@ -33,5 +33,10 @@ export const nameInputPlaceholder = "Nome do fuxiqueiro?*"
 export const birthDateInputPlaceholder = "Data de nascimento?*"
 export const photoInputPlaceholder = "Deseja adicionar uma foto do fuxiqueiro?"
 
+export const connectNewPerson = "Conecte novo fuxiqueiro"
+export const generateKeyText = "Gerar chave"
+export const newKey = "Nova Chave"
+export const insertKey = "Insira a chave no aplicativo do fuxiqueiro"
+
 export const noMoreNotifications = "Sem mais notificações"
 export const helpText = "Texto de ajuda"

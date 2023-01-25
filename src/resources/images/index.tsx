@@ -22,5 +22,8 @@ export const images = {
   },
   whiteAppName: {
     path: require('../../../assets/images/WhiteAppName.png')
+  },
+  defaultUser: {
+    path: require('../../../assets/images/defaultUser.png')
   }
 }
