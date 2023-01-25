@@ -5,6 +5,7 @@ import { Props as HotTopicType } from "components/hotTopic/types"
 
 import { hotTopics, schedule, emptyText } from "constants/texts"
 import { hotTopicsList } from "resources/hotTopics"
+import { NEW_SCHEDULE_SCREEN } from "constants/screens"
 
 import {
   Container,
@@ -18,7 +19,8 @@ import {
 import { Props } from "./types"
 
 export const Schedules = ({
-  schedules
+  schedules,
+  navigation
 }: Props) => {
   return (
     <Container>
@@ -44,7 +46,7 @@ export const Schedules = ({
         }
         ListFooterComponent={
           <TextButton
-            onPress={() => console.log('ok')}
+            onPress={() => navigation.navigate(NEW_SCHEDULE_SCREEN)}
             text={schedule}
           />
         }

@@ -5,14 +5,18 @@ import { Props } from "./types"
 
 export const LoggedWrapper = ({
   children,
-  navigation
+  hideHeader
 }: Props) => {
   return (
     <Container>
-      <Header />
+      {!hideHeader && <Header />}
       <ContentWrapper>
         {children}
       </ContentWrapper>
     </Container>
   )
+}
+
+LoggedWrapper.defaultProps = {
+  hideHeader: false
 }

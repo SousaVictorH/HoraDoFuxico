@@ -6,7 +6,7 @@ import {
 
 import {
   HELP_SCREEN,
-  HOME_SCREEN,
+  STACK_NAVIGATOR,
   NOTIFICATIONS_SCREEN
 } from "constants/screens";
 
@@ -14,13 +14,12 @@ import { TabBarContainer, ItemContainer } from "./styles";
 import { Props } from "./types"
 
 export const TabBar = ({
-  descriptors,
   navigation,
   state
 }: Props) => {
   const getIcon = (routeName: string, isActive: boolean) => {
     switch (routeName) {
-      case HOME_SCREEN:
+      case STACK_NAVIGATOR:
         return <HomeIcon active={isActive} />
 
       case NOTIFICATIONS_SCREEN:

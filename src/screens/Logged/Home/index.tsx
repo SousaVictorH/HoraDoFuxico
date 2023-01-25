@@ -26,14 +26,13 @@ export const HomeScreen = ({
     photo,
     connected,
     schedules,
-    createSchedule,
     setIsConnected
   } = useStore()
 
   const age = calculateAge(birthDate)
 
   return (
-    <LoggedWrapper navigation={navigation}>
+    <LoggedWrapper>
       <ProfileWrapper>
         <ProfileImage
           source={photo ? { uri: photo } : images.defaultUser.path}
@@ -47,7 +46,10 @@ export const HomeScreen = ({
           !connected ? (
             <Connect setIsConnected={setIsConnected} />
           ) : (
-            <Schedules schedules={schedules} />
+            <Schedules
+              schedules={schedules}
+              navigation={navigation}
+            />
           )
         }
       </ContentWrapper>

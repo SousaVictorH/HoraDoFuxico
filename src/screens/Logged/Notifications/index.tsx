@@ -12,7 +12,7 @@ export const NotificationsScreen = ({
   navigation
 }: Props) => {
   return (
-    <LoggedWrapper navigation={navigation}>
+    <LoggedWrapper>
       <ContentWrapper>
         <Text>{noMoreNotifications}</Text>
       </ContentWrapper>

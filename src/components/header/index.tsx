@@ -1,11 +1,12 @@
 import { images } from 'resources/images'
 
+import { ToggleIcon } from 'resources/svgIcons'
+
 import {
   Container,
   AppNameImage,
   Button
 } from "./styles"
-import { ToggleIcon } from 'resources/svgIcons'
 
 export const Header = () => {
   const handlePress = () => {

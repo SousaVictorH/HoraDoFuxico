@@ -2,6 +2,7 @@ import Home from "../../../assets/svgIcons/home.svg"
 import Help from "../../../assets/svgIcons/help.svg"
 import Notifications from "../../../assets/svgIcons/notifications.svg"
 import Toggle from "../../../assets/svgIcons/toggle.svg"
+import GoBack from "../../../assets/svgIcons/goBack.svg"
 
 import { Props, defaultProps } from './types'
 
@@ -76,3 +77,21 @@ export const ToggleIcon = ({
 }
 
 ToggleIcon.defaultProps = defaultProps
+
+export const GoBackIcon = ({
+  width,
+  height,
+  color,
+  active
+}: Props) => {
+  return (
+    <GoBack
+      width={width}
+      height={height}
+      color={color}
+      fillOpacity={active ? 1 : 0.5}
+    />
+  )
+}
+
+GoBackIcon.defaultProps = defaultProps
