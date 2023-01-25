@@ -20,7 +20,7 @@ export const HotTopic = ({
       </TextContainer>
       <Image
         source={image}
-        resizeMode="contain"
+        resizeMode="stretch"
       />
     </Container>
   )

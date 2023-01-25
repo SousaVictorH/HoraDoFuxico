@@ -13,6 +13,7 @@ export const Container = styled.View`
     border-radius: ${theme.borderRadius.xxs};
     margin: ${theme.spacings.md}
     padding: ${theme.spacings.md} ${theme.spacings.lg};
+    background-color: ${theme.colors.background.light};
   `}
 `
 
@@ -43,5 +44,5 @@ export const Description = styled.Text`
 
 export const Image = styled.Image`
   height: 120%;
-  width: 45%;
+  width: 48%;
 `

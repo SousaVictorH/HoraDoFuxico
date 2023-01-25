@@ -25,6 +25,8 @@ export const HomeScreen = ({
     birthDate,
     photo,
     connected,
+    schedules,
+    createSchedule,
     setIsConnected
   } = useStore()
 
@@ -45,7 +47,7 @@ export const HomeScreen = ({
           !connected ? (
             <Connect setIsConnected={setIsConnected} />
           ) : (
-            <Schedules />
+            <Schedules schedules={schedules} />
           )
         }
       </ContentWrapper>
