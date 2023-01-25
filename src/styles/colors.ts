@@ -29,7 +29,7 @@ export const supportColors: SupportColors = {
   blue_10: '#5E77FF',
   beige: '#D4E1FA',
   beige_50: '#4A4A4A',
-  beige_10: '#DDDADA',
+  beige_10: '#9FBFFF',
   white: '#FFF',
   transparent: 'rgba(0, 0, 0, 0)',
   purple: '#851ae5',

@@ -1,5 +1,7 @@
 import { LoggedWrapper } from 'templates/LoggedWrapper'
+
 import { Connect } from 'components/connect'
+import { Schedules } from 'components/schedules'
 
 import { useStore } from 'store'
 import { images } from 'resources/images'
@@ -43,8 +45,7 @@ export const HomeScreen = ({
           !connected ? (
             <Connect setIsConnected={setIsConnected} />
           ) : (
-            null
-            // <PersonalData />
+            <Schedules />
           )
         }
       </ContentWrapper>

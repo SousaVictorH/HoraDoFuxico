@@ -19,7 +19,7 @@ import {
 import { Props } from './types'
 
 export const Connect = ({
-
+  setIsConnected
 }: Props) => {
   const [key, setKey] = useState('')
 
@@ -27,6 +27,9 @@ export const Connect = ({
     const seq = (Math.floor(Math.random() * 10000) + 10000).toString().substring(1);
 
     setKey(seq)
+
+    // Simulate connection delay
+    setTimeout(() => setIsConnected(true), 2500);
   }
 
   return (

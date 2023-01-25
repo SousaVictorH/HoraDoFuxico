@@ -28,5 +28,5 @@ export const useStore = create<State>((set) => ({
     birthDate: birthDate,
     photo: photo
   })),
-  setIsConnected: (isConected: boolean) => set((state) => ({ ...state, conected: isConected })),
+  setIsConnected: (isConected: boolean) => set((state) => ({ ...state, connected: isConected })),
 }));

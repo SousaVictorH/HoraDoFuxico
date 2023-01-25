@@ -40,3 +40,5 @@ export const insertKey = "Insira a chave no aplicativo do fuxiqueiro"
 
 export const noMoreNotifications = "Sem mais notificações"
 export const helpText = "Texto de ajuda"
+
+export const hotTopics = "Assuntos em Alta"
