@@ -4,6 +4,8 @@ import { Animated } from "react-native"
 import { panelOptions } from "resources/panelOptions"
 import { PanelOption } from "resources/panelOptions/types"
 
+import { RootStackParamList } from "routes/types"
+
 import {
   Container,
   PanelContainer,
@@ -35,6 +37,11 @@ export const SidePanel = ({
     setTimeout(() => toggleSidePanel(), 350);
   }
 
+  const handleNavigateTo = (navigateTo: keyof RootStackParamList) => {
+    navigation.navigate(navigateTo)
+    animateClose()
+  }
+
   useEffect(() => {
     animate(showSidePanel ? 240 : 0)
   }, [showSidePanel])
@@ -51,10 +58,10 @@ export const SidePanel = ({
                   title,
                   navigateTo
                 }: PanelOption) => (
-                  <Item onPress={() => {
-                    navigation.navigate(navigateTo)
-                    animateClose()
-                  }}>
+                  <Item
+                    key={title}
+                    onPress={() => handleNavigateTo(navigateTo)}
+                  >
                     <ArrowText>{icon}</ArrowText>
                     <ItemText>{title}</ItemText>
                   </Item>
