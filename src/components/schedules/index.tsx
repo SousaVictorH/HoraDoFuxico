@@ -2,10 +2,13 @@ import { ListRenderItemInfo } from "react-native"
 
 import { HotTopic } from "components/hotTopic"
 import { Props as HotTopicType } from "components/hotTopic/types"
+import { ScheduleItem } from "components/scheduleItem"
 
 import { hotTopics, schedule, emptyText } from "constants/texts"
 import { hotTopicsList } from "resources/hotTopics"
 import { NEW_SCHEDULE_SCREEN } from "constants/screens"
+
+import { Schedule } from "store/types"
 
 import {
   Container,
@@ -44,7 +47,12 @@ export const Schedules = ({
       <Title>Horário dos fuxicos</Title>
       <SchedulesList
         data={schedules}
-        renderItem={() => null}
+        renderItem={({ item, index }: ListRenderItemInfo<Schedule>) => (
+          <ScheduleItem
+            key={index.toString()}
+            {...item}
+          />
+        )}
         ListEmptyComponent={
           <EmptyText>{emptyText}</EmptyText>
         }

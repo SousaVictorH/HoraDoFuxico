@@ -1,19 +1,25 @@
-import { useState, useRef } from "react"
-import { Alert, TextInput } from "react-native"
+import { useState } from "react"
+import { Alert } from "react-native"
 
 import { FormWrapper } from "templates/FormWrapper"
 
 import { next, nameInputPlaceholder, birthDateInputPlaceholder } from "constants/texts"
-import { maskDate, validateBirthDate } from "utils/date"
+import { validateBirthDate } from "utils/date"
 
-import { FormButton, ContentWrapper, Input, PhotoInput } from './styles'
+import {
+  FormButton,
+  ContentWrapper,
+  Input,
+  PhotoInput,
+  InputCaption,
+  DateTimeInput
+} from './styles'
 import { Props } from "./types"
+
 
 export const SignUpForm = ({
   onSignUp
 }: Props) => {
-  const birthDateInput = useRef<TextInput>(null)
-
   const [name, setName] = useState('')
   const [birthDate, setBirthDate] = useState('')
   const [photo, setPhoto] = useState('')
@@ -30,19 +36,18 @@ export const SignUpForm = ({
   return (
     <FormWrapper>
       <ContentWrapper>
+        <InputCaption>{nameInputPlaceholder}</InputCaption>
         <Input
           value={name}
           setValue={(text: string) => setName(text)}
           placeholder={nameInputPlaceholder}
-          onBlur={() => birthDateInput.current?.focus()}
         />
-        <Input
-          ref={birthDateInput}
+        <InputCaption>{birthDateInputPlaceholder}</InputCaption>
+        <DateTimeInput
           value={birthDate}
-          setValue={(text: string) => setBirthDate(maskDate(text))}
-          placeholder={birthDateInputPlaceholder}
-          keyboardType="numeric"
-          maxLength={10}
+          setValue={setBirthDate}
+          isDate
+          maximumDate={new Date()}
         />
         <PhotoInput
           photo={photo}

@@ -4,7 +4,7 @@ import styled, { css } from "styled-components/native"
 import { Button } from 'components/buttons/Button'
 import { Input as InputComponent } from "components/inputs/Input"
 import { PhotoInput as PhotoInputComponent } from "components/inputs/PhotoInput"
-
+import { DateTimeInput as DateTimeInputComponent } from "components/inputs/DateTimeInput"
 
 import { ThemeProps } from "styles/types"
 
@@ -37,5 +37,20 @@ export const FormButton = styled(Button)`
 
   ${({ theme }: ThemeProps) => css`
     margin-top: ${theme.spacings.xxxl};
+  `}
+`
+
+export const InputCaption = styled.Text`
+  ${({ theme }: ThemeProps) => css`
+    font-size: ${theme.typography.elements.body.fontSize};
+    font-family: ${theme.typography.fontFamily.poppinsBold};
+    color: ${theme.colors.neutrals.neutral_60};
+    margin-bottom: ${theme.spacings.sm};
+  `}
+`
+
+export const DateTimeInput = styled(DateTimeInputComponent)`
+  ${({ theme }: ThemeProps) => css`
+    margin: ${theme.spacings.none} ${theme.spacings.none} ${theme.spacings.lg};
   `}
 `

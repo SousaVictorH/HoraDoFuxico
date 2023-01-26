@@ -12,7 +12,10 @@ import { Props } from "./types";
 export const DateTimeInput = ({
   value,
   setValue,
-  isDate
+  isDate,
+  style,
+  maximumDate,
+  minimumDate
 }: Props) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
@@ -43,6 +46,7 @@ export const DateTimeInput = ({
       <Button
         activeOpacity={1}
         onPress={() => setDatePickerVisibility(true)}
+        style={style}
       >
         <ButtonText>
           {
@@ -58,6 +62,8 @@ export const DateTimeInput = ({
         mode={mode}
         onConfirm={handleConfirm}
         onCancel={hideDatePicker}
+        maximumDate={maximumDate}
+        minimumDate={minimumDate}
       />
     </>
   );

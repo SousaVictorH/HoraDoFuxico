@@ -9,6 +9,7 @@ export const Button = styled(TouchableOpacity)`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  height: 55px;
 
   ${({ theme }: ThemeProps) => css`
     margin-top: ${theme.spacings.xlg};

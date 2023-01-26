@@ -4,6 +4,8 @@ import Notifications from "../../../assets/svgIcons/notifications.svg"
 import Toggle from "../../../assets/svgIcons/toggle.svg"
 import GoBack from "../../../assets/svgIcons/goBack.svg"
 import Open from "../../../assets/svgIcons/open.svg"
+import Clock from "../../../assets/svgIcons/clock.svg"
+import Calendar from "../../../assets/svgIcons/calendar.svg"
 
 import { Props, defaultProps } from './types'
 
@@ -115,3 +117,39 @@ export const OpenIcon = ({
 }
 
 OpenIcon.defaultProps = defaultProps
+
+export const ClockIcon = ({
+  width,
+  height,
+  color,
+  active
+}: Props) => {
+  return (
+    <Clock
+      width={width}
+      height={height}
+      color={color}
+      fillOpacity={active ? 1 : 0.5}
+    />
+  )
+}
+
+ClockIcon.defaultProps = defaultProps
+
+export const CalendarIcon = ({
+  width,
+  height,
+  color,
+  active
+}: Props) => {
+  return (
+    <Calendar
+      width={width}
+      height={height}
+      color={color}
+      fillOpacity={active ? 1 : 0.5}
+    />
+  )
+}
+
+CalendarIcon.defaultProps = defaultProps

@@ -53,6 +53,8 @@ export const NewScheduleScreen = ({
     setTitle(hotTopicsList[0].title)
     setDate('')
     setTime('')
+
+    navigation.navigate(HOME_SCREEN)
   }
 
   const isValid = date.length === 10 && time.length === 5
@@ -86,6 +88,7 @@ export const NewScheduleScreen = ({
           value={date}
           setValue={setDate}
           isDate={true}
+          minimumDate={new Date()}
         />
         <DateTimeInput
           value={time}
