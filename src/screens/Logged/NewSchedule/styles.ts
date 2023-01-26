@@ -5,7 +5,6 @@ import { TouchableOpacity } from "react-native-gesture-handler"
 import { ThemeProps } from "styles/types"
 
 export const Container = styled.View`
-  flex: 1;
   width: 100%;
 
   ${({ theme }: ThemeProps) => css`
@@ -32,6 +31,8 @@ export const HeaderText = styled.Text`
 `
 
 export const ContentWrapper = styled.View`
+  flex: 1;
+  
   ${({ theme }: ThemeProps) => css`
     padding: ${theme.spacings.none} ${theme.spacings.md}
   `}

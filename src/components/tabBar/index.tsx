@@ -33,6 +33,11 @@ export const TabBar = ({
     }
   }
 
+  const routesNumber = state.routes[1].state?.routes.length
+
+  // When inside create new schedule screen hide bottom tab
+  if (routesNumber === 2) return null
+
   return (
     <TabBarContainer>
       {

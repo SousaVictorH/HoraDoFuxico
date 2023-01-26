@@ -22,6 +22,10 @@ export const Schedules = ({
   schedules,
   navigation
 }: Props) => {
+  const onNavigate = () => {
+    navigation.navigate(NEW_SCHEDULE_SCREEN)
+  }
+
   return (
     <Container>
       <Title>{hotTopics}</Title>
@@ -46,7 +50,7 @@ export const Schedules = ({
         }
         ListFooterComponent={
           <TextButton
-            onPress={() => navigation.navigate(NEW_SCHEDULE_SCREEN)}
+            onPress={() => onNavigate()}
             text={schedule}
           />
         }

@@ -44,3 +44,6 @@ export const helpText = "Texto de ajuda"
 export const hotTopics = "Assuntos em Alta"
 export const schedule = "Programar horário"
 export const emptyText = "Ops! Parece que você ainda não programou nenhum horário! "
+
+export const selectCategory = "Selecione a categoria"
+export const selectDayAndTime = "Selecione o dia e horário"

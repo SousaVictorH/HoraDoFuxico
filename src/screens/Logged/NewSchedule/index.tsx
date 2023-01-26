@@ -3,7 +3,7 @@ import { useState } from "react"
 import { LoggedWrapper } from "templates/LoggedWrapper"
 
 import { GoBackIcon } from 'resources/svgIcons'
-import { schedule } from 'constants/texts'
+import { schedule, selectCategory, selectDayAndTime } from 'constants/texts'
 import { HOME_SCREEN } from "constants/screens"
 
 import { useStore } from 'store'
@@ -38,7 +38,8 @@ export const NewScheduleScreen = ({
         </Header>
       </Container>
       <ContentWrapper>
-        <Title>Selecione a categoria</Title>
+        <Title>{selectCategory}</Title>
+        <Title>{selectDayAndTime}</Title>
       </ContentWrapper>
     </LoggedWrapper>
   )
