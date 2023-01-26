@@ -4,14 +4,12 @@ import { State, Schedule } from './types';
 
 export const useStore = create<State>((set) => ({
   phoneNumber: '',
-  token: '',
   name: '',
   birthDate: '',
   photo: '',
   connected: false,
   schedules: [],
   setPhoneNumber: (phoneNumber: string) => set((state) => ({ ...state, phoneNumber: phoneNumber })),
-  setToken: (token: string) => set((state) => ({ ...state, token: token })),
   setPersonalData: (name: string, birthDate: string, photo: string) => set((state) => ({
     ...state,
     name: name,

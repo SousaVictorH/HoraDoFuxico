@@ -1,4 +1,4 @@
-import { useStore } from "store"
+import { Alert } from 'react-native'
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { AuthCodeForm } from 'components/forms/AuthCode'
@@ -20,12 +20,12 @@ import { Props } from "./types"
 export const AuthenticationScreen = ({
   navigation
 }: Props) => {
-  const { setToken } = useStore()
-
   const onSubmit = (token: string) => {
-    setToken(token)
-
-    navigation.navigate(TERMS_SCREEN)
+    if (token === '000000') {
+      navigation.navigate(TERMS_SCREEN)
+    } else {
+      Alert.alert('Warning', 'Token incorreto')
+    }
   }
 
   const onResendCode = () => {

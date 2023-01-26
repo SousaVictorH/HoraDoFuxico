@@ -47,7 +47,6 @@ export const SignUpForm = ({
           value={birthDate}
           setValue={setBirthDate}
           isDate
-          maximumDate={new Date()}
         />
         <PhotoInput
           photo={photo}

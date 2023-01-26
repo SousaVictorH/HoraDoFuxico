@@ -94,6 +94,7 @@ export const NewScheduleScreen = ({
           value={time}
           setValue={setTime}
           isDate={false}
+          minimumDate={new Date()}
         />
         <Button
           text={save}
