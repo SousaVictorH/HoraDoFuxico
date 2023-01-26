@@ -6,10 +6,11 @@ import {
   AUTHENTICATION_SCREEN,
   TERMS_SCREEN,
   SIGN_UP_SCREEN,
-  TAB_NAVIGATOR
+  TAB_NAVIGATOR,
+  LOGGED_NAVIGATOR
 } from 'constants/screens'
 
-import { TabNavigator } from './TabNavigator'
+import { LoggedNavigator } from './LoggedNavigator'
 
 // Unlogged
 import { WelcomeScreen } from 'screens/Unlogged/Welcome'
@@ -49,8 +50,8 @@ export const Router = () => {
           options={defaultScreenOptions}
         />
         <Stack.Screen
-          name={TAB_NAVIGATOR}
-          component={TabNavigator}
+          name={LOGGED_NAVIGATOR}
+          component={LoggedNavigator}
           options={defaultScreenOptions}
         />
       </Stack.Navigator>

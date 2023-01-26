@@ -4,7 +4,7 @@ import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignUpForm } from 'components/forms/SignUp'
 
 import { images } from 'resources/images'
-import { TAB_NAVIGATOR } from "constants/screens"
+import { LOGGED_NAVIGATOR } from "constants/screens"
 
 import {
   ContentWrapper,
@@ -25,7 +25,7 @@ export const SignUpScreen = ({
   }: handleSubmitProps) => {
     setPersonalData(name, birthDate, photo)
 
-    navigation.navigate(TAB_NAVIGATOR)
+    navigation.navigate(LOGGED_NAVIGATOR)
   }
 
   return (

@@ -19,8 +19,6 @@ import { useStore } from "store"
 import { phoneMask } from "utils/phone"
 import { validateBirthDate } from "utils/date"
 
-import { HOME_SCREEN } from "constants/screens"
-
 import { Props } from "./types"
 import {
   Container,
@@ -61,7 +59,7 @@ export const ProfileScreen = ({
       setPersonalData(newName, newBirthDate, newPhoto)
       setPhoneNumber(newPhoneNumber)
 
-      navigation.navigate(HOME_SCREEN)
+      navigation.goBack()
     }
   }
 

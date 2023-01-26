@@ -10,4 +10,5 @@ export type RootStackParamList = {
   HELP_SCREEN: undefined
   NEW_SCHEDULE_SCREEN: undefined
   PROFILE_SCREEN: undefined
+  LOGGED_NAVIGATOR: undefined
 };

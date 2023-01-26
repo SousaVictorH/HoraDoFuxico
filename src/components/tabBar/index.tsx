@@ -39,16 +39,13 @@ export const TabBar = ({
    * When inside create new schedule screen or edit profile screen 
    * hide bottom tab
    */
-  if (routesNumber === 2 || state.index === 3) return null
+  if (routesNumber === 2) return null
 
   return (
     <TabBarContainer>
       {
         state.routes.map((route: any, index: number) => {
           const isActive = state.index === index
-
-          // Dont show icon for profile screen
-          if (index === 3) return null
 
           return (
             <ItemContainer

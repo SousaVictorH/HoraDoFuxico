@@ -1,5 +1,6 @@
 export const TAB_NAVIGATOR = "TAB_NAVIGATOR"
 export const STACK_NAVIGATOR = "STACK_NAVIGATOR"
+export const LOGGED_NAVIGATOR = "LOGGED_NAVIGATOR"
 
 // Unlogged Screens
 export const WELCOME_SCREEN = 'WELCOME_SCREEN'
