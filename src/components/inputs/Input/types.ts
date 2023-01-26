@@ -12,4 +12,5 @@ export type Props = {
   maxLength?: number
   style?: StyleProp<ViewStyle>
   placeholder?: string
+  onBlur?: () => void
 }

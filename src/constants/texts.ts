@@ -15,6 +15,7 @@ export const readNagreed = "Li e concordo"
 export const enter = "entrar"
 export const next = "próximo"
 export const add = "Adicionar"
+export const save = "Salvar"
 
 export const terms = "Termos de uso e políticas de privacidade"
 
@@ -47,3 +48,6 @@ export const emptyText = "Ops! Parece que você ainda não programou nenhum hor�
 
 export const selectCategory = "Selecione a categoria"
 export const selectDayAndTime = "Selecione o dia e horário"
+
+export const selectDay = "Selecione o dia"
+export const selectTime = "Selecione o horário"

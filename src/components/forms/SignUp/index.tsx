@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { Alert } from "react-native"
+import { useState, useRef } from "react"
+import { Alert, TextInput } from "react-native"
 
 import { FormWrapper } from "templates/FormWrapper"
 
@@ -12,6 +12,8 @@ import { Props } from "./types"
 export const SignUpForm = ({
   onSignUp
 }: Props) => {
+  const birthDateInput = useRef<TextInput>(null)
+
   const [name, setName] = useState('')
   const [birthDate, setBirthDate] = useState('')
   const [photo, setPhoto] = useState('')
@@ -23,6 +25,8 @@ export const SignUpForm = ({
     else Alert.alert('Warning', message)
   }
 
+  const isValid = (name.length > 3) && (birthDate.length === 10)
+
   return (
     <FormWrapper>
       <ContentWrapper>
@@ -30,8 +34,10 @@ export const SignUpForm = ({
           value={name}
           setValue={(text: string) => setName(text)}
           placeholder={nameInputPlaceholder}
+          onBlur={() => birthDateInput.current?.focus()}
         />
         <Input
+          ref={birthDateInput}
           value={birthDate}
           setValue={(text: string) => setBirthDate(maskDate(text))}
           placeholder={birthDateInputPlaceholder}
@@ -45,6 +51,8 @@ export const SignUpForm = ({
         <FormButton
           onPress={handleSignUp}
           text={next}
+          disabled={!isValid}
+          appearance={isValid ? 'primary' : 'disabled'}
         />
       </ContentWrapper>
     </FormWrapper>

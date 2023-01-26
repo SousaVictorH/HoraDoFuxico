@@ -11,7 +11,8 @@ export const Input = React.forwardRef(({
   setValue,
   maxLength,
   style,
-  placeholder
+  placeholder,
+  onBlur
 }: Props, ref?: Ref<TextInputType>) => {
   return (
     <TextInput
@@ -23,6 +24,7 @@ export const Input = React.forwardRef(({
       maxLength={maxLength}
       style={style}
       placeholder={placeholder}
+      onBlur={onBlur}
     />
   )
 })

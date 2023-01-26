@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react"
-import { Animated, Easing } from "react-native"
+import { Alert, Animated, Easing } from "react-native"
 import AnimatedLottieView from "lottie-react-native"
 
 import { useStore } from "store"
@@ -69,9 +69,15 @@ export const WelcomeScreen = ({
   }
 
   const onSignIn = ({ areaCode, phoneNumber }: OnSignInProps) => {
-    setPhoneNumber(`(${areaCode}) ${phoneNumber}`)
+    const phone = `(${areaCode}) ${phoneNumber}`
 
-    navigation.navigate(AUTHENTICATION_SCREEN)
+    if (phone.length !== 15) {
+      Alert.alert('Warning', 'Verifique seu número de celular')
+    } else {
+      setPhoneNumber(phoneNumber)
+
+      navigation.navigate(AUTHENTICATION_SCREEN)
+    }
   }
 
   const onSocialSignIn = ({ google, facebook }: OnSocialSignInProps) => {

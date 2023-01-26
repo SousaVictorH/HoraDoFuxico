@@ -3,6 +3,7 @@ import Help from "../../../assets/svgIcons/help.svg"
 import Notifications from "../../../assets/svgIcons/notifications.svg"
 import Toggle from "../../../assets/svgIcons/toggle.svg"
 import GoBack from "../../../assets/svgIcons/goBack.svg"
+import Open from "../../../assets/svgIcons/open.svg"
 
 import { Props, defaultProps } from './types'
 
@@ -95,3 +96,22 @@ export const GoBackIcon = ({
 }
 
 GoBackIcon.defaultProps = defaultProps
+
+
+export const OpenIcon = ({
+  width,
+  height,
+  color,
+  active
+}: Props) => {
+  return (
+    <Open
+      width={width}
+      height={height}
+      color={color}
+      fillOpacity={active ? 1 : 0.5}
+    />
+  )
+}
+
+OpenIcon.defaultProps = defaultProps
