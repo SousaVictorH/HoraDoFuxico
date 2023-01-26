@@ -1,4 +1,5 @@
 import { useState } from "react"
+import moment from "moment"
 
 import { LoggedWrapper } from "templates/LoggedWrapper"
 
@@ -30,6 +31,7 @@ import {
   RadioInput,
   Button
 } from "./styles"
+import { Alert } from "react-native"
 
 export const NewScheduleScreen = ({
   navigation
@@ -41,6 +43,20 @@ export const NewScheduleScreen = ({
   const [time, setTime] = useState('')
 
   const handleSave = () => {
+    const day = Number(date.substring(0, 2))
+    const month = Number(date.substring(3, 5)) - 1
+    const year = Number(date.substring(6, 10))
+
+    const hours = Number(time.substring(0, 2))
+    const minutes = Number(time.substring(3, 5))
+
+    const inputDate = moment(new Date(year, month, day, hours, minutes))
+    const now = moment()
+
+    if (!inputDate || now.isAfter(inputDate)) {
+      return Alert.alert('Alerta', 'Data inválida')
+    }
+
     const schedule: Schedule = {
       date,
       time,
@@ -94,7 +110,7 @@ export const NewScheduleScreen = ({
           value={time}
           setValue={setTime}
           isDate={false}
-          minimumDate={new Date()}
+          minuteInterval={10}
         />
         <Button
           text={save}

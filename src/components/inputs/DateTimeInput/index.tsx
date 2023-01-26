@@ -15,7 +15,8 @@ export const DateTimeInput = ({
   isDate,
   style,
   maximumDate,
-  minimumDate
+  minimumDate,
+  minuteInterval
 }: Props) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
@@ -64,6 +65,7 @@ export const DateTimeInput = ({
         onCancel={hideDatePicker}
         maximumDate={maximumDate}
         minimumDate={minimumDate}
+        minuteInterval={minuteInterval}
       />
     </>
   );
