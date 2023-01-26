@@ -29,8 +29,10 @@ export type SupportColors = {
   beige_10: string;
   white: string;
   transparent: string;
+  modalBackground: string;
   purple: string;
   orange: string;
+  lightOrange: string;
 };
 
 export type TechnicalColors = {
@@ -120,6 +122,7 @@ export type SpacingsTypes = {
   xlg: string;
   xxl: string;
   xxxl: string;
+  xxxxl: string;
   auto: string;
 };
 

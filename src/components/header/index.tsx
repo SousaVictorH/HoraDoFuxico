@@ -7,15 +7,14 @@ import {
   AppNameImage,
   Button
 } from "./styles"
+import { Props } from './types'
 
-export const Header = () => {
-  const handlePress = () => {
-    // toggle
-  }
-
+export const Header = ({
+  toggleSidePanel
+}: Props) => {
   return (
     <Container>
-      <Button onPress={handlePress}>
+      <Button onPress={toggleSidePanel}>
         <ToggleIcon height={22} width={22} />
       </Button>
       <AppNameImage

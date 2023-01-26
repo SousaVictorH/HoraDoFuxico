@@ -12,7 +12,7 @@ export const HelpScreen = ({
   navigation
 }: Props) => {
   return (
-    <LoggedWrapper>
+    <LoggedWrapper navigation={navigation}>
       <ContentWrapper>
         <Text>{helpText}</Text>
       </ContentWrapper>

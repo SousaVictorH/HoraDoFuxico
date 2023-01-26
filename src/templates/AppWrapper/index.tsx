@@ -1,4 +1,5 @@
 import React from 'react';
+import { StatusBar } from 'expo-status-bar';
 
 import theme from 'styles/theme';
 
@@ -13,6 +14,7 @@ export const AppWrapper = ({
 }: AppWrapperProps) => {
   return (
     <ThemeProvider theme={theme}>
+      <StatusBar hidden />
       <Container onLayout={onLayout}>{children}</Container>
     </ThemeProvider>
   );

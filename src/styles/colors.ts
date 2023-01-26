@@ -32,8 +32,10 @@ export const supportColors: SupportColors = {
   beige_10: '#9FBFFF',
   white: '#FFF',
   transparent: 'rgba(0, 0, 0, 0)',
+  modalBackground: 'rgba(0, 0, 0, 0.35)',
   purple: '#851ae5',
-  orange: '#DD9064'
+  orange: '#DD9064',
+  lightOrange: '#F5D4C1'
 };
 
 export const technicalColors: TechnicalColors = {

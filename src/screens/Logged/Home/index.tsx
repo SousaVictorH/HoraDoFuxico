@@ -32,7 +32,7 @@ export const HomeScreen = ({
   const age = calculateAge(birthDate)
 
   return (
-    <LoggedWrapper>
+    <LoggedWrapper navigation={navigation}>
       <ProfileWrapper>
         <ProfileImage
           source={photo ? { uri: photo } : images.defaultUser.path}

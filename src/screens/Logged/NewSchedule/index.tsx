@@ -76,7 +76,7 @@ export const NewScheduleScreen = ({
   const isValid = date.length === 10 && time.length === 5
 
   return (
-    <LoggedWrapper hideHeader>
+    <LoggedWrapper navigation={navigation} hideHeader>
       <Container>
         <Header onPress={() => navigation.navigate(HOME_SCREEN)}>
           <IconWrapper>
