@@ -51,3 +51,8 @@ export const selectDayAndTime = "Selecione o dia e horário"
 
 export const selectDay = "Selecione o dia"
 export const selectTime = "Selecione o horário"
+
+export const editYourInfo = "Dados pessoais"
+
+export const namePlaceholder = "Nome*"
+export const phonePlaceholder = "Telefone*"

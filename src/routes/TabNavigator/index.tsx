@@ -5,7 +5,8 @@ import { TabBar } from "components/tabBar"
 import {
   NOTIFICATIONS_SCREEN,
   HELP_SCREEN,
-  STACK_NAVIGATOR
+  STACK_NAVIGATOR,
+  PROFILE_SCREEN
 } from "constants/screens"
 
 import { defaultScreenOptions } from "routes/options"
@@ -15,6 +16,7 @@ import { StackNavigator } from "routes/StackNavigator"
 
 import { NotificationsScreen } from "screens/Logged/Notifications"
 import { HelpScreen } from "screens/Logged/Help"
+import { ProfileScreen } from "screens/Logged/Profile"
 
 const Tab = createBottomTabNavigator<RootStackParamList>();
 
@@ -43,6 +45,11 @@ export const TabNavigator = () => {
       <Tab.Screen
         name={HELP_SCREEN}
         component={HelpScreen}
+        options={defaultScreenOptions}
+      />
+      <Tab.Screen
+        name={PROFILE_SCREEN}
+        component={ProfileScreen}
         options={defaultScreenOptions}
       />
     </Tab.Navigator>

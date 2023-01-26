@@ -13,7 +13,6 @@ export const TextInput = styled.TextInput`
     font-family: ${theme.typography.fontFamily.poppins};
     color: ${theme.colors.support.black};
     background-color: ${theme.colors.technical.input_background};
-    border-radius: ${theme.borderRadius.xxs};
     padding: ${theme.spacings.none} ${theme.spacings.lg};
   `}
 `

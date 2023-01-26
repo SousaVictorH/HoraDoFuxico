@@ -16,6 +16,7 @@ export const Button = styled(TouchableOpacity)`
     border-radius: ${theme.borderRadius.xxs};
     padding: ${theme.spacings.md} ${theme.spacings.lg};
     border-color: ${theme.colors.neutrals.neutral_10};
+    background-color: ${theme.colors.support.transparent};
   `}
 `
 
