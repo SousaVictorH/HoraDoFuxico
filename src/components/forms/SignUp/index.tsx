@@ -28,7 +28,7 @@ export const SignUpForm = ({
     const { isValid, message } = validateBirthDate(birthDate)
 
     if (isValid) onSignUp({ name, birthDate, photo })
-    else Alert.alert('Warning', message)
+    else Alert.alert('Alerta', message)
   }
 
   const isValid = (name.length > 3) && (birthDate.length === 10)

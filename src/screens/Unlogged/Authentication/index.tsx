@@ -24,7 +24,7 @@ export const AuthenticationScreen = ({
     if (token === '000000') {
       navigation.navigate(TERMS_SCREEN)
     } else {
-      Alert.alert('Warning', 'Token incorreto')
+      Alert.alert('Alerta', 'Token incorreto')
     }
   }
 

@@ -28,7 +28,7 @@ export const PhotoInput = ({
 
       if (response.status !== 'granted') {
         // If no permission allowed throw alert
-        Alert.alert('Warning', 'Permission denied')
+        Alert.alert('Alerta', 'Permission denied')
       } else {
         // Else pick image
         pickImage()

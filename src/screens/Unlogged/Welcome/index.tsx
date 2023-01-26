@@ -72,7 +72,7 @@ export const WelcomeScreen = ({
     const phone = `(${areaCode}) ${phoneNumber}`
 
     if (phone.length !== 15) {
-      Alert.alert('Warning', 'Verifique seu número de celular')
+      Alert.alert('Alerta', 'Verifique seu número de celular')
     } else {
       setPhoneNumber(phoneNumber)
 
