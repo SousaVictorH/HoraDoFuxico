@@ -29,15 +29,11 @@ export const DateTimeInput = ({
   };
 
   const handleConfirm = (pickedValue: Date) => {
-    if (isDate) {
-      const date = moment(pickedValue).format("DD/MM/YYYY")
+    const format = isDate ? "DD/MM/YYYY" : 'HH:mm'
 
-      setValue(date)
-    } else {
-      const time = moment(pickedValue).format('HH:mm')
+    const newValue = moment(pickedValue).format(format)
 
-      setValue(time)
-    }
+    setValue(newValue)
 
     hideDatePicker()
   };
