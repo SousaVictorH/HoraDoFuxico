@@ -1,5 +1,9 @@
 import { SpacingsTypes } from './types';
 
+import { getWindowHeight } from 'utils/dimensions';
+
+const paddingTop = getWindowHeight() > 900 ? 95 : 70;
+
 export const spacings: SpacingsTypes = {
   none: '0px',
   xxs: '2px',
@@ -12,5 +16,6 @@ export const spacings: SpacingsTypes = {
   xxl: '30px',
   xxxl: '50px',
   xxxxl: '80px',
-  auto: 'auto'
+  auto: 'auto',
+  paddingTop: `${paddingTop}px`
 };

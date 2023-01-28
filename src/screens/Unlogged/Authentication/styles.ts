@@ -7,7 +7,10 @@ export const ContentWrapper = styled.View`
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding-top: 70px;
+
+  ${({ theme }: ThemeProps) => css`
+    padding-top: ${theme.spacings.paddingTop};
+  `}
 `
 
 export const AppNameImage = styled.Image`

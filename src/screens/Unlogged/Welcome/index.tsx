@@ -3,6 +3,7 @@ import { Alert, Animated, Easing } from "react-native"
 import AnimatedLottieView from "lottie-react-native"
 
 import { useStore } from "store"
+import Theme from "styles/theme"
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignInForm } from 'components/forms/SignIn'
@@ -41,7 +42,7 @@ export const WelcomeScreen = ({
     // Start animations
     Animated.parallel([
       Animated.spring(viewAnimation, {
-        toValue: 70,
+        toValue: Number(Theme.spacings.paddingTop.replace('px', '')),
         useNativeDriver: true
       }),
       Animated.timing(opacityAnimation, {
