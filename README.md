@@ -1,11 +1,13 @@
 # :closed_book: HoraDoFuxico
-A project made with React Native + Zustanad
+A project made with React Native + Zustand
 
 ## :question: About the project
 
 Developed during the course of Software Entrepreneurship, this application seeks to solve the problem of lack of 
 entertainment for the elderly. The idea is to provide a space controlled by moderators where seniors can meet and 
 interact with people of the same age group, where they can schedule time to talk about the most diverse topics.
+
+The project figma is available [Here](https://www.figma.com/file/bsBk3UgwACwS3ozUWUfSln/Empreendedorismo%3A-Hora-do-fuxico?node-id=0%3A1&t=FqzQ2hBDEGWZTYWN-1)
   
 ### :iphone: Here's a few snapshots / gifs of the app:
   
