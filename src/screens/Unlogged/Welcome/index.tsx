@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from "react"
 import { Alert, Animated, Easing } from "react-native"
 import AnimatedLottieView from "lottie-react-native"
 
+import * as Notifications from 'expo-notifications'
+
 import { useStore } from "store"
 import Theme from "styles/theme"
 
@@ -13,6 +15,8 @@ import { images } from "resources/images"
 
 import { promoteGoodMoments } from "constants/texts"
 import { AUTHENTICATION_SCREEN } from "constants/screens"
+
+import { registerForPushNotificationsAsync } from "utils/notifications"
 
 import {
   AnimatedView,
@@ -27,6 +31,13 @@ import { Props, OnSignInProps, OnSocialSignInProps } from "./types"
 export const WelcomeScreen = ({
   navigation
 }: Props) => {
+  // Notifications
+  const [expoPushToken, setExpoPushToken] = useState('')
+  const [notification, setNotification] = useState(false)
+
+  const notificationListener = useRef<any>()
+  const responseListener = useRef<any>()
+
   const { setPhoneNumber } = useStore()
 
   const [viewAnimation] = useState(new Animated.Value(0))
@@ -60,6 +71,24 @@ export const WelcomeScreen = ({
     return () => {
       animationRef.current?.reset();
     }
+  }, []);
+
+
+  useEffect(() => {
+    registerForPushNotificationsAsync().then(providedToken => setExpoPushToken(providedToken || ''));
+
+    notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
+      setNotification(notification ? true : false);
+    });
+
+    responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
+      console.log(response);
+    });
+
+    return () => {
+      Notifications.removeNotificationSubscription(notificationListener.current);
+      Notifications.removeNotificationSubscription(responseListener.current);
+    };
   }, []);
 
   const transform = {
