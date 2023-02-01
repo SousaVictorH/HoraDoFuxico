@@ -5,11 +5,13 @@ import { SidePanel } from "components/sidePanel"
 
 import { Container, ContentWrapper } from "./styles"
 import { Props } from "./types"
+import { ScreenWrapper } from "templates/ScreenWrapper"
 
 export const LoggedWrapper = ({
   children,
   hideHeader,
-  navigation
+  navigation,
+  scroll
 }: Props) => {
   const [showSidePanel, setShowSidePanel] = useState(false)
 
@@ -20,20 +22,23 @@ export const LoggedWrapper = ({
   }, [])
 
   return (
-    <Container>
-      {!hideHeader && <Header toggleSidePanel={() => setShowSidePanel(!showSidePanel)} />}
-      <SidePanel
-        navigation={navigation}
-        showSidePanel={showSidePanel}
-        toggleSidePanel={() => setShowSidePanel(!showSidePanel)}
-      />
-      <ContentWrapper>
-        {children}
-      </ContentWrapper>
-    </Container>
+    <ScreenWrapper scroll={scroll} behavior="height">
+      <Container>
+        {!hideHeader && <Header toggleSidePanel={() => setShowSidePanel(!showSidePanel)} />}
+        <SidePanel
+          navigation={navigation}
+          showSidePanel={showSidePanel}
+          toggleSidePanel={() => setShowSidePanel(!showSidePanel)}
+        />
+        <ContentWrapper>
+          {children}
+        </ContentWrapper>
+      </Container>
+    </ScreenWrapper>
   )
 }
 
 LoggedWrapper.defaultProps = {
-  hideHeader: false
+  hideHeader: false,
+  scroll: false
 }

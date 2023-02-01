@@ -6,5 +6,6 @@ import { RootStackParamList } from "routes/types"
 export type Props = {
   children: React.ReactNode
   hideHeader: boolean
+  scroll?: boolean
   navigation: StackNavigationProp<RootStackParamList, keyof RootStackParamList, undefined>
 }
