@@ -22,14 +22,6 @@ import {
 } from './styles'
 import { Props } from "./types"
 
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: false,
-    shouldSetBadge: false,
-  }),
-});
-
 export const AuthenticationScreen = ({
   navigation
 }: Props) => {
