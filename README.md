@@ -12,13 +12,22 @@ The project figma is available [Here](https://www.figma.com/file/bsBk3UgwACwS3oz
 ### :iphone: Here's a few snapshots / gifs of the app:
   
 <h3>Sign Up</h3>
-https://user-images.githubusercontent.com/55806765/216162730-3333f4b6-8bfc-4a52-9c3e-c8dc72ecc22d.mp4
+
+
+https://user-images.githubusercontent.com/55806765/216162924-9de20d78-ab5a-48a8-8afa-de433a62b196.mp4
+
 
 <h3>Profile</h3>
-https://user-images.githubusercontent.com/55806765/216162739-7e1bb981-9631-4753-a93d-6c2ef3720ff4.mp4
+
+
+https://user-images.githubusercontent.com/55806765/216162991-8f0a2008-7901-4d73-bf78-07dcdade935c.mp4
+
 
 <h3>Schedule</h3>
-https://user-images.githubusercontent.com/55806765/216162751-5c02dbce-6005-4ab7-957e-3cd76ada003b.mp4
+
+
+https://user-images.githubusercontent.com/55806765/216163004-dc5d55b8-1bcc-49c5-8902-cb40e1c2fe9f.mp4
+
 
 ###  :hammer: Made with
 
