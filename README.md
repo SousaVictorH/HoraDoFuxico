@@ -8,6 +8,8 @@ entertainment for the elderly. The idea is to provide a space controlled by mode
 interact with people of the same age group, where they can schedule time to talk about the most diverse topics.
 
 The project figma is available [Here](https://www.figma.com/file/bsBk3UgwACwS3ozUWUfSln/Empreendedorismo%3A-Hora-do-fuxico?node-id=0%3A1&t=FqzQ2hBDEGWZTYWN-1)
+
+To have a complete experience using the application, it must be run in a real device
   
 ### :iphone: Here's a few snapshots / gifs of the app:
   
