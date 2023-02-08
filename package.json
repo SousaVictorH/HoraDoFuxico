@@ -36,7 +36,8 @@
     "styled-components": "^5.3.6",
     "zustand": "^4.3.2",
     "expo-notifications": "~0.17.0",
-    "expo-device": "~5.0.0"
+    "expo-device": "~5.0.0",
+    "react-native-reanimated": "~2.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

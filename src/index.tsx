@@ -3,6 +3,8 @@ import { useCallback } from "react"
 import * as SplashScreen from 'expo-splash-screen'
 import { useFonts } from 'expo-font'
 
+import { PopUp } from "components/popUp"
+
 import { Poppins_400Regular, Poppins_600SemiBold } from '@expo-google-fonts/poppins'
 import { Baskervville_400Regular } from '@expo-google-fonts/baskervville'
 
@@ -28,6 +30,7 @@ export default () => {
 
   return (
     <AppWrapper onLayout={onLayoutRootView}>
+      <PopUp />
       <Router />
     </AppWrapper>
   )

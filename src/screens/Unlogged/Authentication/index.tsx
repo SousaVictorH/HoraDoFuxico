@@ -1,7 +1,9 @@
-import { Alert } from 'react-native'
+import { useEffect, useState } from 'react'
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { AuthCodeForm } from 'components/forms/AuthCode'
+
+import { usePopUpStore } from 'store/popUp'
 
 import { promoteFun } from 'constants/texts'
 import { TERMS_SCREEN } from 'constants/screens'
@@ -20,17 +22,37 @@ import { Props } from "./types"
 export const AuthenticationScreen = ({
   navigation
 }: Props) => {
+  const { launchPopUp } = usePopUpStore()
+
+  const [token, setToken] = useState('')
+
   const onSubmit = (inpuToken: string) => {
-    if (inpuToken === '000000') {
+    if (inpuToken === token) {
       navigation.navigate(TERMS_SCREEN)
     } else {
-      Alert.alert('Alerta', 'Token incorreto')
+      launchPopUp({
+        type: 'WARNING',
+        title: 'Erro',
+        description: `Token inserido está incorreto`
+      })
     }
   }
 
   const generateNewToken = () => {
-    // generateNewToken
+    const token = (Math.floor(Math.random() * 1000000) + 1000000).toString().substring(1);
+
+    setToken(token)
+
+    launchPopUp({
+      type: 'INFO',
+      title: 'Token de Acesso',
+      description: `Seu Token de accesso é ${token}`
+    })
   }
+
+  useEffect(() => {
+    setTimeout(() => generateNewToken(), 500)
+  }, [])
 
   return (
     <ScreenWrapper scroll >

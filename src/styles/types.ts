@@ -33,6 +33,7 @@ export type SupportColors = {
   purple: string;
   orange: string;
   lightOrange: string;
+  shadow: string;
 };
 
 export type TechnicalColors = {

@@ -9,14 +9,13 @@ export const useStore = create<State>((set) => ({
   photo: '',
   connected: false,
   schedules: [],
-  setPhoneNumber: (phoneNumber: string) => set((state) => ({ ...state, phoneNumber: phoneNumber })),
-  setPersonalData: (name: string, birthDate: string, photo: string) => set((state) => ({
-    ...state,
+  setPhoneNumber: (phoneNumber: string) => set(() => ({ phoneNumber: phoneNumber })),
+  setPersonalData: (name: string, birthDate: string, photo: string) => set(() => ({
     name: name,
     birthDate: birthDate,
     photo: photo
   })),
-  setIsConnected: (isConected: boolean) => set((state) => ({ ...state, connected: isConected })),
+  setIsConnected: (isConected: boolean) => set(() => ({ connected: isConected })),
   createSchedule: (schedule: Schedule) => set((state) => ({
     ...state,
     schedules: [...state.schedules, schedule]

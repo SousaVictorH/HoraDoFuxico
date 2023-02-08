@@ -25,8 +25,8 @@ export const supportColors: SupportColors = {
   black: '#313639',
   darkBlue: '#365D84',
   blue: '#92A3FD',
-  blue_50: '#9DCEFF',
-  blue_10: '#5E77FF',
+  blue_50: '#20639B',
+  blue_10: '#3c91d7',
   beige: '#D4E1FA',
   beige_50: '#4A4A4A',
   beige_10: '#9FBFFF',
@@ -35,7 +35,8 @@ export const supportColors: SupportColors = {
   modalBackground: 'rgba(0, 0, 0, 0.35)',
   purple: '#851ae5',
   orange: '#DD9064',
-  lightOrange: '#F5D4C1'
+  lightOrange: '#F5D4C1',
+  shadow: '#003049'
 };
 
 export const technicalColors: TechnicalColors = {
