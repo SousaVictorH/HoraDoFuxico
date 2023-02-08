@@ -75,7 +75,13 @@ export const NewScheduleScreen = ({
     setDate('')
     setTime('')
 
-    navigation.navigate(HOME_SCREEN)
+    launchPopUp({
+      type: "SUCCESS",
+      title: 'Sucesso',
+      description: 'Agendamento realizado com sucesso'
+    })
+
+    setTimeout(() => navigation.navigate(HOME_SCREEN), 500)
   }
 
   const isValid = date.length === 10 && time.length === 5
