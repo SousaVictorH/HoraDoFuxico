@@ -18,10 +18,29 @@ export const PopUp = () => {
     popUp
   } = usePopUpStore()
 
+  const getSource = () => {
+    switch (popUp?.type) {
+      case 'INFO':
+        return icons.info.path
+
+      case 'SUCCESS':
+        return icons.success.path
+
+      case 'WARNING':
+        return icons.warning.path
+
+      default:
+        return undefined
+    }
+  }
+
   return showPopUp && (
-    <Container style={{ shadowOffset: { width: 0, height: 1 } }}>
+    <Container
+      {...popUp}
+      style={{ shadowOffset: { width: 0, height: 1 } }}
+    >
       <Icon
-        source={icons.info.path}
+        source={getSource()}
         resizeMode='contain'
       />
       <ContentWrapper>

@@ -46,11 +46,11 @@ export const technicalColors: TechnicalColors = {
   input_background: '#E7E9EE',
   success_text: '#006A5D',
   success_spotlight: '#00B086',
-  success_background: '#E5F3F1',
+  success_background: '#198754',
   alert_text: '#936300',
   alert_spotlight: '#CC8A00',
   alert_background: '#FAF3E5',
   problem_text: '#971B2F',
   problem_spotlight: '#D02440',
-  problem_background: '#F5E8EA',
+  problem_background: '#CC3300',
 };

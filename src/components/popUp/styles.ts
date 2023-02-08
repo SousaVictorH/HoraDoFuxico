@@ -3,6 +3,8 @@ import Animated, { FadeInUp, FadeOutUp } from 'react-native-reanimated'
 
 import { getWindowWidth } from "utils/dimensions"
 
+import { getAppearence } from './appearance';
+
 import { ThemeProps } from "styles/types"
 
 const containerWidth = getWindowWidth() * 0.9
@@ -26,11 +28,11 @@ export const Container = styled(Animated.View).attrs({
 
   ${({ theme }: ThemeProps) => css`
     border-radius: ${theme.borderRadius.xs};
-    background-color: ${theme.colors.support.blue_50};
     padding: ${theme.spacings.xlg};
     shadow-color: ${theme.colors.support.shadow};
     width: ${containerWidth}px;
     margin-left: -${containerWidth / 2}px;
+    ${getAppearence};
   `}
 `
 
@@ -42,6 +44,7 @@ export const Icon = styled.Image`
 export const ContentWrapper = styled.View`
   ${({ theme }: ThemeProps) => css`
     margin-left: ${theme.spacings.lg};
+    margin-right: ${theme.spacings.xlg};
   `}
 `
 

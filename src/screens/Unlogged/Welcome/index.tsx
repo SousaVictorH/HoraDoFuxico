@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from "react"
-import { Alert, Animated, Easing } from "react-native"
+import { Animated, Easing } from "react-native"
 import AnimatedLottieView from "lottie-react-native"
 
 import { useStore } from "store"
+import { usePopUpStore } from "store/popUp"
+
 import Theme from "styles/theme"
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
@@ -28,6 +30,7 @@ export const WelcomeScreen = ({
   navigation
 }: Props) => {
   const { setPhoneNumber } = useStore()
+  const { launchPopUp } = usePopUpStore()
 
   const [viewAnimation] = useState(new Animated.Value(0))
   const [opacityAnimation] = useState(new Animated.Value(0))
@@ -73,7 +76,11 @@ export const WelcomeScreen = ({
     const phone = `(${areaCode}) ${phoneNumber}`
 
     if (phone.length !== 15) {
-      Alert.alert('Alerta', 'Verifique seu número de celular')
+      launchPopUp({
+        type: "WARNING",
+        title: 'Aviso',
+        description: 'Verifique seu número de celular'
+      })
     } else {
       setPhoneNumber(phoneNumber)
 

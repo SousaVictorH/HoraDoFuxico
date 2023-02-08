@@ -13,5 +13,11 @@ export const icons = {
   },
   info: {
     path: require('../../../assets/icons/info.png')
+  },
+  warning: {
+    path: require('../../../assets/icons/warning.png')
+  },
+  success: {
+    path: require('../../../assets/icons/success.png')
   }
 }

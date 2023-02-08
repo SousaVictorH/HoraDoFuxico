@@ -1,5 +1,6 @@
-import { Alert } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+
+import { usePopUpStore } from 'store/popUp';
 
 import {
   Container,
@@ -18,6 +19,8 @@ export const PhotoInput = ({
   setPhoto,
   style
 }: Props) => {
+  const { launchPopUp } = usePopUpStore()
+
   const [status, requestPermission] = ImagePicker.useMediaLibraryPermissions();
 
   const requestImage = async () => {
@@ -28,7 +31,11 @@ export const PhotoInput = ({
 
       if (response.status !== 'granted') {
         // If no permission allowed throw alert
-        Alert.alert('Alerta', 'Permission denied')
+        launchPopUp({
+          type: 'WARNING',
+          title: 'Alerta',
+          description: 'Sem permissao para acessar as fotos'
+        })
       } else {
         // Else pick image
         pickImage()

@@ -10,6 +10,7 @@ import { hotTopicsList } from "resources/hotTopics"
 
 import { useStore } from 'store'
 import { Schedule } from "store/types"
+import { usePopUpStore } from "store/popUp"
 
 import {
   schedule,
@@ -31,12 +32,12 @@ import {
   RadioInput,
   Button
 } from "./styles"
-import { Alert } from "react-native"
 
 export const NewScheduleScreen = ({
   navigation
 }: Props) => {
   const { createSchedule } = useStore()
+  const { launchPopUp } = usePopUpStore()
 
   const [title, setTitle] = useState(hotTopicsList[0].title)
   const [date, setDate] = useState('')
@@ -54,7 +55,11 @@ export const NewScheduleScreen = ({
     const now = moment()
 
     if (!inputDate || now.isAfter(inputDate)) {
-      return Alert.alert('Alerta', 'Data inválida')
+      return launchPopUp({
+        type: "WARNING",
+        title: 'Alerta',
+        description: 'A data inserida é inválida'
+      })
     }
 
     const schedule: Schedule = {

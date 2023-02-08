@@ -32,7 +32,7 @@ export const AuthenticationScreen = ({
     } else {
       launchPopUp({
         type: 'WARNING',
-        title: 'Erro',
+        title: 'Aviso',
         description: `Token inserido está incorreto`
       })
     }

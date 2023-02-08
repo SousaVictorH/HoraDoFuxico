@@ -1,5 +1,3 @@
-import { Alert } from "react-native"
-
 import { LoggedWrapper } from "templates/LoggedWrapper"
 import { ProfileForm } from "components/forms/Profile"
 
@@ -7,6 +5,7 @@ import { GoBackIcon } from "resources/svgIcons"
 import { editYourInfo } from "constants/texts"
 
 import { useStore } from "store"
+import { usePopUpStore } from "store/popUp"
 
 import { validateBirthDate } from "utils/date"
 
@@ -32,17 +31,29 @@ export const ProfileScreen = ({
     setPhoneNumber
   } = useStore()
 
+  const { launchPopUp } = usePopUpStore()
+
   const handleSave = (newName: string, newPhoneNumber: string, newBirthDate: string, newPhoto?: string) => {
     const { isValid, message } = validateBirthDate(newBirthDate)
 
     if (!isValid) {
-      Alert.alert('Alerta', message)
+      launchPopUp({
+        type: "WARNING",
+        title: 'Alerta',
+        description: message
+      })
     } else {
       // Set data
       setPersonalData(newName, newBirthDate, newPhoto || '')
       setPhoneNumber(newPhoneNumber)
 
-      navigation.goBack()
+      launchPopUp({
+        type: "SUCCESS",
+        title: 'Sucesso',
+        description: 'Seus dados foram atualizados com sucesso'
+      })
+
+      setTimeout(() => navigation.goBack(), 500)
     }
   }
 

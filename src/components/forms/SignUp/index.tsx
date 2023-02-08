@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { Alert } from "react-native"
+
+import { usePopUpStore } from "store/popUp"
 
 import { FormWrapper } from "templates/FormWrapper"
 
@@ -20,6 +21,8 @@ import { Props } from "./types"
 export const SignUpForm = ({
   onSignUp
 }: Props) => {
+  const { launchPopUp } = usePopUpStore()
+
   const [name, setName] = useState('')
   const [birthDate, setBirthDate] = useState('')
   const [photo, setPhoto] = useState('')
@@ -28,7 +31,11 @@ export const SignUpForm = ({
     const { isValid, message } = validateBirthDate(birthDate)
 
     if (isValid) onSignUp({ name, birthDate, photo })
-    else Alert.alert('Alerta', message)
+    else launchPopUp({
+      type: "WARNING",
+      title: 'Aviso',
+      description: message
+    })
   }
 
   const isValid = (name.length > 3) && (birthDate.length === 10)
