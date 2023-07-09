@@ -1,16 +1,18 @@
 import styled, { css } from "styled-components/native"
-import { Animated } from "react-native"
+import Animated, { FadeInUp } from 'react-native-reanimated'
 
 import { ThemeProps } from "styles/types"
 import { getWindowWidth, getWindowHeight } from "utils/dimensions"
 
-export const AnimatedView = styled(Animated.View)`
+export const AnimatedView = styled(Animated.View).attrs({
+  entering: FadeInUp
+})`
   position: absolute;
   height: ${getWindowHeight()}px;
   width: ${getWindowWidth()}px;
 
   ${({ theme }: ThemeProps) => css`
-    padding: 0px ${theme.spacings.xlg};
+    padding: ${theme.spacings.paddingTop} ${theme.spacings.xlg};
   `}
 `
 

@@ -1,11 +1,8 @@
 import { useState, useRef, useEffect } from "react"
-import { Animated, Easing } from "react-native"
 import AnimatedLottieView from "lottie-react-native"
 
 import { useStore } from "store"
 import { usePopUpStore } from "store/popUp"
-
-import Theme from "styles/theme"
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignInForm } from 'components/forms/SignIn'
@@ -32,30 +29,9 @@ export const WelcomeScreen = ({
   const { setPhoneNumber } = useStore()
   const { launchPopUp } = usePopUpStore()
 
-  const [viewAnimation] = useState(new Animated.Value(0))
-  const [opacityAnimation] = useState(new Animated.Value(0))
-
   const [animationFinished, setAnimationFinished] = useState(false)
 
   const animationRef = useRef<any>(null)
-
-  const onFinish = () => {
-    setAnimationFinished(true)
-
-    // Start animations
-    Animated.parallel([
-      Animated.spring(viewAnimation, {
-        toValue: Number(Theme.spacings.paddingTop.replace('px', '')),
-        useNativeDriver: true
-      }),
-      Animated.timing(opacityAnimation, {
-        toValue: 1,
-        easing: Easing.cubic,
-        duration: 200,
-        useNativeDriver: true
-      })
-    ]).start()
-  }
 
   useEffect(() => {
     setTimeout(() => animationRef.current?.play(), 100);
@@ -64,13 +40,6 @@ export const WelcomeScreen = ({
       animationRef.current?.reset();
     }
   }, []);
-
-  const transform = {
-    transform: [
-      { translateY: viewAnimation }
-    ],
-    opacity: opacityAnimation
-  }
 
   const onSignIn = ({ areaCode, phoneNumber }: OnSignInProps) => {
     const phone = `(${areaCode}) ${phoneNumber}`
@@ -97,7 +66,7 @@ export const WelcomeScreen = ({
     <ScreenWrapper scroll>
       {
         animationFinished ? (
-          <AnimatedView style={transform}>
+          <AnimatedView>
             <ContentWrapper>
               <AppNameImage
                 source={images.blueAppName.path}
@@ -120,7 +89,7 @@ export const WelcomeScreen = ({
           <AnimatedLottieView
             ref={animationRef}
             source={animations.welcomeAnimation.path}
-            onAnimationFinish={onFinish}
+            onAnimationFinish={() => setAnimationFinished(true)}
             loop={false}
             autoPlay={false}
           />

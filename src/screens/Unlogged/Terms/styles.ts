@@ -48,7 +48,7 @@ export const FormContainer = styled.View`
 
   ${({ theme }: ThemeProps) => css`
     margin-top: ${theme.spacings.xxxl};
-    padding: ${theme.spacings.none} ${theme.spacings.xxl};
+    padding: ${theme.spacings.md} ${theme.spacings.xxl};
   `}
 `
 

@@ -1,5 +1,6 @@
-import React from "react";
+import React from "react"
 
 export type Props = {
-  children: React.ReactNode
+  justifyContent?: 'flex-start' | 'space-between' | 'space-around'
+  children?: React.ReactNode
 }

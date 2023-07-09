@@ -6,7 +6,6 @@ import { getButtonAppearance, getTextAppearance } from './appearance';
 import { ButtonWrapperProps, TextProps } from './types';
 
 export const Container = styled.TouchableOpacity`
-  flex: 1;
   align-self: center;
   justify-content: center;
   align-items: center;

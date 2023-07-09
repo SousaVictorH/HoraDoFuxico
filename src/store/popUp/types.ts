@@ -1,7 +1,7 @@
 export type PopUpTypes = {
-  WARNING: 'WARNING',
-  INFO: 'INFO',
-  SUCCESS: 'SUCCESS'
+  WARNING: 'error',
+  INFO: 'info',
+  SUCCESS: 'success'
 }
 
 export type PopUpProps = {
@@ -11,8 +11,6 @@ export type PopUpProps = {
 }
 
 export interface State {
-  showPopUp: boolean
   popUp?: PopUpProps
-  setShowPopUp: (showPopUp: boolean) => void
   launchPopUp: (popUpProps: PopUpProps) => void
 }

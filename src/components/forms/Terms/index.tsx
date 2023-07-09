@@ -28,7 +28,7 @@ export const TermsForm = ({
   }
 
   return (
-    <FormWrapper>
+    <FormWrapper justifyContent="flex-start" >
       <Label>
         {reedOur}
         <TextButton

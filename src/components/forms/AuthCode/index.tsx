@@ -17,7 +17,7 @@ export const AuthCodeForm = ({
   }
 
   return (
-    <FormWrapper>
+    <FormWrapper justifyContent="flex-start" >
       <Label>{singInWithCode}</Label>
       <TokenInput
         onSubmit={handleSubmit}
