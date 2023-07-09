@@ -1,4 +1,4 @@
-import { useStore } from "store"
+import { useUserStore } from "store/user"
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignUpForm } from 'components/forms/SignUp'
@@ -16,7 +16,7 @@ import { handleSubmitProps, Props } from "./types"
 export const SignUpScreen = ({
   navigation
 }: Props) => {
-  const { setPersonalData } = useStore()
+  const { setPersonalData } = useUserStore()
 
   const handleSubmit = ({
     name,

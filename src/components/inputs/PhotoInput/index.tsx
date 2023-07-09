@@ -1,6 +1,6 @@
 import * as ImagePicker from 'expo-image-picker';
 
-import { usePopUpStore } from 'store/popUp';
+import { useToastStore } from 'store/toast';
 
 import {
   Container,
@@ -19,7 +19,7 @@ export const PhotoInput = ({
   setPhoto,
   style
 }: Props) => {
-  const { launchPopUp } = usePopUpStore()
+  const { launchToast } = useToastStore()
 
   const [status, requestPermission] = ImagePicker.useMediaLibraryPermissions();
 
@@ -31,7 +31,7 @@ export const PhotoInput = ({
 
       if (response.status !== 'granted') {
         // If no permission allowed throw alert
-        launchPopUp({
+        launchToast({
           type: 'WARNING',
           title: 'Alerta',
           description: 'Sem permissao para acessar as fotos'

@@ -3,7 +3,7 @@ import { LoggedWrapper } from 'templates/LoggedWrapper'
 import { Connect } from 'components/connect'
 import { Schedules } from 'components/schedules'
 
-import { useStore } from 'store'
+import { useUserStore } from 'store/user'
 import { images } from 'resources/images'
 
 import { calculateAge } from 'utils/date'
@@ -27,7 +27,7 @@ export const HomeScreen = ({
     connected,
     schedules,
     setIsConnected
-  } = useStore()
+  } = useUserStore()
 
   const age = calculateAge(birthDate)
 

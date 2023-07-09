@@ -2,7 +2,7 @@ import { create } from 'zustand';
 
 import { State, Schedule } from './types';
 
-export const useStore = create<State>((set) => ({
+export const useUserStore = create<State>((set) => ({
   phoneNumber: '',
   name: '',
   birthDate: '',

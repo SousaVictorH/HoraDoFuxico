@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-import { usePopUpStore } from "store/popUp"
+import { useToastStore } from "store/toast"
 
 import { FormWrapper } from "templates/FormWrapper"
 
@@ -21,7 +21,7 @@ import { Props } from "./types"
 export const SignUpForm = ({
   onSignUp
 }: Props) => {
-  const { launchPopUp } = usePopUpStore()
+  const { launchToast } = useToastStore()
 
   const [name, setName] = useState('')
   const [birthDate, setBirthDate] = useState('')
@@ -31,7 +31,7 @@ export const SignUpForm = ({
     const { isValid, message } = validateBirthDate(birthDate)
 
     if (isValid) onSignUp({ name, birthDate, photo })
-    else launchPopUp({
+    else launchToast({
       type: "WARNING",
       title: 'Aviso',
       description: message

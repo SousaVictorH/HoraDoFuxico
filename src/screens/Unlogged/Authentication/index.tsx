@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { AuthCodeForm } from 'components/forms/AuthCode'
 
-import { usePopUpStore } from 'store/popUp'
+import { useToastStore } from 'store/toast'
 
 import { promoteFun } from 'constants/texts'
 import { TERMS_SCREEN } from 'constants/screens'
@@ -22,7 +22,7 @@ import { Props } from "./types"
 export const AuthenticationScreen = ({
   navigation
 }: Props) => {
-  const { launchPopUp } = usePopUpStore()
+  const { launchToast } = useToastStore()
 
   const [token, setToken] = useState('')
 
@@ -30,7 +30,7 @@ export const AuthenticationScreen = ({
     if (inpuToken === token) {
       navigation.navigate(TERMS_SCREEN)
     } else {
-      launchPopUp({
+      launchToast({
         type: 'WARNING',
         title: 'Aviso',
         description: `Token inserido está incorreto`
@@ -43,7 +43,7 @@ export const AuthenticationScreen = ({
 
     setToken(token)
 
-    launchPopUp({
+    launchToast({
       type: 'INFO',
       title: 'Token de Acesso',
       description: `Seu Token de accesso é ${token}`

@@ -8,9 +8,9 @@ import { DateTimeInput } from "components/inputs/DateTimeInput"
 import { GoBackIcon } from 'resources/svgIcons'
 import { hotTopicsList } from "resources/hotTopics"
 
-import { useStore } from 'store'
-import { Schedule } from "store/types"
-import { usePopUpStore } from "store/popUp"
+import { useUserStore } from 'store/user'
+import { Schedule } from "store/user/types"
+import { useToastStore } from "store/toast"
 
 import {
   schedule,
@@ -36,8 +36,8 @@ import {
 export const NewScheduleScreen = ({
   navigation
 }: Props) => {
-  const { createSchedule } = useStore()
-  const { launchPopUp } = usePopUpStore()
+  const { createSchedule } = useUserStore()
+  const { launchToast } = useToastStore()
 
   const [title, setTitle] = useState(hotTopicsList[0].title)
   const [date, setDate] = useState('')
@@ -55,7 +55,7 @@ export const NewScheduleScreen = ({
     const now = moment()
 
     if (!inputDate || now.isAfter(inputDate)) {
-      return launchPopUp({
+      return launchToast({
         type: "WARNING",
         title: 'Alerta',
         description: 'A data inserida é inválida'
@@ -75,7 +75,7 @@ export const NewScheduleScreen = ({
     setDate('')
     setTime('')
 
-    launchPopUp({
+    launchToast({
       type: "SUCCESS",
       title: 'Sucesso',
       description: 'Agendamento realizado com sucesso'

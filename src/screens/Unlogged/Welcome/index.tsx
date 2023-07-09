@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react"
 import AnimatedLottieView from "lottie-react-native"
 
-import { useStore } from "store"
-import { usePopUpStore } from "store/popUp"
+import { useUserStore } from "store/user"
+import { useToastStore } from "store/toast"
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignInForm } from 'components/forms/SignIn'
@@ -26,8 +26,8 @@ import { Props, OnSignInProps, OnSocialSignInProps } from "./types"
 export const WelcomeScreen = ({
   navigation
 }: Props) => {
-  const { setPhoneNumber } = useStore()
-  const { launchPopUp } = usePopUpStore()
+  const { setPhoneNumber } = useUserStore()
+  const { launchToast } = useToastStore()
 
   const [animationFinished, setAnimationFinished] = useState(false)
 
@@ -45,7 +45,7 @@ export const WelcomeScreen = ({
     const phone = `(${areaCode}) ${phoneNumber}`
 
     if (phone.length !== 15) {
-      launchPopUp({
+      launchToast({
         type: "WARNING",
         title: 'Aviso',
         description: 'Verifique seu número de celular'
