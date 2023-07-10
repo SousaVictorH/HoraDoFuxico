@@ -1,7 +1,5 @@
 import { useState } from "react"
-
-import { useToastStore } from "store/toast"
-import { ToastTypes, ToastTitles } from "store/toast/types"
+import Toast from 'react-native-toast-message'
 
 import { FormWrapper } from "templates/FormWrapper"
 
@@ -21,8 +19,6 @@ import { Props } from "./types"
 export const SignUpForm = ({
   onSignUp
 }: Props) => {
-  const { launchToast } = useToastStore()
-
   const [name, setName] = useState('')
   const [birthDate, setBirthDate] = useState('')
   const [photo, setPhoto] = useState('')
@@ -31,10 +27,10 @@ export const SignUpForm = ({
     const { isValid, message } = validateBirthDate(birthDate)
 
     if (isValid) onSignUp({ name, birthDate, photo })
-    else launchToast({
-      type: ToastTypes.WARNING,
-      title: ToastTitles.ALERT,
-      description: message
+    else Toast.show({
+      type: 'error',
+      text1: 'Aleta',
+      text2: message
     })
   }
 

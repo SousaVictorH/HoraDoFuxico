@@ -3,7 +3,7 @@ import { useCallback } from "react"
 import * as SplashScreen from 'expo-splash-screen'
 import { useFonts } from 'expo-font'
 
-import Toast from "components/toast"
+import { Toast } from "components/toast"
 
 import { Poppins_400Regular, Poppins_600SemiBold } from '@expo-google-fonts/poppins'
 import { Baskervville_400Regular } from '@expo-google-fonts/baskervville'

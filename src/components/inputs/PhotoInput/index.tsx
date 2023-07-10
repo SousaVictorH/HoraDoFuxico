@@ -1,7 +1,5 @@
 import * as ImagePicker from 'expo-image-picker';
-
-import { useToastStore } from 'store/toast';
-import { ToastTypes, ToastTitles } from 'store/toast/types';
+import Toast from 'react-native-toast-message';
 
 import {
   Container,
@@ -13,15 +11,13 @@ import {
 import { Props } from './types'
 
 import { photoInputPlaceholder, add } from 'constants/texts'
-import { icons } from 'resources/icons';
+import { icons } from 'resources/icons'
 
 export const PhotoInput = ({
   photo,
   setPhoto,
   style
 }: Props) => {
-  const { launchToast } = useToastStore()
-
   const [status, requestPermission] = ImagePicker.useMediaLibraryPermissions();
 
   const requestImage = async () => {
@@ -32,10 +28,10 @@ export const PhotoInput = ({
 
       if (response.status !== 'granted') {
         // If no permission allowed throw alert
-        launchToast({
-          type: ToastTypes.WARNING,
-          title: ToastTitles.ALERT,
-          description: 'Sem permissao para acessar as fotos'
+        Toast.show({
+          type: 'error',
+          text1: 'Aleta',
+          text2: 'Sem permissao para acessar as fotos'
         })
       } else {
         // Else pick image

@@ -50,7 +50,6 @@ export type TechnicalColors = {
   problem_background: string;
   input_text: string;
   input_background: string;
-  toast_background: string;
 };
 
 type ColorsType = {

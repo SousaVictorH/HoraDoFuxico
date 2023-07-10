@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
 
+import Toast from 'react-native-toast-message'
+
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { AuthCodeForm } from 'components/forms/AuthCode'
-
-import { useToastStore } from 'store/toast'
-import { ToastTypes, ToastTitles } from "store/toast/types"
 
 import { promoteFun } from 'constants/texts'
 import { TERMS_SCREEN } from 'constants/screens'
@@ -23,18 +22,16 @@ import { Props } from "./types"
 export const AuthenticationScreen = ({
   navigation
 }: Props) => {
-  const { launchToast } = useToastStore()
-
   const [token, setToken] = useState('')
 
   const onSubmit = (inpuToken: string) => {
     if (inpuToken === token) {
       navigation.navigate(TERMS_SCREEN)
     } else {
-      launchToast({
-        type: ToastTypes.WARNING,
-        title: ToastTitles.ALERT,
-        description: `Token inserido está incorreto`
+      Toast.show({
+        type: 'error',
+        text1: 'Alerta',
+        text2: 'Token inserido está incorreto'
       })
     }
   }
@@ -44,10 +41,10 @@ export const AuthenticationScreen = ({
 
     setToken(token)
 
-    launchToast({
-      type: ToastTypes.INFO,
-      title: ToastTitles.ACCESS_TOKEN,
-      description: `Seu Token de accesso é ${token}`
+    Toast.show({
+      type: 'info',
+      text1: 'Token de acesso',
+      text2: `Seu Token de accesso é ${token}`
     })
   }
 
