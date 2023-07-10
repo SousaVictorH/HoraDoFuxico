@@ -8,7 +8,7 @@ import { hotTopics, schedule, emptyText } from "constants/texts"
 import { hotTopicsList } from "resources/hotTopics"
 import { NEW_SCHEDULE_SCREEN } from "constants/screens"
 
-import { Schedule } from "store/types"
+import { Schedule } from "store/user/types"
 
 import {
   Container,

@@ -2,7 +2,9 @@ import { useState, useRef, useEffect } from "react"
 import AnimatedLottieView from "lottie-react-native"
 
 import { useUserStore } from "store/user"
+
 import { useToastStore } from "store/toast"
+import { ToastTypes, ToastTitles } from "store/toast/types"
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignInForm } from 'components/forms/SignIn'
@@ -46,8 +48,8 @@ export const WelcomeScreen = ({
 
     if (phone.length !== 15) {
       launchToast({
-        type: "WARNING",
-        title: 'Aviso',
+        type: ToastTypes.WARNING,
+        title: ToastTitles.ALERT,
         description: 'Verifique seu número de celular'
       })
     } else {

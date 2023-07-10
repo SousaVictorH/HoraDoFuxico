@@ -4,6 +4,7 @@ import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { AuthCodeForm } from 'components/forms/AuthCode'
 
 import { useToastStore } from 'store/toast'
+import { ToastTypes, ToastTitles } from "store/toast/types"
 
 import { promoteFun } from 'constants/texts'
 import { TERMS_SCREEN } from 'constants/screens'
@@ -31,8 +32,8 @@ export const AuthenticationScreen = ({
       navigation.navigate(TERMS_SCREEN)
     } else {
       launchToast({
-        type: 'WARNING',
-        title: 'Aviso',
+        type: ToastTypes.WARNING,
+        title: ToastTitles.ALERT,
         description: `Token inserido está incorreto`
       })
     }
@@ -44,8 +45,8 @@ export const AuthenticationScreen = ({
     setToken(token)
 
     launchToast({
-      type: 'INFO',
-      title: 'Token de Acesso',
+      type: ToastTypes.INFO,
+      title: ToastTitles.ACCESS_TOKEN,
       description: `Seu Token de accesso é ${token}`
     })
   }

@@ -53,4 +53,5 @@ export const technicalColors: TechnicalColors = {
   problem_text: '#971B2F',
   problem_spotlight: '#D02440',
   problem_background: '#CC3300',
+  toast_background: '#f5f5f5'
 };

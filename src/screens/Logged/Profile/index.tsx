@@ -5,7 +5,9 @@ import { GoBackIcon } from "resources/svgIcons"
 import { editYourInfo } from "constants/texts"
 
 import { useUserStore } from "store/user"
+
 import { useToastStore } from "store/toast"
+import { ToastTypes, ToastTitles } from "store/toast/types"
 
 import { validateBirthDate } from "utils/date"
 
@@ -38,8 +40,8 @@ export const ProfileScreen = ({
 
     if (!isValid) {
       launchToast({
-        type: "WARNING",
-        title: 'Alerta',
+        type: ToastTypes.WARNING,
+        title: ToastTitles.ALERT,
         description: message
       })
     } else {
@@ -48,8 +50,8 @@ export const ProfileScreen = ({
       setPhoneNumber(newPhoneNumber)
 
       launchToast({
-        type: "SUCCESS",
-        title: 'Sucesso',
+        type: ToastTypes.SUCCESS,
+        title: ToastTitles.SUCCESS,
         description: 'Seus dados foram atualizados com sucesso'
       })
 

@@ -1,6 +1,7 @@
 import { useState } from "react"
 
 import { useToastStore } from "store/toast"
+import { ToastTypes, ToastTitles } from "store/toast/types"
 
 import { FormWrapper } from "templates/FormWrapper"
 
@@ -17,7 +18,6 @@ import {
 } from './styles'
 import { Props } from "./types"
 
-
 export const SignUpForm = ({
   onSignUp
 }: Props) => {
@@ -32,8 +32,8 @@ export const SignUpForm = ({
 
     if (isValid) onSignUp({ name, birthDate, photo })
     else launchToast({
-      type: "WARNING",
-      title: 'Aviso',
+      type: ToastTypes.WARNING,
+      title: ToastTitles.ALERT,
       description: message
     })
   }

@@ -1,11 +1,17 @@
-export type ToastTypes = {
-  WARNING: 'error',
-  INFO: 'info',
-  SUCCESS: 'success'
+export const ToastTypes = {
+  WARNING: 'ERROR',
+  INFO: 'INFO',
+  SUCCESS: 'SUCCESS'
+}
+
+export const ToastTitles = {
+  ALERT: 'Alerta',
+  SUCCESS: 'Sucesso',
+  ACCESS_TOKEN: 'Token de Acesso'
 }
 
 export type ToastProps = {
-  type: keyof ToastTypes
+  type: string
   title: string
   description: string
 }

@@ -48,8 +48,9 @@ export type TechnicalColors = {
   problem_text: string;
   problem_spotlight: string;
   problem_background: string;
-  input_text: string,
-  input_background: string,
+  input_text: string;
+  input_background: string;
+  toast_background: string;
 };
 
 type ColorsType = {

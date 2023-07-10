@@ -10,7 +10,9 @@ import { hotTopicsList } from "resources/hotTopics"
 
 import { useUserStore } from 'store/user'
 import { Schedule } from "store/user/types"
+
 import { useToastStore } from "store/toast"
+import { ToastTypes, ToastTitles } from "store/toast/types"
 
 import {
   schedule,
@@ -56,8 +58,8 @@ export const NewScheduleScreen = ({
 
     if (!inputDate || now.isAfter(inputDate)) {
       return launchToast({
-        type: "WARNING",
-        title: 'Alerta',
+        type: ToastTypes.WARNING,
+        title: ToastTitles.ALERT,
         description: 'A data inserida é inválida'
       })
     }
@@ -76,8 +78,8 @@ export const NewScheduleScreen = ({
     setTime('')
 
     launchToast({
-      type: "SUCCESS",
-      title: 'Sucesso',
+      type: ToastTypes.SUCCESS,
+      title: ToastTitles.SUCCESS,
       description: 'Agendamento realizado com sucesso'
     })
 

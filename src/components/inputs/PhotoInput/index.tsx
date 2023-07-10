@@ -1,6 +1,7 @@
 import * as ImagePicker from 'expo-image-picker';
 
 import { useToastStore } from 'store/toast';
+import { ToastTypes, ToastTitles } from 'store/toast/types';
 
 import {
   Container,
@@ -32,8 +33,8 @@ export const PhotoInput = ({
       if (response.status !== 'granted') {
         // If no permission allowed throw alert
         launchToast({
-          type: 'WARNING',
-          title: 'Alerta',
+          type: ToastTypes.WARNING,
+          title: ToastTitles.ALERT,
           description: 'Sem permissao para acessar as fotos'
         })
       } else {
