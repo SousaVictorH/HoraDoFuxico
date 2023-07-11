@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect } from "react"
 import AnimatedLottieView from "lottie-react-native"
-
 import Toast from "react-native-toast-message"
 
 import { useUserStore } from "store/user"
+
+import { requestLogin } from "interfaces/api"
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignInForm } from 'components/forms/SignIn'
@@ -30,6 +31,7 @@ export const WelcomeScreen = ({
   const { setPhoneNumber } = useUserStore()
 
   const [animationFinished, setAnimationFinished] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const animationRef = useRef<any>(null)
 
@@ -41,14 +43,26 @@ export const WelcomeScreen = ({
     }
   }, []);
 
-  const onSignIn = ({ areaCode, phoneNumber }: OnSignInProps) => {
+  const onSignIn = async ({ areaCode, phoneNumber }: OnSignInProps) => {
     const phone = `(${areaCode}) ${phoneNumber}`
 
     if (phone.length !== 15) {
-      Toast.show({
+      return Toast.show({
         type: 'error',
         text1: 'Alerta',
         text2: 'Verifique seu número de celular'
+      })
+    }
+
+    setIsLoading(true)
+    const response = await requestLogin(phoneNumber)
+    setIsLoading(false)
+
+    if (response.error) {
+      Toast.show({
+        type: 'error',
+        text1: 'Alerta',
+        text2: 'Algo deu errado...'
       })
     } else {
       setPhoneNumber(phoneNumber)
@@ -81,6 +95,7 @@ export const WelcomeScreen = ({
                 <SignInForm
                   onSignIn={onSignIn}
                   onSocialSignIn={onSocialSignIn}
+                  isLoading={isLoading}
                 />
               </FormContainer>
             </ContentWrapper>

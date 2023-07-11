@@ -1,6 +1,7 @@
 export type Props = {
   onSignIn: (arg: OnSignInProps) => void
   onSocialSignIn: (arg: OnSocialSignInProps) => void
+  isLoading: boolean
 }
 
 type OnSignInProps = {

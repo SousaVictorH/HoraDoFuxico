@@ -13,7 +13,8 @@ export const Button = ({
   marginBottom,
   appearance,
   disabled,
-  style
+  style,
+  isLoading
 }: ButtonProps) => {
   const handlePress = () => {
     !disabled && onPress()
@@ -24,12 +25,12 @@ export const Button = ({
       marginTop={marginTop}
       marginBottom={marginBottom}
       height={height}
-      appearance={appearance}
+      appearance={disabled || isLoading ? 'disabled' : appearance}
       activeOpacity={1}
       onPress={handlePress}
       style={style}
     >
-      <Text appearance={appearance}>{text}</Text>
+      <Text appearance={appearance}>{isLoading ? 'Loading...' : text}</Text>
     </Container>
   );
 };
@@ -40,5 +41,6 @@ Button.defaultProps = {
   marginBottom: 'none',
   height: 58,
   text: enter,
-  disabled: false
+  disabled: false,
+  isLoading: false
 };

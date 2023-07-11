@@ -17,7 +17,11 @@ import {
 } from './styles'
 import { Props } from "./types"
 
-export const SignInForm = ({ onSignIn, onSocialSignIn }: Props) => {
+export const SignInForm = ({
+  onSignIn,
+  onSocialSignIn,
+  isLoading
+}: Props) => {
   const [areaCode, setAreaCode] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
 
@@ -37,6 +41,7 @@ export const SignInForm = ({ onSignIn, onSocialSignIn }: Props) => {
       <FormButton
         onPress={handleSignIn}
         marginTop="lg"
+        isLoading={isLoading}
       />
       <SocialSignInWrapper>
         <SocialDiv />
