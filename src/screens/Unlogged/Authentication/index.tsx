@@ -1,9 +1,13 @@
-import { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import Toast from 'react-native-toast-message'
 
+import { requestLogin, login } from 'interfaces/api'
+
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { AuthCodeForm } from 'components/forms/AuthCode'
+
+import { useUserStore } from 'store/user'
 
 import { promoteFun } from 'constants/texts'
 import { TERMS_SCREEN } from 'constants/screens'
@@ -22,35 +26,38 @@ import { Props } from "./types"
 export const AuthenticationScreen = ({
   navigation
 }: Props) => {
-  const [token, setToken] = useState('')
+  const { phoneNumber } = useUserStore()
 
-  const onSubmit = (inpuToken: string) => {
-    if (inpuToken === token) {
-      navigation.navigate(TERMS_SCREEN)
-    } else {
+  const [isLoading, setIsLoading] = useState(false)
+
+  const onSubmit = async (inputToken: string) => {
+    if (isLoading) return
+
+    setIsLoading(true)
+    const response = await login(phoneNumber, inputToken)
+    setIsLoading(false)
+
+    if (response.error) {
       Toast.show({
         type: 'error',
         text1: 'Alerta',
         text2: 'Token inserido está incorreto'
       })
+    } else {
+      navigation.navigate(TERMS_SCREEN)
     }
   }
 
-  const generateNewToken = () => {
-    const token = (Math.floor(Math.random() * 1000000) + 1000000).toString().substring(1);
+  const onResendCode = () => {
+    if (isLoading) return
 
-    setToken(token)
-
+    // resend token
     Toast.show({
-      type: 'info',
-      text1: 'Token de acesso',
-      text2: `Seu Token de accesso é ${token}`
+      type: 'error',
+      text1: 'Alerta',
+      text2: 'Algo deu errado'
     })
   }
-
-  useEffect(() => {
-    setTimeout(() => generateNewToken(), 500)
-  }, [])
 
   return (
     <ScreenWrapper scroll >
@@ -67,7 +74,7 @@ export const AuthenticationScreen = ({
         <FormContainer>
           <AuthCodeForm
             onSubmit={onSubmit}
-            onResendCode={generateNewToken}
+            onResendCode={onResendCode}
           />
         </FormContainer>
       </ContentWrapper>

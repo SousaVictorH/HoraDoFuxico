@@ -37,7 +37,7 @@ export const PhoneInput = ({
 
           setPhoneNumber(maskedPhone)
 
-          if (maskedPhone.length >= 10) phoneNumberInputRef.current?.blur()
+          if (maskedPhone.length >= 9) phoneNumberInputRef.current?.blur()
         }}
         maxLength={10}
         keyboardType="numeric"

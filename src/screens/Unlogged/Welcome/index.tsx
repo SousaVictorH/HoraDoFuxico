@@ -44,9 +44,9 @@ export const WelcomeScreen = ({
   }, []);
 
   const onSignIn = async ({ areaCode, phoneNumber }: OnSignInProps) => {
-    const phone = `(${areaCode}) ${phoneNumber}`
+    const phone = areaCode + phoneNumber
 
-    if (phone.length !== 15) {
+    if (phone.length !== 11) {
       return Toast.show({
         type: 'error',
         text1: 'Alerta',
@@ -55,7 +55,7 @@ export const WelcomeScreen = ({
     }
 
     setIsLoading(true)
-    const response = await requestLogin(phoneNumber)
+    const response = await requestLogin(phone)
     setIsLoading(false)
 
     if (response.error) {
@@ -65,7 +65,7 @@ export const WelcomeScreen = ({
         text2: 'Algo deu errado...'
       })
     } else {
-      setPhoneNumber(phoneNumber)
+      setPhoneNumber(phone)
 
       navigation.navigate(AUTHENTICATION_SCREEN)
     }

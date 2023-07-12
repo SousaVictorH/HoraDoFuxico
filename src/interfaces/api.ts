@@ -7,7 +7,12 @@ import {
 
 export const requestLogin = async (phoneNumber: string) => {
   try {
-    return await api.post(REQUEST_LOGIN + phoneNumber)
+    const response = await api.post(REQUEST_LOGIN + phoneNumber)
+
+    return {
+      ...response,
+      error: null
+    }
   } catch (error) {
     return { error }
   }
@@ -17,8 +22,14 @@ export const login = async (phoneNumber: string, token: string) => {
   try {
     const data = { phoneNumber, token }
 
-    return await api.post(LOGIN, data)
+    const response = await api.post(LOGIN, data)
+
+    return {
+      ...response,
+      error: null
+    }
   } catch (error) {
+    console.log(error)
     return { error }
   }
 }
