@@ -45,7 +45,7 @@ export const validateBirthDate = (d: string) => {
 
 export const calculateAge = (d: string) => {
   const currentDate = moment(new Date())
-  const date = moment(d, "DD/MM/YYYY")
+  const date = moment(d)
 
   const age = currentDate.diff(date, 'years')
 

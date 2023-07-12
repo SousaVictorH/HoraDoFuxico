@@ -28,6 +28,7 @@ export const Router = () => {
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName={WELCOME_SCREEN}
+        screenOptions={{ gestureEnabled: false }}
       >
         <Stack.Screen
           name={WELCOME_SCREEN}

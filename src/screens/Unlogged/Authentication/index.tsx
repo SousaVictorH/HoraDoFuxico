@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
-
 import Toast from 'react-native-toast-message'
 
 import { requestLogin, login } from 'interfaces/api'
+import { useUserStore } from "store/user"
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { AuthCodeForm } from 'components/forms/AuthCode'
 
-import { useUserStore } from 'store/user'
-
 import { promoteFun } from 'constants/texts'
-import { TERMS_SCREEN } from 'constants/screens'
+import { LOGGED_NAVIGATOR, TERMS_SCREEN } from 'constants/screens'
 
 import { images } from 'resources/images'
 
@@ -24,11 +22,14 @@ import {
 import { Props } from "./types"
 
 export const AuthenticationScreen = ({
-  navigation
+  navigation,
+  route
 }: Props) => {
-  const { phoneNumber } = useUserStore()
+  const { setPersonalData } = useUserStore()
 
   const [isLoading, setIsLoading] = useState(false)
+
+  const { phoneNumber } = route.params
 
   const onSubmit = async (inputToken: string) => {
     if (isLoading) return
@@ -38,25 +39,41 @@ export const AuthenticationScreen = ({
     setIsLoading(false)
 
     if (response.error) {
-      Toast.show({
+      return Toast.show({
         type: 'error',
         text1: 'Alerta',
         text2: 'Token inserido está incorreto'
       })
+    }
+
+    if (response.data.token) {
+      setPersonalData(response.data)
+      navigation.navigate(LOGGED_NAVIGATOR)
     } else {
-      navigation.navigate(TERMS_SCREEN)
+      navigation.navigate(TERMS_SCREEN, { phoneNumber })
     }
   }
 
-  const onResendCode = () => {
+  const onResendCode = async () => {
     if (isLoading) return
 
-    // resend token
-    Toast.show({
-      type: 'error',
-      text1: 'Alerta',
-      text2: 'Algo deu errado'
-    })
+    setIsLoading(true)
+    const response = await requestLogin(phoneNumber)
+    setIsLoading(false)
+
+    if (response.error) {
+      Toast.show({
+        type: 'error',
+        text1: 'Alerta',
+        text2: 'Algo deu errado...'
+      })
+    } else {
+      Toast.show({
+        type: 'success',
+        text1: 'Sucesso',
+        text2: 'Token reenviado com sucesso'
+      })
+    }
   }
 
   return (

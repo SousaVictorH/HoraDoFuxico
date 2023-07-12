@@ -3,21 +3,17 @@ import { create } from 'zustand';
 import { State, Schedule } from './types';
 
 export const useUserStore = create<State>((set) => ({
-  phoneNumber: '',
+  token: '',
+  id: '',
   name: '',
-  birthDate: '',
-  photo: '',
-  connected: false,
+  dateOfBirth: '',
+  phoneNumber: '',
+  avatar: '',
   schedules: [],
-  setPhoneNumber: (phoneNumber: string) => set(() => ({ phoneNumber: phoneNumber })),
-  setPersonalData: (name: string, birthDate: string, photo: string) => set(() => ({
-    name: name,
-    birthDate: birthDate,
-    photo: photo
+  setPersonalData: (data) => set(() => ({
+    ...data
   })),
-  setIsConnected: (isConected: boolean) => set(() => ({ connected: isConected })),
   createSchedule: (schedule: Schedule) => set((state) => ({
-    ...state,
     schedules: [...state.schedules, schedule]
   }))
 }));

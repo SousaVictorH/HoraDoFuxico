@@ -5,14 +5,13 @@ export type Schedule = {
 }
 
 export interface State {
-  phoneNumber: string
+  token: string
+  id: string
   name: string
-  birthDate: string
-  photo: string
-  connected: boolean
+  dateOfBirth: string
+  phoneNumber: string
+  avatar: string
   schedules: Schedule[]
-  setPhoneNumber: (phoneNumber: string) => void
-  setPersonalData: (name: string, birthDate: string, photo: string) => void
-  setIsConnected: (isConected: boolean) => void
+  setPersonalData: (data: any) => void
   createSchedule: (schedule: Schedule) => void
 }

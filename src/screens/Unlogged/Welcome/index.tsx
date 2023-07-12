@@ -2,8 +2,6 @@ import { useState, useRef, useEffect } from "react"
 import AnimatedLottieView from "lottie-react-native"
 import Toast from "react-native-toast-message"
 
-import { useUserStore } from "store/user"
-
 import { requestLogin } from "interfaces/api"
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
@@ -28,8 +26,6 @@ import { Props, OnSignInProps, OnSocialSignInProps } from "./types"
 export const WelcomeScreen = ({
   navigation
 }: Props) => {
-  const { setPhoneNumber } = useUserStore()
-
   const [animationFinished, setAnimationFinished] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -44,6 +40,8 @@ export const WelcomeScreen = ({
   }, []);
 
   const onSignIn = async ({ areaCode, phoneNumber }: OnSignInProps) => {
+    if (isLoading) return
+
     const phone = areaCode + phoneNumber
 
     if (phone.length !== 11) {
@@ -59,15 +57,15 @@ export const WelcomeScreen = ({
     setIsLoading(false)
 
     if (response.error) {
-      Toast.show({
+      return Toast.show({
         type: 'error',
         text1: 'Alerta',
         text2: 'Algo deu errado...'
       })
     } else {
-      setPhoneNumber(phone)
-
-      navigation.navigate(AUTHENTICATION_SCREEN)
+      navigation.navigate(AUTHENTICATION_SCREEN, {
+        phoneNumber: phone
+      })
     }
   }
 

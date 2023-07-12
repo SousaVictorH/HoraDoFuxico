@@ -1,6 +1,5 @@
 import { LoggedWrapper } from 'templates/LoggedWrapper'
 
-import { Connect } from 'components/connect'
 import { Schedules } from 'components/schedules'
 
 import { useUserStore } from 'store/user'
@@ -22,36 +21,28 @@ export const HomeScreen = ({
 }: Props) => {
   const {
     name,
-    birthDate,
-    photo,
-    connected,
-    schedules,
-    setIsConnected
+    dateOfBirth,
+    avatar,
+    schedules
   } = useUserStore()
 
-  const age = calculateAge(birthDate)
+  const age = calculateAge(dateOfBirth)
 
   return (
     <LoggedWrapper navigation={navigation}>
       <ProfileWrapper>
         <ProfileImage
-          source={photo ? { uri: photo } : images.defaultUser.path}
+          source={avatar ? { uri: avatar } : images.defaultUser.path}
           resizeMode="cover"
         />
         <ProfileName>{name}</ProfileName>
         <ProfileAge>{age} anos</ProfileAge>
       </ProfileWrapper>
       <ContentWrapper>
-        {
-          !connected ? (
-            <Connect setIsConnected={setIsConnected} />
-          ) : (
-            <Schedules
-              schedules={schedules}
-              navigation={navigation}
-            />
-          )
-        }
+        <Schedules
+          schedules={schedules}
+          navigation={navigation}
+        />
       </ContentWrapper>
     </LoggedWrapper>
   )

@@ -1,7 +1,12 @@
+import React, { useState } from "react"
+import Toast from 'react-native-toast-message'
+
 import { useUserStore } from "store/user"
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignUpForm } from 'components/forms/SignUp'
+
+import { signUp } from "interfaces/api"
 
 import { images } from 'resources/images'
 import { LOGGED_NAVIGATOR } from "constants/screens"
@@ -14,18 +19,36 @@ import {
 import { handleSubmitProps, Props } from "./types"
 
 export const SignUpScreen = ({
-  navigation
+  navigation,
+  route
 }: Props) => {
   const { setPersonalData } = useUserStore()
 
-  const handleSubmit = ({
+  const [isLoading, setIsLoading] = useState(false)
+
+  const { phoneNumber } = route.params
+
+  const handleSubmit = async ({
     name,
     birthDate,
     photo
   }: handleSubmitProps) => {
-    setPersonalData(name, birthDate, photo)
+    if (isLoading) return
 
-    navigation.navigate(LOGGED_NAVIGATOR)
+    setIsLoading(true)
+    const response = await signUp(name, birthDate, phoneNumber, photo)
+    setIsLoading(false)
+
+    if (response.error) {
+      Toast.show({
+        type: 'error',
+        text1: 'Alerta',
+        text2: 'Token inserido está incorreto'
+      })
+    } else {
+      setPersonalData(response.data)
+      navigation.navigate(LOGGED_NAVIGATOR)
+    }
   }
 
   return (

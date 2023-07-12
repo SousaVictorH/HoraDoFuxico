@@ -1,4 +1,6 @@
-import { StackScreenProps } from "@react-navigation/stack";
-import { RootStackParamList } from "routes/types";
+import { NavigationProp, RouteProp } from "@react-navigation/native"
 
-export type Props = StackScreenProps<RootStackParamList>;
+export interface Props {
+  navigation: NavigationProp<any>,
+  route: RouteProp<{ params: { phoneNumber: string } }, 'params'>
+}

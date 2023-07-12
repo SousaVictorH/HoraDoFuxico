@@ -24,16 +24,19 @@ import { Props } from "./types"
 const modalHeight = getWindowHeight() * 0.8
 
 export const TermsScreen = ({
-  navigation
+  navigation,
+  route
 }: Props) => {
   const modalizeRef = useRef<Modalize>(null)
+
+  const { phoneNumber } = route.params
 
   const onShowTerms = () => {
     modalizeRef.current?.open()
   }
 
   const onNext = () => {
-    navigation.navigate(SIGN_UP_SCREEN)
+    navigation.navigate(SIGN_UP_SCREEN, { phoneNumber })
   }
 
   return (
