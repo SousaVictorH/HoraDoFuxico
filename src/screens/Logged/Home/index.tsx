@@ -21,12 +21,12 @@ export const HomeScreen = ({
 }: Props) => {
   const {
     name,
-    dateOfBirth,
+    birthDate,
     avatar,
     schedules
   } = useUserStore()
 
-  const age = calculateAge(dateOfBirth)
+  const age = calculateAge(birthDate)
 
   return (
     <LoggedWrapper navigation={navigation}>

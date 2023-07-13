@@ -35,12 +35,10 @@ export const ProfileScreen = ({
     name,
     avatar,
     phoneNumber,
-    dateOfBirth,
+    birthDate,
     setPersonalData,
     clearPersonalData
   } = useUserStore()
-
-  const birthDate = moment(dateOfBirth).format('DD/MM/YYYY')
 
   const [isLoading, setIsLoading] = useState(false)
 
@@ -117,7 +115,7 @@ export const ProfileScreen = ({
           <ProfileForm
             name={name}
             phoneNumber={phoneNumber}
-            birthDate={birthDate}
+            birthDate={moment(birthDate).format('DD/MM/YYYY')}
             photo={avatar}
             handleSubmit={handleSave}
           />

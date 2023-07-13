@@ -35,9 +35,9 @@ export const login = async (phoneNumber: string, token: string) => {
   }
 }
 
-export const signUp = async (name: string, dateOfBirth: string, phoneNumber: string, avatar?: string) => {
+export const signUp = async (name: string, birthDate: string, phoneNumber: string, avatar?: string) => {
   try {
-    const data = { name, dateOfBirth, phoneNumber, avatar }
+    const data = { name, birthDate, phoneNumber, avatar }
 
     const response = await api.post(SIGN_UP, data)
 
@@ -54,12 +54,12 @@ export const update = async (
   userId: string,
   token: string,
   name: string,
-  dateOfBirth: string,
+  birthDate: string,
   phoneNumber: string,
   avatar?: string
 ) => {
   try {
-    const data = { name, dateOfBirth, phoneNumber, avatar }
+    const data = { name, birthDate, phoneNumber, avatar }
 
     const response = await api.put(UPDATE + userId, data, { headers: { Authorization: token } })
 

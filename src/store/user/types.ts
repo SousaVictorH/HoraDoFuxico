@@ -8,7 +8,7 @@ export interface State {
   token: string
   id: string
   name: string
-  dateOfBirth: string
+  birthDate: string
   phoneNumber: string
   avatar: string
   schedules: Schedule[]
