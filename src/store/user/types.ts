@@ -13,5 +13,6 @@ export interface State {
   avatar: string
   schedules: Schedule[]
   setPersonalData: (data: any) => void
+  clearPersonalData: () => void
   createSchedule: (schedule: Schedule) => void
 }

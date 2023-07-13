@@ -34,7 +34,7 @@ export const ProfileForm = ({
 
   const isValid =
     (newName.length > 3) &&
-    (newPhoneNumber.length === 10) &&
+    (newPhoneNumber.length === 11) &&
     (newBirthDate.length === 10)
 
   const handlePress = () => {
@@ -55,7 +55,7 @@ export const ProfileForm = ({
         setValue={text => setNewPhoneNumber(phoneMask(text))}
         placeholder={phonePlaceholder}
         keyboardType="numeric"
-        maxLength={10}
+        maxLength={11}
       />
       <Title>{birthDateInputPlaceholder}</Title>
       <DateTimeInput

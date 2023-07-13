@@ -1,10 +1,16 @@
+import React, { useState } from "react"
 import Toast from "react-native-toast-message"
+
+import moment from "moment"
 
 import { LoggedWrapper } from "templates/LoggedWrapper"
 import { ProfileForm } from "components/forms/Profile"
 
+import { update } from "interfaces/api"
+
 import { GoBackIcon } from "resources/svgIcons"
 import { editYourInfo } from "constants/texts"
+import { WELCOME_SCREEN } from "constants/screens"
 
 import { useUserStore } from "store/user"
 
@@ -24,36 +30,76 @@ export const ProfileScreen = ({
   navigation
 }: Props) => {
   const {
+    id,
+    token,
     name,
+    avatar,
     phoneNumber,
-    birthDate,
-    photo,
+    dateOfBirth,
     setPersonalData,
-    setPhoneNumber
+    clearPersonalData
   } = useUserStore()
 
-  const handleSave = (newName: string, newPhoneNumber: string, newBirthDate: string, newPhoto?: string) => {
+  const birthDate = moment(dateOfBirth).format('DD/MM/YYYY')
+
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleSave = async (
+    newName: string,
+    newPhoneNumber: string,
+    newBirthDate: string,
+    newPhoto?: string
+  ) => {
+    if (isLoading) return
+
     const { isValid, message } = validateBirthDate(newBirthDate)
 
     if (!isValid) {
-      Toast.show({
+      return Toast.show({
         type: 'error',
         text1: 'Alerta',
         text2: message
       })
-    } else {
-      // Set data
-      setPersonalData(newName, newBirthDate, newPhoto || '')
-      setPhoneNumber(newPhoneNumber)
-
-      Toast.show({
-        type: 'success',
-        text1: 'Sucesso',
-        text2: 'Seus dados foram atualizados com sucesso'
-      })
-
-      setTimeout(() => navigation.goBack(), 500)
     }
+
+    setIsLoading(true)
+    const response = await update(id, token, newName, newBirthDate, newPhoneNumber, newPhoto)
+    setIsLoading(false)
+
+    if (response.error) {
+      const error = '' + response.error
+
+      if (error.includes('401')) {
+        // token expired
+        Toast.show({
+          type: 'error',
+          text1: 'Alerta',
+          text2: 'Seu token expirou'
+        })
+
+        setTimeout(() => {
+          clearPersonalData()
+          navigation.navigate(WELCOME_SCREEN)
+        }, 300)
+      } else {
+        Toast.show({
+          type: 'error',
+          text1: 'Alerta',
+          text2: 'Algo deu errado'
+        })
+      }
+
+      return
+    }
+
+    Toast.show({
+      type: 'success',
+      text1: 'Sucesso',
+      text2: 'Seus dados foram atualizados com sucesso'
+    })
+
+    setPersonalData(response.data)
+    setTimeout(() => navigation.goBack(), 300)
   }
 
   return (
@@ -72,7 +118,7 @@ export const ProfileScreen = ({
             name={name}
             phoneNumber={phoneNumber}
             birthDate={birthDate}
-            photo={photo}
+            photo={avatar}
             handleSubmit={handleSave}
           />
         </ContentWrapper>

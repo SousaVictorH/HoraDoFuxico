@@ -3,7 +3,8 @@ import { api } from 'services/api'
 import {
   REQUEST_LOGIN,
   LOGIN,
-  SIGN_UP
+  SIGN_UP,
+  UPDATE
 } from 'resources/url';
 
 export const requestLogin = async (phoneNumber: string) => {
@@ -45,6 +46,29 @@ export const signUp = async (name: string, dateOfBirth: string, phoneNumber: str
       error: null
     }
   } catch (error) {
+    return { data: {}, error }
+  }
+}
+
+export const update = async (
+  userId: string,
+  token: string,
+  name: string,
+  dateOfBirth: string,
+  phoneNumber: string,
+  avatar?: string
+) => {
+  try {
+    const data = { name, dateOfBirth, phoneNumber, avatar }
+
+    const response = await api.put(UPDATE + userId, data, { headers: { Authorization: token } })
+
+    return {
+      data: response.data,
+      error: null
+    }
+  } catch (error) {
+    console.log(error)
     return { data: {}, error }
   }
 }

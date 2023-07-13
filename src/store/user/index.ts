@@ -13,6 +13,15 @@ export const useUserStore = create<State>((set) => ({
   setPersonalData: (data) => set(() => ({
     ...data
   })),
+  clearPersonalData: () => set(() => ({
+    token: '',
+    id: '',
+    name: '',
+    dateOfBirth: '',
+    phoneNumber: '',
+    avatar: '',
+    schedules: [],
+  })),
   createSchedule: (schedule: Schedule) => set((state) => ({
     schedules: [...state.schedules, schedule]
   }))
