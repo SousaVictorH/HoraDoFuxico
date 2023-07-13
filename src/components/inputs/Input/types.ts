@@ -13,4 +13,5 @@ export type Props = {
   style?: StyleProp<ViewStyle>
   placeholder?: string
   onBlur?: () => void
+  editable?: boolean
 }

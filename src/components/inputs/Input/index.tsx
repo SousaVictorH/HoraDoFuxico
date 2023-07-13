@@ -12,7 +12,8 @@ export const Input = React.forwardRef(({
   maxLength,
   style,
   placeholder,
-  onBlur
+  onBlur,
+  editable
 }: Props, ref?: Ref<TextInputType>) => {
   return (
     <TextInput
@@ -25,11 +26,13 @@ export const Input = React.forwardRef(({
       style={style}
       placeholder={placeholder}
       onBlur={onBlur}
+      editable={editable}
     />
   )
 })
 
 Input.defaultProps = {
   autoFocus: false,
-  value: ''
+  value: '',
+  editable: true
 }

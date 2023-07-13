@@ -1,79 +1,81 @@
-import { useState, useEffect, useRef } from "react"
-import { TextInput } from "react-native"
+import React, { useRef, useState } from "react"
+import { NativeSyntheticEvent, TextInput, TextInputKeyPressEventData } from "react-native"
 
 import { PartInput } from "components/inputs/PartInput"
-
-import { replaceAt } from "utils/strings"
 
 import { Container } from "./styles"
 import { Props } from "./types"
 
 export const TokenInput = ({
-  onSubmit
+  onSubmit,
+  length,
+  disabled
 }: Props) => {
-  // Inputs Refs
-  const part0Input = useRef<TextInput>(null)
-  const part1Input = useRef<TextInput>(null)
-  const part2Input = useRef<TextInput>(null)
-  const part3Input = useRef<TextInput>(null)
-  const part4Input = useRef<TextInput>(null)
-  const part5Input = useRef<TextInput>(null)
+  const [value, setValue] = useState<Array<string>>(Array(length).fill(''))
 
-  const [token, setToken] = useState('');
+  const onChange = (newValue: Array<string>) => {
+    setValue(newValue)
 
-  useEffect(() => {
-    token.length === 6 && onSubmit(token)
-  }, [token])
+    const str = newValue.join('')
 
-  const handleSetValue = (index: number, text: string) => {
-    setToken(replaceAt(token, index, text))
+    if (str.length === length) onSubmit(str)
+  }
+
+  const inputRefs = useRef<Array<TextInput>>([])
+
+  const onChangeValue = (text: string, index: number) => {
+    const newValue = value.map((item: string, valueIndex: number) => {
+      if (valueIndex === index) {
+        return text
+      }
+
+      return item
+    })
+
+    onChange(newValue)
+  }
+
+  const handleChange = (text: string, index: number) => {
+    onChangeValue(text, index)
+
+    if (text.length !== 0) {
+      return inputRefs?.current[index + 1]?.focus()
+    }
+
+    return inputRefs?.current[index - 1]?.focus()
+  }
+
+  const handleBackspace = (event: NativeSyntheticEvent<TextInputKeyPressEventData>, index: number) => {
+    const { nativeEvent } = event
+
+    if (nativeEvent.key === 'Backspace') {
+      handleChange('', index)
+    }
   }
 
   return (
     <Container>
-      <PartInput
-        ref={part0Input}
-        value={token.charAt(0)}
-        setValue={(text: string) => handleSetValue(0, text)}
-        callNext={() => part1Input.current?.focus()}
-      />
-      <PartInput
-        ref={part1Input}
-        value={token.charAt(1)}
-        setValue={(text: string) => handleSetValue(1, text)}
-        callNext={() => part2Input.current?.focus()}
-        callPrevious={() => part0Input.current?.focus()}
-      />
-      <PartInput
-        ref={part2Input}
-        value={token.charAt(2)}
-        setValue={(text: string) => handleSetValue(2, text)}
-        callNext={() => part3Input.current?.focus()}
-        callPrevious={() => part1Input.current?.focus()}
-      />
-      <PartInput
-        ref={part3Input}
-        value={token.charAt(3)}
-        setValue={(text: string) => handleSetValue(3, text)}
-        callNext={() => part4Input.current?.focus()}
-        callPrevious={() => part2Input.current?.focus()}
-      />
-      <PartInput
-        ref={part4Input}
-        value={token.charAt(4)}
-        setValue={(text: string) => handleSetValue(4, text)}
-        callNext={() => part5Input.current?.focus()}
-        callPrevious={() => part3Input.current?.focus()}
-      />
-      <PartInput
-        ref={part5Input}
-        value={token.charAt(5)}
-        setValue={(text: string) => handleSetValue(5, text)}
-        callNext={() => {
-          part5Input.current?.blur()
-        }}
-        callPrevious={() => part4Input.current?.focus()}
-      />
+      {value.map((_, index) => (
+        <PartInput
+          key={index}
+          ref={(ref) => {
+            // Add to input ref list
+            if (ref && !inputRefs.current.includes(ref)) {
+              inputRefs.current = [...inputRefs.current, ref]
+            }
+          }}
+          onChangeText={(text) => handleChange(text, index)}
+          onKeyPress={(evt) => handleBackspace(evt, index)}
+          contextMenuHidden
+          selectTextOnFocus
+          editable={!disabled}
+        />
+      ))}
     </Container>
   )
+}
+
+TokenInput.defaultProps = {
+  disabled: false,
+  length: 6
 }

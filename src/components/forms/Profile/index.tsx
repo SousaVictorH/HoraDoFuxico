@@ -48,6 +48,7 @@ export const ProfileForm = ({
         value={newName}
         setValue={text => setNewName(text)}
         placeholder={namePlaceholder}
+        editable
       />
       <Title>{phonePlaceholder}</Title>
       <Input
@@ -56,6 +57,7 @@ export const ProfileForm = ({
         placeholder={phonePlaceholder}
         keyboardType="numeric"
         maxLength={11}
+        editable={false}
       />
       <Title>{birthDateInputPlaceholder}</Title>
       <DateTimeInput

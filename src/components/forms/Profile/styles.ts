@@ -39,9 +39,14 @@ export const DateTimeInput = styled(DateTimeInputComponent)`
 export const Input = styled(InputComponent)`
   border-width: 1px;
 
-  ${({ theme }: ThemeProps) => css`
+  ${({ theme, editable }: ThemeProps & any) => css`
     background-color: ${theme.colors.support.transparent};
     border-color: ${theme.colors.neutrals.neutral_10};
     border-radius: ${theme.borderRadius.xxs};
+  `}
+
+  ${({ theme, editable }: ThemeProps & any) => !editable && css`
+    background-color: ${theme.colors.neutrals.neutral_20};
+    border-color: ${theme.colors.neutrals.neutral_20};
   `}
 `

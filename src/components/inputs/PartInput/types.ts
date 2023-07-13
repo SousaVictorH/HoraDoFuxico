@@ -1,11 +1,10 @@
-import { KeyboardTypeOptions } from "react-native"
+import { KeyboardTypeOptions, NativeSyntheticEvent, TextInputKeyPressEventData } from "react-native"
 
 export type Props = {
-  autoFocus?: boolean
-  value: string
-  setValue: (text: string) => void
+  onChangeText: (text: string) => void
+  onKeyPress: (e: NativeSyntheticEvent<TextInputKeyPressEventData>) => void
+  contextMenuHidden: boolean
+  selectTextOnFocus: boolean
+  editable: boolean
   keyboardType?: KeyboardTypeOptions
-  maxLength?: number
-  callNext: () => void
-  callPrevious?: () => void
 }

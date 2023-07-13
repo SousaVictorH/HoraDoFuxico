@@ -1,40 +1,31 @@
 import React, { Ref } from 'react'
 import { TextInput } from 'react-native'
 
-import { InputWrapper, Input } from './styles'
+import { Input } from './styles'
 import { Props } from './types'
 
 export const PartInput = React.forwardRef(({
-  autoFocus,
+  contextMenuHidden,
+  selectTextOnFocus,
+  editable,
   keyboardType,
-  value,
-  setValue,
-  callNext,
-  callPrevious,
-  maxLength
+  onChangeText,
+  onKeyPress
 }: Props, ref?: Ref<TextInput>) => {
   return (
-    <InputWrapper>
-      <Input
-        ref={ref}
-        autoFocus={autoFocus}
-        value={value}
-        onChangeText={(text) => {
-          setValue(text)
-
-          if (text) callNext()
-          else callPrevious && callPrevious()
-        }}
-        keyboardType={keyboardType}
-        maxLength={maxLength}
-      />
-    </InputWrapper>
+    <Input
+      ref={ref}
+      onChangeText={onChangeText}
+      onKeyPress={onKeyPress}
+      contextMenuHidden={contextMenuHidden}
+      selectTextOnFocus={selectTextOnFocus}
+      editable={editable}
+      maxLength={1}
+      keyboardType={keyboardType}
+    />
   )
 })
 
 PartInput.defaultProps = {
-  autoFocus: false,
-  keyboardType: 'numeric',
-  value: '',
-  maxLength: 1
+  keyboardType: 'decimal-pad',
 }

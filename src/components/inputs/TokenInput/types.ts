@@ -1,3 +1,5 @@
 export type Props = {
-  onSubmit: (token: string) => void
+  onSubmit: (value: string) => void
+  disabled?: boolean
+  length?: number
 }
