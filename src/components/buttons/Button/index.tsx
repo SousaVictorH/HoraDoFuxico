@@ -3,7 +3,7 @@ import React from 'react';
 import { enter } from 'constants/texts';
 
 import { ButtonProps } from './types';
-import { Container, Text } from './styles';
+import { Container, Spinner, Text } from './styles';
 
 export const Button = ({
   onPress,
@@ -25,12 +25,18 @@ export const Button = ({
       marginTop={marginTop}
       marginBottom={marginBottom}
       height={height}
-      appearance={disabled || isLoading ? 'disabled' : appearance}
+      appearance={(disabled || isLoading) ? 'disabled' : appearance}
       activeOpacity={1}
       onPress={handlePress}
       style={style}
     >
-      <Text appearance={appearance}>{isLoading ? 'Loading...' : text}</Text>
+      {
+        isLoading ? (
+          <Spinner />
+        ) : (
+          <Text appearance={appearance}>{text}</Text>
+        )
+      }
     </Container>
   );
 };

@@ -26,6 +26,10 @@ export const Container = styled.TouchableOpacity`
   `}
 `;
 
+export const Spinner = styled.ActivityIndicator.attrs({
+  size: 'small',
+  color: 'gray'
+})``
 
 export const Text = styled.Text`
   text-transform: uppercase;
