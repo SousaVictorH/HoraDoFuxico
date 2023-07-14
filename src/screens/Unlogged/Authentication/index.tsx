@@ -39,11 +39,27 @@ export const AuthenticationScreen = ({
     setIsLoading(false)
 
     if (response.error) {
-      return Toast.show({
-        type: 'error',
-        text1: 'Alerta',
-        text2: 'Token inserido está incorreto'
-      })
+      const error = '' + response.error
+
+      if (error.includes('403')) {
+        Toast.show({
+          type: 'info',
+          text1: 'Info',
+          text2: 'Seu token de acesso expirou, gerando um novo...'
+        })
+
+        setTimeout(() => {
+          onResendCode()
+        }, 700)
+      } else {
+        Toast.show({
+          type: 'error',
+          text1: 'Alerta',
+          text2: 'Token inserido está incorreto'
+        })
+      }
+
+      return
     }
 
     if (response.data.token) {
