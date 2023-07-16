@@ -39,7 +39,8 @@ export const TokenInput = ({
     onChangeValue(text, index)
 
     if (text.length !== 0) {
-      return inputRefs?.current[index + 1]?.focus()
+      if (index + 1 < length) return inputRefs?.current[index + 1]?.focus()
+      else return inputRefs?.current[index]?.blur()
     }
 
     return inputRefs?.current[index - 1]?.focus()

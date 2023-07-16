@@ -60,8 +60,10 @@ export const ProfileScreen = ({
       })
     }
 
+    const newPhone = newPhoneNumber.replace('-', '')
+
     setIsLoading(true)
-    const response = await update(id, token, newName, newBirthDate, newPhoneNumber, newPhoto)
+    const response = await update(id, token, newName, newBirthDate, newPhone, newPhoto)
     setIsLoading(false)
 
     if (response.error) {

@@ -42,7 +42,7 @@ export const WelcomeScreen = ({
   const onSignIn = async ({ areaCode, phoneNumber }: OnSignInProps) => {
     if (isLoading) return
 
-    const phone = areaCode + phoneNumber
+    const phone = (areaCode + phoneNumber).replace('-', '')
 
     if (phone.length !== 11) {
       return Toast.show({

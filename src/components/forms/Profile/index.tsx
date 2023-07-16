@@ -28,13 +28,13 @@ export const ProfileForm = ({
   photo
 }: Props) => {
   const [newName, setNewName] = useState(name)
-  const [newPhoneNumber, setNewPhoneNumber] = useState(phoneNumber)
+  const [newPhoneNumber, setNewPhoneNumber] = useState(phoneMask(phoneNumber))
   const [newBirthDate, setNewBirthDate] = useState(birthDate)
   const [newPhoto, setNewPhoto] = useState(photo)
 
   const isValid =
     (newName.length > 3) &&
-    (newPhoneNumber.length === 11) &&
+    (newPhoneNumber.length === 12) &&
     (newBirthDate.length === 10)
 
   const handlePress = () => {
