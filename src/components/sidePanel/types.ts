@@ -1,8 +1,6 @@
-import { StackNavigationProp } from "@react-navigation/stack"
-import { RootStackParamList } from "routes/types"
+import { StackScreenProps } from "@react-navigation/stack";
 
-export type Props = {
+export type Props = StackScreenProps<any> & {
   showSidePanel: boolean
   toggleSidePanel: () => void
-  navigation: StackNavigationProp<RootStackParamList, keyof RootStackParamList, undefined>
 }

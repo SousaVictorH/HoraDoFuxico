@@ -1,6 +1,5 @@
-import { Animated } from "react-native"
-
 import styled, { css } from "styled-components/native"
+import Animated, { SlideInLeft, SlideOutLeft } from 'react-native-reanimated'
 
 import { ThemeProps } from "styles/types"
 import { getWindowHeight, getWindowWidth } from "utils/dimensions"
@@ -16,8 +15,12 @@ export const Container = styled.TouchableOpacity`
   `}
 `
 
-export const PanelContainer = styled(Animated.View)`
+export const PanelContainer = styled(Animated.View).attrs({
+  entering: SlideInLeft,
+  exiting: SlideOutLeft
+})`
   height: 100%;
+  width: 240px;
 
   ${({ theme }: ThemeProps) => css`
     background-color: ${theme.colors.support.lightOrange};
