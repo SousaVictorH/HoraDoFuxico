@@ -1,13 +1,14 @@
 import { useState } from "react"
 
-import moment from "moment"
 import Toast from "react-native-toast-message"
+import Ionicons from '@expo/vector-icons/Ionicons'
+
+import moment from "moment"
 
 import { LoggedWrapper } from "templates/LoggedWrapper"
 
 import { DateTimeInput } from "components/inputs/DateTimeInput"
 
-import { GoBackIcon } from 'resources/svgIcons'
 import { hotTopicsList } from "resources/hotTopics"
 
 import { useUserStore } from 'store/user'
@@ -91,7 +92,7 @@ export const NewScheduleScreen = ({
       <Container>
         <Header onPress={() => navigation.navigate(HOME_SCREEN)}>
           <IconWrapper>
-            <GoBackIcon />
+            <Ionicons name="arrow-back-outline" size={35} color="#252424" />
           </IconWrapper>
           <HeaderText>{schedule}</HeaderText>
         </Header>

@@ -27,5 +27,3 @@ export const ButtonText = styled.Text`
     color: ${theme.colors.support.black};
   `}
 `
-
-export const IconWrapper = styled.View``

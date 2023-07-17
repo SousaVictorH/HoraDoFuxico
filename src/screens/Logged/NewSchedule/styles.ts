@@ -23,6 +23,7 @@ export const Header = styled(TouchableOpacity)`
 export const IconWrapper = styled.View`
   ${({ theme }: ThemeProps) => css`
     margin-right: ${theme.spacings.md};
+    margin-left: -${theme.spacings.xs};
   `}
 `
 

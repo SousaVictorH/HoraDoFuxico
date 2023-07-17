@@ -1,6 +1,6 @@
-import { images } from 'resources/images'
+import Ionicons from '@expo/vector-icons/Ionicons'
 
-import { ToggleIcon } from 'resources/svgIcons'
+import { images } from 'resources/images'
 
 import {
   Container,
@@ -15,7 +15,7 @@ export const Header = ({
   return (
     <Container>
       <Button onPress={toggleSidePanel}>
-        <ToggleIcon height={22} width={22} />
+        <Ionicons name="menu" size={32} color="#FFF" />
       </Button>
       <AppNameImage
         source={images.whiteAppName.path}

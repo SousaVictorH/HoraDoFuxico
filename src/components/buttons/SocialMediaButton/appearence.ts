@@ -25,11 +25,11 @@ export function getButtonAppearance({ theme, appearance }: AppearanceProps) {
 export function getIconAppearance({ appearance }: AppearanceProps) {
   const options: any = {
     Facebook: () => css`
-      height: 100%;
+      height: 95%;
       width: 90%;
     `,
     Google: () => css`
-      height: 95%;
+      height: 90%;
       width: 85%;
     `,
     Twitter: () => css`

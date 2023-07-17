@@ -1,8 +1,4 @@
-import {
-  HomeIcon,
-  NotificationsIcon,
-  HelpIcon
-} from "resources/svgIcons";
+import Ionicons from '@expo/vector-icons/Ionicons'
 
 import {
   HELP_SCREEN,
@@ -20,13 +16,13 @@ export const TabBar = ({
   const getIcon = (routeName: string, isActive: boolean) => {
     switch (routeName) {
       case STACK_NAVIGATOR:
-        return <HomeIcon active={isActive} />
+        return <Ionicons name="home-sharp" size={32} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
 
       case NOTIFICATIONS_SCREEN:
-        return <NotificationsIcon active={isActive} />
+        return <Ionicons name="notifications" size={32} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
 
       case HELP_SCREEN:
-        return <HelpIcon active={isActive} />
+        return <Ionicons name="help-circle" size={32} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
 
       default:
         return null

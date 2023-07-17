@@ -1,7 +1,9 @@
+import React from "react"
+
 import { RootStackParamList } from "routes/types"
 
 export type PanelOption = {
-  icon: string
+  icon: React.ReactNode
   title: string
   navigateTo: keyof RootStackParamList
 }

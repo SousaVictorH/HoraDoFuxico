@@ -43,15 +43,6 @@ export const Item = styled.TouchableOpacity`
   `}
 `
 
-export const ArrowText = styled.Text`
-  ${({ theme }: ThemeProps) => css`
-    font-size: ${theme.typography.elements.secondary.fontSize};
-    font-family: ${theme.typography.fontFamily.poppins};
-    color: ${theme.colors.neutrals.neutral_60};
-    margin-right: ${theme.spacings.md};
-  `}
-`
-
 export const ItemText = styled.Text`
   ${({ theme }: ThemeProps) => css`
     font-size: ${theme.typography.elements.body.fontSize};

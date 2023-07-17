@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import Toast from "react-native-toast-message"
 
+import Ionicons from '@expo/vector-icons/Ionicons'
+
 import moment from "moment"
 
 import { LoggedWrapper } from "templates/LoggedWrapper"
@@ -8,7 +10,6 @@ import { ProfileForm } from "components/forms/Profile"
 
 import { update } from "interfaces/api"
 
-import { GoBackIcon } from "resources/svgIcons"
 import { editYourInfo } from "constants/texts"
 
 import { useUserStore } from "store/user"
@@ -94,7 +95,7 @@ export const ProfileScreen = ({
         <Container>
           <Header onPress={() => navigation.goBack()}>
             <IconWrapper>
-              <GoBackIcon />
+              <Ionicons name="arrow-back-outline" size={35} color="#252424" />
             </IconWrapper>
             <HeaderText>{editYourInfo}</HeaderText>
           </Header>

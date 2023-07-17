@@ -1,12 +1,13 @@
-import React, { useState } from "react";
-import moment from "moment";
+import React, { useState } from "react"
+import moment from "moment"
 
-import DateTimePickerModal from "react-native-modal-datetime-picker";
+import Ionicons from '@expo/vector-icons/Ionicons'
+
+import DateTimePickerModal from "react-native-modal-datetime-picker"
 
 import { selectDay, selectTime } from "constants/texts"
-import { OpenIcon } from "resources/svgIcons";
 
-import { Button, ButtonText, IconWrapper } from "./styles"
+import { Button, ButtonText } from "./styles"
 import { Props } from "./types";
 
 export const DateTimeInput = ({
@@ -50,9 +51,7 @@ export const DateTimeInput = ({
             hasSelected ? value : placeholder
           }
         </ButtonText>
-        <IconWrapper>
-          <OpenIcon height={8} width={18} />
-        </IconWrapper>
+        <Ionicons name="chevron-up-outline" size={22} color="#252424" />
       </Button>
       <DateTimePickerModal
         isVisible={isDatePickerVisible}

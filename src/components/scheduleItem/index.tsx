@@ -1,5 +1,6 @@
-import { CalendarIcon, ClockIcon } from "resources/svgIcons"
-import { Schedule } from "store/types"
+import Ionicons from '@expo/vector-icons/Ionicons'
+
+import { Schedule } from "store/user/types"
 
 import {
   Container,
@@ -21,11 +22,11 @@ export const ScheduleItem = ({
         <Text>{title}</Text>
       </TitleContainer>
       <DateContainer>
-        <CalendarIcon height={20} width={20} />
+        <Ionicons name="calendar" size={22} color="#DD9064" />
         <Caption>{date}</Caption>
       </DateContainer>
       <TimeContainer>
-        <ClockIcon height={20} width={20} />
+        <Ionicons name="time" size={22} color="#DD9064" />
         <Caption>{time}</Caption>
       </TimeContainer>
     </Container>

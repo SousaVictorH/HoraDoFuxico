@@ -22,5 +22,5 @@ export const AppNameImage = styled.Image`
 export const Button = styled.TouchableOpacity`
   position: absolute;
   left: 25px;
-  top: 57%;
+  top: 50%;
 `

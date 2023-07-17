@@ -11,8 +11,7 @@ import {
   PanelContainer,
   ContentWrapper,
   Item,
-  ItemText,
-  ArrowText
+  ItemText
 } from "./styles"
 import { Props } from "./types"
 
@@ -43,7 +42,7 @@ export const SidePanel = ({
                       key={title}
                       onPress={() => navigation.navigate(navigateTo)}
                     >
-                      <ArrowText>{icon}</ArrowText>
+                      {icon}
                       <ItemText>{title}</ItemText>
                     </Item>
                   ))
