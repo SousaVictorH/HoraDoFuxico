@@ -35,11 +35,6 @@ export const ButtonWrapper = styled.TouchableOpacity`
   `}
 `
 
-export const ButtonIcon = styled.Image`
-  height: 24px;
-  width: 25px;
-`
-
 export const ButtonText = styled.Text`
   ${({ theme, photo }: ThemeProps & ButtonTextProps) => css`
     font-size: ${theme.typography.elements.body.fontSize};

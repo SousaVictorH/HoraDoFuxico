@@ -1,17 +1,17 @@
 import * as ImagePicker from 'expo-image-picker';
 import Toast from 'react-native-toast-message';
 
+import Ionicons from '@expo/vector-icons/Ionicons'
+
 import {
   Container,
   Caption,
   ButtonWrapper,
-  ButtonIcon,
   ButtonText
 } from './styles'
 import { Props } from './types'
 
 import { photoInputPlaceholder, add } from 'constants/texts'
-import { icons } from 'resources/icons'
 
 export const PhotoInput = ({
   photo,
@@ -57,12 +57,10 @@ export const PhotoInput = ({
     <Container style={style}>
       <Caption>{photoInputPlaceholder}</Caption>
       <ButtonWrapper onPress={() => requestImage()}>
-        <ButtonIcon
-          source={photo ?
-            icons.addPhotoOrangeIcon.path :
-            icons.addPhotoIcon.path
-          }
-          resizeMode="contain"
+        <Ionicons
+          name="attach-outline"
+          size={28}
+          color={photo ? "#DD9064" : "#4A596B"}
         />
         <ButtonText photo={photo}>{add}</ButtonText>
       </ButtonWrapper>
