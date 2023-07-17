@@ -10,7 +10,6 @@ import { update } from "interfaces/api"
 
 import { GoBackIcon } from "resources/svgIcons"
 import { editYourInfo } from "constants/texts"
-import { WELCOME_SCREEN } from "constants/screens"
 
 import { useUserStore } from "store/user"
 
@@ -31,13 +30,11 @@ export const ProfileScreen = ({
 }: Props) => {
   const {
     id,
-    token,
     name,
     avatar,
     phoneNumber,
     birthDate,
-    setPersonalData,
-    clearPersonalData
+    setPersonalData
   } = useUserStore()
 
   const [isLoading, setIsLoading] = useState(false)
@@ -63,25 +60,14 @@ export const ProfileScreen = ({
     const newPhone = newPhoneNumber.replace('-', '')
 
     setIsLoading(true)
-    const response = await update(id, token, newName, newBirthDate, newPhone, newPhoto)
+    const response = await update(id, newName, newBirthDate, newPhone, newPhoto)
     setIsLoading(false)
 
     if (response.error) {
-      const error = '' + response.error
+      const statusText = '' + response.error
 
-      if (error.includes('401')) {
-        // token expired
-        Toast.show({
-          type: 'error',
-          text1: 'Alerta',
-          text2: 'Seu token expirou'
-        })
-
-        setTimeout(() => {
-          clearPersonalData()
-          navigation.navigate(WELCOME_SCREEN)
-        }, 300)
-      } else {
+      if (!statusText.includes('403')) {
+        // Forbidden errors are already handled
         Toast.show({
           type: 'error',
           text1: 'Alerta',

@@ -6,7 +6,6 @@ import {
   AUTHENTICATION_SCREEN,
   TERMS_SCREEN,
   SIGN_UP_SCREEN,
-  TAB_NAVIGATOR,
   LOGGED_NAVIGATOR
 } from 'constants/screens'
 
@@ -18,6 +17,8 @@ import { AuthenticationScreen } from 'screens/Unlogged/Authentication'
 import { TermsScreen } from 'screens/Unlogged/Terms'
 import { SignUpScreen } from 'screens/Unlogged/SignUp'
 
+import { navigationRef } from './RootNavigation';
+
 import { RootStackParamList } from './types'
 import { defaultScreenOptions } from './options'
 
@@ -25,7 +26,7 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 export const Router = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef} >
       <Stack.Navigator
         initialRouteName={WELCOME_SCREEN}
         screenOptions={{ gestureEnabled: false }}

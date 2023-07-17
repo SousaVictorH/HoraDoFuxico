@@ -52,7 +52,6 @@ export const signUp = async (name: string, birthDate: string, phoneNumber: strin
 
 export const update = async (
   userId: string,
-  token: string,
   name: string,
   birthDate: string,
   phoneNumber: string,
@@ -61,14 +60,13 @@ export const update = async (
   try {
     const data = { name, birthDate, phoneNumber, avatar }
 
-    const response = await api.put(UPDATE + userId, data, { headers: { Authorization: token } })
+    const response = await api.put(UPDATE + userId, data)
 
     return {
       data: response.data,
       error: null
     }
   } catch (error) {
-    console.log(error)
     return { data: {}, error }
   }
 }
