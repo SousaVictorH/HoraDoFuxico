@@ -59,7 +59,6 @@ export const SignUpForm = ({
           onPress={handleSignUp}
           text={next}
           disabled={!isValid}
-          appearance={isValid ? 'primary' : 'disabled'}
         />
       </ContentWrapper>
     </FormWrapper>

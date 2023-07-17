@@ -127,7 +127,6 @@ export const NewScheduleScreen = ({
           text={save}
           onPress={handleSave}
           disabled={!isValid}
-          appearance={isValid ? 'primary' : 'disabled'}
         />
       </ContentWrapper>
     </LoggedWrapper>

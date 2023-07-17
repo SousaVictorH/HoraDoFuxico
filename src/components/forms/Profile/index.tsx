@@ -73,7 +73,6 @@ export const ProfileForm = ({
         text={save}
         onPress={handlePress}
         disabled={!isValid}
-        appearance={isValid ? 'primary' : 'disabled'}
       />
     </Container>
   )
