@@ -1,6 +1,4 @@
-import { StackNavigationProp } from "@react-navigation/stack"
-import { RootStackParamList } from "routes/types"
+import { StackScreenProps } from "@react-navigation/stack";
+import { RootStackParamList } from "routes/types";
 
-export type Props = {
-  navigation: StackNavigationProp<RootStackParamList, keyof RootStackParamList, undefined>
-}
+export type Props = StackScreenProps<RootStackParamList>;

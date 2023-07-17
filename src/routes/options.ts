@@ -1,4 +1,4 @@
 export const defaultScreenOptions = {
   headerShown: false,
-  // gestureEnabled: false
+  gestureEnabled: false
 }

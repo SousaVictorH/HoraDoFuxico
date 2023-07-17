@@ -29,32 +29,27 @@ export const Router = () => {
     <NavigationContainer ref={navigationRef} >
       <Stack.Navigator
         initialRouteName={WELCOME_SCREEN}
-        screenOptions={{ gestureEnabled: false }}
+        screenOptions={defaultScreenOptions}
       >
         <Stack.Screen
           name={WELCOME_SCREEN}
           component={WelcomeScreen}
-          options={defaultScreenOptions}
         />
         <Stack.Screen
           name={AUTHENTICATION_SCREEN}
           component={AuthenticationScreen}
-          options={defaultScreenOptions}
         />
         <Stack.Screen
           name={TERMS_SCREEN}
           component={TermsScreen}
-          options={defaultScreenOptions}
         />
         <Stack.Screen
           name={SIGN_UP_SCREEN}
           component={SignUpScreen}
-          options={defaultScreenOptions}
         />
         <Stack.Screen
           name={LOGGED_NAVIGATOR}
           component={LoggedNavigator}
-          options={defaultScreenOptions}
         />
       </Stack.Navigator>
     </NavigationContainer>

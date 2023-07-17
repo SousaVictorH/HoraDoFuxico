@@ -23,13 +23,13 @@ import { Props } from "./types"
 
 export const AuthenticationScreen = ({
   navigation,
-  route
+  route,
 }: Props) => {
   const { setPersonalData } = useUserStore()
 
   const [isLoading, setIsLoading] = useState(false)
 
-  const { phoneNumber } = route.params
+  const phoneNumber = route.params?.phoneNumber + ''
 
   const onSubmit = async (inputToken: string) => {
     if (isLoading) return

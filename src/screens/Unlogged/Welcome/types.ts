@@ -1,8 +1,7 @@
-import { NavigationProp } from "@react-navigation/native"
+import { StackScreenProps } from "@react-navigation/stack";
+import { RootStackParamList } from "routes/types";
 
-export interface Props {
-  navigation: NavigationProp<any>
-}
+export type Props = StackScreenProps<RootStackParamList>;
 
 export type OnSignInProps = {
   areaCode: string
