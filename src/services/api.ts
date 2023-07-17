@@ -19,10 +19,10 @@ api.interceptors.request.use((req: InternalAxiosRequestConfig<any>) => {
 })
 
 // Response interceptor
-api.interceptors.response.use(res => res, (res: AxiosResponse<any, any>) => {
-  const statusText = res + ''
+api.interceptors.response.use(res => res, (error: AxiosResponse<any, any>) => {
+  const statusText = error + ''
 
-  if ((statusText.indexOf('403') !== -1) && (res.config.url !== '/login')) {
+  if ((statusText.indexOf('403') !== -1) && (error.config.url !== '/login')) {
     // Expired token
     Toast.show({
       type: 'error',
@@ -38,5 +38,5 @@ api.interceptors.response.use(res => res, (res: AxiosResponse<any, any>) => {
     }, 1800)
   }
 
-  throw res
+  throw error
 })
