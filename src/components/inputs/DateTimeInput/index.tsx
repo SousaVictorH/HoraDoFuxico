@@ -51,7 +51,7 @@ export const DateTimeInput = ({
             hasSelected ? value : placeholder
           }
         </ButtonText>
-        <Ionicons name="chevron-up-outline" size={22} color="#252424" />
+        <Ionicons name="chevron-up-outline" size={20} color="#252424" />
       </Button>
       <DateTimePickerModal
         isVisible={isDatePickerVisible}

@@ -17,12 +17,10 @@ export const RadioInput = ({
       onPress={onPress}
       style={style}
     >
-      <Radio>
+      <Radio active={active}>
         {active && <RadioInner />}
       </Radio>
-      {text && (
-        <Text>{text}</Text>
-      )}
+      <Text>{text}</Text>
     </Container>
   )
 }

@@ -40,7 +40,7 @@ export const NewScheduleScreen = ({
 }: Props) => {
   const { createSchedule } = useUserStore()
 
-  const [title, setTitle] = useState(hotTopicsList[0].title)
+  const [title, setTitle] = useState('')
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
 
@@ -84,7 +84,7 @@ export const NewScheduleScreen = ({
     setTimeout(() => navigation.goBack(), 500)
   }
 
-  const isValid = date.length === 10 && time.length === 5
+  const isValid = (title.length !== 0) && (date.length === 10) && (time.length === 5)
 
   return (
     <LoggedWrapper hideHeader toggleSidePanel={toggleSidePanel}>

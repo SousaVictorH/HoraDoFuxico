@@ -14,19 +14,20 @@ export const Radio = styled.View`
   justify-content: center;
   align-items: center;
 
-  ${({ theme }: ThemeProps) => css`
-    border: 2px solid ${theme.colors.neutrals.neutral_20};
+  ${({ theme, active }: ThemeProps & { active: boolean }) => css`
+    border: 2px solid ${active ? theme.colors.support.orange : theme.colors.neutrals.neutral_20};
+    background-color: ${active ? theme.colors.support.orange : theme.colors.support.transparent};
     border-radius: ${theme.borderRadius.xlg};
   `}
 `
 
 export const RadioInner = styled.View`
-  height: 15px;
-  width: 15px;
+  height: 12px;
+  width: 12px;
 
   ${({ theme }: ThemeProps) => css`
     border-radius: ${theme.borderRadius.xlg};
-    background-color: ${theme.colors.neutrals.neutral_20};
+    background-color: ${theme.colors.background.offLight};
   `}
 `
 
