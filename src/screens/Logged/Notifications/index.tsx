@@ -9,10 +9,10 @@ import {
 import { Props } from "./types"
 
 export const NotificationsScreen = ({
-  navigation
+  toggleSidePanel
 }: Props) => {
   return (
-    <LoggedWrapper navigation={navigation}>
+    <LoggedWrapper toggleSidePanel={toggleSidePanel}>
       <ContentWrapper>
         <Text>{noMoreNotifications}</Text>
       </ContentWrapper>

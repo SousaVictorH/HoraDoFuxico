@@ -17,16 +17,15 @@ export const LoggedNavigator = () => {
   return (
     <Stack.Navigator
       initialRouteName={TAB_NAVIGATOR}
+      screenOptions={defaultScreenOptions}
     >
       <Stack.Screen
         name={TAB_NAVIGATOR}
         component={TabNavigator}
-        options={defaultScreenOptions}
       />
       <Stack.Screen
         name={PROFILE_SCREEN}
         component={ProfileScreen}
-        options={defaultScreenOptions}
       />
     </Stack.Navigator>
   )

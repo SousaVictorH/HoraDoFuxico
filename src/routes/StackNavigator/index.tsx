@@ -13,20 +13,33 @@ import { defaultScreenOptions } from '../options'
 
 const Stack = createStackNavigator<RootStackParamList>();
 
-export const StackNavigator = () => {
+export const StackNavigator = ({
+  toggleSidePanel
+}: { toggleSidePanel: () => void }) => {
   return (
     <Stack.Navigator
       initialRouteName={HOME_SCREEN}
+      screenOptions={defaultScreenOptions}
     >
       <Stack.Screen
         name={HOME_SCREEN}
-        component={HomeScreen}
-        options={defaultScreenOptions}
+        children={({ route, navigation }) => (
+          <HomeScreen
+            route={route}
+            navigation={navigation}
+            toggleSidePanel={toggleSidePanel}
+          />
+        )}
       />
       <Stack.Screen
         name={NEW_SCHEDULE_SCREEN}
-        component={NewScheduleScreen}
-        options={defaultScreenOptions}
+        children={({ route, navigation }) => (
+          <NewScheduleScreen
+            route={route}
+            navigation={navigation}
+            toggleSidePanel={toggleSidePanel}
+          />
+        )}
       />
     </Stack.Navigator>
   )

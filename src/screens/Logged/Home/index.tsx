@@ -17,7 +17,8 @@ import {
 import { Props } from "./types"
 
 export const HomeScreen = ({
-  navigation
+  navigation,
+  toggleSidePanel
 }: Props) => {
   const {
     name,
@@ -29,7 +30,7 @@ export const HomeScreen = ({
   const age = calculateAge(birthDate)
 
   return (
-    <LoggedWrapper navigation={navigation}>
+    <LoggedWrapper toggleSidePanel={toggleSidePanel}>
       <ProfileWrapper>
         <ProfileImage
           source={avatar ? { uri: avatar } : images.defaultUser.path}

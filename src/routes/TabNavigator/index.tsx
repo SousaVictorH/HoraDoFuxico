@@ -1,3 +1,5 @@
+import React, { useState } from "react"
+
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 
 import { TabBar } from "components/tabBar"
@@ -15,35 +17,59 @@ import { StackNavigator } from "routes/StackNavigator"
 
 import { NotificationsScreen } from "screens/Logged/Notifications"
 import { HelpScreen } from "screens/Logged/Help"
+import { SidePanel } from "components/sidePanel"
 
 const Tab = createBottomTabNavigator<RootStackParamList>();
 
 export const TabNavigator = () => {
+  const [showSidePanel, setShowSidePanel] = useState(false)
+
+  const toggleSidePanel = () => {
+    setShowSidePanel(!showSidePanel)
+  }
+
   return (
     <Tab.Navigator
       initialRouteName={STACK_NAVIGATOR}
       tabBar={({ descriptors, navigation, state }) => (
-        <TabBar
-          descriptors={descriptors}
-          navigation={navigation}
-          state={state}
-        />
+        <>
+          <SidePanel
+            showSidePanel={showSidePanel}
+            toggleSidePanel={toggleSidePanel}
+            navigation={navigation}
+          />
+          <TabBar
+            descriptors={descriptors}
+            navigation={navigation}
+            state={state}
+          />
+        </>
       )}
+      screenOptions={defaultScreenOptions}
     >
       <Tab.Screen
         name={NOTIFICATIONS_SCREEN}
-        component={NotificationsScreen}
-        options={defaultScreenOptions}
+        children={({ route, navigation }) => (
+          <NotificationsScreen
+            route={route}
+            navigation={navigation}
+            toggleSidePanel={toggleSidePanel}
+          />
+        )}
       />
       <Tab.Screen
         name={STACK_NAVIGATOR}
-        component={StackNavigator}
-        options={defaultScreenOptions}
+        children={() => <StackNavigator toggleSidePanel={toggleSidePanel} />}
       />
       <Tab.Screen
         name={HELP_SCREEN}
-        component={HelpScreen}
-        options={defaultScreenOptions}
+        children={({ route, navigation }) => (
+          <HelpScreen
+            route={route}
+            navigation={navigation}
+            toggleSidePanel={toggleSidePanel}
+          />
+        )}
       />
     </Tab.Navigator>
   )

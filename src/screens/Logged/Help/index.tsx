@@ -9,10 +9,10 @@ import {
 import { Props } from "./types"
 
 export const HelpScreen = ({
-  navigation
+  toggleSidePanel
 }: Props) => {
   return (
-    <LoggedWrapper navigation={navigation}>
+    <LoggedWrapper toggleSidePanel={toggleSidePanel}>
       <ContentWrapper>
         <Text>{helpText}</Text>
       </ContentWrapper>

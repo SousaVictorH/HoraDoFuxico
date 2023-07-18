@@ -90,7 +90,7 @@ export const ProfileScreen = ({
   }
 
   return (
-    <LoggedWrapper navigation={navigation} hideHeader scroll >
+    <LoggedWrapper hideHeader scroll >
       <Wrapper>
         <Container>
           <Header onPress={() => navigation.goBack()}>

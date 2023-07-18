@@ -20,7 +20,6 @@ import {
   selectDayAndTime,
   save
 } from 'constants/texts'
-import { HOME_SCREEN } from "constants/screens"
 
 import { Props } from "./types"
 import {
@@ -36,7 +35,8 @@ import {
 } from "./styles"
 
 export const NewScheduleScreen = ({
-  navigation
+  navigation,
+  toggleSidePanel
 }: Props) => {
   const { createSchedule } = useUserStore()
 
@@ -55,7 +55,7 @@ export const NewScheduleScreen = ({
     const inputDate = moment(new Date(year, month, day, hours, minutes))
     const now = moment()
 
-    if (!inputDate || now.isAfter(inputDate)) {
+    if (!inputDate || !inputDate.isValid() || now.isAfter(inputDate)) {
       return Toast.show({
         type: 'error',
         text1: 'Aleta',
@@ -71,7 +71,6 @@ export const NewScheduleScreen = ({
 
     createSchedule(schedule)
 
-    // Clear
     setTitle(hotTopicsList[0].title)
     setDate('')
     setTime('')
@@ -82,15 +81,15 @@ export const NewScheduleScreen = ({
       text2: 'Agendamento realizado com sucesso'
     })
 
-    setTimeout(() => navigation.navigate(HOME_SCREEN), 500)
+    setTimeout(() => navigation.goBack(), 500)
   }
 
   const isValid = date.length === 10 && time.length === 5
 
   return (
-    <LoggedWrapper navigation={navigation} hideHeader>
+    <LoggedWrapper hideHeader toggleSidePanel={toggleSidePanel}>
       <Container>
-        <Header onPress={() => navigation.navigate(HOME_SCREEN)}>
+        <Header onPress={() => navigation.goBack()}>
           <IconWrapper>
             <Ionicons name="arrow-back-outline" size={35} color="#252424" />
           </IconWrapper>
