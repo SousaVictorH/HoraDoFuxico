@@ -16,6 +16,7 @@ export const enter = "entrar"
 export const next = "próximo"
 export const add = "Adicionar"
 export const save = "Salvar"
+export const help = "Ajuda"
 
 export const terms = "Termos de uso e políticas de privacidade"
 

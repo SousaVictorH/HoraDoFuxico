@@ -17,13 +17,10 @@ export const TabBar = ({
   const getIcon = (routeName: string, isActive: boolean) => {
     switch (routeName) {
       case STACK_NAVIGATOR:
-        return <Ionicons name="home-sharp" size={32} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
+        return <Ionicons name="home-sharp" size={30} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
 
       case NOTIFICATIONS_SCREEN:
-        return <Ionicons name="notifications" size={32} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
-
-      case HELP_SCREEN:
-        return <Ionicons name="help-circle" size={32} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
+        return <Ionicons name="notifications" size={30} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
 
       case PROFILE_SCREEN:
         return <Ionicons name="person" size={30} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />

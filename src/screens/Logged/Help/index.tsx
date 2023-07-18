@@ -1,21 +1,40 @@
+import React from 'react'
+import Ionicons from '@expo/vector-icons/Ionicons'
+
 import { LoggedWrapper } from 'templates/LoggedWrapper'
 
-import { helpText } from 'constants/texts'
+import { help, helpText } from 'constants/texts'
 
 import {
   ContentWrapper,
-  Text
+  Header,
+  HeaderText,
+  IconWrapper,
+  Container,
+  Wrapper,
+  HelpText
 } from './styles'
 import { Props } from "./types"
 
 export const HelpScreen = ({
+  navigation,
   toggleSidePanel
 }: Props) => {
   return (
-    <LoggedWrapper toggleSidePanel={toggleSidePanel}>
-      <ContentWrapper>
-        <Text>{helpText}</Text>
-      </ContentWrapper>
+    <LoggedWrapper hideHeader toggleSidePanel={toggleSidePanel}>
+      <Wrapper>
+        <Container>
+          <Header onPress={() => navigation.goBack()}>
+            <IconWrapper>
+              <Ionicons name="arrow-back-outline" size={35} color="#252424" />
+            </IconWrapper>
+            <HeaderText>{help}</HeaderText>
+          </Header>
+        </Container>
+        <ContentWrapper>
+          <HelpText>{helpText}</HelpText>
+        </ContentWrapper>
+      </Wrapper>
     </LoggedWrapper>
   )
 }

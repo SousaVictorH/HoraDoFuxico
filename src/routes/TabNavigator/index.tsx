@@ -6,7 +6,6 @@ import { TabBar } from "components/tabBar"
 
 import {
   NOTIFICATIONS_SCREEN,
-  HELP_SCREEN,
   PROFILE_SCREEN,
   STACK_NAVIGATOR
 } from "constants/screens"
@@ -17,7 +16,6 @@ import { RootStackParamList } from "routes/types"
 import { StackNavigator } from "routes/StackNavigator"
 
 import { NotificationsScreen } from "screens/Logged/Notifications"
-import { HelpScreen } from "screens/Logged/Help"
 import { ProfileScreen } from "screens/Logged/Profile"
 
 import { SidePanel } from "components/sidePanel"
@@ -63,16 +61,6 @@ export const TabNavigator = () => {
       <Tab.Screen
         name={STACK_NAVIGATOR}
         children={() => <StackNavigator toggleSidePanel={toggleSidePanel} />}
-      />
-      <Tab.Screen
-        name={HELP_SCREEN}
-        children={({ route, navigation }) => (
-          <HelpScreen
-            route={route}
-            navigation={navigation}
-            toggleSidePanel={toggleSidePanel}
-          />
-        )}
       />
       <Tab.Screen
         name={PROFILE_SCREEN}

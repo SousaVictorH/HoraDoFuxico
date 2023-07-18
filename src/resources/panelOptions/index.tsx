@@ -16,23 +16,8 @@ export const panelOptions: PanelOption[] = [
     navigateTo: EDIT_PROFILE_SCREEN
   },
   {
-    icon: <Ionicons name="notifications" size={25} color="#FFF" />,
-    title: 'Notificações',
-    navigateTo: NOTIFICATIONS_SCREEN
-  },
-  {
-    icon: <Ionicons name="home-sharp" size={25} color="#FFF" />,
-    title: 'Home',
-    navigateTo: HOME_SCREEN
-  },
-  {
     icon: <Ionicons name="help-circle" size={25} color="#FFF" />,
     title: 'Ajuda',
     navigateTo: HELP_SCREEN
-  },
-  {
-    icon: <Ionicons name="person" size={25} color="#FFF" />,
-    title: 'Perfil',
-    navigateTo: PROFILE_SCREEN
   }
 ]
