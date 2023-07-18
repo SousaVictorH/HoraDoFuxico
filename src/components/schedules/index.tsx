@@ -1,14 +1,12 @@
-import { ListRenderItemInfo } from "react-native"
+import React from "react"
+import { ListRenderItem } from "react-native"
 
 import { HotTopic } from "components/hotTopic"
-import { Props as HotTopicType } from "components/hotTopic/types"
 import { ScheduleItem } from "components/scheduleItem"
 
 import { hotTopics, schedule, emptyText } from "constants/texts"
 import { hotTopicsList } from "resources/hotTopics"
 import { NEW_SCHEDULE_SCREEN } from "constants/screens"
-
-import { Schedule } from "store/user/types"
 
 import {
   Container,
@@ -25,9 +23,25 @@ export const Schedules = ({
   schedules,
   navigation
 }: Props) => {
-  const onNavigate = () => {
-    navigation.navigate(NEW_SCHEDULE_SCREEN)
-  }
+  const renderHotTopics: ListRenderItem<any> = ({
+    item,
+    index
+  }) => (
+    <HotTopic
+      key={index.toString()}
+      {...item}
+    />
+  )
+
+  const renderSchedules: ListRenderItem<any> = ({
+    item,
+    index
+  }: any) => (
+    <ScheduleItem
+      key={index.toString()}
+      {...item}
+    />
+  )
 
   return (
     <Container>
@@ -36,29 +50,17 @@ export const Schedules = ({
         <HotTopicsList
           data={hotTopicsList}
           horizontal
-          renderItem={({ item, index }: ListRenderItemInfo<HotTopicType>) => (
-            <HotTopic
-              key={index.toString()}
-              {...item}
-            />
-          )}
+          renderItem={renderHotTopics}
         />
       </ListWrapper>
       <Title>Horário dos fuxicos</Title>
       <SchedulesList
         data={schedules}
-        renderItem={({ item, index }: ListRenderItemInfo<Schedule>) => (
-          <ScheduleItem
-            key={index.toString()}
-            {...item}
-          />
-        )}
-        ListEmptyComponent={
-          <EmptyText>{emptyText}</EmptyText>
-        }
+        renderItem={renderSchedules}
+        ListEmptyComponent={<EmptyText>{emptyText}</EmptyText>}
         ListFooterComponent={
           <TextButton
-            onPress={() => onNavigate()}
+            onPress={() => navigation.navigate(NEW_SCHEDULE_SCREEN)}
             text={schedule}
           />
         }

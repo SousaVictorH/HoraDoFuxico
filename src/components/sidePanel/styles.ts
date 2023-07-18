@@ -48,5 +48,6 @@ export const ItemText = styled.Text`
     font-size: ${theme.typography.elements.body.fontSize};
     font-family: ${theme.typography.fontFamily.poppins};
     color: ${theme.colors.neutrals.neutral_60};
+    margin-left: ${theme.spacings.md};
   `}
 `
