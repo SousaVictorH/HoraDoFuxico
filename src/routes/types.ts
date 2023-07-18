@@ -9,6 +9,7 @@ export type RootStackParamList = {
   HOME_SCREEN: undefined
   HELP_SCREEN: undefined
   NEW_SCHEDULE_SCREEN: undefined
+  PROFILE_SCREEN: undefined
   EDIT_PROFILE_SCREEN: undefined
   LOGGED_NAVIGATOR: undefined
 };

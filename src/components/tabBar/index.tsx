@@ -3,7 +3,8 @@ import Ionicons from '@expo/vector-icons/Ionicons'
 import {
   HELP_SCREEN,
   STACK_NAVIGATOR,
-  NOTIFICATIONS_SCREEN
+  NOTIFICATIONS_SCREEN,
+  PROFILE_SCREEN
 } from "constants/screens";
 
 import { TabBarContainer, ItemContainer } from "./styles";
@@ -23,6 +24,9 @@ export const TabBar = ({
 
       case HELP_SCREEN:
         return <Ionicons name="help-circle" size={32} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
+
+      case PROFILE_SCREEN:
+        return <Ionicons name="person" size={30} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
 
       default:
         return null
