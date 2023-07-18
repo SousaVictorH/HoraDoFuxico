@@ -4,7 +4,7 @@ import {
   HELP_SCREEN,
   HOME_SCREEN,
   NOTIFICATIONS_SCREEN,
-  PROFILE_SCREEN
+  EDIT_PROFILE_SCREEN
 } from "constants/screens"
 import { PanelOption } from "./types"
 
@@ -12,7 +12,7 @@ export const panelOptions: PanelOption[] = [
   {
     icon: <Ionicons name="person" size={25} color="#FFF" />,
     title: 'Dados Pessoais',
-    navigateTo: PROFILE_SCREEN
+    navigateTo: EDIT_PROFILE_SCREEN
   },
   {
     icon: <Ionicons name="notifications" size={25} color="#FFF" />,

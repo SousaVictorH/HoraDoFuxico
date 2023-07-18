@@ -2,10 +2,10 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import {
   TAB_NAVIGATOR,
-  PROFILE_SCREEN
+  EDIT_PROFILE_SCREEN
 } from 'constants/screens'
 
-import { ProfileScreen } from "screens/Logged/Profile"
+import { ProfileScreen } from "screens/Logged/EditProfile"
 import { TabNavigator } from 'routes/TabNavigator'
 
 import { RootStackParamList } from '../types'
@@ -24,7 +24,7 @@ export const LoggedNavigator = () => {
         component={TabNavigator}
       />
       <Stack.Screen
-        name={PROFILE_SCREEN}
+        name={EDIT_PROFILE_SCREEN}
         component={ProfileScreen}
       />
     </Stack.Navigator>

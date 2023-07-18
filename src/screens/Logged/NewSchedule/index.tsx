@@ -1,37 +1,22 @@
-import { useState } from "react"
+import React from "react"
 
-import Toast from "react-native-toast-message"
 import Ionicons from '@expo/vector-icons/Ionicons'
-
-import moment from "moment"
+import Toast from "react-native-toast-message"
 
 import { LoggedWrapper } from "templates/LoggedWrapper"
-
-import { DateTimeInput } from "components/inputs/DateTimeInput"
-
-import { hotTopicsList } from "resources/hotTopics"
+import { CreateScheduleForm } from "components/forms/CreateSchedule"
 
 import { useUserStore } from 'store/user'
 import { Schedule } from "store/user/types"
 
-import {
-  schedule,
-  selectCategory,
-  selectDayAndTime,
-  save
-} from 'constants/texts'
+import { schedule } from 'constants/texts'
 
 import { Props } from "./types"
 import {
   Container,
   Header,
   IconWrapper,
-  HeaderText,
-  ContentWrapper,
-  Title,
-  RadioInputsContainer,
-  RadioInput,
-  Button
+  HeaderText
 } from "./styles"
 
 export const NewScheduleScreen = ({
@@ -40,40 +25,8 @@ export const NewScheduleScreen = ({
 }: Props) => {
   const { createSchedule } = useUserStore()
 
-  const [title, setTitle] = useState('')
-  const [date, setDate] = useState('')
-  const [time, setTime] = useState('')
-
-  const handleSave = () => {
-    const day = Number(date.substring(0, 2))
-    const month = Number(date.substring(3, 5)) - 1
-    const year = Number(date.substring(6, 10))
-
-    const hours = Number(time.substring(0, 2))
-    const minutes = Number(time.substring(3, 5))
-
-    const inputDate = moment(new Date(year, month, day, hours, minutes))
-    const now = moment()
-
-    if (!inputDate || !inputDate.isValid() || now.isAfter(inputDate)) {
-      return Toast.show({
-        type: 'error',
-        text1: 'Aleta',
-        text2: 'A data inserida é inválida'
-      })
-    }
-
-    const schedule: Schedule = {
-      date,
-      time,
-      title
-    }
-
+  const onSubmit = async (schedule: Schedule) => {
     createSchedule(schedule)
-
-    setTitle(hotTopicsList[0].title)
-    setDate('')
-    setTime('')
 
     Toast.show({
       type: 'success',
@@ -82,9 +35,9 @@ export const NewScheduleScreen = ({
     })
 
     setTimeout(() => navigation.goBack(), 500)
-  }
 
-  const isValid = (title.length !== 0) && (date.length === 10) && (time.length === 5)
+    return true
+  }
 
   return (
     <LoggedWrapper hideHeader toggleSidePanel={toggleSidePanel}>
@@ -96,39 +49,7 @@ export const NewScheduleScreen = ({
           <HeaderText>{schedule}</HeaderText>
         </Header>
       </Container>
-      <ContentWrapper>
-        <Title>{selectCategory}</Title>
-        <RadioInputsContainer>
-          {
-            hotTopicsList.map((hotTopic, index) => (
-              <RadioInput
-                key={index.toString()}
-                active={title === hotTopic.title}
-                onPress={() => setTitle(hotTopic.title)}
-                text={hotTopic.title}
-              />
-            ))
-          }
-        </RadioInputsContainer>
-        <Title>{selectDayAndTime}</Title>
-        <DateTimeInput
-          value={date}
-          setValue={setDate}
-          isDate={true}
-          minimumDate={new Date()}
-        />
-        <DateTimeInput
-          value={time}
-          setValue={setTime}
-          isDate={false}
-          minuteInterval={10}
-        />
-        <Button
-          text={save}
-          onPress={handleSave}
-          disabled={!isValid}
-        />
-      </ContentWrapper>
+      <CreateScheduleForm onSubmit={onSubmit} />
     </LoggedWrapper>
   )
 }

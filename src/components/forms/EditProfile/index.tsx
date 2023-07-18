@@ -20,7 +20,7 @@ import {
 } from "./styles"
 import { Props } from './types'
 
-export const ProfileForm = ({
+export const EditProfileForm = ({
   birthDate,
   handleSubmit,
   name,

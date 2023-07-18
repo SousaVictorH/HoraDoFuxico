@@ -6,7 +6,7 @@ import Ionicons from '@expo/vector-icons/Ionicons'
 import moment from "moment"
 
 import { LoggedWrapper } from "templates/LoggedWrapper"
-import { ProfileForm } from "components/forms/Profile"
+import { EditProfileForm } from "components/forms/EditProfile"
 
 import { update } from "interfaces/api"
 
@@ -90,7 +90,7 @@ export const ProfileScreen = ({
   }
 
   return (
-    <LoggedWrapper hideHeader scroll >
+    <LoggedWrapper hideHeader scroll toggleSidePanel={() => { }}>
       <Wrapper>
         <Container>
           <Header onPress={() => navigation.goBack()}>
@@ -101,7 +101,7 @@ export const ProfileScreen = ({
           </Header>
         </Container>
         <ContentWrapper>
-          <ProfileForm
+          <EditProfileForm
             name={name}
             phoneNumber={phoneNumber}
             birthDate={moment(birthDate).format('DD/MM/YYYY')}
