@@ -24,5 +24,6 @@ export const LoggedWrapper = ({
 
 LoggedWrapper.defaultProps = {
   hideHeader: false,
-  scroll: false
+  scroll: false,
+  toggleSidePanel: () => { }
 }

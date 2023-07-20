@@ -20,8 +20,7 @@ import {
 } from "./styles"
 
 export const NewScheduleScreen = ({
-  navigation,
-  toggleSidePanel
+  navigation
 }: Props) => {
   const { createSchedule } = useUserStore()
 
@@ -40,7 +39,7 @@ export const NewScheduleScreen = ({
   }
 
   return (
-    <LoggedWrapper hideHeader toggleSidePanel={toggleSidePanel}>
+    <LoggedWrapper hideHeader>
       <Container>
         <Header onPress={() => navigation.goBack()}>
           <IconWrapper>

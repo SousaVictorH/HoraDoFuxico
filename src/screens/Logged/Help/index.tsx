@@ -17,11 +17,10 @@ import {
 import { Props } from "./types"
 
 export const HelpScreen = ({
-  navigation,
-  toggleSidePanel
+  navigation
 }: Props) => {
   return (
-    <LoggedWrapper hideHeader toggleSidePanel={toggleSidePanel}>
+    <LoggedWrapper hideHeader>
       <Wrapper>
         <Container>
           <Header onPress={() => navigation.goBack()}>

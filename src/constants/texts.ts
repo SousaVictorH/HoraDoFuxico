@@ -17,6 +17,7 @@ export const next = "próximo"
 export const add = "Adicionar"
 export const save = "Salvar"
 export const help = "Ajuda"
+export const notifications = "Notificações"
 
 export const terms = "Termos de uso e políticas de privacidade"
 
@@ -42,6 +43,7 @@ export const insertKey = "Insira a chave no aplicativo do fuxiqueiro"
 
 export const noMoreNotifications = "Sem mais notificações"
 export const helpText = "Texto de ajuda"
+export const searchText = "Texto de tela de search"
 
 export const hotTopics = "Assuntos em Alta"
 export const schedule = "Programar horário"

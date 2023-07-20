@@ -26,7 +26,7 @@ import {
   ContentWrapper,
 } from "./styles"
 
-export const ProfileScreen = ({
+export const EditProfileScreen = ({
   navigation
 }: Props) => {
   const {
@@ -90,7 +90,7 @@ export const ProfileScreen = ({
   }
 
   return (
-    <LoggedWrapper hideHeader scroll toggleSidePanel={() => { }}>
+    <LoggedWrapper hideHeader scroll>
       <Wrapper>
         <Container>
           <Header onPress={() => navigation.goBack()}>

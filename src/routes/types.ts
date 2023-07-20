@@ -12,4 +12,5 @@ export type RootStackParamList = {
   PROFILE_SCREEN: undefined
   EDIT_PROFILE_SCREEN: undefined
   LOGGED_NAVIGATOR: undefined
+  SEARCH_SCREEN: undefined
 };

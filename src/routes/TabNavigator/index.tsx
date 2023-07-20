@@ -5,20 +5,19 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { TabBar } from "components/tabBar"
 
 import {
-  NOTIFICATIONS_SCREEN,
+  HOME_SCREEN,
   PROFILE_SCREEN,
-  STACK_NAVIGATOR
+  SEARCH_SCREEN
 } from "constants/screens"
 
 import { defaultScreenOptions } from "routes/options"
 import { RootStackParamList } from "routes/types"
 
-import { StackNavigator } from "routes/StackNavigator"
-
-import { NotificationsScreen } from "screens/Logged/Notifications"
 import { ProfileScreen } from "screens/Logged/Profile"
+import { HomeScreen } from "screens/Logged/Home"
 
 import { SidePanel } from "components/sidePanel"
+import { SearchScreen } from "screens/Logged/Search"
 
 const Tab = createBottomTabNavigator<RootStackParamList>();
 
@@ -31,7 +30,7 @@ export const TabNavigator = () => {
 
   return (
     <Tab.Navigator
-      initialRouteName={STACK_NAVIGATOR}
+      initialRouteName={HOME_SCREEN}
       tabBar={({ descriptors, navigation, state }) => (
         <>
           <SidePanel
@@ -49,9 +48,9 @@ export const TabNavigator = () => {
       screenOptions={defaultScreenOptions}
     >
       <Tab.Screen
-        name={NOTIFICATIONS_SCREEN}
+        name={SEARCH_SCREEN}
         children={({ route, navigation }) => (
-          <NotificationsScreen
+          <SearchScreen
             route={route}
             navigation={navigation}
             toggleSidePanel={toggleSidePanel}
@@ -59,8 +58,14 @@ export const TabNavigator = () => {
         )}
       />
       <Tab.Screen
-        name={STACK_NAVIGATOR}
-        children={() => <StackNavigator toggleSidePanel={toggleSidePanel} />}
+        name={HOME_SCREEN}
+        children={({ route, navigation }) => (
+          <HomeScreen
+            route={route}
+            navigation={navigation}
+            toggleSidePanel={toggleSidePanel}
+          />
+        )}
       />
       <Tab.Screen
         name={PROFILE_SCREEN}

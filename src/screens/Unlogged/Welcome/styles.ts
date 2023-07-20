@@ -7,7 +7,6 @@ import { getWindowWidth, getWindowHeight } from "utils/dimensions"
 export const AnimatedView = styled(Animated.View).attrs({
   entering: FadeInUp
 })`
-  position: absolute;
   height: ${getWindowHeight()}px;
   width: ${getWindowWidth()}px;
 

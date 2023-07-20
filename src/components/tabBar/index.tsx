@@ -1,10 +1,9 @@
 import Ionicons from '@expo/vector-icons/Ionicons'
 
 import {
-  HELP_SCREEN,
-  STACK_NAVIGATOR,
-  NOTIFICATIONS_SCREEN,
-  PROFILE_SCREEN
+  PROFILE_SCREEN,
+  HOME_SCREEN,
+  SEARCH_SCREEN
 } from "constants/screens";
 
 import { TabBarContainer, ItemContainer } from "./styles";
@@ -16,12 +15,11 @@ export const TabBar = ({
 }: Props) => {
   const getIcon = (routeName: string, isActive: boolean) => {
     switch (routeName) {
-      case STACK_NAVIGATOR:
+      case SEARCH_SCREEN:
+        return <Ionicons name="search" size={31} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
+
+      case HOME_SCREEN:
         return <Ionicons name="home-sharp" size={30} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
-
-      case NOTIFICATIONS_SCREEN:
-        return <Ionicons name="notifications" size={30} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
-
       case PROFILE_SCREEN:
         return <Ionicons name="person" size={30} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
 
@@ -29,14 +27,6 @@ export const TabBar = ({
         return null
     }
   }
-
-  const routesNumber = state.routes[1].state?.routes.length
-
-  /**
-   * When inside create new schedule screen or edit profile screen 
-   * hide bottom tab
-   */
-  if (routesNumber === 2) return null
 
   return (
     <TabBarContainer>
