@@ -41,7 +41,7 @@ export const SidePanel = ({
                     <Item
                       key={title}
                       onPress={() => {
-                        if (showSidePanel) toggleSidePanel()
+                        // if (showSidePanel) toggleSidePanel()
 
                         navigation.navigate(navigateTo)
                       }}

@@ -6,10 +6,6 @@ import { ThemeProps } from "styles/types"
 
 export const Container = styled.View`
   flex: 1;
-  
-  ${({ theme }: ThemeProps) => css`
-    padding-top: ${theme.spacings.xxxl};
-  `}
 `
 
 export const Title = styled.Text`

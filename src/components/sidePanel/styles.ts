@@ -5,8 +5,8 @@ import { ThemeProps } from "styles/types"
 import { getWindowHeight, getWindowWidth } from "utils/dimensions"
 
 export const Container = styled.TouchableOpacity`
-  z-index: 10;
-  elevation: 10;
+  z-index: 2;
+  elevation: 2;
   position: absolute;
   height: ${getWindowHeight()}px;
   width: ${getWindowWidth()}px;

@@ -2,39 +2,17 @@ import styled, { css } from "styled-components/native"
 
 import { ThemeProps } from "styles/types"
 
-export const ProfileWrapper = styled.View`
-  width: 100%;
-  align-items: center;
-`
-
-export const ProfileImage = styled.Image`
-  width: 143px;
-  height: 143px;
-  border-radius: 100%;
-  border-width: 5px;
-
-  background-color: gray;
-
+export const Header = styled.View`
   ${({ theme }: ThemeProps) => css`
-    margin-top: -${theme.spacings.xxl};
-    border-color: ${theme.colors.background.offLight};
+    padding-vertical: ${theme.spacings.xxxl};
   `}
 `
 
-export const ProfileName = styled.Text`
+export const HeaderText = styled.Text`
   ${({ theme }: ThemeProps) => css`
-    font-size: ${theme.typography.elements.caption.fontSize};
-    font-family: ${theme.typography.fontFamily.poppins};
-    color: ${theme.colors.support.black};
-    margin-top: ${theme.spacings.md};
-  `}
-`
-
-export const ProfileAge = styled.Text`
-  ${({ theme }: ThemeProps) => css`
-    font-size: ${theme.typography.elements.caption.fontSize};
-    font-family: ${theme.typography.fontFamily.poppins};
-    color: ${theme.colors.neutrals.neutral_60};
+    font-size: ${theme.typography.elements.heading.fontSize};
+    font-family: ${theme.typography.fontFamily.baskervville};
+    padding-left: ${theme.spacings.lg};
   `}
 `
 

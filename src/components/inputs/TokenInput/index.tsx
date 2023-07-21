@@ -70,6 +70,7 @@ export const TokenInput = ({
           contextMenuHidden
           selectTextOnFocus
           editable={!disabled}
+          keyboardType="number-pad"
         />
       ))}
     </Container>
