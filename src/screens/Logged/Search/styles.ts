@@ -9,6 +9,10 @@ export const ContentWrapper = styled.View`
 
 export const List = styled.FlatList`
   flex: 1;
+
+  ${({ theme }: ThemeProps) => css`
+    padding: ${theme.spacings.xxs} ${theme.spacings.lg};
+  `}
 `
 
 export const Header = styled.View`
@@ -19,11 +23,11 @@ export const Header = styled.View`
   `}
 `
 
-export const ItemWrapper = styled.View`
-  width: 100%;
-  height: 100px;
-  justify-content: center;
-  align-items: center;
+export const Spinner = styled.ActivityIndicator.attrs({
+  size: 'small',
+  color: 'gray'
+})`
+  ${({ theme }: ThemeProps) => css`
+    margin-vertical: ${theme.spacings.md};
+  `}
 `
-
-export const Text = styled.Text``

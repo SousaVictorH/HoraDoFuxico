@@ -13,8 +13,6 @@ export const ProfileImage = styled.Image`
   border-radius: 100%;
   border-width: 5px;
 
-  background-color: gray;
-
   ${({ theme }: ThemeProps) => css`
     margin-top: -${theme.spacings.xxl};
     border-color: ${theme.colors.background.offLight};

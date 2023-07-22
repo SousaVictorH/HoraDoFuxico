@@ -3,8 +3,10 @@ import { ListRenderItem } from "react-native"
 
 import Toast from 'react-native-toast-message'
 
-import { SearchInput } from 'components/inputs/SearchInput'
 import { LoggedWrapper } from 'templates/LoggedWrapper'
+
+import { UserItem } from 'components/items/userItem'
+import { SearchInput } from 'components/inputs/SearchInput'
 
 import { useDebounce } from 'utils/useDebounce'
 import { getUsers } from 'interfaces/api'
@@ -13,8 +15,7 @@ import {
   ContentWrapper,
   List,
   Header,
-  ItemWrapper,
-  Text
+  Spinner
 } from './styles'
 import { Props } from "./types"
 
@@ -34,8 +35,6 @@ export const SearchScreen = ({
 
   const loadUsersList = async (shouldReset: boolean) => {
     const currentPage = shouldReset ? 1 : page
-
-    console.log(isLoading, currentPage, numberOfPages)
 
     if (isLoading || currentPage > numberOfPages) return
 
@@ -67,13 +66,15 @@ export const SearchScreen = ({
     setUsersList([...usersList, ...response.data.users])
   }
 
-  const renderItem: ListRenderItem<any> = ({
-    item,
-    index
-  }: any) => (
-    <ItemWrapper key={item.id}>
-      <Text>{item.name}</Text>
-    </ItemWrapper>
+  const renderItem: ListRenderItem<any> = ({ item }:
+    {
+      item: {
+        id: string
+        name: string
+        avatar?: string
+      }
+    }) => (
+    <UserItem key={item.id} {...item} />
   )
 
   useEffect(() => {
@@ -98,6 +99,11 @@ export const SearchScreen = ({
           renderItem={renderItem}
           onEndReachedThreshold={0.6}
           onEndReached={() => loadUsersList(false)}
+          ListFooterComponent={
+            <>
+              {isLoading && <Spinner />}
+            </>
+          }
         />
       </ContentWrapper>
     </LoggedWrapper>

@@ -24,8 +24,7 @@ export const ProfileScreen = ({
   const {
     name,
     birthDate,
-    avatar,
-    schedules
+    avatar
   } = useUserStore()
 
   const age = calculateAge(birthDate)
@@ -34,7 +33,8 @@ export const ProfileScreen = ({
     <LoggedWrapper toggleSidePanel={toggleSidePanel}>
       <ProfileWrapper>
         <ProfileImage
-          source={avatar ? { uri: avatar } : images.defaultUser.path}
+          source={{ uri: avatar }}
+          defaultSource={images.defaultUser.path}
           resizeMode="cover"
         />
         <ProfileName>{name}</ProfileName>

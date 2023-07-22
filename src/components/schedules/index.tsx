@@ -1,8 +1,8 @@
 import React from "react"
 import { ListRenderItem } from "react-native"
 
-import { HotTopic } from "components/hotTopic"
-import { ScheduleItem } from "components/scheduleItem"
+import { HotTopic } from "components/items/hotTopic"
+import { ScheduleItem } from "components/items/scheduleItem"
 
 import { hotTopics, schedule, emptyText } from "constants/texts"
 import { hotTopicsList } from "resources/hotTopics"

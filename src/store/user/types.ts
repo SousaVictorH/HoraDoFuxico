@@ -1,10 +1,4 @@
-export type Schedule = {
-  title: string
-  date: string
-  time: string
-}
-
-export interface State {
+export type User = {
   token: string
   id: string
   name: string
@@ -12,6 +6,15 @@ export interface State {
   phoneNumber: string
   avatar: string
   schedules: Schedule[]
+}
+
+export type Schedule = {
+  title: string
+  date: string
+  time: string
+}
+
+export type State = User & {
   setPersonalData: (data: any) => void
   clearPersonalData: () => void
   createSchedule: (schedule: Schedule) => void
