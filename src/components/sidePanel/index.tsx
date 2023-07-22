@@ -40,11 +40,7 @@ export const SidePanel = ({
                   }: PanelOption) => (
                     <Item
                       key={title}
-                      onPress={() => {
-                        // if (showSidePanel) toggleSidePanel()
-
-                        navigation.navigate(navigateTo)
-                      }}
+                      onPress={() => navigation.navigate(navigateTo)}
                     >
                       {icon}
                       <ItemText>{title}</ItemText>

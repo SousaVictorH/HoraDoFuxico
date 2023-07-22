@@ -72,7 +72,7 @@ export const EditProfileScreen = ({
         Toast.show({
           type: 'error',
           text1: 'Alerta',
-          text2: 'Algo deu errado'
+          text2: 'Algo deu errado...'
         })
       }
 

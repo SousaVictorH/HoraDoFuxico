@@ -38,7 +38,7 @@ export const AuthenticationScreen = ({
     const response = await login(phoneNumber, inputToken)
     setIsLoading(false)
 
-    if (response.error) {
+    if (response.error || !response.data?.token) {
       const error = '' + response.error
 
       if (error.includes('403')) {
@@ -62,10 +62,13 @@ export const AuthenticationScreen = ({
       return
     }
 
-    if (response.data.token) {
+    if (response.data.id) {
+      // Login
       setPersonalData(response.data)
       navigation.navigate(LOGGED_NAVIGATOR)
     } else {
+      // Sign Up
+      setPersonalData({ token: response.data.token })
       navigation.navigate(TERMS_SCREEN, { phoneNumber })
     }
   }

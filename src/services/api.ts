@@ -2,7 +2,7 @@ import axios, { AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 import Toast from "react-native-toast-message"
 
 import { useUserStore } from "store/user"
-import * as RootNavigation from 'routes/RootNavigation';
+import * as RootNavigation from 'routes/RootNavigation'
 
 export const api = axios.create({
   baseURL: 'http://192.168.15.5:8000',

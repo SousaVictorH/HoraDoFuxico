@@ -3,6 +3,8 @@ import Toast from 'react-native-toast-message'
 
 import { useUserStore } from "store/user"
 
+import * as RootNavigation from 'routes/RootNavigation';
+
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignUpForm } from 'components/forms/SignUp'
 
@@ -22,7 +24,7 @@ export const SignUpScreen = ({
   navigation,
   route
 }: Props) => {
-  const { setPersonalData } = useUserStore()
+  const { setPersonalData, clearPersonalData } = useUserStore()
 
   const [isLoading, setIsLoading] = useState(false)
 
@@ -40,11 +42,27 @@ export const SignUpScreen = ({
     setIsLoading(false)
 
     if (response.error) {
-      Toast.show({
-        type: 'error',
-        text1: 'Alerta',
-        text2: 'Token inserido está incorreto'
-      })
+      const error = '' + response.error
+
+      if (error.includes('403')) {
+        // Expired token
+        Toast.show({
+          type: 'error',
+          text1: 'Alerta',
+          text2: 'Seu token expirou, redirecionando...'
+        })
+
+        setTimeout(() => {
+          clearPersonalData()
+          RootNavigation.reset()
+        }, 1800)
+      } else {
+        Toast.show({
+          type: 'error',
+          text1: 'Alerta',
+          text2: 'Algo deu errado...'
+        })
+      }
     } else {
       setPersonalData(response.data)
       navigation.navigate(LOGGED_NAVIGATOR)
