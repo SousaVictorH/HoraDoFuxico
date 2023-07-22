@@ -3,8 +3,6 @@ import Toast from 'react-native-toast-message'
 
 import { useUserStore } from "store/user"
 
-import * as RootNavigation from 'routes/RootNavigation';
-
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignUpForm } from 'components/forms/SignUp'
 
@@ -44,19 +42,8 @@ export const SignUpScreen = ({
     if (response.error) {
       const error = '' + response.error
 
-      if (error.includes('403')) {
-        // Expired token
-        Toast.show({
-          type: 'error',
-          text1: 'Alerta',
-          text2: 'Seu token expirou, redirecionando...'
-        })
-
-        setTimeout(() => {
-          clearPersonalData()
-          RootNavigation.reset()
-        }, 1800)
-      } else {
+      if (!error.includes('403')) {
+        // Token error is already handled
         Toast.show({
           type: 'error',
           text1: 'Alerta',

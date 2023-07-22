@@ -70,3 +70,22 @@ export const update = async (
     return { data: {}, error }
   }
 }
+
+export const getUsers = async (
+  searchField: string,
+  page: number,
+  limit = 10
+) => {
+  try {
+    const url = `/users?page=${page}&limit=${limit}&search=${searchField || ''}`
+
+    const response = await api.get(url)
+
+    return {
+      data: response.data,
+      error: null
+    }
+  } catch (error) {
+    return { data: {}, error }
+  }
+}
