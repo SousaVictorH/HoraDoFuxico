@@ -6,14 +6,14 @@ import { TabBar } from "components/tabBar"
 
 import {
   HOME_SCREEN,
-  PROFILE_SCREEN,
+  MY_PROFILE_SCREEN,
   SEARCH_SCREEN
 } from "constants/screens"
 
 import { defaultScreenOptions } from "routes/options"
 import { RootStackParamList } from "routes/types"
 
-import { ProfileScreen } from "screens/Logged/Profile"
+import { MyProfileScreen } from "screens/Logged/MyProfile"
 import { HomeScreen } from "screens/Logged/Home"
 
 import { SidePanel } from "components/sidePanel"
@@ -68,9 +68,9 @@ export const TabNavigator = () => {
         )}
       />
       <Tab.Screen
-        name={PROFILE_SCREEN}
+        name={MY_PROFILE_SCREEN}
         children={({ route, navigation }) => (
-          <ProfileScreen
+          <MyProfileScreen
             route={route}
             navigation={navigation}
             toggleSidePanel={toggleSidePanel}

@@ -18,15 +18,19 @@ import {
   Spinner
 } from './styles'
 import { Props } from "./types"
+import { PROFILE_SCREEN } from 'constants/screens'
 
 export const SearchScreen = ({
-  toggleSidePanel
+  toggleSidePanel,
+  navigation
 }: Props) => {
   const [page, setPage] = useState(1)
   const [numberOfPages, setNumberOfPages] = useState(2)
 
   const [isLoading, setIsLoading] = useState(false)
   const [usersList, setUsersList] = useState<any[]>([])
+
+  const [showSpinner, setShowSpinner] = useState(false)
 
   const [searchFieldDisplayValue, setSearchFieldDisplayValues] = useState('')
   const [searchField, setSearchField] = useState('')
@@ -44,8 +48,10 @@ export const SearchScreen = ({
     }
 
     setIsLoading(true)
+    setShowSpinner(true)
     const response = await getUsers(searchField, currentPage)
     setIsLoading(false)
+    setShowSpinner(false)
 
     if (response.error) {
       const statusText = '' + response.error
@@ -71,10 +77,16 @@ export const SearchScreen = ({
       item: {
         id: string
         name: string
+        phoneNumber: string
+        birthDate: string
         avatar?: string
       }
     }) => (
-    <UserItem key={item.id} {...item} />
+    <UserItem
+      key={item.id}
+      {...item}
+      onPress={() => navigation.navigate(PROFILE_SCREEN, { ...item })}
+    />
   )
 
   useEffect(() => {
@@ -91,6 +103,7 @@ export const SearchScreen = ({
               setSearchFieldDisplayValues(t)
               debounceChange(t)
               setUsersList([])
+              setShowSpinner(true)
             }}
           />
         </Header>
@@ -101,7 +114,7 @@ export const SearchScreen = ({
           onEndReached={() => loadUsersList(false)}
           ListFooterComponent={
             <>
-              {isLoading && <Spinner />}
+              {showSpinner && <Spinner />}
             </>
           }
         />

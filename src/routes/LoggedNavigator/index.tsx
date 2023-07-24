@@ -6,12 +6,14 @@ import {
   NEW_SCHEDULE_SCREEN,
   HELP_SCREEN,
   NOTIFICATIONS_SCREEN,
+  PROFILE_SCREEN,
 } from 'constants/screens'
 
 import { EditProfileScreen } from "screens/Logged/EditProfile"
 import { NewScheduleScreen } from "screens/Logged/NewSchedule"
 import { HelpScreen } from "screens/Logged/Help"
 import { NotificationsScreen } from 'screens/Logged/Notifications'
+import { ProfileScreen } from 'screens/Logged/Profile'
 
 import { TabNavigator } from 'routes/TabNavigator'
 
@@ -45,6 +47,10 @@ export const LoggedNavigator = () => {
       <Stack.Screen
         name={NOTIFICATIONS_SCREEN}
         component={NotificationsScreen}
+      />
+      <Stack.Screen
+        name={PROFILE_SCREEN}
+        component={ProfileScreen}
       />
     </Stack.Navigator>
   )

@@ -20,6 +20,7 @@ export const help = "Ajuda"
 export const notifications = "Notificações"
 
 export const terms = "Termos de uso e políticas de privacidade"
+export const goBack = "Voltar"
 
 // Modal
 export const firstConsiderations = "1. PRIMEIRAS CONSIDERAÇÕES"

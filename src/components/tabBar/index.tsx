@@ -1,7 +1,7 @@
 import Ionicons from '@expo/vector-icons/Ionicons'
 
 import {
-  PROFILE_SCREEN,
+  MY_PROFILE_SCREEN,
   HOME_SCREEN,
   SEARCH_SCREEN
 } from "constants/screens";
@@ -20,7 +20,8 @@ export const TabBar = ({
 
       case HOME_SCREEN:
         return <Ionicons name="home-sharp" size={30} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
-      case PROFILE_SCREEN:
+
+      case MY_PROFILE_SCREEN:
         return <Ionicons name="person" size={30} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
 
       default:

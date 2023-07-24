@@ -9,7 +9,8 @@ export type RootStackParamList = {
   HOME_SCREEN: undefined
   HELP_SCREEN: undefined
   NEW_SCHEDULE_SCREEN: undefined
-  PROFILE_SCREEN: undefined
+  MY_PROFILE_SCREEN: undefined
+  PROFILE_SCREEN: { id: string, name: string, phoneNumber: string, birthDate: string, avatar?: string }
   EDIT_PROFILE_SCREEN: undefined
   LOGGED_NAVIGATOR: undefined
   SEARCH_SCREEN: undefined

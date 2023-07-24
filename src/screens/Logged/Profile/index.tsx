@@ -1,48 +1,52 @@
 import React from 'react'
+import Ionicons from '@expo/vector-icons/Ionicons'
 
 import { LoggedWrapper } from 'templates/LoggedWrapper'
 
-import { useUserStore } from 'store/user'
-
-import { images } from 'resources/images'
+import { goBack } from 'constants/texts'
 
 import { calculateAge } from 'utils/date'
 
 import {
-  ProfileWrapper,
-  ProfileImage,
-  ProfileName,
-  ProfileAge,
   ContentWrapper,
+  Header,
+  HeaderText,
+  IconWrapper,
+  Container,
+  Wrapper,
   Text
 } from './styles'
 import { Props } from "./types"
 
 export const ProfileScreen = ({
-  toggleSidePanel
+  navigation,
+  route
 }: Props) => {
   const {
+    id,
     name,
+    phoneNumber,
     birthDate,
-    avatar
-  } = useUserStore()
+    avatar,
+  } = route.params
 
   const age = calculateAge(birthDate)
 
   return (
-    <LoggedWrapper toggleSidePanel={toggleSidePanel}>
-      <ProfileWrapper>
-        <ProfileImage
-          source={{ uri: avatar }}
-          defaultSource={images.defaultUser.path}
-          resizeMode="cover"
-        />
-        <ProfileName>{name}</ProfileName>
-        <ProfileAge>{age} anos</ProfileAge>
-      </ProfileWrapper>
-      <ContentWrapper>
-        <Text>Perfil</Text>
-      </ContentWrapper>
+    <LoggedWrapper hideHeader>
+      <Wrapper>
+        <Container>
+          <Header onPress={() => navigation.goBack()}>
+            <IconWrapper>
+              <Ionicons name="arrow-back-outline" size={35} color="#252424" />
+            </IconWrapper>
+            <HeaderText>{goBack}</HeaderText>
+          </Header>
+        </Container>
+        <ContentWrapper>
+          <Text>{name}, {age} anos</Text>
+        </ContentWrapper>
+      </Wrapper>
     </LoggedWrapper>
   )
 }
