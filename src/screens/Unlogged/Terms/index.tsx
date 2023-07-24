@@ -29,7 +29,7 @@ export const TermsScreen = ({
 }: Props) => {
   const modalizeRef = useRef<Modalize>(null)
 
-  const phoneNumber = route.params?.phoneNumber + ''
+  const { phoneNumber } = route.params
 
   const onShowTerms = () => {
     modalizeRef.current?.open()

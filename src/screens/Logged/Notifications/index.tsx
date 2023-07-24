@@ -1,18 +1,14 @@
 import React from 'react'
-import Ionicons from '@expo/vector-icons/Ionicons'
 
 import { LoggedWrapper } from 'templates/LoggedWrapper'
+import { HeaderButton } from 'components/buttons/Header'
 
 import { notifications, noMoreNotifications } from 'constants/texts'
 
 import {
   ContentWrapper,
-  Header,
-  HeaderText,
-  IconWrapper,
-  Container,
   Wrapper,
-  HelpText
+  NotificationsText
 } from './styles'
 import { Props } from "./types"
 
@@ -22,16 +18,12 @@ export const NotificationsScreen = ({
   return (
     <LoggedWrapper hideHeader>
       <Wrapper>
-        <Container>
-          <Header onPress={() => navigation.goBack()}>
-            <IconWrapper>
-              <Ionicons name="arrow-back-outline" size={35} color="#252424" />
-            </IconWrapper>
-            <HeaderText>{notifications}</HeaderText>
-          </Header>
-        </Container>
+        <HeaderButton
+          onPress={() => navigation.goBack()}
+          text={notifications}
+        />
         <ContentWrapper>
-          <HelpText>{noMoreNotifications}</HelpText>
+          <NotificationsText>{noMoreNotifications}</NotificationsText>
         </ContentWrapper>
       </Wrapper>
     </LoggedWrapper>

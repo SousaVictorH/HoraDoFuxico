@@ -29,7 +29,7 @@ export const AuthenticationScreen = ({
 
   const [isLoading, setIsLoading] = useState(false)
 
-  const phoneNumber = route.params?.phoneNumber + ''
+  const { phoneNumber } = route.params
 
   const onSubmit = async (inputToken: string) => {
     if (isLoading) return

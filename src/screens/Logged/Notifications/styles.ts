@@ -11,33 +11,6 @@ export const Wrapper = styled.View`
   height: ${getWindowHeight()}px;
 `
 
-export const Container = styled.View`
-  width: 100%;
-
-  ${({ theme }: ThemeProps) => css`
-    padding: 70px ${theme.spacings.xxl} ${theme.spacings.xxxl};
-  `}
-`
-
-export const Header = styled(TouchableOpacity)`
-  flex-direction: row;
-  align-items: center;
-`
-
-export const IconWrapper = styled.View`
-  ${({ theme }: ThemeProps) => css`
-    margin-right: ${theme.spacings.md};
-    margin-left: -${theme.spacings.xs};
-  `}
-`
-
-export const HeaderText = styled.Text`
-  ${({ theme }: ThemeProps) => css`
-    font-size: ${theme.typography.elements.heading.fontSize};
-    font-family: ${theme.typography.fontFamily.baskervville};
-  `}
-`
-
 export const ContentWrapper = styled.View`
   flex: 1;
   
@@ -46,7 +19,7 @@ export const ContentWrapper = styled.View`
   `}
 `
 
-export const HelpText = styled.Text`
+export const NotificationsText = styled.Text`
   ${({ theme }: ThemeProps) => css`
     font-size: ${theme.typography.elements.caption.fontSize};
     font-family: ${theme.typography.fontFamily.poppins};

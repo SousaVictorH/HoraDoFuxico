@@ -3,8 +3,7 @@ import Ionicons from '@expo/vector-icons/Ionicons'
 
 import { LoggedWrapper } from 'templates/LoggedWrapper'
 
-import { goBack } from 'constants/texts'
-
+import { images } from 'resources/images'
 import { calculateAge } from 'utils/date'
 
 import {
@@ -12,9 +11,9 @@ import {
   Header,
   HeaderText,
   IconWrapper,
-  Container,
   Wrapper,
-  Text
+  ProfileImage,
+  Text,
 } from './styles'
 import { Props } from "./types"
 
@@ -35,15 +34,18 @@ export const ProfileScreen = ({
   return (
     <LoggedWrapper hideHeader>
       <Wrapper>
-        <Container>
-          <Header onPress={() => navigation.goBack()}>
-            <IconWrapper>
-              <Ionicons name="arrow-back-outline" size={35} color="#252424" />
-            </IconWrapper>
-            <HeaderText>{goBack}</HeaderText>
-          </Header>
-        </Container>
+        <Header>
+          <IconWrapper onPress={() => navigation.goBack()}>
+            <Ionicons name="arrow-back-outline" size={35} color="#252424" />
+          </IconWrapper>
+          <HeaderText>{name}</HeaderText>
+        </Header>
         <ContentWrapper>
+          <ProfileImage
+            source={{ uri: avatar }}
+            defaultSource={images.defaultUser.path}
+            resizeMode="cover"
+          />
           <Text>{name}, {age} anos</Text>
         </ContentWrapper>
       </Wrapper>

@@ -1,12 +1,11 @@
 import React, { useState } from "react"
 import Toast from "react-native-toast-message"
 
-import Ionicons from '@expo/vector-icons/Ionicons'
-
 import moment from "moment"
 
 import { LoggedWrapper } from "templates/LoggedWrapper"
 import { EditProfileForm } from "components/forms/EditProfile"
+import { HeaderButton } from "components/buttons/Header"
 
 import { update } from "interfaces/api"
 
@@ -19,11 +18,7 @@ import { validateBirthDate } from "utils/date"
 import { Props } from "./types"
 import {
   Wrapper,
-  Container,
-  Header,
-  IconWrapper,
-  HeaderText,
-  ContentWrapper,
+  ContentWrapper
 } from "./styles"
 
 export const EditProfileScreen = ({
@@ -92,14 +87,10 @@ export const EditProfileScreen = ({
   return (
     <LoggedWrapper hideHeader scroll>
       <Wrapper>
-        <Container>
-          <Header onPress={() => navigation.goBack()}>
-            <IconWrapper>
-              <Ionicons name="arrow-back-outline" size={35} color="#252424" />
-            </IconWrapper>
-            <HeaderText>{editYourInfo}</HeaderText>
-          </Header>
-        </Container>
+        <HeaderButton
+          onPress={() => navigation.goBack()}
+          text={editYourInfo}
+        />
         <ContentWrapper>
           <EditProfileForm
             name={name}

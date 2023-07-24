@@ -26,7 +26,7 @@ export const SignUpScreen = ({
 
   const [isLoading, setIsLoading] = useState(false)
 
-  const phoneNumber = route.params?.phoneNumber + ''
+  const { phoneNumber } = route.params
 
   const handleSubmit = async ({
     name,

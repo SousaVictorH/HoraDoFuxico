@@ -1,20 +1,16 @@
+import { Pressable } from "react-native"
 import styled, { css } from "styled-components/native"
-
-import { TouchableOpacity } from "react-native-gesture-handler"
 
 import { ThemeProps } from "styles/types"
 
-export const Container = styled.View`
+export const Header = styled(Pressable)`
+  flex-direction: row;
+  align-items: center;
   width: 100%;
 
   ${({ theme }: ThemeProps) => css`
-    padding: 70px ${theme.spacings.xxl} ${theme.spacings.xxxl};
+    padding: 55px ${theme.spacings.xxl} ${theme.spacings.xxxl};
   `}
-`
-
-export const Header = styled(TouchableOpacity)`
-  flex-direction: row;
-  align-items: center;
 `
 
 export const IconWrapper = styled.View`

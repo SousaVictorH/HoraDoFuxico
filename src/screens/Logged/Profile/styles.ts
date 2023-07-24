@@ -1,6 +1,5 @@
+import { Pressable } from "react-native"
 import styled, { css } from "styled-components/native"
-
-import { TouchableOpacity } from "react-native-gesture-handler"
 
 import { getWindowHeight } from "utils/dimensions"
 
@@ -11,24 +10,19 @@ export const Wrapper = styled.View`
   height: ${getWindowHeight()}px;
 `
 
-export const Container = styled.View`
-  width: 100%;
-
-  ${({ theme }: ThemeProps) => css`
-    padding: 70px ${theme.spacings.xxl} ${theme.spacings.xxxl};
-  `}
-`
-
-export const Header = styled(TouchableOpacity)`
-  flex-direction: row;
+export const Header = styled.View`
   align-items: center;
+  justify-content: center;
+
+  ${({ theme }: ThemeProps) => css`
+    padding: 55px ${theme.spacings.xxl} ${theme.spacings.xxxl};
+  `}
 `
 
-export const IconWrapper = styled.View`
-  ${({ theme }: ThemeProps) => css`
-    margin-right: ${theme.spacings.md};
-    margin-left: -${theme.spacings.xs};
-  `}
+export const IconWrapper = styled(Pressable)`
+  position: absolute;
+  left: 20px;
+  width: 80px;
 `
 
 export const HeaderText = styled.Text`
@@ -43,6 +37,18 @@ export const ContentWrapper = styled.View`
   
   ${({ theme }: ThemeProps) => css`
     padding: ${theme.spacings.none} ${theme.spacings.xlg}
+  `}
+`
+
+export const ProfileImage = styled.Image`
+  width: 143px;
+  height: 143px;
+  border-radius: 100%;
+  border-width: 5px;
+
+  ${({ theme }: ThemeProps) => css`
+    margin-top: -${theme.spacings.xxl};
+    border-color: ${theme.colors.background.offLight};
   `}
 `
 
