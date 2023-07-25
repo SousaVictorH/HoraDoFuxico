@@ -4,7 +4,8 @@ import {
   REQUEST_LOGIN,
   LOGIN,
   SIGN_UP,
-  UPDATE
+  UPDATE,
+  USERS_LIST
 } from 'resources/url';
 
 export const requestLogin = async (phoneNumber: string) => {
@@ -77,7 +78,7 @@ export const getUsers = async (
   limit = 10
 ) => {
   try {
-    const url = `/users?page=${page}&limit=${limit}&search=${searchField || ''}`
+    const url = `${USERS_LIST}?page=${page}&limit=${limit}&search=${searchField || ''}`
 
     const response = await api.get(url)
 
