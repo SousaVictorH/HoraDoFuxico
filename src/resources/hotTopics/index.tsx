@@ -2,37 +2,37 @@ import { hotTopic } from "./types";
 
 export const hotTopicsList: hotTopic[] = [
   {
-    title: 'Esportes',
+    category: 'Esportes',
     description: `Fuxique sobre\nos melhores\nmomentos`,
     image: require('../../../assets/hotTopicImages/sports.jpg')
   },
   {
-    title: 'Estilo de Vida',
+    category: 'Estilo de Vida',
     description: `Fuxique sobre\nos melhores\nmomentos`,
     image: require('../../../assets/hotTopicImages/lifeStyle.jpg')
   },
   {
-    title: 'Culinária',
+    category: 'Culinária',
     description: `Fuxique sobre\nos melhores\nmomentos`,
     image: require('../../../assets/hotTopicImages/cooking.jpg')
   },
   {
-    title: 'Humor e Piadas',
+    category: 'Humor e Piadas',
     description: `Fuxique sobre\nos melhores\nmomentos`,
     image: require('../../../assets/hotTopicImages/humor.jpg')
   },
   {
-    title: 'Automotivos',
+    category: 'Automotivos',
     description: `Fuxique sobre\nos melhores\nmomentos`,
     image: require('../../../assets/hotTopicImages/automotive.jpg')
   },
   {
-    title: 'Saúde',
+    category: 'Saúde',
     description: `Fuxique sobre\nos melhores\nmomentos`,
     image: require('../../../assets/hotTopicImages/health.jpg')
   },
   {
-    title: 'Beleza',
+    category: 'Beleza',
     description: `Fuxique sobre\nos melhores\nmomentos`,
     image: require('../../../assets/hotTopicImages/beauty.jpg')
   },

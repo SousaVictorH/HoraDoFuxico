@@ -36,6 +36,8 @@ api.interceptors.response.use(res => res, (error: AxiosResponse<any, any>) => {
       clearPersonalData()
       RootNavigation.reset()
     }, 1800)
+
+    return {}
   }
 
   throw error

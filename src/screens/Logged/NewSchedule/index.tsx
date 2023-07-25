@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import Toast from "react-native-toast-message"
 
@@ -10,16 +10,37 @@ import { useUserStore } from 'store/user'
 import { Schedule } from "store/user/types"
 
 import { schedule } from 'constants/texts'
+import { createSchedule } from "interfaces/api"
 
 import { Props } from "./types"
 
 export const NewScheduleScreen = ({
   navigation
 }: Props) => {
-  const { createSchedule } = useUserStore()
+  const { id, addSchedule } = useUserStore()
 
-  const onSubmit = async (schedule: Schedule) => {
-    createSchedule(schedule)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const onSubmit = async ({
+    category,
+    date,
+    time
+  }: Schedule) => {
+    if (isLoading) return false
+
+    setIsLoading(true)
+    const response = await createSchedule(id, category, date, time)
+    setIsLoading(false)
+
+    if (response.error) {
+      Toast.show({
+        type: 'error',
+        text1: 'Alerta',
+        text2: 'Algo deu errado...'
+      })
+
+      return false
+    }
 
     Toast.show({
       type: 'success',
@@ -27,7 +48,9 @@ export const NewScheduleScreen = ({
       text2: 'Agendamento realizado com sucesso'
     })
 
-    setTimeout(() => navigation.goBack(), 500)
+    addSchedule(response.data)
+
+    setTimeout(() => navigation.goBack(), 300)
 
     return true
   }
@@ -38,7 +61,10 @@ export const NewScheduleScreen = ({
         onPress={() => navigation.goBack()}
         text={schedule}
       />
-      <CreateScheduleForm onSubmit={onSubmit} />
+      <CreateScheduleForm
+        onSubmit={onSubmit}
+        isLoading={isLoading}
+      />
     </LoggedWrapper>
   )
 }

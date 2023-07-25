@@ -40,16 +40,11 @@ export const SignUpScreen = ({
     setIsLoading(false)
 
     if (response.error) {
-      const error = '' + response.error
-
-      if (!error.includes('403')) {
-        // Token error is already handled
-        Toast.show({
-          type: 'error',
-          text1: 'Alerta',
-          text2: 'Algo deu errado...'
-        })
-      }
+      return Toast.show({
+        type: 'error',
+        text1: 'Alerta',
+        text2: 'Algo deu errado...'
+      })
     } else {
       setPersonalData(response.data)
       navigation.navigate(LOGGED_NAVIGATOR)

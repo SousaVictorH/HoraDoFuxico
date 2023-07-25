@@ -60,18 +60,11 @@ export const EditProfileScreen = ({
     setIsLoading(false)
 
     if (response.error) {
-      const statusText = '' + response.error
-
-      if (!statusText.includes('403')) {
-        // Forbidden errors are already handled
-        Toast.show({
-          type: 'error',
-          text1: 'Alerta',
-          text2: 'Algo deu errado...'
-        })
-      }
-
-      return
+      return Toast.show({
+        type: 'error',
+        text1: 'Alerta',
+        text2: 'Algo deu errado...'
+      })
     }
 
     Toast.show({

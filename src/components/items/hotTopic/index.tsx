@@ -1,4 +1,7 @@
-import { Props } from "./types";
+import React from "react";
+
+import { hotTopic } from "resources/hotTopics/types"
+
 import {
   Container,
   TextContainer,
@@ -10,12 +13,12 @@ import {
 export const HotTopic = ({
   description,
   image,
-  title
-}: Props) => {
+  category
+}: hotTopic) => {
   return (
     <Container>
       <TextContainer>
-        <Title>{title}</Title>
+        <Title>{category}</Title>
         <Description>{description}</Description>
       </TextContainer>
       <Image

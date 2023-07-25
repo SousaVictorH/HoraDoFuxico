@@ -1,3 +1,6 @@
+import React from 'react'
+import moment from 'moment'
+
 import Ionicons from '@expo/vector-icons/Ionicons'
 
 import { Schedule } from "store/user/types"
@@ -13,21 +16,22 @@ import {
 
 export const ScheduleItem = ({
   date,
-  time,
-  title
+  category
 }: Schedule) => {
+  const [scheduleDate, scheduleTime] = moment(date).format('DD/MM/YYYY HH:mm').split(' ')
+
   return (
     <Container>
       <TitleContainer>
-        <Text>{title}</Text>
+        <Text>{category}</Text>
       </TitleContainer>
       <DateContainer>
         <Ionicons name="calendar" size={22} color="#DD9064" />
-        <Caption>{date}</Caption>
+        <Caption>{scheduleDate}</Caption>
       </DateContainer>
       <TimeContainer>
         <Ionicons name="time" size={22} color="#DD9064" />
-        <Caption>{time}</Caption>
+        <Caption>{scheduleTime}</Caption>
       </TimeContainer>
     </Container>
   )

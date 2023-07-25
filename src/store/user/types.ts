@@ -9,13 +9,14 @@ export type User = {
 }
 
 export type Schedule = {
-  title: string
+  category: string
   date: string
-  time: string
+  time?: string
+  users?: string[]
 }
 
 export type State = User & {
   setPersonalData: (data: any) => void
   clearPersonalData: () => void
-  createSchedule: (schedule: Schedule) => void
+  addSchedule: (schedule: Schedule) => void
 }

@@ -42,6 +42,7 @@ export const AuthenticationScreen = ({
       const error = '' + response.error
 
       if (error.includes('403')) {
+        // Token error
         Toast.show({
           type: 'info',
           text1: 'Info',

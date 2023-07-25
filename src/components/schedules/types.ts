@@ -2,7 +2,7 @@
 import { StackNavigationProp } from "@react-navigation/stack"
 import { RootStackParamList } from "routes/types"
 
-import { Schedule } from "store/types"
+import { Schedule } from "store/user/types"
 
 export type Props = {
   schedules: Schedule[]

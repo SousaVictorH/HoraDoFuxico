@@ -1,7 +1,7 @@
 import { ImageSourcePropType } from "react-native"
 
 export type hotTopic = {
-  title: string
+  category: string
   description: string
   image: ImageSourcePropType
 }

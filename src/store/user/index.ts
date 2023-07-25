@@ -22,7 +22,7 @@ export const useUserStore = create<State>((set) => ({
     avatar: '',
     schedules: [],
   })),
-  createSchedule: (schedule: Schedule) => set((state) => ({
+  addSchedule: (schedule: Schedule) => set((state) => ({
     schedules: [...state.schedules, schedule]
   }))
 }));

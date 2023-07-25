@@ -90,3 +90,23 @@ export const getUsers = async (
     return { data: {}, error }
   }
 }
+
+export const createSchedule = async (
+  userId: string,
+  category: string,
+  date: string,
+  time: string
+) => {
+  try {
+    const url = '/schedule/' + userId
+
+    const response = await api.post(url, { category, date, time })
+
+    return {
+      data: response.data,
+      error: null
+    }
+  } catch (error) {
+    return { data: {}, error }
+  }
+}

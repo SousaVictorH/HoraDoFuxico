@@ -25,17 +25,14 @@ import {
 import { Props } from './types'
 
 export const CreateScheduleForm = ({
-  onSubmit
+  onSubmit,
+  isLoading
 }: Props) => {
-  const [isLoading, setIsLoading] = useState(false)
-
-  const [title, setTitle] = useState('')
+  const [category, setCategory] = useState('')
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
 
   const handleSave = async () => {
-    if (isLoading) return
-
     const day = Number(date.substring(0, 2))
     const month = Number(date.substring(3, 5)) - 1
     const year = Number(date.substring(6, 10))
@@ -46,7 +43,7 @@ export const CreateScheduleForm = ({
     const inputDate = moment(new Date(year, month, day, hours, minutes))
     const now = moment()
 
-    if (!inputDate || !inputDate.isValid() || now.isAfter(inputDate)) {
+    if (!inputDate.isValid() || !inputDate.isAfter(now.add(30, 'minutes'))) {
       return Toast.show({
         type: 'error',
         text1: 'Aleta',
@@ -57,21 +54,21 @@ export const CreateScheduleForm = ({
     const schedule: Schedule = {
       date,
       time,
-      title
+      category
     }
 
-    setIsLoading(true)
     const success = await onSubmit(schedule)
-    setIsLoading(false)
 
     if (success) {
-      setTitle('')
-      setDate('')
-      setTime('')
+      setTimeout(() => {
+        setCategory('')
+        setDate('')
+        setTime('')
+      }, 500)
     }
   }
 
-  const isValid = (title.length !== 0) && (date.length === 10) && (time.length === 5)
+  const isValid = (category.length !== 0) && (date.length === 10) && (time.length === 5)
 
   return (
     <ContentWrapper>
@@ -81,9 +78,9 @@ export const CreateScheduleForm = ({
           hotTopicsList.map((hotTopic, index) => (
             <RadioInput
               key={index.toString()}
-              active={title === hotTopic.title}
-              onPress={() => setTitle(hotTopic.title)}
-              text={hotTopic.title}
+              active={category === hotTopic.category}
+              onPress={() => setCategory(hotTopic.category)}
+              text={hotTopic.category}
             />
           ))
         }
@@ -97,13 +94,15 @@ export const CreateScheduleForm = ({
       />
       <DateTimeInput
         value={time}
-        setValue={(time) => setTime(time)}
+        setValue={(time) => setTime(time.slice(0, 4) + '0')}
         isDate={false}
+        minuteInterval={10}
       />
       <Button
         text={save}
         onPress={handleSave}
         disabled={!isValid}
+        isLoading={isLoading}
       />
     </ContentWrapper>
   )
