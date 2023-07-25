@@ -57,7 +57,7 @@ export const WelcomeScreen = ({
     setIsLoading(false)
 
     if (response.error) {
-      return Toast.show({
+      Toast.show({
         type: 'error',
         text1: 'Alerta',
         text2: 'Algo deu errado...'
