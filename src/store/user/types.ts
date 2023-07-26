@@ -8,6 +8,15 @@ export type User = {
   schedules: Schedule[]
 }
 
+export type PersonalData = {
+  token: string
+  id: string
+  name: string
+  birthDate: string
+  phoneNumber: string
+  avatar: string
+}
+
 export type Schedule = {
   category: string
   date: string
@@ -18,5 +27,5 @@ export type Schedule = {
 export type State = User & {
   setPersonalData: (data: any) => void
   clearPersonalData: () => void
-  addSchedule: (schedule: Schedule) => void
+  setSchedules: (schedule: Schedule[]) => void
 }

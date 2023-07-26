@@ -5,7 +5,8 @@ import {
   LOGIN,
   SIGN_UP,
   UPDATE,
-  USERS_LIST
+  USERS_LIST,
+  SCHEDULES
 } from 'resources/url';
 
 export const requestLogin = async (phoneNumber: string) => {
@@ -28,7 +29,7 @@ export const login = async (phoneNumber: string, token: string) => {
     const response = await api.post(LOGIN, data)
 
     return {
-      data: response.data,
+      ...response,
       error: null
     }
   } catch (error) {
@@ -43,7 +44,7 @@ export const signUp = async (name: string, birthDate: string, phoneNumber: strin
     const response = await api.post(SIGN_UP, data)
 
     return {
-      data: response.data,
+      ...response,
       error: null
     }
   } catch (error) {
@@ -64,7 +65,7 @@ export const update = async (
     const response = await api.put(UPDATE + userId, data)
 
     return {
-      data: response.data,
+      ...response,
       error: null
     }
   } catch (error) {
@@ -83,7 +84,7 @@ export const getUsers = async (
     const response = await api.get(url)
 
     return {
-      data: response.data,
+      ...response,
       error: null
     }
   } catch (error) {
@@ -95,15 +96,34 @@ export const createSchedule = async (
   userId: string,
   category: string,
   date: string,
-  time: string
+  time?: string
 ) => {
   try {
-    const url = '/schedule/' + userId
+    const url = `${SCHEDULES}${userId}`
 
     const response = await api.post(url, { category, date, time })
 
     return {
-      data: response.data,
+      ...response,
+      error: null
+    }
+  } catch (error) {
+    return { data: {}, error }
+  }
+}
+
+export const loadSchedules = async (
+  userId: string,
+  page: number,
+  limit = 10
+) => {
+  try {
+    const url = `${SCHEDULES}${userId}?page=${page}&limit=${limit}`
+
+    const response = await api.get(url)
+
+    return {
+      ...response,
       error: null
     }
   } catch (error) {

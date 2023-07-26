@@ -45,3 +45,13 @@ export const EmptyText = styled.Text`
     margin-top: ${theme.spacings.md};
   `}
 `
+
+export const Spinner = styled.ActivityIndicator.attrs({
+  size: 'small',
+  color: 'gray'
+})`
+  ${({ theme }: ThemeProps) => css`
+    margin-top: ${theme.spacings.xxl};
+    margin-bottom: ${theme.spacings.md};
+  `}
+`

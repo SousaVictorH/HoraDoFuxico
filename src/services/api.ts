@@ -11,7 +11,7 @@ export const api = axios.create({
 
 // Request interceptor
 api.interceptors.request.use((req: InternalAxiosRequestConfig<any>) => {
-  const { token } = useUserStore.getState()
+  const { token, id } = useUserStore.getState()
 
   req.headers.Authorization = token
 

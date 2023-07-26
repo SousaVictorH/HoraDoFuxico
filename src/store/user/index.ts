@@ -1,8 +1,13 @@
-import { create } from 'zustand';
+import { create } from 'zustand'
 
-import { State, Schedule } from './types';
+import {
+  State,
+  User,
+  Schedule,
+  PersonalData
+} from './types'
 
-export const useUserStore = create<State>((set) => ({
+const initialState: User = {
   token: '',
   id: '',
   name: '',
@@ -10,19 +15,18 @@ export const useUserStore = create<State>((set) => ({
   phoneNumber: '',
   avatar: '',
   schedules: [],
-  setPersonalData: (data) => set(() => ({
+}
+
+export const useUserStore = create<State>((set) => ({
+  ...initialState,
+  setPersonalData: (data: PersonalData) => set((state) => ({
+    ...state,
     ...data
   })),
   clearPersonalData: () => set(() => ({
-    token: '',
-    id: '',
-    name: '',
-    birthDate: '',
-    phoneNumber: '',
-    avatar: '',
-    schedules: [],
+    ...initialState
   })),
-  addSchedule: (schedule: Schedule) => set((state) => ({
-    schedules: [schedule, ...state.schedules],
+  setSchedules: (schedules: Schedule[]) => set(() => ({
+    schedules: schedules
   }))
 }));

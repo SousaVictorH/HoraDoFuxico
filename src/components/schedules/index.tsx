@@ -11,13 +11,17 @@ import {
   Title,
   SchedulesList,
   TextButton,
-  EmptyText
+  EmptyText,
+  Spinner
 } from "./styles"
 import { Props } from "./types"
 
 export const Schedules = ({
   schedules,
-  navigation
+  navigation,
+  onEndReachedThreshold,
+  onEndReached,
+  isLoading
 }: Props) => {
   const renderSchedules: ListRenderItem<any> = ({
     item,
@@ -35,14 +39,28 @@ export const Schedules = ({
       <SchedulesList
         data={schedules}
         renderItem={renderSchedules}
-        ListEmptyComponent={<EmptyText>{emptyText}</EmptyText>}
+        onEndReachedThreshold={onEndReachedThreshold}
+        onEndReached={onEndReached}
+        ListEmptyComponent={
+          <>
+            {!isLoading && <EmptyText>{emptyText}</EmptyText>}
+          </>
+        }
         ListFooterComponent={
-          <TextButton
-            onPress={() => navigation.navigate(NEW_SCHEDULE_SCREEN)}
-            text={schedule}
-          />
+          <>
+            {isLoading && <Spinner />}
+            <TextButton
+              onPress={() => navigation.navigate(NEW_SCHEDULE_SCREEN)}
+              text={schedule}
+            />
+          </>
         }
       />
     </Container>
   )
+}
+
+Schedules.defaultProps = {
+  onEndReachedThreshold: 0.6,
+  isLoading: false
 }

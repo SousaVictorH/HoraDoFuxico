@@ -17,7 +17,7 @@ import { Props } from "./types"
 export const NewScheduleScreen = ({
   navigation
 }: Props) => {
-  const { id, addSchedule } = useUserStore()
+  const { id, schedules, setSchedules } = useUserStore()
 
   const [isLoading, setIsLoading] = useState(false)
 
@@ -48,7 +48,7 @@ export const NewScheduleScreen = ({
       text2: 'Agendamento realizado com sucesso'
     })
 
-    addSchedule(response.data)
+    setSchedules([response.data, ...schedules])
 
     setTimeout(() => navigation.goBack(), 300)
 

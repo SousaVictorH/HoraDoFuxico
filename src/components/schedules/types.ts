@@ -7,4 +7,7 @@ import { Schedule } from "store/user/types"
 export type Props = {
   schedules: Schedule[]
   navigation: StackNavigationProp<RootStackParamList, keyof RootStackParamList, undefined>
+  onEndReachedThreshold?: number
+  onEndReached: () => void
+  isLoading?: boolean
 }

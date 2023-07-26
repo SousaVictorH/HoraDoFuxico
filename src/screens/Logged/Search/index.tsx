@@ -4,12 +4,15 @@ import { ListRenderItem } from "react-native"
 import Toast from 'react-native-toast-message'
 
 import { LoggedWrapper } from 'templates/LoggedWrapper'
-
 import { UserItem } from 'components/items/userItem'
 import { SearchInput } from 'components/inputs/SearchInput'
 
-import { useDebounce } from 'utils/useDebounce'
+import { PROFILE_SCREEN } from 'constants/screens'
+
 import { getUsers } from 'interfaces/api'
+import { User } from 'store/user/types'
+
+import { useDebounce } from 'utils/useDebounce'
 
 import {
   ContentWrapper,
@@ -18,7 +21,6 @@ import {
   Spinner
 } from './styles'
 import { Props } from "./types"
-import { PROFILE_SCREEN } from 'constants/screens'
 
 export const SearchScreen = ({
   toggleSidePanel,
@@ -28,7 +30,7 @@ export const SearchScreen = ({
   const [numberOfPages, setNumberOfPages] = useState(2)
 
   const [isLoading, setIsLoading] = useState(false)
-  const [usersList, setUsersList] = useState<any[]>([])
+  const [usersList, setUsersList] = useState<User[]>([])
 
   const [showSpinner, setShowSpinner] = useState(false)
 
