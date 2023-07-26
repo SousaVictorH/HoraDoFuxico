@@ -21,7 +21,9 @@ export const Schedules = ({
   navigation,
   onEndReachedThreshold,
   onEndReached,
-  isLoading
+  isLoading,
+  isUserProfile,
+  onSchedulePress
 }: Props) => {
   const renderSchedules: ListRenderItem<any> = ({
     item,
@@ -30,6 +32,7 @@ export const Schedules = ({
     <ScheduleItem
       key={index.toString()}
       {...item}
+      onPress={onSchedulePress}
     />
   )
 
@@ -49,10 +52,12 @@ export const Schedules = ({
         ListFooterComponent={
           <>
             {isLoading && <Spinner />}
-            <TextButton
-              onPress={() => navigation.navigate(NEW_SCHEDULE_SCREEN)}
-              text={schedule}
-            />
+            {isUserProfile && (
+              <TextButton
+                onPress={() => navigation.navigate(NEW_SCHEDULE_SCREEN)}
+                text={schedule}
+              />
+            )}
           </>
         }
       />
@@ -62,5 +67,6 @@ export const Schedules = ({
 
 Schedules.defaultProps = {
   onEndReachedThreshold: 0.6,
-  isLoading: false
+  isLoading: false,
+  isUserProfile: true
 }

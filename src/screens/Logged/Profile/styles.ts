@@ -34,25 +34,27 @@ export const HeaderText = styled.Text`
 
 export const ContentWrapper = styled.View`
   flex: 1;
-  
-  ${({ theme }: ThemeProps) => css`
-    padding: ${theme.spacings.none} ${theme.spacings.xlg}
-  `}
 `
 
-export const ProfileImage = styled.Image`
+export const ProfileWrapper = styled.View`
+  width: 100%;
+  align-items: center;
+`
+
+export const UserImage = styled.Image`
   width: 143px;
   height: 143px;
   border-radius: 100%;
   border-width: 5px;
 
   ${({ theme }: ThemeProps) => css`
-    margin-top: -${theme.spacings.xxl};
+    margin-top: -${theme.spacings.xlg};
+    margin-bottom: ${theme.spacings.md};
     border-color: ${theme.colors.background.offLight};
   `}
 `
 
-export const Text = styled.Text`
+export const UserName = styled.Text`
   ${({ theme }: ThemeProps) => css`
     font-size: ${theme.typography.elements.caption.fontSize};
     font-family: ${theme.typography.fontFamily.poppins};

@@ -10,4 +10,6 @@ export type Props = {
   onEndReachedThreshold?: number
   onEndReached: () => void
   isLoading?: boolean
+  isUserProfile?: boolean
+  onSchedulePress: (schedule: Schedule) => void
 }

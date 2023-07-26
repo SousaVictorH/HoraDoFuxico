@@ -18,6 +18,7 @@ export type PersonalData = {
 }
 
 export type Schedule = {
+  id?: string
   category: string
   date: string
   time?: string

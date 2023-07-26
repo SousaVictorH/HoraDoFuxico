@@ -15,13 +15,27 @@ import {
 } from "./styles"
 
 export const ScheduleItem = ({
+  id,
   date,
-  category
-}: Schedule) => {
+  category,
+  users,
+  onPress
+}: Schedule & {
+  onPress: (schedule: Schedule) => void
+}) => {
   const [scheduleDate, scheduleTime] = moment(date).format('DD/MM/YYYY HH:mm').split(' ')
 
+  const handlePress = () => {
+    onPress({
+      id,
+      date,
+      category,
+      users
+    })
+  }
+
   return (
-    <Container>
+    <Container onPress={handlePress}>
       <TitleContainer>
         <Text>{category}</Text>
       </TitleContainer>

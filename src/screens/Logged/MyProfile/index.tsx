@@ -5,6 +5,7 @@ import { LoggedWrapper } from 'templates/LoggedWrapper'
 import { Schedules } from 'components/schedules'
 
 import { useUserStore } from 'store/user'
+import { Schedule } from 'store/user/types'
 
 import { loadSchedules as loadUserSchedules } from 'interfaces/api'
 
@@ -72,6 +73,10 @@ export const MyProfileScreen = ({
     loadSchedules(false)
   }, [])
 
+  const onSchedulePress = (schedule: Schedule) => {
+    console.log(schedule)
+  }
+
   return (
     <LoggedWrapper toggleSidePanel={toggleSidePanel}>
       <ProfileWrapper>
@@ -89,6 +94,7 @@ export const MyProfileScreen = ({
           navigation={navigation}
           onEndReached={() => loadSchedules(false)}
           isLoading={showSpinner}
+          onSchedulePress={onSchedulePress}
         />
       </ContentWrapper>
     </LoggedWrapper>

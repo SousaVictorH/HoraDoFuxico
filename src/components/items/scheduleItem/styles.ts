@@ -1,8 +1,10 @@
 import styled, { css } from "styled-components/native"
 
+import { Pressable } from "react-native"
+
 import { ThemeProps } from "styles/types"
 
-export const Container = styled.View`
+export const Container = styled(Pressable)`
   flex-direction: row;
   width: 100%;
 
