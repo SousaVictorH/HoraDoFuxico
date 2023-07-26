@@ -1,18 +1,14 @@
 import React from "react"
 import { ListRenderItem } from "react-native"
 
-import { HotTopic } from "components/items/hotTopic"
 import { ScheduleItem } from "components/items/scheduleItem"
 
-import { hotTopics, schedule, emptyText } from "constants/texts"
-import { hotTopicsList } from "resources/hotTopics"
+import { schedule, emptyText } from "constants/texts"
 import { NEW_SCHEDULE_SCREEN } from "constants/screens"
 
 import {
   Container,
   Title,
-  ListWrapper,
-  HotTopicsList,
   SchedulesList,
   TextButton,
   EmptyText
@@ -23,16 +19,6 @@ export const Schedules = ({
   schedules,
   navigation
 }: Props) => {
-  const renderHotTopics: ListRenderItem<any> = ({
-    item,
-    index
-  }) => (
-    <HotTopic
-      key={index.toString()}
-      {...item}
-    />
-  )
-
   const renderSchedules: ListRenderItem<any> = ({
     item,
     index
@@ -45,14 +31,6 @@ export const Schedules = ({
 
   return (
     <Container>
-      <Title>{hotTopics}</Title>
-      <ListWrapper>
-        <HotTopicsList
-          data={hotTopicsList}
-          horizontal
-          renderItem={renderHotTopics}
-        />
-      </ListWrapper>
       <Title>Horário dos fuxicos</Title>
       <SchedulesList
         data={schedules}

@@ -38,14 +38,4 @@ export const ProfileAge = styled.Text`
 
 export const ContentWrapper = styled.View`
   flex: 1;
-  justify-content: center;
-  align-items: center;
-`
-
-export const Text = styled.Text`
-  ${({ theme }: ThemeProps) => css`
-    font-size: ${theme.typography.elements.caption.fontSize};
-    font-family: ${theme.typography.fontFamily.poppins};
-    color: ${theme.colors.neutrals.neutral_60};
-  `}
 `

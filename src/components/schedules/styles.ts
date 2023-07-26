@@ -6,6 +6,10 @@ import { ThemeProps } from "styles/types"
 
 export const Container = styled.View`
   flex: 1;
+
+  ${({ theme }: ThemeProps) => css`
+    margin-top: ${theme.spacings.xxl};
+  `}
 `
 
 export const Title = styled.Text`
@@ -16,14 +20,6 @@ export const Title = styled.Text`
     padding-left: ${theme.spacings.lg};
   `}
 `
-
-export const ListWrapper = styled.View`
-  ${({ theme }: ThemeProps) => css`
-    margin-bottom: ${theme.spacings.lg};
-  `}
-`
-
-export const HotTopicsList = styled.FlatList``
 
 export const SchedulesList = styled.FlatList`
   flex: 1;

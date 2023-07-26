@@ -23,6 +23,6 @@ export const useUserStore = create<State>((set) => ({
     schedules: [],
   })),
   addSchedule: (schedule: Schedule) => set((state) => ({
-    schedules: [...state.schedules, schedule]
+    schedules: [schedule, ...state.schedules],
   }))
 }));

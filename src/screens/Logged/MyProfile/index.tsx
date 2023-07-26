@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { LoggedWrapper } from 'templates/LoggedWrapper'
+import { Schedules } from 'components/schedules'
 
 import { useUserStore } from 'store/user'
 
@@ -13,18 +14,19 @@ import {
   ProfileImage,
   ProfileName,
   ProfileAge,
-  ContentWrapper,
-  Text
+  ContentWrapper
 } from './styles'
 import { Props } from "./types"
 
 export const MyProfileScreen = ({
-  toggleSidePanel
+  toggleSidePanel,
+  navigation
 }: Props) => {
   const {
     name,
     birthDate,
-    avatar
+    avatar,
+    schedules
   } = useUserStore()
 
   const age = calculateAge(birthDate)
@@ -41,7 +43,10 @@ export const MyProfileScreen = ({
         <ProfileAge>{age} anos</ProfileAge>
       </ProfileWrapper>
       <ContentWrapper>
-        <Text>Perfil</Text>
+        <Schedules
+          schedules={schedules}
+          navigation={navigation}
+        />
       </ContentWrapper>
     </LoggedWrapper>
   )

@@ -1,17 +1,17 @@
-import { LoggedWrapper } from 'templates/LoggedWrapper'
+import React from 'react'
 
-import { Schedules } from 'components/schedules'
+import { LoggedWrapper } from 'templates/LoggedWrapper'
 
 import { useUserStore } from 'store/user'
 
 import { Header, HeaderText, ContentWrapper } from './styles'
 import { Props } from "./types"
+import { HotTopics } from 'components/hotTopics'
 
 export const HomeScreen = ({
-  navigation,
   toggleSidePanel
 }: Props) => {
-  const { name, schedules } = useUserStore()
+  const { name } = useUserStore()
 
   return (
     <LoggedWrapper toggleSidePanel={toggleSidePanel}>
@@ -19,10 +19,7 @@ export const HomeScreen = ({
         <Header>
           <HeaderText>Olá, {name}.</HeaderText>
         </Header>
-        <Schedules
-          schedules={schedules}
-          navigation={navigation}
-        />
+        <HotTopics />
       </ContentWrapper>
     </LoggedWrapper>
   )
