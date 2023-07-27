@@ -30,28 +30,19 @@ export const SearchScreen = ({
   const [numberOfPages, setNumberOfPages] = useState(2)
 
   const [isLoading, setIsLoading] = useState(false)
-  const [usersList, setUsersList] = useState<User[]>([])
-
-  const [showSpinner, setShowSpinner] = useState(false)
+  const [showSpinner, setShowSpinner] = useState(true)
 
   const [searchFieldDisplayValue, setSearchFieldDisplayValues] = useState('')
   const [searchField, setSearchField] = useState('')
 
+  const [usersList, setUsersList] = useState<User[]>([])
   const debounceChange = useDebounce(setSearchField, 500)
 
-  const loadUsersList = async (shouldReset: boolean) => {
-    const currentPage = shouldReset ? 1 : page
-
-    if (isLoading || currentPage > numberOfPages) return
-
-    if (shouldReset) {
-      setPage(currentPage)
-      setNumberOfPages(currentPage + 1)
-    }
+  const loadUsersList = async (pageNumber: number) => {
+    if (isLoading || (pageNumber > numberOfPages)) return
 
     setIsLoading(true)
-    setShowSpinner(true)
-    const response = await getUsers(searchField, currentPage)
+    const response = await getUsers(searchField, pageNumber)
     setIsLoading(false)
     setShowSpinner(false)
 
@@ -63,10 +54,14 @@ export const SearchScreen = ({
       })
     }
 
-    setPage(currentPage + 1)
+    setPage(pageNumber + 1)
     setNumberOfPages(response.data.numberOfPages)
     setUsersList([...usersList, ...response.data.users])
   }
+
+  useEffect(() => {
+    loadUsersList(1)
+  }, [searchField])
 
   const renderItem: ListRenderItem<any> = ({ item }:
     {
@@ -85,9 +80,11 @@ export const SearchScreen = ({
     />
   )
 
-  useEffect(() => {
-    loadUsersList(true)
-  }, [searchField])
+  const renderListFooterComponent = () => (
+    <>
+      {(isLoading || showSpinner) && <Spinner />}
+    </>
+  )
 
   return (
     <LoggedWrapper toggleSidePanel={toggleSidePanel}>
@@ -98,8 +95,8 @@ export const SearchScreen = ({
             onChangeText={t => {
               setSearchFieldDisplayValues(t)
               debounceChange(t)
-              setUsersList([])
               setShowSpinner(true)
+              setUsersList([])
             }}
           />
         </Header>
@@ -107,12 +104,12 @@ export const SearchScreen = ({
           data={usersList}
           renderItem={renderItem}
           onEndReachedThreshold={0.6}
-          onEndReached={() => loadUsersList(false)}
-          ListFooterComponent={
-            <>
-              {showSpinner && <Spinner />}
-            </>
-          }
+          onEndReached={() => loadUsersList(page)}
+          showsVerticalScrollIndicator={false}
+          viewabilityConfig={{
+            viewAreaCoveragePercentThreshold: 10,
+          }}
+          ListFooterComponent={renderListFooterComponent()}
         />
       </ContentWrapper>
     </LoggedWrapper>

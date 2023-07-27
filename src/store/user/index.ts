@@ -19,14 +19,13 @@ const initialState: User = {
 
 export const useUserStore = create<State>((set) => ({
   ...initialState,
-  setPersonalData: (data: PersonalData) => set((state) => ({
-    ...state,
+  setPersonalData: (data: PersonalData) => set(() => ({
     ...data
   })),
   clearPersonalData: () => set(() => ({
     ...initialState
   })),
-  setSchedules: (schedules: Schedule[]) => set(() => ({
-    schedules: schedules
+  addSchedule: (schedule: string) => set((state) => ({
+    schedules: [schedule, ...state.schedules]
   }))
 }));

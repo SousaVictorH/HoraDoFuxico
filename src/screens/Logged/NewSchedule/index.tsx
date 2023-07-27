@@ -7,6 +7,7 @@ import { CreateScheduleForm } from "components/forms/CreateSchedule"
 import { HeaderButton } from "components/buttons/Header"
 
 import { useUserStore } from 'store/user'
+import { useUserSchedulesStore } from "store/userSchedules"
 import { Schedule } from "store/user/types"
 
 import { schedule } from 'constants/texts'
@@ -17,7 +18,8 @@ import { Props } from "./types"
 export const NewScheduleScreen = ({
   navigation
 }: Props) => {
-  const { id, schedules, setSchedules } = useUserStore()
+  const { id, addSchedule } = useUserStore()
+  const userScheduleStore = useUserSchedulesStore()
 
   const [isLoading, setIsLoading] = useState(false)
 
@@ -48,7 +50,10 @@ export const NewScheduleScreen = ({
       text2: 'Agendamento realizado com sucesso'
     })
 
-    setSchedules([response.data, ...schedules])
+    const createdSchedule = response.data
+
+    userScheduleStore.addSchedule(createdSchedule)
+    addSchedule(createdSchedule.id)
 
     setTimeout(() => navigation.goBack(), 300)
 

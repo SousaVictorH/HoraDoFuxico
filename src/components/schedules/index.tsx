@@ -26,7 +26,6 @@ export const Schedules = ({
   loadUserSchedules,
   showButton
 }: Props) => {
-
   const [page, setPage] = useState(1)
   const [numberOfPages, setNumberOfPages] = useState(2)
 
@@ -49,7 +48,7 @@ export const Schedules = ({
     }
 
     setPage(pageNumber + 1)
-    setNumberOfPages(response.data.numberOfPages)
+    setNumberOfPages(response.data.numberOfPages || 1)
 
     setSchedules(shouldRefresh ? [...response.data.schedules] : [...schedules, ...response.data.schedules])
   }

@@ -5,7 +5,7 @@ export type User = {
   birthDate: string
   phoneNumber: string
   avatar: string
-  schedules: Schedule[]
+  schedules: string[]
 }
 
 export type PersonalData = {
@@ -28,5 +28,5 @@ export type Schedule = {
 export type State = User & {
   setPersonalData: (data: any) => void
   clearPersonalData: () => void
-  setSchedules: (schedule: Schedule[]) => void
+  addSchedule: (schedule: string) => void
 }

@@ -4,6 +4,7 @@ import { LoggedWrapper } from 'templates/LoggedWrapper'
 import { Schedules } from 'components/schedules'
 
 import { useUserStore } from 'store/user'
+import { useUserSchedulesStore } from 'store/userSchedules'
 import { Schedule } from 'store/user/types'
 
 import { loadSchedules } from 'interfaces/api'
@@ -28,10 +29,9 @@ export const MyProfileScreen = ({
     id,
     name,
     birthDate,
-    avatar,
-    schedules,
-    setSchedules
+    avatar
   } = useUserStore()
+  const { schedules, setSchedules } = useUserSchedulesStore()
 
   const loadUserSchedules = async (page: number) => {
     return await loadSchedules(id, page)
