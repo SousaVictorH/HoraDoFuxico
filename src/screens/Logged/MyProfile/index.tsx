@@ -8,6 +8,7 @@ import { useUserSchedulesStore } from 'store/userSchedules'
 import { Schedule } from 'store/user/types'
 
 import { loadSchedules } from 'interfaces/api'
+import { SCHEDULE_SCREEN } from 'constants/screens'
 
 import { images } from 'resources/images'
 import { calculateAge } from 'utils/date'
@@ -38,7 +39,7 @@ export const MyProfileScreen = ({
   }
 
   const onSchedulePress = (schedule: Schedule) => {
-    console.log(schedule)
+    navigation.navigate(SCHEDULE_SCREEN, { ...schedule })
   }
 
   return (

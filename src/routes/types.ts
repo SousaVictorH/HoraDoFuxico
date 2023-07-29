@@ -14,4 +14,5 @@ export type RootStackParamList = {
   EDIT_PROFILE_SCREEN: undefined
   LOGGED_NAVIGATOR: undefined
   SEARCH_SCREEN: undefined
+  SCHEDULE_SCREEN: { id?: string, category: string, date: string, users?: string[] }
 };
