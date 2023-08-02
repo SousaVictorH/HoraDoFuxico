@@ -1,5 +1,10 @@
-import React, { useRef, useState } from "react"
-import { NativeSyntheticEvent, TextInput, TextInputKeyPressEventData } from "react-native"
+import React, { useRef, useState, useCallback } from "react"
+import {
+  NativeSyntheticEvent,
+  TextInput,
+  TextInputKeyPressEventData,
+  Animated
+} from "react-native"
 
 import { PartInput } from "components/inputs/PartInput"
 
@@ -12,16 +17,21 @@ export const TokenInput = ({
   disabled
 }: Props) => {
   const [value, setValue] = useState<Array<string>>(Array(length).fill(''))
+  const inputRefs = useRef<Array<TextInput>>([])
 
-  const onChange = (newValue: Array<string>) => {
+  const anim = useRef(new Animated.Value(0))
+
+  const onChange = async (newValue: Array<string>) => {
     setValue(newValue)
 
     const str = newValue.join('')
 
-    if (str.length === length) onSubmit(str)
-  }
+    if (str.length !== length) return
 
-  const inputRefs = useRef<Array<TextInput>>([])
+    const shouldAnimatedShake = await onSubmit(str)
+
+    if (shouldAnimatedShake) animatedShake()
+  }
 
   const onChangeValue = (text: string, index: number) => {
     const newValue = value.map((item: string, valueIndex: number) => {
@@ -54,8 +64,31 @@ export const TokenInput = ({
     }
   }
 
+  const animatedShake = useCallback(() => {
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(anim.current, {
+          toValue: -2,
+          duration: 50,
+          useNativeDriver: true
+        }),
+        Animated.timing(anim.current, {
+          toValue: 2,
+          duration: 50,
+          useNativeDriver: true
+        }),
+        Animated.timing(anim.current, {
+          toValue: 0,
+          duration: 50,
+          useNativeDriver: true
+        }),
+      ]),
+      { iterations: 2 }
+    ).start();
+  }, []);
+
   return (
-    <Container>
+    <Container style={{ transform: [{ translateX: anim.current }] }} >
       {value.map((_, index) => (
         <PartInput
           key={index}

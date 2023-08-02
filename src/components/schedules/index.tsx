@@ -60,7 +60,7 @@ export const Schedules = ({
     await loadSchedules(1, true);
 
     setIsRefreshing(false)
-  };
+  }
 
   useEffect(() => {
     loadSchedules(page, false)

@@ -1,4 +1,4 @@
 export type Props = {
-  onSubmit: (token: string) => void
+  onSubmit: (token: string) => Promise<boolean>
   onResendCode: () => void
 }

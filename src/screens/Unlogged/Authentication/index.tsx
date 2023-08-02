@@ -32,7 +32,7 @@ export const AuthenticationScreen = ({
   const { phoneNumber } = route.params
 
   const onSubmit = async (inputToken: string) => {
-    if (isLoading) return
+    if (isLoading) return false
 
     setIsLoading(true)
     const response = await login(phoneNumber, inputToken)
@@ -42,7 +42,7 @@ export const AuthenticationScreen = ({
       const error = '' + response.error
 
       if (error.includes('403')) {
-        // Token error
+        // Expired token
         Toast.show({
           type: 'info',
           text1: 'Info',
@@ -52,15 +52,18 @@ export const AuthenticationScreen = ({
         setTimeout(() => {
           onResendCode()
         }, 700)
-      } else {
-        Toast.show({
-          type: 'error',
-          text1: 'Alerta',
-          text2: 'Token inserido está incorreto'
-        })
+
+        return false
       }
 
-      return
+      // Wrong token
+      Toast.show({
+        type: 'error',
+        text1: 'Alerta',
+        text2: 'Token inserido está incorreto'
+      })
+
+      return true
     }
 
     if (response.data.id) {
@@ -72,6 +75,8 @@ export const AuthenticationScreen = ({
       setPersonalData({ token: response.data.token })
       navigation.navigate(TERMS_SCREEN, { phoneNumber })
     }
+
+    return false
   }
 
   const onResendCode = async () => {

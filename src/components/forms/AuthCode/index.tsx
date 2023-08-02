@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React from 'react'
 
 import { FormWrapper } from 'templates/FormWrapper'
 import { TokenInput } from "components/inputs/TokenInput"
@@ -12,8 +12,8 @@ export const AuthCodeForm = ({
   onSubmit,
   onResendCode
 }: Props) => {
-  const handleSubmit = (token: string) => {
-    onSubmit(token)
+  const handleSubmit = async (token: string) => {
+    return await onSubmit(token)
   }
 
   return (
