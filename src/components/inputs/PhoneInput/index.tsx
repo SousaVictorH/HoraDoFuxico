@@ -4,8 +4,8 @@ import { phoneMask } from 'utils/phone'
 
 import {
   InputsWrapper,
-  LeftInput,
-  RightInput
+  AreaCodeInput,
+  PhoneNumberInput
 } from './styles'
 import { PhoneInputProps } from './types'
 
@@ -15,11 +15,13 @@ export const PhoneInput = ({
   phoneNumber,
   setPhoneNumber
 }: PhoneInputProps) => {
+  const areaCodeInputRef = useRef<TextInput>(null)
   const phoneNumberInputRef = useRef<TextInput>(null)
 
   return (
     <InputsWrapper>
-      <LeftInput
+      <AreaCodeInput
+        ref={areaCodeInputRef}
         value={areaCode}
         onChangeText={text => {
           setAreaCode(text)
@@ -29,7 +31,7 @@ export const PhoneInput = ({
         maxLength={2}
         keyboardType="numeric"
       />
-      <RightInput
+      <PhoneNumberInput
         ref={phoneNumberInputRef}
         value={phoneNumber}
         onChangeText={text => {
@@ -38,6 +40,12 @@ export const PhoneInput = ({
           setPhoneNumber(maskedPhone)
 
           if (maskedPhone.length >= 10) phoneNumberInputRef.current?.blur()
+          else if (maskedPhone.length == 0) areaCodeInputRef.current?.focus()
+        }}
+        onKeyPress={(evt) => {
+          const { nativeEvent } = evt
+
+          if (nativeEvent.key === 'Backspace' && phoneNumber.length == 0) areaCodeInputRef.current?.focus()
         }}
         maxLength={10}
         keyboardType="numeric"

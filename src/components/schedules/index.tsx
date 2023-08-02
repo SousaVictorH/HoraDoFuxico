@@ -24,7 +24,10 @@ export const Schedules = ({
   onSchedulePress,
   setSchedules,
   loadUserSchedules,
-  showButton
+  showButton,
+  ListHeaderComponent,
+  scrollTitle,
+  style
 }: Props) => {
   const [page, setPage] = useState(1)
   const [numberOfPages, setNumberOfPages] = useState(2)
@@ -77,6 +80,13 @@ export const Schedules = ({
     />
   )
 
+  const renderListHeaderComponent = () => (
+    <>
+      {ListHeaderComponent}
+      {scrollTitle && <Title scrollTitle={true} style={style}>Horário dos fuxicos</Title>}
+    </>
+  )
+
   const renderListEmptyComponent = () => (
     <>
       {!isLoading && <EmptyText>{emptyText}</EmptyText>}
@@ -97,7 +107,7 @@ export const Schedules = ({
 
   return (
     <Container>
-      <Title>Horário dos fuxicos</Title>
+      {!scrollTitle && <Title scrollTitle={false} style={style}>Horário dos fuxicos</Title>}
       <SchedulesList
         data={schedules}
         renderItem={renderSchedules}
@@ -109,9 +119,14 @@ export const Schedules = ({
         viewabilityConfig={{
           viewAreaCoveragePercentThreshold: 10,
         }}
+        ListHeaderComponent={renderListHeaderComponent()}
         ListEmptyComponent={renderListEmptyComponent()}
         ListFooterComponent={renderFooterComponent()}
       />
     </Container>
   )
+}
+
+Schedules.defaultProps = {
+  scrollTitle: true
 }

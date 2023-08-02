@@ -9,9 +9,10 @@ export const Container = styled.View`
   align-items: center;
 
   ${({ theme }: ThemeProps) => css`
-    border: 0.5px solid ${theme.colors.support.beige_10};
+    border: 0.5px solid ${theme.colors.neutrals.neutral_20};
     border-radius: ${theme.borderRadius.xxs};
-    margin: ${theme.spacings.md}
+    margin-vertical: ${theme.spacings.md};
+    margin-right: ${theme.spacings.md};
     padding: ${theme.spacings.md} ${theme.spacings.lg};
     background-color: ${theme.colors.background.light};
   `}

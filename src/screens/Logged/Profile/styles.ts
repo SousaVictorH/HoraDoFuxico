@@ -1,6 +1,8 @@
 import { Pressable } from "react-native"
 import styled, { css } from "styled-components/native"
 
+import { Schedules } from 'components/schedules'
+
 import { getWindowHeight } from "utils/dimensions"
 
 import { ThemeProps } from "styles/types"
@@ -59,5 +61,11 @@ export const UserName = styled.Text`
     font-size: ${theme.typography.elements.caption.fontSize};
     font-family: ${theme.typography.fontFamily.poppins};
     color: ${theme.colors.neutrals.neutral_60};
+  `}
+`
+
+export const SchedulesList = styled(Schedules)`
+  ${({ theme }: ThemeProps) => css`
+    margin-top: ${theme.spacings.xxl};
   `}
 `

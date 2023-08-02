@@ -14,7 +14,7 @@ export const InputsWrapper = styled.View`
   `}
 `
 
-export const LeftInput = styled.TextInput`
+export const AreaCodeInput = styled.TextInput`
   width: 60px;
   height: 50px;
   text-align: center;
@@ -28,7 +28,7 @@ export const LeftInput = styled.TextInput`
   `}
 `
 
-export const RightInput = styled.TextInput`
+export const PhoneNumberInput = styled.TextInput`
   width: 80%;
   height: 50px;
   text-align: left;

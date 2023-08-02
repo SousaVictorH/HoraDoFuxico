@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
 import { LoggedWrapper } from 'templates/LoggedWrapper'
-import { Schedules } from 'components/schedules'
 
 import { useUserStore } from 'store/user'
 import { Schedule } from 'store/user/types'
@@ -22,7 +21,8 @@ import {
   Wrapper,
   ProfileWrapper,
   UserImage,
-  UserName
+  UserName,
+  SchedulesList
 } from './styles'
 import { Props } from "./types"
 
@@ -68,13 +68,14 @@ export const ProfileScreen = ({
             />
             <UserName>{calculateAge(birthDate)} anos</UserName>
           </ProfileWrapper>
-          <Schedules
+          <SchedulesList
             navigation={navigation}
             schedules={schedules}
             onSchedulePress={onSchedulePress}
             setSchedules={setSchedules}
             loadUserSchedules={loadUserSchedules}
             showButton={user.id === id}
+            scrollTitle={false}
           />
         </ContentWrapper>
       </Wrapper>

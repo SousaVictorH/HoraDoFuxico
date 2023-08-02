@@ -38,4 +38,8 @@ export const ProfileAge = styled.Text`
 
 export const ContentWrapper = styled.View`
   flex: 1;
+
+  ${({ theme }: ThemeProps) => css`
+    margin-top: ${theme.spacings.xxl};
+  `}
 `

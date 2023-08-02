@@ -1,25 +1,46 @@
 import React from 'react'
 
 import { LoggedWrapper } from 'templates/LoggedWrapper'
-
-import { useUserStore } from 'store/user'
-
-import { Header, HeaderText, ContentWrapper } from './styles'
-import { Props } from "./types"
+import { Schedules } from 'components/schedules'
 import { HotTopics } from 'components/hotTopics'
 
+import { useUserStore } from 'store/user'
+import { useUserSchedulesStore } from 'store/userSchedules'
+import { Schedule } from 'store/user/types'
+
+import { loadSchedules } from 'interfaces/api'
+import { SCHEDULE_SCREEN } from 'constants/screens'
+
+import { ContentWrapper } from './styles'
+import { Props } from "./types"
+
 export const HomeScreen = ({
+  navigation,
   toggleSidePanel
 }: Props) => {
-  const { name } = useUserStore()
+  const { id } = useUserStore()
+  const { schedules, setSchedules } = useUserSchedulesStore()
+
+  const loadUserSchedules = async (page: number) => {
+    return await loadSchedules(id, page)
+  }
+
+  const onSchedulePress = (schedule: Schedule) => {
+    navigation.navigate(SCHEDULE_SCREEN, { ...schedule })
+  }
 
   return (
     <LoggedWrapper toggleSidePanel={toggleSidePanel}>
       <ContentWrapper>
-        <Header>
-          <HeaderText>Olá, {name}.</HeaderText>
-        </Header>
-        <HotTopics />
+        <Schedules
+          navigation={navigation}
+          schedules={schedules}
+          onSchedulePress={onSchedulePress}
+          setSchedules={setSchedules}
+          loadUserSchedules={loadUserSchedules}
+          showButton
+          ListHeaderComponent={<HotTopics />}
+        />
       </ContentWrapper>
     </LoggedWrapper>
   )

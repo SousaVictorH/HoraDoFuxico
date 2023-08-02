@@ -6,18 +6,15 @@ import { ThemeProps } from "styles/types"
 
 export const Container = styled.View`
   flex: 1;
-
-  ${({ theme }: ThemeProps) => css`
-    margin-top: ${theme.spacings.xxl};
-  `}
 `
 
 export const Title = styled.Text`
-  ${({ theme }: ThemeProps) => css`
+  ${({ theme, scrollTitle }: ThemeProps & { scrollTitle: boolean }) => css`
+    margin-top: ${theme.spacings.md};
     font-size: ${theme.typography.elements.body.fontSize};
     font-family: ${theme.typography.fontFamily.poppinsBold};
     color: ${theme.colors.neutrals.neutral_60};
-    padding-left: ${theme.spacings.lg};
+    padding-left: ${scrollTitle ? theme.spacings.none : theme.spacings.lg};
   `}
 `
 
