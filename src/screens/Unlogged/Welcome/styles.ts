@@ -2,29 +2,21 @@ import styled, { css } from "styled-components/native"
 import Animated, { FadeInUp } from 'react-native-reanimated'
 
 import { ThemeProps } from "styles/types"
-import { getWindowWidth, getWindowHeight } from "utils/dimensions"
 
 export const AnimatedView = styled(Animated.View).attrs({
   entering: FadeInUp
 })`
-  height: ${getWindowHeight()}px;
-  width: ${getWindowWidth()}px;
+  flex: 1;
 
   ${({ theme }: ThemeProps) => css`
-    padding: ${theme.spacings.paddingTop} ${theme.spacings.xlg};
+    margin: ${theme.spacings.spacingTop} ${theme.spacings.xlg} ${theme.spacings.md};
   `}
 `
 
 export const ContentWrapper = styled.View`
-  position: relative;
-  width: 100%;
-  height: ${getWindowHeight() - 70}px;
+  flex: 1;
   align-items: center;
   justify-content: space-between;
-
-  ${({ theme }: ThemeProps) => css`
-    padding-bottom: ${theme.spacings.xlg};
-  `}
 `
 
 export const AppNameImage = styled.Image`

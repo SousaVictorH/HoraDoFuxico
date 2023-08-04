@@ -11,7 +11,7 @@ export const ContentWrapper = styled.View`
   justify-content: space-between;
 
   ${({ theme }: ThemeProps) => css`
-    padding-top: ${theme.spacings.paddingTop};
+    margin-top: ${theme.spacings.spacingTop};
   `}
 `
 

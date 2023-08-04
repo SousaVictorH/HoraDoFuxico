@@ -4,12 +4,10 @@ import { ThemeProps } from "styles/types"
 
 export const ContentWrapper = styled.View`
   flex: 1;
-  width: 100%;
   align-items: center;
-  justify-content: space-between;
 
   ${({ theme }: ThemeProps) => css`
-    padding-top: ${theme.spacings.paddingTop};
+    margin-top: ${theme.spacings.spacingTop};
   `}
 `
 
@@ -35,12 +33,12 @@ export const AppImage = styled.Image`
   width: 272px;
 
   ${({ theme }: ThemeProps) => css`
-    margin-top: ${theme.spacings.xlg};
+    margin-top: ${theme.spacings.xxxl};
   `}
 `
 
 export const FormContainer = styled.View`
-  flex: 1;
+  min-height: 150px;
   width: 100%;
 
   ${({ theme }: ThemeProps) => css`

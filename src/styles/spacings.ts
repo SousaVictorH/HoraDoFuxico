@@ -1,8 +1,8 @@
+import { StatusBarHeight } from 'utils/statusBar'
+
 import { SpacingsTypes } from './types';
 
-import { getWindowHeight } from 'utils/dimensions';
-
-const paddingTop = getWindowHeight() > 900 ? 95 : 70;
+const spacingTop = StatusBarHeight + 10
 
 export const spacings: SpacingsTypes = {
   none: '0px',
@@ -17,5 +17,5 @@ export const spacings: SpacingsTypes = {
   xxxl: '50px',
   xxxxl: '80px',
   auto: 'auto',
-  paddingTop: `${paddingTop}px`
+  spacingTop: `${spacingTop}px`
 };
