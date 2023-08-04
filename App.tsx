@@ -1,3 +1,9 @@
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+
 import App from './src'
 
-export default App
+export default () => (
+  <SafeAreaProvider>
+    <App />
+  </SafeAreaProvider>
+)

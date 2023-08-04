@@ -6,8 +6,8 @@ import { getButtonAppearance, getIconAppearance } from './appearence';
 import { SocialMediaButtonProps, SocialMediaButtonIconProps } from './types';
 
 export const Container = styled.TouchableOpacity`
-  height: 60px;
-  width: 60px;
+  height: 54px;
+  width: 54px;
   align-items: center;
   justify-content: center;
 

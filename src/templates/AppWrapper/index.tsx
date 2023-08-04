@@ -1,21 +1,30 @@
-import React from 'react';
-import { StatusBar } from 'expo-status-bar';
+import React from 'react'
+import { StatusBar } from 'expo-status-bar'
 
-import theme from 'styles/theme';
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-import { Container } from './styles';
-import ThemeProvider from './ThemeProvider';
-import { AppWrapperProps } from './types';
+import ThemeProvider from './ThemeProvider'
+import theme from 'styles/theme'
+
+import { Container } from './styles'
+import { AppWrapperProps } from './types'
 
 export const AppWrapper = ({
   children,
   theme,
   onLayout
 }: AppWrapperProps) => {
+  const insets = useSafeAreaInsets()
+
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar hidden />
-      <Container onLayout={onLayout}>{children}</Container>
+      <StatusBar backgroundColor='#fcfcfc' translucent />
+      <Container
+        onLayout={onLayout}
+        style={{ marginTop: insets.top }}
+      >
+        {children}
+      </Container>
     </ThemeProvider>
   );
 }

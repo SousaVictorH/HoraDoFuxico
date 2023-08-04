@@ -6,6 +6,7 @@ import { ThemeProps } from "styles/types";
 
 export const Label = styled.Text`
   ${({ theme }: ThemeProps) => css`
+    margin-bottom: ${theme.spacings.sm};
     font-size: ${theme.typography.elements.body.fontSize};
     line-height: ${theme.typography.elements.body.lineHeight};
     font-family: ${theme.typography.fontFamily.poppins};
@@ -14,6 +15,10 @@ export const Label = styled.Text`
 
 export const FormButton = styled(Button)`
   width: 100%;
+
+  ${({ theme }: ThemeProps) => css`
+    margin: ${theme.spacings.md} ${theme.spacings.none};
+  `}
 `
 
 export const SocialSignInWrapper = styled.View`
@@ -21,13 +26,12 @@ export const SocialSignInWrapper = styled.View`
   align-items: center;
 
   ${({ theme }: ThemeProps) => css`
-    margin-top: ${theme.spacings.xxl};
+    margin-top: ${theme.spacings.md};
   `}
 `
 
 export const SocialDiv = styled.View`
   width: 100%;
-
   position: absolute;
   border-bottom-width: 1px;
   top: 7px;
@@ -57,6 +61,6 @@ export const SocialMediaButtonsContainer = styled.View`
   justify-content: space-around;
 
   ${({ theme }: ThemeProps) => css`
-    margin-top: ${theme.spacings.xxl};
+    margin-top: ${theme.spacings.md};
   `}
 `

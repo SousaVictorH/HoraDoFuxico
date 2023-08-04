@@ -1,8 +1,4 @@
-import { StatusBarHeight } from 'utils/statusBar'
-
 import { SpacingsTypes } from './types';
-
-const spacingTop = StatusBarHeight + 10
 
 export const spacings: SpacingsTypes = {
   none: '0px',
@@ -16,6 +12,5 @@ export const spacings: SpacingsTypes = {
   xxl: '30px',
   xxxl: '50px',
   xxxxl: '80px',
-  auto: 'auto',
-  spacingTop: `${spacingTop}px`
-};
+  auto: 'auto'
+}

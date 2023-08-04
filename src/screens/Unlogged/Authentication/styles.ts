@@ -7,7 +7,7 @@ export const ContentWrapper = styled.View`
   align-items: center;
 
   ${({ theme }: ThemeProps) => css`
-    margin-top: ${theme.spacings.spacingTop};
+    margin-top: ${theme.spacings.md};
   `}
 `
 

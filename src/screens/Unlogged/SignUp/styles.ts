@@ -9,7 +9,7 @@ export const ContentWrapper = styled.View`
   justify-content: space-between;
 
   ${({ theme }: ThemeProps) => css`
-    margin-top: ${theme.spacings.spacingTop};
+    margin-top: ${theme.spacings.md};
   `}
 `
 

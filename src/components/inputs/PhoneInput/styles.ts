@@ -8,10 +8,6 @@ export const InputsWrapper = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-
-  ${({ theme }: ThemeProps) => css`
-    margin-top: ${theme.spacings.md};
-  `}
 `
 
 export const AreaCodeInput = styled.TextInput`

@@ -9,14 +9,13 @@ export const AnimatedView = styled(Animated.View).attrs({
   flex: 1;
 
   ${({ theme }: ThemeProps) => css`
-    margin: ${theme.spacings.spacingTop} ${theme.spacings.xlg} ${theme.spacings.md};
+    margin: ${theme.spacings.md} ${theme.spacings.xlg};
   `}
 `
 
 export const ContentWrapper = styled.View`
   flex: 1;
   align-items: center;
-  justify-content: space-between;
 `
 
 export const AppNameImage = styled.Image`
@@ -28,24 +27,34 @@ export const SubTitle = styled.Text`
   text-align: center;
 
   ${({ theme }: ThemeProps) => css`
-    margin-top: ${theme.spacings.xxxl};
-    margin-bottom: ${theme.spacings.xxl};
+    margin-top: ${theme.spacings.lg};
     font-size: ${theme.typography.elements.heading.fontSize};
     line-height: ${theme.typography.elements.heading.lineHeight};
     font-family: ${theme.typography.fontFamily.baskervville};
   `}
 `
 
+export const AppImageContainer = styled.View`
+  flex: 1;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  ${({ theme }: ThemeProps) => css`
+    padding-vertical: ${theme.spacings.md};
+  `}
+`
+
 export const AppImage = styled.Image`
-  width: 262px;
-  height: 248px;
+  width: 95%;
+  height: 95%;
 `
 
 export const FormContainer = styled.View`
   flex: 1;
-  width: 100%;
+  max-height: 245px;
 
   ${({ theme }: ThemeProps) => css`
-    margin-top: ${theme.spacings.xxxl};
+    margin-top: ${theme.spacings.auto};
   `}
 `

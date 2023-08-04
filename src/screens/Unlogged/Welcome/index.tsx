@@ -18,6 +18,7 @@ import {
   ContentWrapper,
   AppNameImage,
   SubTitle,
+  AppImageContainer,
   AppImage,
   FormContainer
 } from "./styles"
@@ -85,10 +86,12 @@ export const WelcomeScreen = ({
                 resizeMode="contain"
               />
               <SubTitle>{promoteGoodMoments}</SubTitle>
-              <AppImage
-                source={images.image1.path}
-                resizeMode="contain"
-              />
+              <AppImageContainer>
+                <AppImage
+                  source={images.image1.path}
+                  resizeMode="contain"
+                />
+              </AppImageContainer>
               <FormContainer>
                 <SignInForm
                   onSignIn={onSignIn}
