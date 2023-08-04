@@ -26,7 +26,6 @@ export const Schedules = ({
   loadUserSchedules,
   showButton,
   ListHeaderComponent,
-  scrollTitle,
   style
 }: Props) => {
   const [page, setPage] = useState(1)
@@ -83,7 +82,7 @@ export const Schedules = ({
   const renderListHeaderComponent = () => (
     <>
       {ListHeaderComponent}
-      {scrollTitle && <Title scrollTitle={true} style={style}>Horário dos fuxicos</Title>}
+      <Title style={style}>Horário dos fuxicos</Title>
     </>
   )
 
@@ -107,7 +106,6 @@ export const Schedules = ({
 
   return (
     <Container>
-      {!scrollTitle && <Title scrollTitle={false} style={style}>Horário dos fuxicos</Title>}
       <SchedulesList
         data={schedules}
         renderItem={renderSchedules}
@@ -125,8 +123,4 @@ export const Schedules = ({
       />
     </Container>
   )
-}
-
-Schedules.defaultProps = {
-  scrollTitle: true
 }

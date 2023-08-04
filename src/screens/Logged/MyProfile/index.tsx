@@ -29,7 +29,7 @@ export const MyProfileScreen = ({
     <LoggedWrapper toggleSidePanel={toggleSidePanel}>
       <ProfileWrapper>
         <ProfileImage
-          source={{ uri: avatar }}
+          source={{ uri: avatar || undefined }}
           defaultSource={images.defaultUser.path}
           resizeMode="cover"
         />

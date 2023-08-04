@@ -17,7 +17,7 @@ export const UserItem = ({
 }: Props) => (
   <ItemWrapper onPress={onPress}>
     <UserAvatar
-      source={{ uri: avatar }}
+      source={{ uri: avatar || undefined }}
       defaultSource={images.defaultUser.path}
       resizeMode="cover"
     />

@@ -5,13 +5,13 @@ import { useUserStore } from "store/user"
 import * as RootNavigation from 'routes/RootNavigation'
 
 export const api = axios.create({
-  baseURL: 'http://192.168.0.103:8000',
+  baseURL: 'http://10.0.0.151:8000',
   timeout: 5000
 })
 
 // Request interceptor
 api.interceptors.request.use((req: InternalAxiosRequestConfig<any>) => {
-  const { token, id } = useUserStore.getState()
+  const { token } = useUserStore.getState()
 
   req.headers.Authorization = token
 

@@ -22,7 +22,7 @@ export const SignUpScreen = ({
   navigation,
   route
 }: Props) => {
-  const { setPersonalData, clearPersonalData } = useUserStore()
+  const { setPersonalData } = useUserStore()
 
   const [isLoading, setIsLoading] = useState(false)
 

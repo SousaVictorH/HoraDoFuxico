@@ -14,6 +14,5 @@ export type Props = {
   showButton: boolean
   loadUserSchedules: (page: number) => Promise<any>
   ListHeaderComponent?: ReactNode
-  scrollTitle?: boolean
   style?: StyleProp<ViewStyle>
 }

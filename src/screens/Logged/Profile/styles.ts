@@ -34,10 +34,6 @@ export const HeaderText = styled.Text`
   `}
 `
 
-export const ContentWrapper = styled.View`
-  flex: 1;
-`
-
 export const ProfileWrapper = styled.View`
   width: 100%;
   align-items: center;

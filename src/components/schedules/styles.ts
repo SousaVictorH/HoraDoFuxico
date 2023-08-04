@@ -9,12 +9,11 @@ export const Container = styled.View`
 `
 
 export const Title = styled.Text`
-  ${({ theme, scrollTitle }: ThemeProps & { scrollTitle: boolean }) => css`
+  ${({ theme }: ThemeProps) => css`
     margin-top: ${theme.spacings.md};
     font-size: ${theme.typography.elements.body.fontSize};
     font-family: ${theme.typography.fontFamily.poppinsBold};
     color: ${theme.colors.neutrals.neutral_60};
-    padding-left: ${scrollTitle ? theme.spacings.none : theme.spacings.lg};
   `}
 `
 

@@ -14,7 +14,6 @@ import { images } from 'resources/images'
 import { calculateAge } from 'utils/date'
 
 import {
-  ContentWrapper,
   Header,
   HeaderText,
   IconWrapper,
@@ -50,34 +49,37 @@ export const ProfileScreen = ({
     navigation.navigate(SCHEDULE_SCREEN, { ...schedule })
   }
 
+  const renderListHeaderComponent = () => (
+    <>
+      <Header>
+        <IconWrapper onPress={() => navigation.goBack()}>
+          <Ionicons name="arrow-back-outline" size={35} color="#252424" />
+        </IconWrapper>
+        <HeaderText>{name}</HeaderText>
+      </Header>
+      <ProfileWrapper>
+        <UserImage
+          source={{ uri: avatar || undefined }}
+          defaultSource={images.defaultUser.path}
+          resizeMode="cover"
+        />
+        <UserName>{calculateAge(birthDate)} anos</UserName>
+      </ProfileWrapper>
+    </>
+  )
+
   return (
     <LoggedWrapper hideHeader>
       <Wrapper>
-        <Header>
-          <IconWrapper onPress={() => navigation.goBack()}>
-            <Ionicons name="arrow-back-outline" size={35} color="#252424" />
-          </IconWrapper>
-          <HeaderText>{name}</HeaderText>
-        </Header>
-        <ContentWrapper>
-          <ProfileWrapper>
-            <UserImage
-              source={{ uri: avatar }}
-              defaultSource={images.defaultUser.path}
-              resizeMode="cover"
-            />
-            <UserName>{calculateAge(birthDate)} anos</UserName>
-          </ProfileWrapper>
-          <SchedulesList
-            navigation={navigation}
-            schedules={schedules}
-            onSchedulePress={onSchedulePress}
-            setSchedules={setSchedules}
-            loadUserSchedules={loadUserSchedules}
-            showButton={user.id === id}
-            scrollTitle={false}
-          />
-        </ContentWrapper>
+        <SchedulesList
+          navigation={navigation}
+          schedules={schedules}
+          onSchedulePress={onSchedulePress}
+          setSchedules={setSchedules}
+          loadUserSchedules={loadUserSchedules}
+          showButton={user.id === id}
+          ListHeaderComponent={renderListHeaderComponent()}
+        />
       </Wrapper>
     </LoggedWrapper>
   )
