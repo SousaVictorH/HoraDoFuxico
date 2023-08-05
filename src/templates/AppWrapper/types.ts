@@ -1,7 +1,7 @@
 import { ThemeType } from 'styles/types';
 
 export type AppWrapperProps = {
-  theme?: ThemeType;
+  theme: ThemeType;
   children: React.ReactNode;
   onLayout: () => void;
 };

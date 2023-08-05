@@ -14,15 +14,14 @@ export const AppWrapper = ({
   theme,
   onLayout
 }: AppWrapperProps) => {
-  const insets = useSafeAreaInsets()
+  const { top } = useSafeAreaInsets()
+
+  theme.spacings.spacingTop = `${top}px`
 
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar backgroundColor='#fcfcfc' translucent />
-      <Container
-        onLayout={onLayout}
-        style={{ marginTop: insets.top }}
-      >
+      <StatusBar hidden />
+      <Container onLayout={onLayout}>
         {children}
       </Container>
     </ThemeProvider>

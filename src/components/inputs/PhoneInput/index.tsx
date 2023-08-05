@@ -26,7 +26,10 @@ export const PhoneInput = ({
         onChangeText={text => {
           setAreaCode(text)
 
-          if (text.length >= 2) phoneNumberInputRef.current?.focus()
+          if (text.length === 2) phoneNumberInputRef.current?.focus()
+        }}
+        onKeyPress={() => {
+          if (areaCode.length === 2) phoneNumberInputRef.current?.focus()
         }}
         maxLength={2}
         keyboardType="numeric"

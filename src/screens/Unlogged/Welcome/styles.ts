@@ -9,13 +9,17 @@ export const AnimatedView = styled(Animated.View).attrs({
   flex: 1;
 
   ${({ theme }: ThemeProps) => css`
-    margin: ${theme.spacings.md} ${theme.spacings.xlg};
+    margin: ${theme.spacings.spacingTop} ${theme.spacings.xlg} ${theme.spacings.md};
   `}
 `
 
 export const ContentWrapper = styled.View`
   flex: 1;
   align-items: center;
+
+  ${({ theme }: ThemeProps) => css`
+    margin-top: ${theme.spacings.sm};
+  `}
 `
 
 export const AppNameImage = styled.Image`

@@ -12,5 +12,6 @@ export const spacings: SpacingsTypes = {
   xxl: '30px',
   xxxl: '50px',
   xxxxl: '80px',
-  auto: 'auto'
+  auto: 'auto',
+  spacingTop: '0px' // initial value
 }
