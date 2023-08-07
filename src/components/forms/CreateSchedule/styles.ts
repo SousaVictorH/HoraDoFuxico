@@ -1,20 +1,20 @@
 import styled, { css } from "styled-components/native"
 
 import { Button as ButtonComponent } from "components/buttons/Button"
-
+import { DateTimeInput as DateTimeInputComponent } from "components/inputs/DateTimeInput"
 import { RadioInput as RadioInputComponent } from "components/inputs/RadioInput"
 
 import { ThemeProps } from "styles/types"
 
 export const ContentWrapper = styled.View`
   flex: 1;
-  
+
   ${({ theme }: ThemeProps) => css`
-    padding: ${theme.spacings.none} ${theme.spacings.xlg}
+    padding: ${theme.spacings.xxl} ${theme.spacings.xlg} ${theme.spacings.lg};
   `}
 `
 
-export const Title = styled.Text`
+export const InputCaption = styled.Text`
   ${({ theme }: ThemeProps) => css`
     font-size: ${theme.typography.elements.body.fontSize};
     font-family: ${theme.typography.fontFamily.poppinsBold};
@@ -24,14 +24,20 @@ export const Title = styled.Text`
 
 export const RadioInputsContainer = styled.View`
   ${({ theme }: ThemeProps) => css`
-    padding: ${theme.spacings.sm} ${theme.spacings.none} ${theme.spacings.lg};
-    margin: ${theme.spacings.md} ${theme.spacings.xxl};
+    padding-bottom: ${theme.spacings.xxl};
+    margin-horizontal: ${theme.spacings.xxl};
   `}
 `
 
 export const RadioInput = styled(RadioInputComponent)`
   ${({ theme }: ThemeProps) => css`
-    margin: ${theme.spacings.md} ${theme.spacings.none};
+    margin-top: ${theme.spacings.xlg};
+  `}
+`
+
+export const DateTimeInput = styled(DateTimeInputComponent)`
+  ${({ theme }: ThemeProps) => css`
+    margin-top: ${theme.spacings.md};
   `}
 `
 
@@ -39,9 +45,8 @@ export const Button = styled(ButtonComponent)`
   max-height: 58px;
   height: 58px;
   width: 100%;
-  margin-top: auto;
 
   ${({ theme }: ThemeProps) => css`
-    margin-bottom: ${theme.spacings.xxxl};
+    margin-top: ${theme.spacings.auto};
   `}
 `

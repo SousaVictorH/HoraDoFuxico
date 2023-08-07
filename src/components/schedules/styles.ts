@@ -19,10 +19,10 @@ export const Title = styled.Text`
 
 export const SchedulesList = styled.FlatList`
   flex: 1;
-
+  
   ${({ theme }: ThemeProps) => css`
-    padding-left: ${theme.spacings.lg};
-  `}
+  padding-left: ${theme.spacings.lg};
+`}
 `
 
 export const TextButton = styled(TextButtonComponent)`

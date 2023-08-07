@@ -3,8 +3,6 @@ import Toast from "react-native-toast-message"
 
 import moment from "moment"
 
-import { DateTimeInput } from "components/inputs/DateTimeInput"
-
 import { hotTopicsList } from "resources/hotTopics"
 
 import { Schedule } from "store/user/types"
@@ -17,9 +15,10 @@ import {
 
 import {
   ContentWrapper,
-  Title,
+  InputCaption,
   RadioInputsContainer,
   RadioInput,
+  DateTimeInput,
   Button
 } from "./styles"
 import { Props } from './types'
@@ -72,7 +71,7 @@ export const CreateScheduleForm = ({
 
   return (
     <ContentWrapper>
-      <Title>{selectCategory}</Title>
+      <InputCaption>{selectCategory}</InputCaption>
       <RadioInputsContainer>
         {
           hotTopicsList.map((hotTopic, index) => (
@@ -85,7 +84,7 @@ export const CreateScheduleForm = ({
           ))
         }
       </RadioInputsContainer>
-      <Title>{selectDayAndTime}</Title>
+      <InputCaption>{selectDayAndTime}</InputCaption>
       <DateTimeInput
         value={date}
         setValue={setDate}

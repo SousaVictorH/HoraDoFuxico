@@ -11,14 +11,20 @@ import { Props } from "./types"
 
 export const HeaderButton = ({
   onPress,
-  text
+  text,
+  textAlign
 }: Props) => {
   return (
-    <Header onPress={onPress}>
-      <IconWrapper>
+    <Header textAlign={textAlign}>
+      <IconWrapper onPress={onPress}>
         <Ionicons name="arrow-back-outline" size={35} color="#252424" />
       </IconWrapper>
       <HeaderText>{text}</HeaderText>
+      {textAlign === 'center' && (<IconWrapper />)}
     </Header>
   )
+}
+
+HeaderButton.defaultProps = {
+  textAlign: 'left'
 }

@@ -13,6 +13,7 @@ import { Schedule } from "store/user/types"
 import { schedule } from 'constants/texts'
 import { createSchedule } from "interfaces/api"
 
+import { ContentWrapper } from "./styles"
 import { Props } from "./types"
 
 export const NewScheduleScreen = ({
@@ -61,15 +62,17 @@ export const NewScheduleScreen = ({
   }
 
   return (
-    <LoggedWrapper hideHeader>
-      <HeaderButton
-        onPress={() => navigation.goBack()}
-        text={schedule}
-      />
-      <CreateScheduleForm
-        onSubmit={onSubmit}
-        isLoading={isLoading}
-      />
+    <LoggedWrapper hideHeader scroll>
+      <ContentWrapper>
+        <HeaderButton
+          onPress={() => navigation.goBack()}
+          text={schedule}
+        />
+        <CreateScheduleForm
+          onSubmit={onSubmit}
+          isLoading={isLoading}
+        />
+      </ContentWrapper>
     </LoggedWrapper>
   )
 }

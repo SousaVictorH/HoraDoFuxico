@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 
-import Ionicons from '@expo/vector-icons/Ionicons'
-
 import { LoggedWrapper } from 'templates/LoggedWrapper'
+import { HeaderButton } from 'components/buttons/Header'
 
 import { useUserStore } from 'store/user'
 import { Schedule } from 'store/user/types'
@@ -14,9 +13,6 @@ import { images } from 'resources/images'
 import { calculateAge } from 'utils/date'
 
 import {
-  Header,
-  HeaderText,
-  IconWrapper,
   Wrapper,
   ProfileWrapper,
   UserImage,
@@ -51,12 +47,11 @@ export const ProfileScreen = ({
 
   const renderListHeaderComponent = () => (
     <>
-      <Header>
-        <IconWrapper onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back-outline" size={35} color="#252424" />
-        </IconWrapper>
-        <HeaderText>{name}</HeaderText>
-      </Header>
+      <HeaderButton
+        onPress={() => navigation.goBack()}
+        text={name}
+        textAlign="center"
+      />
       <ProfileWrapper>
         <UserImage
           source={{ uri: avatar || undefined }}
@@ -71,6 +66,7 @@ export const ProfileScreen = ({
   return (
     <LoggedWrapper hideHeader>
       <Wrapper>
+        {renderListHeaderComponent()}
         <SchedulesList
           navigation={navigation}
           schedules={schedules}
@@ -78,7 +74,6 @@ export const ProfileScreen = ({
           setSchedules={setSchedules}
           loadUserSchedules={loadUserSchedules}
           showButton={user.id === id}
-          ListHeaderComponent={renderListHeaderComponent()}
         />
       </Wrapper>
     </LoggedWrapper>

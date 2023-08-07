@@ -3,21 +3,19 @@ import styled, { css } from "styled-components/native"
 
 import { ThemeProps } from "styles/types"
 
-export const Header = styled(Pressable)`
+export const Header = styled.View`
   flex-direction: row;
   align-items: center;
   width: 100%;
 
-  ${({ theme }: ThemeProps) => css`
-    padding: 55px ${theme.spacings.xxl} ${theme.spacings.xxxl};
+  ${({ theme, textAlign }: ThemeProps & { textAlign: 'left' | 'center' }) => css`
+    padding: ${theme.spacings.spacingTop} ${theme.spacings.xlg} ${theme.spacings.none};
+    ${textAlign === 'center' && `justify-content: space-between;`}
   `}
 `
 
-export const IconWrapper = styled.View`
-  ${({ theme }: ThemeProps) => css`
-    margin-right: ${theme.spacings.md};
-    margin-left: -${theme.spacings.xs};
-  `}
+export const IconWrapper = styled(Pressable)`
+  width: 50px;
 `
 
 export const HeaderText = styled.Text`

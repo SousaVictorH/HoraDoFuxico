@@ -11,9 +11,8 @@ export const Container = styled(Animated.View)`
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  
+
   ${({ theme }: ThemeProps) => css`
-    padding: ${theme.spacings.none} ${theme.spacings.sm};
     margin-top: ${theme.spacings.lg};
   `}
 `;
