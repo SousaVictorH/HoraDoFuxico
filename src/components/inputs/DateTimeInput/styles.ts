@@ -12,7 +12,6 @@ export const Button = styled(TouchableOpacity)`
   height: 55px;
 
   ${({ theme }: ThemeProps) => css`
-    margin-top: ${theme.spacings.xlg};
     border-radius: ${theme.borderRadius.xxs};
     padding: ${theme.spacings.md} ${theme.spacings.lg};
     border-color: ${theme.colors.neutrals.neutral_10};

@@ -13,6 +13,7 @@ import { LOGGED_NAVIGATOR } from "constants/screens"
 
 import {
   ContentWrapper,
+  ImageWrapper,
   Image,
   FormContainer
 } from './styles'
@@ -54,10 +55,12 @@ export const SignUpScreen = ({
   return (
     <ScreenWrapper scroll>
       <ContentWrapper>
-        <Image
-          source={images.appName.path}
-          resizeMode="contain"
-        />
+        <ImageWrapper>
+          <Image
+            source={images.appName.path}
+            resizeMode="contain"
+          />
+        </ImageWrapper>
         <FormContainer>
           <SignUpForm
             onSignUp={handleSubmit}

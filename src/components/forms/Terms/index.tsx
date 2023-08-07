@@ -46,7 +46,7 @@ export const TermsForm = ({
         onPress={handlePress}
         disabled={!agreed}
         text={next}
-        marginTop="xxxl"
+        marginTop="auto"
       />
     </FormWrapper>
   )

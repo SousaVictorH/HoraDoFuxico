@@ -14,5 +14,6 @@ export const TextInput = styled.TextInput`
     color: ${theme.colors.support.black};
     background-color: ${theme.colors.technical.input_background};
     padding: ${theme.spacings.none} ${theme.spacings.lg};
+    border-radius: ${theme.borderRadius.xxs};
   `}
 `

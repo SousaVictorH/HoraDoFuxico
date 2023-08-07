@@ -15,6 +15,7 @@ import {
   ContentWrapper,
   AppNameImage,
   SubTitle,
+  AppImageContainer,
   AppImage,
   FormContainer,
   TermsModal
@@ -47,10 +48,12 @@ export const TermsScreen = ({
           resizeMode="contain"
         />
         <SubTitle>{dontWorry}</SubTitle>
-        <AppImage
-          source={images.image3.path}
-          resizeMode="contain"
-        />
+        <AppImageContainer>
+          <AppImage
+            source={images.image3.path}
+            resizeMode="contain"
+          />
+        </AppImageContainer>
         <FormContainer>
           <TermsForm
             onShowTerms={onShowTerms}

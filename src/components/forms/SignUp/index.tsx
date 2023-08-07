@@ -1,4 +1,6 @@
-import { useState } from "react"
+import React, { useState } from "react"
+import { View } from "react-native"
+
 import Toast from 'react-native-toast-message'
 
 import { FormWrapper } from "templates/FormWrapper"
@@ -9,9 +11,10 @@ import { validateBirthDate } from "utils/date"
 import {
   FormButton,
   ContentWrapper,
+  InputWrapper,
+  InputCaption,
   Input,
   PhotoInput,
-  InputCaption,
   DateTimeInput
 } from './styles'
 import { Props } from "./types"
@@ -39,22 +42,28 @@ export const SignUpForm = ({
   return (
     <FormWrapper>
       <ContentWrapper>
-        <InputCaption>{nameInputPlaceholder}</InputCaption>
-        <Input
-          value={name}
-          setValue={(text: string) => setName(text)}
-          placeholder={nameInputPlaceholder}
-        />
-        <InputCaption>{birthDateInputPlaceholder}</InputCaption>
-        <DateTimeInput
-          value={birthDate}
-          setValue={setBirthDate}
-          isDate
-        />
-        <PhotoInput
-          photo={photo}
-          setPhoto={setPhoto}
-        />
+        <View>
+          <InputWrapper>
+            <InputCaption>{nameInputPlaceholder}</InputCaption>
+            <Input
+              value={name}
+              setValue={(text: string) => setName(text)}
+              placeholder={nameInputPlaceholder}
+            />
+          </InputWrapper>
+          <InputWrapper>
+            <InputCaption>{birthDateInputPlaceholder}</InputCaption>
+            <DateTimeInput
+              value={birthDate}
+              setValue={setBirthDate}
+              isDate
+            />
+          </InputWrapper>
+          <PhotoInput
+            photo={photo}
+            setPhoto={setPhoto}
+          />
+        </View>
         <FormButton
           onPress={handleSignUp}
           text={next}

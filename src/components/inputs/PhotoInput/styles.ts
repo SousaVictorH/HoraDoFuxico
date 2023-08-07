@@ -32,6 +32,7 @@ export const ButtonWrapper = styled.TouchableOpacity`
     border-color: ${theme.colors.neutrals.neutral_10};
     padding: 0 ${theme.spacings.sm};
     margin-top: ${theme.spacings.md};
+    border-radius: ${theme.borderRadius.xxs};
   `}
 `
 

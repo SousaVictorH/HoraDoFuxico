@@ -42,7 +42,7 @@ export const AppImageContainer = styled.View`
   align-items: center;
 
   ${({ theme }: ThemeProps) => css`
-    margin-vertical: ${theme.spacings.lg};
+    margin-vertical: ${theme.spacings.md};
   `}
 `
 
@@ -53,16 +53,18 @@ export const AppImage = styled.Image`
 
 export const FormContainer = styled.View`
   height: 30%;
+  min-height: 220px;
   width: 100%;
 
   ${({ theme }: ThemeProps) => css`
     margin-top: ${theme.spacings.auto};
+    margin-bottom: ${theme.spacings.sm};
     padding: ${theme.spacings.md} ${theme.spacings.xxl};
   `}
 `
 
 export const TermsModal = styled(Modal)`
   ${({ theme }: ThemeProps) => css`
-    padding: ${theme.spacings.xxl} ${theme.spacings.xxl};
+    padding: ${theme.spacings.xxl};
   `}
 `

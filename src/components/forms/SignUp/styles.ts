@@ -9,34 +9,24 @@ import { DateTimeInput as DateTimeInputComponent } from "components/inputs/DateT
 import { ThemeProps } from "styles/types"
 
 export const ContentWrapper = styled.View`
+  flex: 1;
+  width: 100%;
+  justify-content: space-between;
+
   ${({ theme }: ThemeProps) => css`
-    margin-top: ${theme.spacings.xxxl};
-    padding: ${theme.spacings.none} ${theme.spacings.xxl};
+    padding-horizontal: ${theme.spacings.xxl};
   `}
 `
+
+export const InputWrapper = styled.View``
 
 export const Input = styled(InputComponent)`
   border-width: 1px;
-
+  
   ${({ theme }: ThemeProps) => css`
-    margin-bottom: ${theme.spacings.lg};
     background-color: ${theme.colors.support.transparent};
     border-color: ${theme.colors.neutrals.neutral_10};
-  `}
-`
-
-export const PhotoInput = styled(PhotoInputComponent)`
-  ${({ theme }: ThemeProps) => css`
-    margin-bottom: ${theme.spacings.md};
-  `}
-`
-
-export const FormButton = styled(Button)`
-  width: 100%;
-  height: 60px;
-
-  ${({ theme }: ThemeProps) => css`
-    margin-top: ${theme.spacings.xxxl};
+    margin-bottom: ${theme.spacings.xlg};
   `}
 `
 
@@ -49,8 +39,15 @@ export const InputCaption = styled.Text`
   `}
 `
 
-export const DateTimeInput = styled(DateTimeInputComponent)`
+export const PhotoInput = styled(PhotoInputComponent)`
   ${({ theme }: ThemeProps) => css`
-    margin: ${theme.spacings.none} ${theme.spacings.none} ${theme.spacings.lg};
+    margin-top: ${theme.spacings.xlg};
   `}
 `
+
+export const FormButton = styled(Button)`
+  width: 100%;
+  height: 60px;
+`
+
+export const DateTimeInput = styled(DateTimeInputComponent)``

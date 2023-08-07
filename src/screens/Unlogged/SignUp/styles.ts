@@ -9,20 +9,31 @@ export const ContentWrapper = styled.View`
   justify-content: space-between;
 
   ${({ theme }: ThemeProps) => css`
-    margin-top: ${theme.spacings.md};
+    margin-top: ${theme.spacings.spacingTop};
   `}
+`
+
+export const ImageWrapper = styled.View`
+  height: 35%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 `
 
 export const Image = styled.Image`
-  height: 200px;
-  width: 229px;
-
-  ${({ theme }: ThemeProps) => css`
-    margin: ${theme.spacings.xxxl} ${theme.spacings.none};
-  `}
+  width: 65%;
+  height: 65%;
+  max-height: 200px;
 `
 
 export const FormContainer = styled.View`
-  flex: 1;
   width: 100%;
+  height: 65%;
+  min-height: 220px;
+
+  ${({ theme }: ThemeProps) => css`
+    margin-top: ${theme.spacings.auto};
+    padding-bottom: ${theme.spacings.md};
+    margin-bottom: ${theme.spacings.sm};
+  `}
 `
