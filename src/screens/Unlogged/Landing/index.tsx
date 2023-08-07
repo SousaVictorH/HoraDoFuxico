@@ -24,7 +24,7 @@ import {
 } from "./styles"
 import { Props, OnSignInProps, OnSocialSignInProps } from "./types"
 
-export const WelcomeScreen = ({
+export const LandingScreen = ({
   navigation
 }: Props) => {
   const [animationFinished, setAnimationFinished] = useState(false)
@@ -104,7 +104,7 @@ export const WelcomeScreen = ({
         ) : (
           <AnimatedLottieView
             ref={animationRef}
-            source={animations.welcomeAnimation.path}
+            source={animations.landingAnimation.path}
             onAnimationFinish={() => setAnimationFinished(true)}
             loop={false}
             autoPlay={false}

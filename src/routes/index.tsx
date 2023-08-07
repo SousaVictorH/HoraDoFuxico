@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import {
-  WELCOME_SCREEN,
+  LANDING_SCREEN,
   AUTHENTICATION_SCREEN,
   TERMS_SCREEN,
   SIGN_UP_SCREEN,
@@ -12,7 +12,7 @@ import {
 import { LoggedNavigator } from './LoggedNavigator'
 
 // Unlogged
-import { WelcomeScreen } from 'screens/Unlogged/Welcome'
+import { LandingScreen } from 'screens/Unlogged/Landing'
 import { AuthenticationScreen } from 'screens/Unlogged/Authentication'
 import { TermsScreen } from 'screens/Unlogged/Terms'
 import { SignUpScreen } from 'screens/Unlogged/SignUp'
@@ -28,12 +28,12 @@ export const Router = () => {
   return (
     <NavigationContainer ref={navigationRef} >
       <Stack.Navigator
-        initialRouteName={WELCOME_SCREEN}
+        initialRouteName={LANDING_SCREEN}
         screenOptions={defaultScreenOptions}
       >
         <Stack.Screen
-          name={WELCOME_SCREEN}
-          component={WelcomeScreen}
+          name={LANDING_SCREEN}
+          component={LandingScreen}
         />
         <Stack.Screen
           name={AUTHENTICATION_SCREEN}

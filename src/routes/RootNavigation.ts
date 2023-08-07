@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { WELCOME_SCREEN } from 'constants/screens'
+import { LANDING_SCREEN } from 'constants/screens'
 
 export const navigationRef = React.createRef<any>()
 
@@ -11,6 +11,6 @@ export function navigate(name: string, params: any) {
 export function reset() {
   navigationRef.current?.reset({
     index: 0,
-    routes: [{ name: WELCOME_SCREEN }]
+    routes: [{ name: LANDING_SCREEN }]
   })
 }

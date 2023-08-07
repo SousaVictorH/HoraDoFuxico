@@ -16,6 +16,7 @@ import {
   ContentWrapper,
   AppNameImage,
   SubTitle,
+  AppImageContainer,
   AppImage,
   FormContainer
 } from './styles'
@@ -109,10 +110,12 @@ export const AuthenticationScreen = ({
           resizeMode="contain"
         />
         <SubTitle>{promoteFun}</SubTitle>
-        <AppImage
-          source={images.image2.path}
-          resizeMode="contain"
-        />
+        <AppImageContainer>
+          <AppImage
+            source={images.image2.path}
+            resizeMode="contain"
+          />
+        </AppImageContainer>
         <FormContainer>
           <AuthCodeForm
             onSubmit={onSubmit}

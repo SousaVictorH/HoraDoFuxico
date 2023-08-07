@@ -16,7 +16,7 @@ export const AppWrapper = ({
 }: AppWrapperProps) => {
   const { top } = useSafeAreaInsets()
 
-  theme.spacings.spacingTop = `${top}px`
+  theme.spacings.spacingTop = `${top === 0 ? 10 : top}px`
 
   return (
     <ThemeProvider theme={theme}>

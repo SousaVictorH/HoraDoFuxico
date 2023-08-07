@@ -1,5 +1,5 @@
 export const animations = {
-  welcomeAnimation: {
-    path: require('../../../assets/animations/WelcomeAnimation.json')
+  landingAnimation: {
+    path: require('../../../assets/animations/LandingAnimation.json')
   }
 }

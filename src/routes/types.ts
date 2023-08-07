@@ -1,5 +1,5 @@
 export type RootStackParamList = {
-  WELCOME_SCREEN: undefined
+  LANDING_SCREEN: undefined
   AUTHENTICATION_SCREEN: { phoneNumber: string }
   TERMS_SCREEN: { phoneNumber: string }
   SIGN_UP_SCREEN: { phoneNumber: string }
