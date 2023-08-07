@@ -4,6 +4,7 @@ import { images } from 'resources/images'
 
 import {
   Container,
+  ContentWrapper,
   AppNameImage,
   Button
 } from "./styles"
@@ -13,12 +14,14 @@ export const Header = ({
   toggleSidePanel
 }: Props) => (
   <Container>
-    <Button onPress={() => toggleSidePanel()}>
-      <Ionicons name="menu" size={32} color="#FFF" />
-    </Button>
-    <AppNameImage
-      source={images.whiteAppName.path}
-      resizeMode="contain"
-    />
+    <ContentWrapper>
+      <Button onPress={() => toggleSidePanel()}>
+        <Ionicons name="menu" size={32} color="#FFF" />
+      </Button>
+      <AppNameImage
+        source={images.whiteAppName.path}
+        resizeMode="contain"
+      />
+    </ContentWrapper>
   </Container>
 )

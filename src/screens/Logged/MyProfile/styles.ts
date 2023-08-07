@@ -14,7 +14,7 @@ export const ProfileImage = styled.Image`
   border-width: 5px;
 
   ${({ theme }: ThemeProps) => css`
-    margin-top: -${theme.spacings.xxl};
+    margin-top: ${theme.spacings.lg};
     border-color: ${theme.colors.background.offLight};
   `}
 `

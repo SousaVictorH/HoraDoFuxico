@@ -3,7 +3,7 @@ import { ThemeProps } from "styles/types"
 
 export const TabBarContainer = styled.View`
   flex-direction: row;
-  height: 85px;
+  height: 70px;
   width: 100%;
   justify-content: space-around;
   align-items: center;
