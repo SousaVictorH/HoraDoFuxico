@@ -1,12 +1,9 @@
 import styled, { css } from "styled-components/native"
 
-import { getWindowHeight } from "utils/dimensions"
-
 import { ThemeProps } from "styles/types"
 
 export const Wrapper = styled.View`
-  width: 100%;
-  height: ${getWindowHeight()}px;
+  flex: 1;
 `
 
 export const ContentWrapper = styled.View`

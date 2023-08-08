@@ -1,14 +1,9 @@
 import styled, { css } from "styled-components/native"
 
-import { TouchableOpacity } from "react-native-gesture-handler"
-
-import { getWindowHeight } from "utils/dimensions"
-
 import { ThemeProps } from "styles/types"
 
 export const Wrapper = styled.View`
   width: 100%;
-  height: ${getWindowHeight()}px;
 `
 
 export const ContentWrapper = styled.View`

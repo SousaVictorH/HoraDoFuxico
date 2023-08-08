@@ -4,12 +4,14 @@ import { Schedules } from 'components/schedules'
 
 import { ThemeProps } from "styles/types"
 
-import { getWindowHeight, getWindowWidth } from "utils/dimensions"
-
 export const Wrapper = styled.View`
   flex: 1;
-  width: ${getWindowWidth()}px;
-  height: ${getWindowHeight()}px;
+`
+
+export const HeaderContainer = styled.View`
+  ${({ theme }: ThemeProps) => css`
+    margin-left: -${theme.spacings.lg};
+  `}
 `
 
 export const ProfileWrapper = styled.View`

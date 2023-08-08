@@ -16,6 +16,7 @@ export const ContentWrapper = styled.View`
 
 export const InputCaption = styled.Text`
   ${({ theme }: ThemeProps) => css`
+    margin-bottom: ${theme.spacings.lg};
     font-size: ${theme.typography.elements.body.fontSize};
     font-family: ${theme.typography.fontFamily.poppinsBold};
     color: ${theme.colors.neutrals.neutral_60};
@@ -24,20 +25,20 @@ export const InputCaption = styled.Text`
 
 export const RadioInputsContainer = styled.View`
   ${({ theme }: ThemeProps) => css`
-    padding-bottom: ${theme.spacings.xxl};
+    padding-bottom: ${theme.spacings.md};
     margin-horizontal: ${theme.spacings.xxl};
   `}
 `
 
 export const RadioInput = styled(RadioInputComponent)`
   ${({ theme }: ThemeProps) => css`
-    margin-top: ${theme.spacings.xlg};
+    margin-bottom: ${theme.spacings.xlg};
   `}
 `
 
 export const DateTimeInput = styled(DateTimeInputComponent)`
   ${({ theme }: ThemeProps) => css`
-    margin-top: ${theme.spacings.md};
+    margin-bottom: ${theme.spacings.md};
   `}
 `
 

@@ -1,7 +1,5 @@
 import { useState } from "react"
 
-import { PhotoInput } from "components/inputs/PhotoInput"
-
 import { phoneMask } from "utils/phone"
 
 import {
@@ -15,6 +13,7 @@ import {
   Container,
   Button,
   DateTimeInput,
+  PhotoInput,
   Input,
   Title
 } from "./styles"

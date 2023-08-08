@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { View } from 'react-native'
 
 import { LoggedWrapper } from 'templates/LoggedWrapper'
 import { HeaderButton } from 'components/buttons/Header'
@@ -14,6 +15,7 @@ import { calculateAge } from 'utils/date'
 
 import {
   Wrapper,
+  HeaderContainer,
   ProfileWrapper,
   UserImage,
   UserName,
@@ -46,7 +48,7 @@ export const ProfileScreen = ({
   }
 
   const renderListHeaderComponent = () => (
-    <>
+    <HeaderContainer>
       <HeaderButton
         onPress={() => navigation.goBack()}
         text={name}
@@ -60,13 +62,12 @@ export const ProfileScreen = ({
         />
         <UserName>{calculateAge(birthDate)} anos</UserName>
       </ProfileWrapper>
-    </>
+    </HeaderContainer>
   )
 
   return (
     <LoggedWrapper hideHeader>
       <Wrapper>
-        {renderListHeaderComponent()}
         <SchedulesList
           navigation={navigation}
           schedules={schedules}
@@ -74,6 +75,7 @@ export const ProfileScreen = ({
           setSchedules={setSchedules}
           loadUserSchedules={loadUserSchedules}
           showButton={user.id === id}
+          ListHeaderComponent={renderListHeaderComponent()}
         />
       </Wrapper>
     </LoggedWrapper>
