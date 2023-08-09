@@ -17,10 +17,10 @@ import { NotificationsScreen } from 'screens/Logged/Notifications'
 import { ProfileScreen } from 'screens/Logged/Profile'
 import { ScheduleScreen } from 'screens/Logged/Schedule'
 
-import { TabNavigator } from 'routes/TabNavigator'
+import { TabNavigator } from 'routes/LoggedNavigator/TabNavigator'
 
 import { RootStackParamList } from '../types'
-import { defaultScreenOptions } from '../options'
+import { loggedScreenOptions } from './options'
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -28,7 +28,7 @@ export const LoggedNavigator = () => {
   return (
     <Stack.Navigator
       initialRouteName={TAB_NAVIGATOR}
-      screenOptions={defaultScreenOptions}
+      screenOptions={loggedScreenOptions}
     >
       <Stack.Screen
         name={TAB_NAVIGATOR}

@@ -9,7 +9,7 @@ export const AnimatedView = styled(Animated.View).attrs({
   flex: 1;
 
   ${({ theme }: ThemeProps) => css`
-    margin: ${theme.spacings.spacingTop} ${theme.spacings.xlg} ${theme.spacings.xlg};
+    margin: ${theme.spacings.spacingTop} 6% ${theme.spacings.xlg};
   `}
 `
 

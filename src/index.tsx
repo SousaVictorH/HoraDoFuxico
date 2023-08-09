@@ -3,10 +3,12 @@ import { useCallback } from "react"
 import * as SplashScreen from 'expo-splash-screen'
 import { useFonts } from 'expo-font'
 
-import { Toast } from "components/toast"
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 import { Poppins_400Regular, Poppins_600SemiBold } from '@expo-google-fonts/poppins'
 import { Baskervville_400Regular } from '@expo-google-fonts/baskervville'
+
+import { Toast } from "components/toast"
 
 import { AppWrapper } from "./templates/AppWrapper"
 import { Router } from "./routes"
@@ -29,9 +31,11 @@ export default () => {
   if (!fontsLoaded) return null;
 
   return (
-    <AppWrapper onLayout={onLayoutRootView}>
-      <Toast />
-      <Router />
-    </AppWrapper>
+    <SafeAreaProvider>
+      <AppWrapper onLayout={onLayoutRootView}>
+        <Toast />
+        <Router />
+      </AppWrapper>
+    </SafeAreaProvider>
   )
 }
