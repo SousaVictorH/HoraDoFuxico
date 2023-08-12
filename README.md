@@ -9,30 +9,32 @@ interact with people of the same age group, where they can schedule time to talk
 
 The project figma is available [Here](https://www.figma.com/file/bsBk3UgwACwS3ozUWUfSln/Empreendedorismo%3A-Hora-do-fuxico?node-id=0%3A1&t=FqzQ2hBDEGWZTYWN-1)
   
-### :iphone: Here's a few snapshots / gifs of the app:
+### :iphone: Here's a few videos of the app:
   
+<h3>Log In</h3>
+
+https://github.com/SousaVictorH/HoraDoFuxico/assets/55806765/a3346c12-05d2-4bed-a812-76af0707be4a
+
+<h3>Search for your friends</h3>
+
+https://github.com/SousaVictorH/HoraDoFuxico/assets/55806765/d0f79bb9-efeb-4718-85ef-011e30b870c0
+
+<h3>Update your infos</h3>
+
+https://github.com/SousaVictorH/HoraDoFuxico/assets/55806765/2eebe0f3-1c1b-4260-96af-4d805f6e2570
+
 <h3>Sign Up</h3>
 
+https://github.com/SousaVictorH/HoraDoFuxico/assets/55806765/1952c5f0-4d9c-476c-b6eb-f8224d4674c1
 
-https://user-images.githubusercontent.com/55806765/216162924-9de20d78-ab5a-48a8-8afa-de433a62b196.mp4
+<h3>Schedule a new party</h3>
 
-
-<h3>Profile</h3>
-
-
-https://user-images.githubusercontent.com/55806765/216162991-8f0a2008-7901-4d73-bf78-07dcdade935c.mp4
-
-
-<h3>Schedule</h3>
-
-
-https://user-images.githubusercontent.com/55806765/216163004-dc5d55b8-1bcc-49c5-8902-cb40e1c2fe9f.mp4
-
+https://github.com/SousaVictorH/HoraDoFuxico/assets/55806765/76e6fcf0-7f57-4be4-bf99-f0452039ae6a
 
 ###  :hammer: Made with
 
 - [React Native](https://reactnative.dev/)
-- [Zustand](https://zustand-demo.pmnd.rs/)
+- [Expo](https://docs.expo.dev/)
 
 <!-- GETTING STARTED -->
 
