@@ -9,7 +9,7 @@ interact with people of the same age group, where they can schedule time to talk
 
 The project figma is available [Here](https://www.figma.com/file/bsBk3UgwACwS3ozUWUfSln/Empreendedorismo%3A-Hora-do-fuxico?node-id=0%3A1&t=FqzQ2hBDEGWZTYWN-1)
   
-### :iphone: Here's a few videos of the app:
+### :iphone: Here's a few videos of the app on differents iphone versions:
   
 <h3>Log In</h3>
 
