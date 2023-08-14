@@ -126,6 +126,7 @@ export type SpacingsTypes = {
   xxxxl: string;
   auto: string;
   spacingTop: string;
+  spacingBottom: string;
 };
 
 export type BreakPointsTypes = {

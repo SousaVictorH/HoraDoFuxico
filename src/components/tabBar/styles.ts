@@ -3,13 +3,15 @@ import { ThemeProps } from "styles/types"
 
 export const TabBarContainer = styled.View`
   flex-direction: row;
-  height: 70px;
+  min-height: 70px;
   width: 100%;
   justify-content: space-around;
   align-items: center;
 
   ${({ theme }: ThemeProps) => css`
     background-color: ${theme.colors.support.orange};
+    padding-top: ${theme.spacings.lg};
+    padding-bottom: ${theme.spacings.spacingBottom}
   `}
 `
 

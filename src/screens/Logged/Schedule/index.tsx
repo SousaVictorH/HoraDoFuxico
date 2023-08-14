@@ -21,8 +21,6 @@ export const ScheduleScreen = ({
     users,
   } = route.params
 
-  console.log(route.params)
-
   return (
     <LoggedWrapper hideHeader>
       <Wrapper>

@@ -14,9 +14,10 @@ export const AppWrapper = ({
   theme,
   onLayout
 }: AppWrapperProps) => {
-  const { top } = useSafeAreaInsets()
+  const { top, bottom } = useSafeAreaInsets()
 
-  theme.spacings.spacingTop = `${top === 0 ? 10 : top}px`
+  theme.spacings.spacingTop = `${top < 10 ? 10 : top}px`
+  theme.spacings.spacingBottom = `${bottom < 18 ? 18 : bottom}px`
 
   return (
     <ThemeProvider theme={theme}>
