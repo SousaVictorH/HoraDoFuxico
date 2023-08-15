@@ -1,8 +1,8 @@
 export const hasUndefinedParam = (obj: any) => {
-  for (let key in obj) {
+  for (const key in obj) {
     if (!obj[key]) {
-      return true;
+      return true
     }
   }
-  return false;
-};
+  return false
+}

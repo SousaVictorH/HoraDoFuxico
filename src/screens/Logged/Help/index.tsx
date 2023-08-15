@@ -10,7 +10,7 @@ import {
   Wrapper,
   HelpText
 } from './styles'
-import { Props } from "./types"
+import { Props } from './types'
 
 export const HelpScreen = ({
   navigation

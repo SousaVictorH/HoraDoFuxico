@@ -1,5 +1,6 @@
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 import { TextInput } from 'react-native'
+
 import { phoneMask } from 'utils/phone'
 
 import {

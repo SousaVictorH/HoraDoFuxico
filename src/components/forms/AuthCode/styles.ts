@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components/native";
+import styled, { css } from 'styled-components/native'
 
-import { TextButton } from "components/buttons/TextButton";
+import { TextButton } from 'components/buttons/TextButton'
 
-import { ThemeProps } from "styles/types";
+import { ThemeProps } from 'styles/types'
 
 export const Label = styled.Text`
   text-align: center;

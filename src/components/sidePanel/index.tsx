@@ -1,10 +1,10 @@
-import React from "react"
-import { GestureDetector, Gesture, Directions } from "react-native-gesture-handler"
+import React from 'react'
+import { GestureDetector, Gesture, Directions } from 'react-native-gesture-handler'
 
-import { runOnJS } from "react-native-reanimated"
+import { runOnJS } from 'react-native-reanimated'
 
-import { panelOptions } from "resources/panelOptions"
-import { PanelOption } from "resources/panelOptions/types"
+import { panelOptions } from 'resources/panelOptions'
+import { PanelOption } from 'resources/panelOptions/types'
 
 import {
   Container,
@@ -12,8 +12,8 @@ import {
   ContentWrapper,
   Item,
   ItemText
-} from "./styles"
-import { Props } from "./types"
+} from './styles'
+import { Props } from './types'
 
 export const SidePanel = ({
   showSidePanel,

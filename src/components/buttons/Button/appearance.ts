@@ -1,5 +1,5 @@
-import { css } from 'styled-components';
-import { ThemeType, AppearanceOptions } from 'styles/types';
+import { css } from 'styled-components'
+import { ThemeType, AppearanceOptions } from 'styles/types'
 
 type AppearanceProps = {
   theme: ThemeType;
@@ -20,11 +20,11 @@ export function getButtonAppearance({ theme, appearance }: AppearanceProps) {
       background-color: ${theme.colors.neutrals.neutral_20};
       border: 1px solid ${theme.colors.neutrals.neutral_20};
     `
-  };
+  }
 
   if (!appearance) return ''
 
-  return options[appearance];
+  return options[appearance]
 }
 
 export function getTextAppearance({ theme, appearance }: AppearanceProps) {
@@ -38,9 +38,9 @@ export function getTextAppearance({ theme, appearance }: AppearanceProps) {
     disabled: () => css`
       color: ${theme.colors.support.white};
     `
-  };
+  }
 
   if (!appearance) return ''
 
-  return options[appearance];
+  return options[appearance]
 }

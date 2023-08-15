@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 
 import Ionicons from '@expo/vector-icons/Ionicons'
 
@@ -6,8 +6,8 @@ import {
   Header,
   IconWrapper,
   HeaderText
-} from "./styles"
-import { Props } from "./types"
+} from './styles'
+import { Props } from './types'
 
 export const HeaderButton = ({
   onPress,

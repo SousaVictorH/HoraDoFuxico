@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react"
-import { ListRenderItem } from "react-native"
+import React, { useState, useEffect } from 'react'
+import { ListRenderItem } from 'react-native'
 
-import Toast from "react-native-toast-message"
+import Toast from 'react-native-toast-message'
 
-import { ScheduleItem } from "components/items/scheduleItem"
+import { ScheduleItem } from 'components/items/scheduleItem'
 
-import { schedule, emptyText } from "constants/texts"
-import { NEW_SCHEDULE_SCREEN } from "constants/screens"
+import { schedule, emptyText } from 'constants/texts'
+import { NEW_SCHEDULE_SCREEN } from 'constants/screens'
 
 import {
   Container,
@@ -15,8 +15,8 @@ import {
   TextButton,
   EmptyText,
   Spinner
-} from "./styles"
-import { Props } from "./types"
+} from './styles'
+import { Props } from './types'
 
 export const Schedules = ({
   schedules,
@@ -59,7 +59,7 @@ export const Schedules = ({
     setIsRefreshing(true)
 
     setSchedules([])
-    await loadSchedules(1, true);
+    await loadSchedules(1, true)
 
     setIsRefreshing(false)
   }

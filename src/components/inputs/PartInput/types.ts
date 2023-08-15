@@ -1,4 +1,4 @@
-import { KeyboardTypeOptions, NativeSyntheticEvent, TextInputKeyPressEventData } from "react-native"
+import { KeyboardTypeOptions, NativeSyntheticEvent, TextInputKeyPressEventData } from 'react-native'
 
 export type Props = {
   onChangeText: (text: string) => void

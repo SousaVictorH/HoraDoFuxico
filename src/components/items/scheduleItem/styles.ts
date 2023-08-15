@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components/native"
+import styled, { css } from 'styled-components/native'
 
-import { Pressable } from "react-native"
+import { Pressable } from 'react-native'
 
-import { ThemeProps } from "styles/types"
+import { ThemeProps } from 'styles/types'
 
 export const Container = styled(Pressable)`
   flex-direction: row;

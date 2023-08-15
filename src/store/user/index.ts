@@ -3,7 +3,6 @@ import { create } from 'zustand'
 import {
   State,
   User,
-  Schedule,
   PersonalData
 } from './types'
 
@@ -28,4 +27,4 @@ export const useUserStore = create<State>((set) => ({
   addSchedule: (schedule: string) => set((state) => ({
     schedules: [schedule, ...state.schedules]
   }))
-}));
+}))

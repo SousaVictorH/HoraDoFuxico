@@ -1,11 +1,11 @@
-import React, { useState } from "react"
-import Toast from "react-native-toast-message"
+import React, { useState } from 'react'
+import Toast from 'react-native-toast-message'
 
-import moment from "moment"
+import moment from 'moment'
 
-import { hotTopicsList } from "resources/hotTopics"
+import { hotTopicsList } from 'resources/hotTopics'
 
-import { Schedule } from "store/user/types"
+import { Schedule } from 'store/user/types'
 
 import {
   selectCategory,
@@ -20,7 +20,7 @@ import {
   RadioInput,
   DateTimeInput,
   Button
-} from "./styles"
+} from './styles'
 import { Props } from './types'
 
 export const CreateScheduleForm = ({

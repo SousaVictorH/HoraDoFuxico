@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components/native"
-import { ThemeProps } from "styles/types"
+import styled, { css } from 'styled-components/native'
+import { ThemeProps } from 'styles/types'
 
 import { getTextAppearance } from './appearence'
 import { TextProps } from './types'

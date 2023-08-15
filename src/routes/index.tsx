@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
@@ -17,12 +19,12 @@ import { AuthenticationScreen } from 'screens/Unlogged/Authentication'
 import { TermsScreen } from 'screens/Unlogged/Terms'
 import { SignUpScreen } from 'screens/Unlogged/SignUp'
 
-import { navigationRef } from './RootNavigation';
+import { navigationRef } from './RootNavigation'
 
 import { RootStackParamList } from './types'
 import { defaultScreenOptions } from './options'
 
-const Stack = createStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator<RootStackParamList>()
 
 export const Router = () => {
   return (

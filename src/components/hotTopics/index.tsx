@@ -1,10 +1,10 @@
-import React from "react"
-import { ListRenderItem } from "react-native"
+import React from 'react'
+import { ListRenderItem } from 'react-native'
 
-import { HotTopic } from "components/items/hotTopic"
+import { HotTopic } from 'components/items/hotTopic'
 
-import { hotTopics } from "constants/texts"
-import { hotTopicsList } from "resources/hotTopics"
+import { hotTopics } from 'constants/texts'
+import { hotTopicsList } from 'resources/hotTopics'
 
 import {
   Container,

@@ -3,13 +3,13 @@ import {
   SupportColors,
   TechnicalColors,
   BackgroundColors,
-} from './types';
+} from './types'
 
 export const backgroundColors: BackgroundColors = {
   light: '#FFFFFF',
   offLight: '#fcfcfc',
   dark: '#1D1617',
-};
+}
 
 export const neutralColors: NeutralsColors = {
   black: '#15181E',
@@ -19,7 +19,7 @@ export const neutralColors: NeutralsColors = {
   neutral_20: '#cfcfcf',
   neutral_10: '#A1A8B3',
   white: '#FFFFFF',
-};
+}
 
 export const supportColors: SupportColors = {
   black: '#313639',
@@ -37,7 +37,7 @@ export const supportColors: SupportColors = {
   orange: '#DD9064',
   lightOrange: '#F5D4C1',
   shadow: '#003049'
-};
+}
 
 export const technicalColors: TechnicalColors = {
   link: '#0044CC',
@@ -53,4 +53,4 @@ export const technicalColors: TechnicalColors = {
   problem_text: '#971B2F',
   problem_spotlight: '#D02440',
   problem_background: '#CC3300'
-};
+}

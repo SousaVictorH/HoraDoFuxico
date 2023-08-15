@@ -26,9 +26,9 @@ export const AppWrapper = ({
         {children}
       </Container>
     </ThemeProvider>
-  );
+  )
 }
 
 AppWrapper.defaultProps = {
   theme: theme,
-};
+}

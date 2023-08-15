@@ -1,10 +1,10 @@
-import React, { Ref, useRef } from "react"
+import React, { useRef } from 'react'
 import { TextInput as TextInputType } from 'react-native'
 
 import Ionicons from '@expo/vector-icons/Ionicons'
 
 import { Wrapper, TextInput, IconWrapper } from './styles'
-import { Props } from "./types"
+import { Props } from './types'
 
 export const SearchInput = ({
   value,

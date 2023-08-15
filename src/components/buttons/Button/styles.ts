@@ -1,21 +1,21 @@
-import styled, { css } from 'styled-components/native';
+import styled, { css } from 'styled-components/native'
 
-import { ThemeProps } from 'styles/types';
+import { ThemeProps } from 'styles/types'
 
-import { getButtonAppearance, getTextAppearance } from './appearance';
-import { ButtonWrapperProps, TextProps } from './types';
+import { getButtonAppearance, getTextAppearance } from './appearance'
+import { ButtonWrapperProps, TextProps } from './types'
 
 export const Container = styled.TouchableOpacity`
   align-self: center;
   justify-content: center;
   align-items: center;
-  
+
   ${({
-  theme,
-  marginTop,
-  marginBottom,
-  height,
-}: ThemeProps & ButtonWrapperProps) => css`
+    theme,
+    marginTop,
+    marginBottom,
+    height,
+  }: ThemeProps & ButtonWrapperProps) => css`
     margin: ${theme.spacings.none} ${theme.spacings.sm};
     margin-top: ${theme.spacings[marginTop]};
     margin-bottom: ${theme.spacings[marginBottom]};
@@ -24,7 +24,7 @@ export const Container = styled.TouchableOpacity`
     min-height: 58px;
     ${getButtonAppearance}
   `}
-`;
+`
 
 export const Spinner = styled.ActivityIndicator.attrs({
   size: 'small',
@@ -40,4 +40,4 @@ export const Text = styled.Text`
     line-height: ${theme.typography.elements.body.lineHeight};
     ${getTextAppearance}
   `}
-`;
+`

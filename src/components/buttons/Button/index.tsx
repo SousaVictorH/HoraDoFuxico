@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import { enter } from 'constants/texts';
+import { enter } from 'constants/texts'
 
-import { ButtonProps } from './types';
-import { Container, Spinner, Text } from './styles';
+import { ButtonProps } from './types'
+import { Container, Spinner, Text } from './styles'
 
 export const Button = ({
   onPress,
@@ -38,8 +38,8 @@ export const Button = ({
         )
       }
     </Container>
-  );
-};
+  )
+}
 
 Button.defaultProps = {
   appearance: 'primary',
@@ -49,4 +49,4 @@ Button.defaultProps = {
   text: enter,
   disabled: false,
   isLoading: false
-};
+}

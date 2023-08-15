@@ -1,11 +1,11 @@
-import { useState } from "react"
+import React, { useState } from 'react'
 
-import { FormWrapper } from "templates/FormWrapper"
-import { PhoneInput } from "components/inputs/PhoneInput"
-import SocialMediaButton from "components/buttons/SocialMediaButton"
+import { FormWrapper } from 'templates/FormWrapper'
+import { PhoneInput } from 'components/inputs/PhoneInput'
+import SocialMediaButton from 'components/buttons/SocialMediaButton'
 
-import { phoneSignIn, orConectUsing } from "constants/texts"
-import { icons } from "resources/icons"
+import { phoneSignIn, orConectUsing } from 'constants/texts'
+import { icons } from 'resources/icons'
 
 import {
   Label,
@@ -15,7 +15,7 @@ import {
   SocialSignInLabel,
   SocialMediaButtonsContainer
 } from './styles'
-import { Props } from "./types"
+import { Props } from './types'
 
 export const SignInForm = ({
   onSignIn,

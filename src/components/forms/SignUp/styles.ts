@@ -1,12 +1,11 @@
-
-import styled, { css } from "styled-components/native"
+import styled, { css } from 'styled-components/native'
 
 import { Button } from 'components/buttons/Button'
-import { Input as InputComponent } from "components/inputs/Input"
-import { PhotoInput as PhotoInputComponent } from "components/inputs/PhotoInput"
-import { DateTimeInput as DateTimeInputComponent } from "components/inputs/DateTimeInput"
+import { Input as InputComponent } from 'components/inputs/Input'
+import { PhotoInput as PhotoInputComponent } from 'components/inputs/PhotoInput'
+import { DateTimeInput as DateTimeInputComponent } from 'components/inputs/DateTimeInput'
 
-import { ThemeProps } from "styles/types"
+import { ThemeProps } from 'styles/types'
 
 export const ContentWrapper = styled.View`
   flex: 1;
@@ -22,7 +21,7 @@ export const InputWrapper = styled.View``
 
 export const Input = styled(InputComponent)`
   border-width: 1px;
-  
+
   ${({ theme }: ThemeProps) => css`
     background-color: ${theme.colors.support.transparent};
     border-color: ${theme.colors.neutrals.neutral_10};

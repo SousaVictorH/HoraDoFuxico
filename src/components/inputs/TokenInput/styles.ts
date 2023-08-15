@@ -1,7 +1,7 @@
-import { Animated } from 'react-native';
-import styled, { css } from 'styled-components/native';
+import { Animated } from 'react-native'
+import styled, { css } from 'styled-components/native'
 
-import { ThemeProps } from 'styles/types';
+import { ThemeProps } from 'styles/types'
 
 export const Container = styled(Animated.View)`
   height: 55px;
@@ -15,4 +15,4 @@ export const Container = styled(Animated.View)`
   ${({ theme }: ThemeProps) => css`
     margin-top: ${theme.spacings.lg};
   `}
-`;
+`

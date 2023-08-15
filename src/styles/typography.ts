@@ -1,4 +1,4 @@
-import { FontFamilyRules, FontSizeRules } from './types';
+import { FontFamilyRules, FontSizeRules } from './types'
 
 export const fontFamily: FontFamilyRules = {
   poppins: 'Poppins',
@@ -23,4 +23,4 @@ export const elements: FontSizeRules = {
     fontSize: '18px',
     fontWeight: 'normal',
   },
-};
+}

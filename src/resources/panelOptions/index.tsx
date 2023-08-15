@@ -1,12 +1,13 @@
+import React from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
 import {
   HELP_SCREEN,
   NOTIFICATIONS_SCREEN,
   EDIT_PROFILE_SCREEN,
-} from "constants/screens"
+} from 'constants/screens'
 
-import { PanelOption } from "./types"
+import { PanelOption } from './types'
 
 export const panelOptions: PanelOption[] = [
   {

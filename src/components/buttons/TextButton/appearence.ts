@@ -1,5 +1,5 @@
-import { css } from 'styled-components';
-import { ThemeType, AppearanceOptions } from 'styles/types';
+import { css } from 'styled-components'
+import { ThemeType, AppearanceOptions } from 'styles/types'
 
 type AppearanceProps = {
   theme: ThemeType;
@@ -16,9 +16,9 @@ export function getTextAppearance({ theme, appearance }: AppearanceProps) {
       font-size: ${theme.typography.elements.body.fontSize};
       line-height: ${theme.typography.elements.body.lineHeight};
     `,
-  };
+  }
 
   if (!appearance) return ''
 
-  return options[appearance];
+  return options[appearance]
 }

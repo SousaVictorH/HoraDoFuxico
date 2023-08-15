@@ -1,11 +1,11 @@
 
-import styled, { css } from "styled-components/native";
+import styled, { css } from 'styled-components/native'
 
-import { ThemeProps } from "styles/types";
+import { ThemeProps } from 'styles/types'
 
 export const Container = styled.View`
   flex: 1;
-`;
+`
 
 export const Title = styled.Text`
   ${({ theme }: ThemeProps) => css`

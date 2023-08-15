@@ -1,10 +1,10 @@
-import React from "react"
+import React from 'react'
 
-import { Header } from "components/header"
+import { Header } from 'components/header'
 
-import { Container, ContentWrapper } from "./styles"
-import { Props } from "./types"
-import { ScreenWrapper } from "templates/ScreenWrapper"
+import { Container, ContentWrapper } from './styles'
+import { Props } from './types'
+import { ScreenWrapper } from 'templates/ScreenWrapper'
 
 export const LoggedWrapper = ({
   children,

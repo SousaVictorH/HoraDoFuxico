@@ -1,5 +1,7 @@
-import { Container } from "./styles"
-import { Props } from "./types"
+import React from 'react'
+
+import { Container } from './styles'
+import { Props } from './types'
 
 export const FormWrapper = ({ justifyContent, children }: Props) => {
   return (

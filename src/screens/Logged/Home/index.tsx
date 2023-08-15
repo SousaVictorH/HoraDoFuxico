@@ -12,7 +12,7 @@ import { loadSchedules } from 'interfaces/api'
 import { SCHEDULE_SCREEN } from 'constants/screens'
 
 import { ContentWrapper } from './styles'
-import { Props } from "./types"
+import { Props } from './types'
 
 export const HomeScreen = ({
   navigation,

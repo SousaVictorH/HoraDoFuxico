@@ -1,5 +1,5 @@
-import { StyleProp, ViewStyle } from 'react-native';
-import { SpacingsTypes, AppearanceOptions } from 'styles/types';
+import { StyleProp, ViewStyle } from 'react-native'
+import { SpacingsTypes, AppearanceOptions } from 'styles/types'
 
 export type ButtonProps = {
   onPress: () => void;

@@ -1,13 +1,14 @@
+import React from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
 import {
   MY_PROFILE_SCREEN,
   HOME_SCREEN,
   SEARCH_SCREEN
-} from "constants/screens";
+} from 'constants/screens'
 
-import { TabBarContainer, ItemContainer } from "./styles";
-import { Props } from "./types"
+import { TabBarContainer, ItemContainer } from './styles'
+import { Props } from './types'
 
 export const TabBar = ({
   navigation,
@@ -15,17 +16,17 @@ export const TabBar = ({
 }: Props) => {
   const getIcon = (routeName: string, isActive: boolean) => {
     switch (routeName) {
-      case SEARCH_SCREEN:
-        return <Ionicons name="search" size={31} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
+    case SEARCH_SCREEN:
+      return <Ionicons name="search" size={31} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
 
-      case HOME_SCREEN:
-        return <Ionicons name="home-sharp" size={30} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
+    case HOME_SCREEN:
+      return <Ionicons name="home-sharp" size={30} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
 
-      case MY_PROFILE_SCREEN:
-        return <Ionicons name="person" size={30} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
+    case MY_PROFILE_SCREEN:
+      return <Ionicons name="person" size={30} color="#FFF" style={{ opacity: isActive ? 1 : .7 }} />
 
-      default:
-        return null
+    default:
+      return null
     }
   }
 

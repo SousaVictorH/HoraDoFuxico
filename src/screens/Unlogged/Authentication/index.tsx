@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Toast from 'react-native-toast-message'
 
 import { requestLogin, login } from 'interfaces/api'
-import { useUserStore } from "store/user"
+import { useUserStore } from 'store/user'
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { AuthCodeForm } from 'components/forms/AuthCode'
@@ -20,7 +20,7 @@ import {
   AppImage,
   FormContainer
 } from './styles'
-import { Props } from "./types"
+import { Props } from './types'
 
 export const AuthenticationScreen = ({
   navigation,

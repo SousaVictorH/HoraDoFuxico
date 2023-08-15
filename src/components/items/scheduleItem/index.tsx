@@ -3,7 +3,7 @@ import moment from 'moment'
 
 import Ionicons from '@expo/vector-icons/Ionicons'
 
-import { Schedule } from "store/user/types"
+import { Schedule } from 'store/user/types'
 
 import {
   Container,
@@ -12,7 +12,7 @@ import {
   TimeContainer,
   Text,
   Caption
-} from "./styles"
+} from './styles'
 
 export const ScheduleItem = ({
   id,

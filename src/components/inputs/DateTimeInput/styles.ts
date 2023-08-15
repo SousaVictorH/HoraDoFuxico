@@ -1,10 +1,10 @@
-import styled, { css } from "styled-components/native"
+import styled, { css } from 'styled-components/native'
 
-import { TouchableOpacity } from "react-native-gesture-handler"
+import { Pressable } from 'react-native'
 
-import { ThemeProps } from "styles/types"
+import { ThemeProps } from 'styles/types'
 
-export const Button = styled(TouchableOpacity)`
+export const Button = styled(Pressable)`
   border-width: 1px;
   flex-direction: row;
   align-items: center;

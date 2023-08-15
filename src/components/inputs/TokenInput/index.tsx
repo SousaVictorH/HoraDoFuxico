@@ -1,15 +1,15 @@
-import React, { useRef, useState, useCallback } from "react"
+import React, { useRef, useState, useCallback } from 'react'
 import {
   NativeSyntheticEvent,
   TextInput,
   TextInputKeyPressEventData,
   Animated
-} from "react-native"
+} from 'react-native'
 
-import { PartInput } from "components/inputs/PartInput"
+import { PartInput } from 'components/inputs/PartInput'
 
-import { Container } from "./styles"
-import { Props } from "./types"
+import { Container } from './styles'
+import { Props } from './types'
 
 export const TokenInput = ({
   onSubmit,
@@ -84,8 +84,8 @@ export const TokenInput = ({
         }),
       ]),
       { iterations: 2 }
-    ).start();
-  }, []);
+    ).start()
+  }, [])
 
   return (
     <Container style={{ transform: [{ translateX: anim.current }] }} >

@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components/native"
+import styled, { css } from 'styled-components/native'
 import Animated, { FadeInUp } from 'react-native-reanimated'
 
-import { ThemeProps } from "styles/types"
+import { ThemeProps } from 'styles/types'
 
 export const AnimatedView = styled(Animated.View).attrs({
   entering: FadeInUp

@@ -7,18 +7,15 @@ import {
   ContentWrapper,
   ScheduleCategory,
   Wrapper
-} from "./styles"
-import { Props } from "./types"
+} from './styles'
+import { Props } from './types'
 
 export const ScheduleScreen = ({
   navigation,
   route
 }: Props) => {
   const {
-    id,
     category,
-    date,
-    users,
   } = route.params
 
   return (
@@ -26,7 +23,7 @@ export const ScheduleScreen = ({
       <Wrapper>
         <HeaderButton
           onPress={() => navigation.goBack()}
-          text={"Agendamento"}
+          text={'Agendamento'}
         />
         <ContentWrapper>
           <ScheduleCategory>{category}</ScheduleCategory>

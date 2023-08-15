@@ -1,5 +1,5 @@
-import { StyleProp, ViewStyle } from "react-native";
-import { ButtonTextAppearanceOptions } from 'styles/types';
+import { StyleProp, ViewStyle } from 'react-native'
+import { ButtonTextAppearanceOptions } from 'styles/types'
 
 export type Props = {
   onPress: () => void

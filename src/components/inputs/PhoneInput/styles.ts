@@ -1,7 +1,7 @@
 
-import styled, { css } from "styled-components/native";
+import styled, { css } from 'styled-components/native'
 
-import { ThemeProps } from "styles/types";
+import { ThemeProps } from 'styles/types'
 
 export const InputsWrapper = styled.View`
   width: 100%;
@@ -28,7 +28,7 @@ export const PhoneNumberInput = styled.TextInput`
   width: 80%;
   height: 50px;
   text-align: left;
-  
+
   ${({ theme }: ThemeProps) => css`
     border-radius: ${theme.borderRadius.xxs};
     font-size: ${theme.typography.elements.caption.fontSize};

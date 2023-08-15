@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { Wrapper, ScrollView, Container } from './styles'
 import { ScreenWrapperProps } from './types'
 
@@ -13,7 +15,7 @@ export const ScreenWrapper = ({
           <Container>{children}</Container>
         </ScrollView>
       </Wrapper>
-    );
+    )
   }
 
   return (

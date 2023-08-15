@@ -1,7 +1,7 @@
-import { Pressable } from "react-native"
-import styled, { css } from "styled-components/native"
+import { Pressable } from 'react-native'
+import styled, { css } from 'styled-components/native'
 
-import { ThemeProps } from "styles/types"
+import { ThemeProps } from 'styles/types'
 
 export const Wrapper = styled.View`
   flex-direction: row;

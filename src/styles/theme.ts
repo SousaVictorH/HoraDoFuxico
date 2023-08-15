@@ -1,14 +1,14 @@
-import { ThemeType } from './types';
+import { ThemeType } from './types'
 
-import { fontFamily, elements } from './typography';
-import { spacings } from './spacings';
-import { borderRadius } from './border';
+import { fontFamily, elements } from './typography'
+import { spacings } from './spacings'
+import { borderRadius } from './border'
 import {
   neutralColors,
   supportColors,
   technicalColors,
   backgroundColors,
-} from './colors';
+} from './colors'
 
 const Theme: ThemeType = {
   colors: {
@@ -23,6 +23,6 @@ const Theme: ThemeType = {
   },
   borderRadius,
   spacings,
-};
+}
 
-export default Theme;
+export default Theme

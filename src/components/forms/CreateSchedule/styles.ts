@@ -1,10 +1,10 @@
-import styled, { css } from "styled-components/native"
+import styled, { css } from 'styled-components/native'
 
-import { Button as ButtonComponent } from "components/buttons/Button"
-import { DateTimeInput as DateTimeInputComponent } from "components/inputs/DateTimeInput"
-import { RadioInput as RadioInputComponent } from "components/inputs/RadioInput"
+import { Button as ButtonComponent } from 'components/buttons/Button'
+import { DateTimeInput as DateTimeInputComponent } from 'components/inputs/DateTimeInput'
+import { RadioInput as RadioInputComponent } from 'components/inputs/RadioInput'
 
-import { ThemeProps } from "styles/types"
+import { ThemeProps } from 'styles/types'
 
 export const ContentWrapper = styled.View`
   flex: 1;

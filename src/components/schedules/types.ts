@@ -1,10 +1,10 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react'
 import { StyleProp, ViewStyle } from 'react-native'
 
-import { StackNavigationProp } from "@react-navigation/stack"
-import { RootStackParamList } from "routes/types"
+import { StackNavigationProp } from '@react-navigation/stack'
+import { RootStackParamList } from 'routes/types'
 
-import { Schedule } from "store/user/types"
+import { Schedule } from 'store/user/types'
 
 export type Props = {
   schedules: Schedule[]

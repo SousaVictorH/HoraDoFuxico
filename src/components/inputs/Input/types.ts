@@ -2,7 +2,7 @@ import {
   KeyboardTypeOptions,
   StyleProp,
   ViewStyle
-} from "react-native"
+} from 'react-native'
 
 export type Props = {
   autoFocus?: boolean

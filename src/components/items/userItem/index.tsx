@@ -1,16 +1,15 @@
-import React from "react"
+import React from 'react'
 
 import {
   ItemWrapper,
   UserAvatar,
   UserName
-} from "./styles"
-import { Props } from "./types"
+} from './styles'
+import { Props } from './types'
 
-import { images } from "resources/images"
+import { images } from 'resources/images'
 
 export const UserItem = ({
-  id,
   avatar,
   name,
   onPress

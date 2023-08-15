@@ -1,14 +1,14 @@
-import React, { useState } from "react"
-import moment from "moment"
+import React, { useState } from 'react'
+import moment from 'moment'
 
 import Ionicons from '@expo/vector-icons/Ionicons'
 
-import DateTimePickerModal from "react-native-modal-datetime-picker"
+import DateTimePickerModal from 'react-native-modal-datetime-picker'
 
-import { selectDay, selectTime } from "constants/texts"
+import { selectDay, selectTime } from 'constants/texts'
 
-import { Button, ButtonText } from "./styles"
-import { Props } from "./types";
+import { Button, ButtonText } from './styles'
+import { Props } from './types'
 
 export const DateTimeInput = ({
   value,
@@ -19,25 +19,25 @@ export const DateTimeInput = ({
   minimumDate,
   minuteInterval
 }: Props) => {
-  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false)
 
   const hasSelected = value ? true : false
   const placeholder = isDate ? selectDay : selectTime
-  const mode = isDate ? "date" : "time"
+  const mode = isDate ? 'date' : 'time'
 
   const hideDatePicker = () => {
     setDatePickerVisibility(false)
-  };
+  }
 
   const handleConfirm = (pickedValue: Date) => {
-    const format = isDate ? "DD/MM/YYYY" : 'HH:mm'
+    const format = isDate ? 'DD/MM/YYYY' : 'HH:mm'
 
     const newValue = moment(pickedValue).format(format)
 
     setValue(newValue)
 
     hideDatePicker()
-  };
+  }
 
   return (
     <>
@@ -63,5 +63,5 @@ export const DateTimeInput = ({
         minuteInterval={minuteInterval}
       />
     </>
-  );
-};
+  )
+}

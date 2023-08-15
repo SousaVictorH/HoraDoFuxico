@@ -1,13 +1,13 @@
-import { useState } from "react"
+import React, { useState } from 'react'
 
-import { phoneMask } from "utils/phone"
+import { phoneMask } from 'utils/phone'
 
 import {
   save,
   namePlaceholder,
   phonePlaceholder,
   birthDateInputPlaceholder
-} from "constants/texts"
+} from 'constants/texts'
 
 import {
   Container,
@@ -16,7 +16,7 @@ import {
   PhotoInput,
   Input,
   Title
-} from "./styles"
+} from './styles'
 import { Props } from './types'
 
 export const EditProfileForm = ({

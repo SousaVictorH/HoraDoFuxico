@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { View } from 'react-native'
 
 import { LoggedWrapper } from 'templates/LoggedWrapper'
 import { HeaderButton } from 'components/buttons/Header'
@@ -21,7 +20,7 @@ import {
   UserName,
   SchedulesList
 } from './styles'
-import { Props } from "./types"
+import { Props } from './types'
 
 export const ProfileScreen = ({
   navigation,
@@ -32,7 +31,6 @@ export const ProfileScreen = ({
   const {
     id,
     name,
-    phoneNumber,
     birthDate,
     avatar,
   } = route.params

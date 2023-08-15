@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { terms } from 'constants/texts'
 
 import {

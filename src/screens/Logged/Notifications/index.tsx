@@ -10,7 +10,7 @@ import {
   Wrapper,
   NotificationsText
 } from './styles'
-import { Props } from "./types"
+import { Props } from './types'
 
 export const NotificationsScreen = ({
   navigation

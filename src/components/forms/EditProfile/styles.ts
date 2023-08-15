@@ -1,11 +1,11 @@
-import styled, { css } from "styled-components/native"
+import styled, { css } from 'styled-components/native'
 
-import { Button as ButtonComponent } from "components/buttons/Button"
-import { DateTimeInput as DateTimeInputComponent } from "components/inputs/DateTimeInput"
-import { Input as InputComponent } from "components/inputs/Input"
-import { PhotoInput as PhotoInputComponent } from "components/inputs/PhotoInput"
+import { Button as ButtonComponent } from 'components/buttons/Button'
+import { DateTimeInput as DateTimeInputComponent } from 'components/inputs/DateTimeInput'
+import { Input as InputComponent } from 'components/inputs/Input'
+import { PhotoInput as PhotoInputComponent } from 'components/inputs/PhotoInput'
 
-import { ThemeProps } from "styles/types"
+import { ThemeProps } from 'styles/types'
 
 export const Container = styled.View`
   flex: 1;

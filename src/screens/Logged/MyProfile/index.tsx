@@ -14,7 +14,7 @@ import {
   ProfileAge,
   ContentWrapper
 } from './styles'
-import { Props } from "./types"
+import { Props } from './types'
 
 export const MyProfileScreen = ({
   toggleSidePanel

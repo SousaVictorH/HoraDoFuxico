@@ -1,4 +1,4 @@
-import { SpacingsTypes } from './types';
+import { SpacingsTypes } from './types'
 
 export const spacings: SpacingsTypes = {
   none: '0px',

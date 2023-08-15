@@ -1,12 +1,11 @@
-import styled, { css } from "styled-components/native"
+import styled, { css } from 'styled-components/native'
 import Animated, { SlideInLeft, SlideOutLeft } from 'react-native-reanimated'
 
-import { ThemeProps } from "styles/types"
-import { getWindowHeight, getWindowWidth } from "utils/dimensions"
+import { ThemeProps } from 'styles/types'
+import { getWindowHeight, getWindowWidth } from 'utils/dimensions'
 
 export const Container = styled.TouchableOpacity`
   z-index: 2;
-  elevation: 2;
   position: absolute;
   height: ${getWindowHeight()}px;
   width: ${getWindowWidth()}px;
@@ -38,7 +37,7 @@ export const Item = styled.TouchableOpacity`
   max-height: 30px;
   flex-direction: row;
   align-items: center;
-  
+
   ${({ theme }: ThemeProps) => css`
     margin-bottom: ${theme.spacings.xxl};
   `}

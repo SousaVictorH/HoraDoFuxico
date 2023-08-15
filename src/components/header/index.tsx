@@ -1,3 +1,4 @@
+import React from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
 import { images } from 'resources/images'
@@ -7,7 +8,7 @@ import {
   ContentWrapper,
   AppNameImage,
   Button
-} from "./styles"
+} from './styles'
 import { Props } from './types'
 
 export const Header = ({

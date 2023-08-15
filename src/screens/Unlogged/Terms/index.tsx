@@ -20,7 +20,7 @@ import {
   FormContainer,
   TermsModal
 } from './styles'
-import { Props } from "./types"
+import { Props } from './types'
 
 const modalHeight = getWindowHeight() * 0.8
 
@@ -65,8 +65,9 @@ export const TermsScreen = ({
         ref={modalizeRef}
         modalHeight={modalHeight}
         snapPoint={modalHeight}
-        children={<TermsModal />}
-      />
+      >
+        <TermsModal />
+      </Modalize>
     </ScreenWrapper>
   )
 }

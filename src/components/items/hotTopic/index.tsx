@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import { hotTopic } from "resources/hotTopics/types"
+import { hotTopic } from 'resources/hotTopics/types'
 
 import {
   Container,
@@ -8,7 +8,7 @@ import {
   Title,
   Description,
   Image
-} from "./styles";
+} from './styles'
 
 export const HotTopic = ({
   description,

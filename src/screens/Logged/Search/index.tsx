@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { ListRenderItem } from "react-native"
+import { ListRenderItem } from 'react-native'
 
 import Toast from 'react-native-toast-message'
 
@@ -20,7 +20,7 @@ import {
   Header,
   Spinner
 } from './styles'
-import { Props } from "./types"
+import { Props } from './types'
 
 export const SearchScreen = ({
   toggleSidePanel,

@@ -1,17 +1,18 @@
-import { useState, useRef, useEffect } from "react"
-import AnimatedLottieView from "lottie-react-native"
-import Toast from "react-native-toast-message"
+import React, { useState, useRef, useEffect } from 'react'
 
-import { requestLogin } from "interfaces/api"
+import AnimatedLottieView from 'lottie-react-native'
+import Toast from 'react-native-toast-message'
+
+import { requestLogin } from 'interfaces/api'
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignInForm } from 'components/forms/SignIn'
 
-import { animations } from "resources/animations"
-import { images } from "resources/images"
+import { animations } from 'resources/animations'
+import { images } from 'resources/images'
 
-import { promoteGoodMoments } from "constants/texts"
-import { AUTHENTICATION_SCREEN } from "constants/screens"
+import { promoteGoodMoments } from 'constants/texts'
+import { AUTHENTICATION_SCREEN } from 'constants/screens'
 
 import {
   AnimatedView,
@@ -21,8 +22,8 @@ import {
   AppImageContainer,
   AppImage,
   FormContainer
-} from "./styles"
-import { Props, OnSignInProps, OnSocialSignInProps } from "./types"
+} from './styles'
+import { Props, OnSignInProps, OnSocialSignInProps } from './types'
 
 export const LandingScreen = ({
   navigation
@@ -33,12 +34,12 @@ export const LandingScreen = ({
   const animationRef = useRef<any>(null)
 
   useEffect(() => {
-    setTimeout(() => animationRef.current?.play(), 100);
+    setTimeout(() => animationRef.current?.play(), 100)
 
     return () => {
-      animationRef.current?.reset();
+      animationRef.current?.reset()
     }
-  }, []);
+  }, [])
 
   const onSignIn = async ({ areaCode, phoneNumber }: OnSignInProps) => {
     if (isLoading) return

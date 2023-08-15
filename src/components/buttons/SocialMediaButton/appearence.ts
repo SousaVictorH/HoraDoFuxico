@@ -1,5 +1,5 @@
-import { css } from 'styled-components';
-import { ThemeType, SocialMediaAppearenceOptions } from 'styles/types';
+import { css } from 'styled-components'
+import { ThemeType, SocialMediaAppearenceOptions } from 'styles/types'
 
 type AppearanceProps = {
   theme: ThemeType;
@@ -17,9 +17,9 @@ export function getButtonAppearance({ theme, appearance }: AppearanceProps) {
     Twitter: () => css`
       background-color: ${theme.colors.support.transparent};
     `,
-  };
+  }
 
-  return options[appearance];
+  return options[appearance]
 }
 
 export function getIconAppearance({ appearance }: AppearanceProps) {
@@ -36,7 +36,7 @@ export function getIconAppearance({ appearance }: AppearanceProps) {
       height: 95%;
       width: 85%;
     `,
-  };
+  }
 
-  return options[appearance];
+  return options[appearance]
 }

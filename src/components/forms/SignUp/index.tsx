@@ -1,12 +1,12 @@
-import React, { useState } from "react"
-import { View } from "react-native"
+import React, { useState } from 'react'
+import { View } from 'react-native'
 
 import Toast from 'react-native-toast-message'
 
-import { FormWrapper } from "templates/FormWrapper"
+import { FormWrapper } from 'templates/FormWrapper'
 
-import { next, nameInputPlaceholder, birthDateInputPlaceholder } from "constants/texts"
-import { validateBirthDate } from "utils/date"
+import { next, nameInputPlaceholder, birthDateInputPlaceholder } from 'constants/texts'
+import { validateBirthDate } from 'utils/date'
 
 import {
   FormButton,
@@ -17,7 +17,7 @@ import {
   PhotoInput,
   DateTimeInput
 } from './styles'
-import { Props } from "./types"
+import { Props } from './types'
 
 export const SignUpForm = ({
   onSignUp

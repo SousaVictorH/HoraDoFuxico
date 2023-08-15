@@ -7,7 +7,7 @@ import {
   UPDATE,
   USERS_LIST,
   SCHEDULES
-} from 'resources/url';
+} from 'resources/url'
 
 export const requestLogin = async (phoneNumber: string) => {
   try {

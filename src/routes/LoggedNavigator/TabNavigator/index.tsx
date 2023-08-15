@@ -1,25 +1,26 @@
-import React, { useState } from "react"
+/* eslint-disable react/no-children-prop */
+import React, { useState } from 'react'
 
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
-import { TabBar } from "components/tabBar"
+import { TabBar } from 'components/tabBar'
 
 import {
   HOME_SCREEN,
   MY_PROFILE_SCREEN,
   SEARCH_SCREEN
-} from "constants/screens"
+} from 'constants/screens'
 
-import { defaultScreenOptions } from "routes/options"
-import { RootStackParamList } from "routes/types"
+import { defaultScreenOptions } from 'routes/options'
+import { RootStackParamList } from 'routes/types'
 
-import { MyProfileScreen } from "screens/Logged/MyProfile"
-import { HomeScreen } from "screens/Logged/Home"
+import { MyProfileScreen } from 'screens/Logged/MyProfile'
+import { HomeScreen } from 'screens/Logged/Home'
 
-import { SidePanel } from "components/sidePanel"
-import { SearchScreen } from "screens/Logged/Search"
+import { SidePanel } from 'components/sidePanel'
+import { SearchScreen } from 'screens/Logged/Search'
 
-const Tab = createBottomTabNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator<RootStackParamList>()
 
 export const TabNavigator = () => {
   const [showSidePanel, setShowSidePanel] = useState(false)

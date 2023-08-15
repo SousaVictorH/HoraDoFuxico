@@ -1,7 +1,7 @@
-import { Pressable } from "react-native"
-import styled, { css } from "styled-components/native"
+import { Pressable } from 'react-native'
+import styled, { css } from 'styled-components/native'
 
-import { ThemeProps } from "styles/types"
+import { ThemeProps } from 'styles/types'
 
 export const Header = styled.View`
   flex-direction: row;
@@ -10,7 +10,7 @@ export const Header = styled.View`
 
   ${({ theme, textAlign }: ThemeProps & { textAlign: 'left' | 'center' }) => css`
     padding: ${theme.spacings.spacingTop} ${theme.spacings.xlg} ${theme.spacings.none};
-    ${textAlign === 'center' && `justify-content: space-between;`}
+    ${textAlign === 'center' && 'justify-content: space-between;'}
   `}
 `
 

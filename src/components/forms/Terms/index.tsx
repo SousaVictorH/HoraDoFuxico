@@ -1,6 +1,6 @@
-import { useState } from "react"
+import React, { useState } from 'react'
 
-import { FormWrapper } from "templates/FormWrapper"
+import { FormWrapper } from 'templates/FormWrapper'
 
 import {
   reedOur,
@@ -15,7 +15,7 @@ import {
   RadioInput,
   Button
 } from './styles'
-import { Props } from "./types"
+import { Props } from './types'
 
 export const TermsForm = ({
   onNext,

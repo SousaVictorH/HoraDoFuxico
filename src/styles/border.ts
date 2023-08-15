@@ -1,4 +1,4 @@
-import { BorderRadiusType } from './types';
+import { BorderRadiusType } from './types'
 
 export const borderRadius: BorderRadiusType = {
   none: '0px',
@@ -8,4 +8,4 @@ export const borderRadius: BorderRadiusType = {
   md: '15px',
   lg: '18px',
   xlg: '31px'
-};
+}

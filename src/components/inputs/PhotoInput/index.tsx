@@ -1,5 +1,7 @@
-import * as ImagePicker from 'expo-image-picker';
-import Toast from 'react-native-toast-message';
+import React from 'react'
+
+import * as ImagePicker from 'expo-image-picker'
+import Toast from 'react-native-toast-message'
 
 import Ionicons from '@expo/vector-icons/Ionicons'
 
@@ -18,7 +20,7 @@ export const PhotoInput = ({
   setPhoto,
   style
 }: Props) => {
-  const [status, requestPermission] = ImagePicker.useMediaLibraryPermissions();
+  const [status, requestPermission] = ImagePicker.useMediaLibraryPermissions()
 
   const requestImage = async () => {
     // Check permissions
@@ -60,7 +62,7 @@ export const PhotoInput = ({
         <Ionicons
           name="attach-outline"
           size={28}
-          color={photo ? "#DD9064" : "#4A596B"}
+          color={photo ? '#DD9064' : '#4A596B'}
         />
         <ButtonText photo={photo}>{add}</ButtonText>
       </ButtonWrapper>

@@ -1,13 +1,13 @@
-import moment from "moment";
+import moment from 'moment'
 
 export const maskDate = (date: string) => {
-  let d = date.replace(/\D/g, '').slice(0, 10);
+  const d = date.replace(/\D/g, '').slice(0, 10)
 
   if (d.length >= 5) {
-    return `${d.slice(0, 2)}/${d.slice(2, 4)}/${d.slice(4)}`;
+    return `${d.slice(0, 2)}/${d.slice(2, 4)}/${d.slice(4)}`
   }
   else if (d.length >= 3) {
-    return `${d.slice(0, 2)}/${d.slice(2)}`;
+    return `${d.slice(0, 2)}/${d.slice(2)}`
   }
 
   return d
@@ -15,7 +15,7 @@ export const maskDate = (date: string) => {
 
 export const validateBirthDate = (d: string) => {
   const currentDate = moment(new Date())
-  const date = moment(d, "DD/MM/YYYY")
+  const date = moment(d, 'DD/MM/YYYY')
 
   if (date.isValid()) {
     const age = currentDate.diff(date, 'years')

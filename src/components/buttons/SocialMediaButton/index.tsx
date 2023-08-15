@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import { Container, Image } from './styles';
-import { SocialMediaButtonProps } from './types';
+import { Container, Image } from './styles'
+import { SocialMediaButtonProps } from './types'
 
 const SocialMediaButton = ({
   onPress,
@@ -18,11 +18,11 @@ const SocialMediaButton = ({
     >
       <Image source={iconSource} appearance={appearance} resizeMode="contain" />
     </Container>
-  );
-};
+  )
+}
 
 SocialMediaButton.defaultProps = {
   appearance: 'Google',
-};
+}
 
-export default SocialMediaButton;
+export default SocialMediaButton

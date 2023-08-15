@@ -1,20 +1,20 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
 
-import Toast from "react-native-toast-message"
+import Toast from 'react-native-toast-message'
 
-import { LoggedWrapper } from "templates/LoggedWrapper"
-import { CreateScheduleForm } from "components/forms/CreateSchedule"
-import { HeaderButton } from "components/buttons/Header"
+import { LoggedWrapper } from 'templates/LoggedWrapper'
+import { CreateScheduleForm } from 'components/forms/CreateSchedule'
+import { HeaderButton } from 'components/buttons/Header'
 
 import { useUserStore } from 'store/user'
-import { useUserSchedulesStore } from "store/userSchedules"
-import { Schedule } from "store/user/types"
+import { useUserSchedulesStore } from 'store/userSchedules'
+import { Schedule } from 'store/user/types'
 
 import { schedule } from 'constants/texts'
-import { createSchedule } from "interfaces/api"
+import { createSchedule } from 'interfaces/api'
 
-import { ContentWrapper } from "./styles"
-import { Props } from "./types"
+import { ContentWrapper } from './styles'
+import { Props } from './types'
 
 export const NewScheduleScreen = ({
   navigation

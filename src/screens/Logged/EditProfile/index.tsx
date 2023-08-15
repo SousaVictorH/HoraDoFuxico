@@ -1,25 +1,25 @@
-import React, { useState } from "react"
-import Toast from "react-native-toast-message"
+import React, { useState } from 'react'
+import Toast from 'react-native-toast-message'
 
-import moment from "moment"
+import moment from 'moment'
 
-import { LoggedWrapper } from "templates/LoggedWrapper"
-import { EditProfileForm } from "components/forms/EditProfile"
-import { HeaderButton } from "components/buttons/Header"
+import { LoggedWrapper } from 'templates/LoggedWrapper'
+import { EditProfileForm } from 'components/forms/EditProfile'
+import { HeaderButton } from 'components/buttons/Header'
 
-import { update } from "interfaces/api"
+import { update } from 'interfaces/api'
 
-import { editYourInfo } from "constants/texts"
+import { editYourInfo } from 'constants/texts'
 
-import { useUserStore } from "store/user"
+import { useUserStore } from 'store/user'
 
-import { validateBirthDate } from "utils/date"
+import { validateBirthDate } from 'utils/date'
 
-import { Props } from "./types"
+import { Props } from './types'
 import {
   Wrapper,
   ContentWrapper
-} from "./styles"
+} from './styles'
 
 export const EditProfileScreen = ({
   navigation

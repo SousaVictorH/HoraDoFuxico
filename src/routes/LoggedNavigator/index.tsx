@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { createStackNavigator } from '@react-navigation/stack'
 
 import {
@@ -10,9 +12,9 @@ import {
   SCHEDULE_SCREEN
 } from 'constants/screens'
 
-import { EditProfileScreen } from "screens/Logged/EditProfile"
-import { NewScheduleScreen } from "screens/Logged/NewSchedule"
-import { HelpScreen } from "screens/Logged/Help"
+import { EditProfileScreen } from 'screens/Logged/EditProfile'
+import { NewScheduleScreen } from 'screens/Logged/NewSchedule'
+import { HelpScreen } from 'screens/Logged/Help'
 import { NotificationsScreen } from 'screens/Logged/Notifications'
 import { ProfileScreen } from 'screens/Logged/Profile'
 import { ScheduleScreen } from 'screens/Logged/Schedule'
@@ -22,7 +24,7 @@ import { TabNavigator } from 'routes/LoggedNavigator/TabNavigator'
 import { RootStackParamList } from '../types'
 import { loggedScreenOptions } from './options'
 
-const Stack = createStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator<RootStackParamList>()
 
 export const LoggedNavigator = () => {
   return (

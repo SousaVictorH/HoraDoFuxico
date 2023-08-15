@@ -1,9 +1,9 @@
-import styled, { css } from 'styled-components/native';
+import styled, { css } from 'styled-components/native'
 
-import { ThemeProps } from 'styles/types';
+import { ThemeProps } from 'styles/types'
 
-import { getButtonAppearance, getIconAppearance } from './appearence';
-import { SocialMediaButtonProps, SocialMediaButtonIconProps } from './types';
+import { getButtonAppearance, getIconAppearance } from './appearence'
+import { SocialMediaButtonProps } from './types'
 
 export const Container = styled.TouchableOpacity`
   height: 54px;
@@ -16,10 +16,10 @@ export const Container = styled.TouchableOpacity`
     border-radius: ${theme.borderRadius.lg};
     ${getButtonAppearance}
   `}
-`;
+`
 
 export const Image = styled.Image`
-  ${({ }: SocialMediaButtonIconProps & ThemeProps) => css`
+  ${() => css`
     ${getIconAppearance}
   `}
-`;
+`

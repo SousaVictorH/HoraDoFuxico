@@ -1,5 +1,7 @@
+import React from 'react'
+
 import { Text } from './styles'
-import { Props } from "./types"
+import { Props } from './types'
 
 export const TextButton = ({
   onPress,

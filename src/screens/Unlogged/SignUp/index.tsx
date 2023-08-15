@@ -1,15 +1,15 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
 import Toast from 'react-native-toast-message'
 
-import { useUserStore } from "store/user"
+import { useUserStore } from 'store/user'
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignUpForm } from 'components/forms/SignUp'
 
-import { signUp } from "interfaces/api"
+import { signUp } from 'interfaces/api'
 
 import { images } from 'resources/images'
-import { LOGGED_NAVIGATOR } from "constants/screens"
+import { LOGGED_NAVIGATOR } from 'constants/screens'
 
 import {
   ContentWrapper,
@@ -17,7 +17,7 @@ import {
   Image,
   FormContainer
 } from './styles'
-import { handleSubmitProps, Props } from "./types"
+import { handleSubmitProps, Props } from './types'
 
 export const SignUpScreen = ({
   navigation,

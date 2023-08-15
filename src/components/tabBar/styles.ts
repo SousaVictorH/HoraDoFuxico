@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components/native"
-import { ThemeProps } from "styles/types"
+import styled, { css } from 'styled-components/native'
+import { ThemeProps } from 'styles/types'
 
 export const TabBarContainer = styled.View`
   flex-direction: row;

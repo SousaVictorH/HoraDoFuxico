@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components/native"
+import styled, { css } from 'styled-components/native'
 
-import { TermsModal as Modal } from "components/modals/termsModal"
+import { TermsModal as Modal } from 'components/modals/termsModal'
 
-import { ThemeProps } from "styles/types"
+import { ThemeProps } from 'styles/types'
 
 export const ContentWrapper = styled.View`
   flex: 1;
