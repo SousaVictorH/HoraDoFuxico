@@ -23,7 +23,7 @@ export const ScheduleScreen = ({
       <Wrapper>
         <HeaderButton
           onPress={() => navigation.goBack()}
-          text={'Agendamento'}
+          text={'Detalhes'}
         />
         <ContentWrapper>
           <ScheduleCategory>{category}</ScheduleCategory>

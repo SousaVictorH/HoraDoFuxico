@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 
+import { ScheduleService } from 'services/ScheduleService'
+
 import { LoggedWrapper } from 'templates/LoggedWrapper'
 import { HeaderButton } from 'components/buttons/Header'
 
 import { useUserStore } from 'store/user'
 import { Schedule } from 'store/user/types'
 
-import { loadSchedules } from 'interfaces/api'
 import { SCHEDULE_SCREEN } from 'constants/screens'
 
 import { images } from 'resources/images'
@@ -38,7 +39,7 @@ export const ProfileScreen = ({
   const [schedules, setSchedules] = useState<Schedule[]>([])
 
   const loadUserSchedules = async (page: number) => {
-    return await loadSchedules(id, page)
+    return await ScheduleService.loadSchedules(id, page)
   }
 
   const onSchedulePress = (schedule: Schedule) => {

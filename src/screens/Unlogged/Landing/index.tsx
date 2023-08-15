@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import AnimatedLottieView from 'lottie-react-native'
 import Toast from 'react-native-toast-message'
 
-import { requestLogin } from 'interfaces/api'
+import { UserService } from 'services/UserService'
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignInForm } from 'components/forms/SignIn'
@@ -55,20 +55,21 @@ export const LandingScreen = ({
     }
 
     setIsLoading(true)
-    const response = await requestLogin(phone)
-    setIsLoading(false)
 
-    if (response.error) {
-      Toast.show({
-        type: 'error',
-        text1: 'Alerta',
-        text2: 'Algo deu errado...'
+    UserService.requestLogin(phone)
+      .then(() => {
+        navigation.navigate(AUTHENTICATION_SCREEN, {
+          phoneNumber: phone
+        })
       })
-    } else {
-      navigation.navigate(AUTHENTICATION_SCREEN, {
-        phoneNumber: phone
+      .catch(() => {
+        Toast.show({
+          type: 'error',
+          text1: 'Alerta',
+          text2: 'Algo deu errado...'
+        })
       })
-    }
+      .finally(() => setIsLoading(false))
   }
 
   const onSocialSignIn = ({ google, facebook }: OnSocialSignInProps) => {

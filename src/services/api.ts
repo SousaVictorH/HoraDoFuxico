@@ -2,6 +2,8 @@ import axios, { AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 import Toast from 'react-native-toast-message'
 
 import { useUserStore } from 'store/user'
+import { useUserSchedulesStore } from 'store/userSchedules'
+
 import * as RootNavigation from 'routes/RootNavigation'
 
 export const api = axios.create({
@@ -32,8 +34,12 @@ api.interceptors.response.use(res => res, (error: AxiosResponse<any, any>) => {
 
     setTimeout(() => {
       const { clearPersonalData } = useUserStore.getState()
+      const { setSchedules } = useUserSchedulesStore.getState()
 
+      // Reset data
       clearPersonalData()
+      setSchedules([])
+
       RootNavigation.reset()
     }, 1800)
 

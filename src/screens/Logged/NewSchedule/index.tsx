@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 
 import Toast from 'react-native-toast-message'
 
+import { AxiosResponse } from 'axios'
+import { ScheduleService } from 'services/ScheduleService'
+
 import { LoggedWrapper } from 'templates/LoggedWrapper'
 import { CreateScheduleForm } from 'components/forms/CreateSchedule'
 import { HeaderButton } from 'components/buttons/Header'
@@ -11,7 +14,6 @@ import { useUserSchedulesStore } from 'store/userSchedules'
 import { Schedule } from 'store/user/types'
 
 import { schedule } from 'constants/texts'
-import { createSchedule } from 'interfaces/api'
 
 import { ContentWrapper } from './styles'
 import { Props } from './types'
@@ -31,34 +33,36 @@ export const NewScheduleScreen = ({
   }: Schedule) => {
     if (isLoading) return false
 
+    let shouldReset = false
     setIsLoading(true)
-    const response = await createSchedule(id, category, date, time)
-    setIsLoading(false)
 
-    if (response.error) {
-      Toast.show({
-        type: 'error',
-        text1: 'Alerta',
-        text2: 'Algo deu errado...'
+    ScheduleService.createSchedule(id, category, date, time)
+      .then((response: AxiosResponse) => {
+        Toast.show({
+          type: 'success',
+          text1: 'Sucesso',
+          text2: 'Agendamento realizado com sucesso'
+        })
+
+        const createdSchedule = response.data
+
+        userScheduleStore.addSchedule(createdSchedule)
+        addSchedule(createdSchedule.id)
+
+        setTimeout(() => navigation.goBack(), 300)
+
+        shouldReset = true
       })
+      .catch(() => {
+        Toast.show({
+          type: 'error',
+          text1: 'Alerta',
+          text2: 'Algo deu errado...'
+        })
+      })
+      .finally(() => setIsLoading(false))
 
-      return false
-    }
-
-    Toast.show({
-      type: 'success',
-      text1: 'Sucesso',
-      text2: 'Agendamento realizado com sucesso'
-    })
-
-    const createdSchedule = response.data
-
-    userScheduleStore.addSchedule(createdSchedule)
-    addSchedule(createdSchedule.id)
-
-    setTimeout(() => navigation.goBack(), 300)
-
-    return true
+    return shouldReset
   }
 
   return (

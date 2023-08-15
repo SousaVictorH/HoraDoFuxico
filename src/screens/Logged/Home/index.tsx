@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { ScheduleService } from 'services/ScheduleService'
+
 import { LoggedWrapper } from 'templates/LoggedWrapper'
 import { Schedules } from 'components/schedules'
 import { HotTopics } from 'components/hotTopics'
@@ -8,7 +10,6 @@ import { useUserStore } from 'store/user'
 import { useUserSchedulesStore } from 'store/userSchedules'
 import { Schedule } from 'store/user/types'
 
-import { loadSchedules } from 'interfaces/api'
 import { SCHEDULE_SCREEN } from 'constants/screens'
 
 import { ContentWrapper } from './styles'
@@ -22,7 +23,7 @@ export const HomeScreen = ({
   const { schedules, setSchedules } = useUserSchedulesStore()
 
   const loadUserSchedules = async (page: number) => {
-    return await loadSchedules(id, page)
+    return await ScheduleService.loadSchedules(id, page)
   }
 
   const onSchedulePress = (schedule: Schedule) => {

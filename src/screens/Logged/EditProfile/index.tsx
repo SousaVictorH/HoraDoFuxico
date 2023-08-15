@@ -3,11 +3,12 @@ import Toast from 'react-native-toast-message'
 
 import moment from 'moment'
 
+import { AxiosResponse } from 'axios'
+import { UserService } from 'services/UserService'
+
 import { LoggedWrapper } from 'templates/LoggedWrapper'
 import { EditProfileForm } from 'components/forms/EditProfile'
 import { HeaderButton } from 'components/buttons/Header'
-
-import { update } from 'interfaces/api'
 
 import { editYourInfo } from 'constants/texts'
 
@@ -56,25 +57,26 @@ export const EditProfileScreen = ({
     const newPhone = newPhoneNumber.replace('-', '')
 
     setIsLoading(true)
-    const response = await update(id, newName, newBirthDate, newPhone, newPhoto)
-    setIsLoading(false)
 
-    if (response.error) {
-      return Toast.show({
-        type: 'error',
-        text1: 'Alerta',
-        text2: 'Algo deu errado...'
+    UserService.update(id, newName, newBirthDate, newPhone, newPhoto)
+      .then((response: AxiosResponse) => {
+        Toast.show({
+          type: 'success',
+          text1: 'Sucesso',
+          text2: 'Seus dados foram atualizados com sucesso'
+        })
+
+        setPersonalData(response.data)
+        setTimeout(() => navigation.goBack(), 300)
       })
-    }
-
-    Toast.show({
-      type: 'success',
-      text1: 'Sucesso',
-      text2: 'Seus dados foram atualizados com sucesso'
-    })
-
-    setPersonalData(response.data)
-    setTimeout(() => navigation.goBack(), 300)
+      .catch(() => {
+        return Toast.show({
+          type: 'error',
+          text1: 'Alerta',
+          text2: 'Algo deu errado...'
+        })
+      })
+      .finally(() => setIsLoading(false))
   }
 
   return (

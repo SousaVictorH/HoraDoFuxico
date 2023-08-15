@@ -3,13 +3,15 @@ import { ListRenderItem } from 'react-native'
 
 import Toast from 'react-native-toast-message'
 
+import { AxiosResponse } from 'axios'
+import { UserService } from 'services/UserService'
+
 import { LoggedWrapper } from 'templates/LoggedWrapper'
 import { UserItem } from 'components/items/userItem'
 import { SearchInput } from 'components/inputs/SearchInput'
 
 import { PROFILE_SCREEN } from 'constants/screens'
 
-import { getUsers } from 'interfaces/api'
 import { User } from 'store/user/types'
 
 import { useDebounce } from 'utils/useDebounce'
@@ -42,21 +44,24 @@ export const SearchScreen = ({
     if (isLoading || (pageNumber > numberOfPages)) return
 
     setIsLoading(true)
-    const response = await getUsers(searchField, pageNumber)
-    setIsLoading(false)
-    setShowSpinner(false)
 
-    if (response.error) {
-      return Toast.show({
-        type: 'error',
-        text1: 'Alerta',
-        text2: 'Algo deu errado...'
+    UserService.getUsers(searchField, pageNumber)
+      .then((response: AxiosResponse) => {
+        setPage(pageNumber + 1)
+        setNumberOfPages(response.data.numberOfPages)
+        setUsersList([...usersList, ...response.data.users])
       })
-    }
-
-    setPage(pageNumber + 1)
-    setNumberOfPages(response.data.numberOfPages)
-    setUsersList([...usersList, ...response.data.users])
+      .catch(() => {
+        Toast.show({
+          type: 'error',
+          text1: 'Alerta',
+          text2: 'Algo deu errado...'
+        })
+      })
+      .finally(() => {
+        setIsLoading(false)
+        setShowSpinner(false)
+      })
   }
 
   useEffect(() => {

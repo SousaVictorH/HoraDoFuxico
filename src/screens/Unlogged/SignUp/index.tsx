@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import Toast from 'react-native-toast-message'
 
+import { AxiosResponse } from 'axios'
+import { UserService } from 'services/UserService'
+
 import { useUserStore } from 'store/user'
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignUpForm } from 'components/forms/SignUp'
-
-import { signUp } from 'interfaces/api'
 
 import { images } from 'resources/images'
 import { LOGGED_NAVIGATOR } from 'constants/screens'
@@ -37,19 +38,20 @@ export const SignUpScreen = ({
     if (isLoading) return
 
     setIsLoading(true)
-    const response = await signUp(name, birthDate, phoneNumber, photo)
-    setIsLoading(false)
 
-    if (response.error) {
-      return Toast.show({
-        type: 'error',
-        text1: 'Alerta',
-        text2: 'Algo deu errado...'
+    UserService.signUp(name, birthDate, phoneNumber, photo)
+      .then((response: AxiosResponse) => {
+        setPersonalData(response.data)
+        navigation.navigate(LOGGED_NAVIGATOR)
       })
-    } else {
-      setPersonalData(response.data)
-      navigation.navigate(LOGGED_NAVIGATOR)
-    }
+      .catch(() => {
+        Toast.show({
+          type: 'error',
+          text1: 'Alerta',
+          text2: 'Algo deu errado...'
+        })
+      })
+      .finally(() => setIsLoading(false))
   }
 
   return (

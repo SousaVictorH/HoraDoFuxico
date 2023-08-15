@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { ListRenderItem } from 'react-native'
 
 import Toast from 'react-native-toast-message'
+import { AxiosResponse } from 'axios'
 
 import { ScheduleItem } from 'components/items/scheduleItem'
 
@@ -38,21 +39,22 @@ export const Schedules = ({
     if (isLoading || (pageNumber > numberOfPages)) return
 
     setIsLoading(true)
-    const response = await loadUserSchedules(pageNumber)
-    setIsLoading(false)
 
-    if (response.error) {
-      return Toast.show({
-        type: 'error',
-        text1: 'Alerta',
-        text2: 'Algo deu errado...'
+    loadUserSchedules(pageNumber)
+      .then((response: AxiosResponse) => {
+        setPage(pageNumber + 1)
+        setNumberOfPages(response.data.numberOfPages || 1)
+
+        setSchedules(shouldRefresh ? [...response.data.schedules] : [...schedules, ...response.data.schedules])
       })
-    }
-
-    setPage(pageNumber + 1)
-    setNumberOfPages(response.data.numberOfPages || 1)
-
-    setSchedules(shouldRefresh ? [...response.data.schedules] : [...schedules, ...response.data.schedules])
+      .catch(() => {
+        Toast.show({
+          type: 'error',
+          text1: 'Alerta',
+          text2: 'Algo deu errado...'
+        })
+      })
+      .finally(() => setIsLoading(false))
   }
 
   const refreshList = async () => {

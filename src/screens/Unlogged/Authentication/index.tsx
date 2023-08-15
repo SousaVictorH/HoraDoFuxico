@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import Toast from 'react-native-toast-message'
 
-import { requestLogin, login } from 'interfaces/api'
+import { AxiosError, AxiosResponse } from 'axios'
+import { UserService } from 'services/UserService'
+
 import { useUserStore } from 'store/user'
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
@@ -35,71 +37,71 @@ export const AuthenticationScreen = ({
   const onSubmit = async (inputToken: string) => {
     if (isLoading) return false
 
+    let shouldAnimateShake = false
     setIsLoading(true)
-    const response = await login(phoneNumber, inputToken)
-    setIsLoading(false)
 
-    if (response.error || !response.data?.token) {
-      const error = '' + response.error
-
-      if (error.includes('403')) {
-        // Expired token
-        Toast.show({
-          type: 'info',
-          text1: 'Info',
-          text2: 'Seu token de acesso expirou, gerando um novo...'
-        })
-
-        setTimeout(() => {
-          onResendCode()
-        }, 700)
-
-        return false
-      }
-
-      // Wrong token
-      Toast.show({
-        type: 'error',
-        text1: 'Alerta',
-        text2: 'Token inserido está incorreto'
+    UserService.login(phoneNumber, inputToken)
+      .then((response: AxiosResponse) => {
+        if (response.data.id) {
+          // Login
+          setPersonalData(response.data)
+          navigation.navigate(LOGGED_NAVIGATOR)
+        } else {
+          // Sign Up
+          setPersonalData({ token: response.data.token })
+          navigation.navigate(TERMS_SCREEN, { phoneNumber })
+        }
       })
+      .catch((err: AxiosError) => {
+        const status = err.response?.status || '403'
 
-      return true
-    }
+        if (status === 403) {
+          // Expired token
+          Toast.show({
+            type: 'info',
+            text1: 'Info',
+            text2: 'Seu token de acesso expirou, gerando um novo...'
+          })
 
-    if (response.data.id) {
-      // Login
-      setPersonalData(response.data)
-      navigation.navigate(LOGGED_NAVIGATOR)
-    } else {
-      // Sign Up
-      setPersonalData({ token: response.data.token })
-      navigation.navigate(TERMS_SCREEN, { phoneNumber })
-    }
+          setTimeout(() => {
+            onResendCode()
+          }, 750)
+        } else {
+          Toast.show({
+            type: 'error',
+            text1: 'Alerta',
+            text2: 'Token inserido está incorreto'
+          })
 
-    return false
+          shouldAnimateShake = true
+        }
+      })
+      .finally(() => setIsLoading(false))
+
+    return shouldAnimateShake
   }
 
   const onResendCode = async () => {
     if (isLoading) return
 
     setIsLoading(true)
-    const response = await requestLogin(phoneNumber)
-    setIsLoading(false)
 
-    if (response.error) {
-      Toast.show({
-        type: 'error',
-        text1: 'Alerta',
-        text2: 'Algo deu errado...'
+    UserService.requestLogin(phoneNumber)
+      .then(() => {
+        Toast.show({
+          type: 'success',
+          text1: 'Sucesso',
+          text2: 'Token reenviado com sucesso'
+        })
       })
-    } else {
-      Toast.show({
-        type: 'success',
-        text1: 'Sucesso',
-        text2: 'Token reenviado com sucesso'
+      .catch(() => {
+        Toast.show({
+          type: 'error',
+          text1: 'Alerta',
+          text2: 'Algo deu errado...'
+        })
       })
-    }
+      .finally(() => setIsLoading(false))
   }
 
   return (
