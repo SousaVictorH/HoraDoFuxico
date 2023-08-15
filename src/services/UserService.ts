@@ -19,7 +19,12 @@ export class UserService {
     return api.post(LOGIN, data)
   }
 
-  public static signUp = (name: string, birthDate: string, phoneNumber: string, avatar?: string) => {
+  public static signUp = (
+    name: string,
+    birthDate: string,
+    phoneNumber: string,
+    avatar?: string
+  ) => {
     const data = { name, birthDate, phoneNumber, avatar }
 
     return api.post(SIGN_UP, data)
@@ -37,7 +42,11 @@ export class UserService {
     return api.put(UPDATE + userId, data)
   }
 
-  public static getUsers = (searchField: string, page: number, limit = 10) => {
+  public static getUsers = (
+    searchField: string,
+    page: number,
+    limit = 10
+  ) => {
     const url = `${USERS}?page=${page}&limit=${limit}&search=${searchField || ''}`
 
     return api.get(url)
