@@ -60,3 +60,5 @@ export const editYourInfo = 'Dados pessoais'
 
 export const namePlaceholder = 'Nome*'
 export const phonePlaceholder = 'Telefone*'
+
+export const details = 'Detalhes'

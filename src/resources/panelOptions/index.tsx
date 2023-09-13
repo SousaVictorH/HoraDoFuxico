@@ -16,11 +16,6 @@ export const panelOptions: PanelOption[] = [
     navigateTo: EDIT_PROFILE_SCREEN
   },
   {
-    icon: <Ionicons name="school-outline" size={25} color="#FFF" />,
-    title: 'Agenda',
-    navigateTo: EDIT_PROFILE_SCREEN
-  },
-  {
     icon: <Ionicons name="help-circle" size={25} color="#FFF" />,
     title: 'Ajuda',
     navigateTo: HELP_SCREEN
