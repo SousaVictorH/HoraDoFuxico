@@ -16,8 +16,7 @@ import { ContentWrapper } from './styles'
 import { Props } from './types'
 
 export const HomeScreen = ({
-  navigation,
-  toggleSidePanel
+  navigation
 }: Props) => {
   const { id } = useUserStore()
   const { schedules, setSchedules } = useUserSchedulesStore()
@@ -31,7 +30,7 @@ export const HomeScreen = ({
   }
 
   return (
-    <LoggedWrapper toggleSidePanel={toggleSidePanel}>
+    <LoggedWrapper navigation={navigation}>
       <ContentWrapper>
         <Schedules
           navigation={navigation}

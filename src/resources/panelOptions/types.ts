@@ -1,9 +1,9 @@
-import React from "react"
+import React from 'react'
 
-import { RootStackParamList } from "routes/types"
+import { RootParamList } from 'routes/types'
 
 export type PanelOption = {
   icon: React.ReactNode
   title: string
-  navigateTo: keyof RootStackParamList
+  navigateTo: keyof RootParamList
 }

@@ -16,10 +16,13 @@ export const NotificationsScreen = ({
   navigation
 }: Props) => {
   return (
-    <LoggedWrapper hideHeader>
+    <LoggedWrapper
+      navigation={navigation}
+      hideHeader
+    >
       <Wrapper>
         <HeaderButton
-          onPress={() => navigation.goBack()}
+          onPress={() => navigation.openDrawer()}
           text={notifications}
         />
         <ContentWrapper>

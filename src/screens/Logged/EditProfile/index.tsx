@@ -80,10 +80,14 @@ export const EditProfileScreen = ({
   }
 
   return (
-    <LoggedWrapper hideHeader scroll>
+    <LoggedWrapper
+      navigation={navigation}
+      hideHeader
+      scroll
+    >
       <Wrapper>
         <HeaderButton
-          onPress={() => navigation.goBack()}
+          onPress={() => navigation.openDrawer()}
           text={editYourInfo}
         />
         <ContentWrapper>

@@ -1,4 +1,4 @@
-export type RootStackParamList = {
+export type RootParamList = {
   LANDING_SCREEN: undefined
   AUTHENTICATION_SCREEN: { phoneNumber: string }
   TERMS_SCREEN: { phoneNumber: string }

@@ -7,14 +7,14 @@ import { Props } from './types'
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 
 export const LoggedWrapper = ({
+  navigation,
   children,
   hideHeader,
-  scroll,
-  toggleSidePanel
+  scroll
 }: Props) => (
   <ScreenWrapper scroll={scroll} behavior="height">
     <Container>
-      {!hideHeader && <Header toggleSidePanel={toggleSidePanel} />}
+      {!hideHeader && <Header navigation={navigation} />}
       <ContentWrapper>
         {children}
       </ContentWrapper>
@@ -25,5 +25,4 @@ export const LoggedWrapper = ({
 LoggedWrapper.defaultProps = {
   hideHeader: false,
   scroll: false,
-  toggleSidePanel: () => { }
 }

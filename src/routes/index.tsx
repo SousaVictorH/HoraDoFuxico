@@ -11,7 +11,7 @@ import {
   LOGGED_NAVIGATOR
 } from 'constants/screens'
 
-import { LoggedNavigator } from './LoggedNavigator'
+import LoggedNavigator from './LoggedNavigator'
 
 // Unlogged
 import { LandingScreen } from 'screens/Unlogged/Landing'
@@ -21,10 +21,10 @@ import { SignUpScreen } from 'screens/Unlogged/SignUp'
 
 import { navigationRef } from './RootNavigation'
 
-import { RootStackParamList } from './types'
+import { RootParamList } from './types'
 import { defaultScreenOptions } from './options'
 
-const Stack = createStackNavigator<RootStackParamList>()
+const Stack = createStackNavigator<RootParamList>()
 
 export const Router = () => {
   return (

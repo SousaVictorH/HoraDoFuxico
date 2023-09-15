@@ -1,4 +1,4 @@
-import { StackScreenProps } from '@react-navigation/stack'
-import { RootStackParamList } from 'routes/types'
+import { DrawerScreenProps } from '@react-navigation/drawer'
+import { RootParamList } from 'routes/types'
 
-export type Props = StackScreenProps<RootStackParamList, 'HELP_SCREEN'>
+export type Props = DrawerScreenProps<RootParamList, 'HELP_SCREEN'>

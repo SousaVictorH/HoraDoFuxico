@@ -16,10 +16,13 @@ export const HelpScreen = ({
   navigation
 }: Props) => {
   return (
-    <LoggedWrapper hideHeader>
+    <LoggedWrapper
+      navigation={navigation}
+      hideHeader
+    >
       <Wrapper>
         <HeaderButton
-          onPress={() => navigation.goBack()}
+          onPress={() => navigation.openDrawer()}
           text={help}
         />
         <ContentWrapper>

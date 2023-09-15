@@ -66,7 +66,11 @@ export const NewScheduleScreen = ({
   }
 
   return (
-    <LoggedWrapper hideHeader scroll>
+    <LoggedWrapper
+      navigation={navigation}
+      hideHeader
+      scroll
+    >
       <ContentWrapper>
         <HeaderButton
           onPress={() => navigation.goBack()}

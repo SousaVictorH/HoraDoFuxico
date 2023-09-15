@@ -17,7 +17,7 @@ import {
 import { Props } from './types'
 
 export const MyProfileScreen = ({
-  toggleSidePanel
+  navigation
 }: Props) => {
   const {
     name,
@@ -26,7 +26,7 @@ export const MyProfileScreen = ({
   } = useUserStore()
 
   return (
-    <LoggedWrapper toggleSidePanel={toggleSidePanel}>
+    <LoggedWrapper navigation={navigation}>
       <ProfileWrapper>
         <ProfileImage
           source={{ uri: avatar || undefined }}

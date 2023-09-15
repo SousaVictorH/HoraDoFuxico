@@ -1,3 +1,7 @@
+import type { NavigationProp } from '@react-navigation/native'
+
+import { RootParamList } from 'routes/types'
+
 export type Props = {
-  toggleSidePanel: () => void
+  navigation: NavigationProp<RootParamList>
 }

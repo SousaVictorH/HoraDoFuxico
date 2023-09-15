@@ -1,4 +1,4 @@
 import { StackScreenProps } from '@react-navigation/stack'
-import { RootStackParamList } from 'routes/types'
+import { RootParamList } from 'routes/types'
 
-export type Props = StackScreenProps<RootStackParamList, 'TERMS_SCREEN'>
+export type Props = StackScreenProps<RootParamList, 'TERMS_SCREEN'>

@@ -25,7 +25,6 @@ import {
 import { Props } from './types'
 
 export const SearchScreen = ({
-  toggleSidePanel,
   navigation
 }: Props) => {
   const [page, setPage] = useState(1)
@@ -92,7 +91,7 @@ export const SearchScreen = ({
   )
 
   return (
-    <LoggedWrapper toggleSidePanel={toggleSidePanel}>
+    <LoggedWrapper navigation={navigation}>
       <ContentWrapper>
         <Header>
           <SearchInput

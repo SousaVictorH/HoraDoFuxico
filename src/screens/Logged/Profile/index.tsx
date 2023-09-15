@@ -65,7 +65,10 @@ export const ProfileScreen = ({
   )
 
   return (
-    <LoggedWrapper hideHeader>
+    <LoggedWrapper
+      navigation={navigation}
+      hideHeader
+    >
       <Wrapper>
         <SchedulesList
           navigation={navigation}

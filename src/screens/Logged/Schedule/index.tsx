@@ -30,7 +30,10 @@ export const ScheduleScreen = ({
   // const scheduled = userStore.schedules.includes(id || '')
 
   return (
-    <LoggedWrapper hideHeader>
+    <LoggedWrapper
+      navigation={navigation}
+      hideHeader
+    >
       <Wrapper>
         <HeaderButton
           onPress={() => navigation.goBack()}
