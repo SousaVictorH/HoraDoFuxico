@@ -1,9 +1,11 @@
 
 import styled, { css } from 'styled-components/native'
 
+import { BottomSheetScrollView } from '@gorhom/bottom-sheet'
+
 import { ThemeProps } from 'styles/types'
 
-export const Container = styled.View`
+export const Container = styled(BottomSheetScrollView)`
   flex: 1;
 `
 
@@ -36,5 +38,11 @@ export const SectionDescription = styled.Text`
     font-family: ${theme.typography.fontFamily.poppins};
     margin-bottom: ${theme.spacings.xlg};
     color: ${theme.colors.neutrals.neutral_80};
+  `}
+`
+
+export const Footer = styled.View`
+  ${({ theme }: ThemeProps) => css`
+    padding: ${theme.spacings.lg};
   `}
 `

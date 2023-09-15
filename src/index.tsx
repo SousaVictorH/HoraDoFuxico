@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react'
+import 'react-native-gesture-handler'
 
 import * as SplashScreen from 'expo-splash-screen'
 import { useFonts } from 'expo-font'
@@ -10,6 +11,8 @@ import {
   Poppins_600SemiBold,
 } from '@expo-google-fonts/poppins'
 import { Baskervville_400Regular } from '@expo-google-fonts/baskervville'
+
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet'
 
 import { Toast } from 'components/toast'
 
@@ -35,10 +38,12 @@ const App = () => {
 
   return (
     <SafeAreaProvider>
-      <AppWrapper onLayout={onLayoutRootView}>
-        <Toast />
-        <Router />
-      </AppWrapper>
+      <BottomSheetModalProvider>
+        <AppWrapper onLayout={onLayoutRootView}>
+          <Toast />
+          <Router />
+        </AppWrapper>
+      </BottomSheetModalProvider>
     </SafeAreaProvider>
   )
 }

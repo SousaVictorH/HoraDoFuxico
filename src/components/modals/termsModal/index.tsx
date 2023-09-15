@@ -16,7 +16,8 @@ import {
   Container,
   Title,
   SectionTitle,
-  SectionDescription
+  SectionDescription,
+  Footer
 } from './styles'
 import { Props } from './types'
 
@@ -47,6 +48,7 @@ export const TermsModal = ({
       <SectionDescription>
         {providedDataDescription}
       </SectionDescription>
+      <Footer />
     </Container>
   )
 }

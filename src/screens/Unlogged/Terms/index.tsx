@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 
-import { Modalize } from 'react-native-modalize'
+import BottomSheetType from '@gorhom/bottom-sheet'
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { images } from 'resources/images'
@@ -9,8 +9,6 @@ import { SIGN_UP_SCREEN } from 'constants/screens'
 import { TermsForm } from 'components/forms/Terms'
 import { dontWorry } from 'constants/texts'
 
-import { getWindowHeight } from 'utils/dimensions'
-
 import {
   ContentWrapper,
   AppNameImage,
@@ -18,25 +16,24 @@ import {
   AppImageContainer,
   AppImage,
   FormContainer,
-  TermsModal
+  TermsModal,
+  BottomSheet
 } from './styles'
 import { Props } from './types'
-
-const modalHeight = getWindowHeight() * 0.8
 
 export const TermsScreen = ({
   navigation,
   route
 }: Props) => {
-  const modalizeRef = useRef<Modalize>(null)
-
   const { phoneNumber } = route.params
 
+  const bottomSheetRef = useRef<BottomSheetType>(null)
+
   const onShowTerms = () => {
-    modalizeRef.current?.open()
+    bottomSheetRef.current?.snapToIndex(0)
   }
 
-  const onNext = () => {
+  const onNextPressed = () => {
     navigation.navigate(SIGN_UP_SCREEN, { phoneNumber })
   }
 
@@ -57,17 +54,18 @@ export const TermsScreen = ({
         <FormContainer>
           <TermsForm
             onShowTerms={onShowTerms}
-            onNext={onNext}
+            onNext={onNextPressed}
           />
         </FormContainer>
       </ContentWrapper>
-      <Modalize
-        ref={modalizeRef}
-        modalHeight={modalHeight}
-        snapPoint={modalHeight}
+      <BottomSheet
+        ref={bottomSheetRef}
+        snapPoints={['70%', '82%']}
+        enablePanDownToClose
+        index={-1}
       >
         <TermsModal />
-      </Modalize>
+      </BottomSheet>
     </ScreenWrapper>
   )
 }

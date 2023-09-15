@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components/native'
 
+import BottomSheetComponent from '@gorhom/bottom-sheet'
+
 import { TermsModal as Modal } from 'components/modals/termsModal'
 
 import { ThemeProps } from 'styles/types'
@@ -61,6 +63,13 @@ export const FormContainer = styled.View`
     margin-bottom: ${theme.spacings.sm};
     padding: ${theme.spacings.md} ${theme.spacings.xxl};
   `}
+`
+
+export const BottomSheet = styled(BottomSheetComponent)`
+  ${({ theme }: ThemeProps) => css`
+  shadow-color: ${theme.colors.support.black};
+  shadow-opacity: 0.2;
+`}
 `
 
 export const TermsModal = styled(Modal)`
