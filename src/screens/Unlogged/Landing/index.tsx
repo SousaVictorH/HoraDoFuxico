@@ -1,13 +1,14 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useRef, useEffect } from 'react'
 
 import * as WebBrowser from 'expo-web-browser'
 import * as Google from 'expo-auth-session/providers/google'
-// import * as Facebook from 'expo-auth-session/providers/facebook'
+import * as Facebook from 'expo-auth-session/providers/facebook'
 
 import AnimatedLottieView from 'lottie-react-native'
 import Toast from 'react-native-toast-message'
 
-import { UserService } from 'services/UserService'
+import { UserService, FacebookService, GoogleService  } from 'services'
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignInForm } from 'components/forms/SignIn'
@@ -15,7 +16,7 @@ import { SignInForm } from 'components/forms/SignIn'
 import { animations } from 'resources/animations'
 import { images } from 'resources/images'
 
-import { googleAuthConfig } from 'resources/configs/googleAuth'
+import { googleAuthConfig, facebookAuthConfig } from 'resources/configs'
 
 import { promoteGoodMoments } from 'constants/texts'
 import { AUTHENTICATION_SCREEN } from 'constants/screens'
@@ -36,8 +37,10 @@ WebBrowser.maybeCompleteAuthSession()
 export const LandingScreen = ({
   navigation
 }: Props) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [request, response, promptAsync] = Google.useAuthRequest(googleAuthConfig)
+  const [, googleResponse, googlePromptAsync] = Google.useAuthRequest(googleAuthConfig)
+  const [, facebookResponse, facebookPromptAsync] = Facebook.useAuthRequest(facebookAuthConfig)
+
+  const [withGoogle, setWithGoogle] = useState(true)
 
   const [animationFinished, setAnimationFinished] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -53,10 +56,16 @@ export const LandingScreen = ({
   }, [])
 
   useEffect(() => {
-    if (response?.type === 'success' && response.authentication?.accessToken) {
-      handleSignInWithGoogle(response.authentication.accessToken)
+    if (googleResponse?.type === 'success' && googleResponse.authentication?.accessToken) {
+      handleSocialSignIn(googleResponse.authentication.accessToken)
     }
-  }, [response])
+  }, [googleResponse])
+
+  useEffect(() => {
+    if (facebookResponse?.type === 'success' && facebookResponse.authentication?.accessToken) {
+      handleSocialSignIn(facebookResponse.authentication.accessToken)
+    }
+  }, [facebookResponse])
 
   const onSignIn = async ({ areaCode, phoneNumber }: OnSignInProps) => {
     if (isLoading) return
@@ -89,39 +98,45 @@ export const LandingScreen = ({
       .finally(() => setIsLoading(false))
   }
 
-  const onSocialSignIn = async ({ google, facebook }: OnSocialSignInProps) => {
+  const onSocialSignIn = ({ google, facebook }: OnSocialSignInProps) => {
     if (google) {
-      await promptAsync()
+      setWithGoogle(true)
+      googlePromptAsync()
     }
     else if (facebook) {
-      console.log('facebook sign in')
+      setWithGoogle(false)
+      facebookPromptAsync()
     }
   }
 
-  const handleSignInWithGoogle = async (token: string) => {
+  const handleSocialSignIn = async (token: string) => {
     if (isLoading) return
+
     setIsLoading(true)
-
-    const userData = await fetch(
-      'https://www.googleapis.com/userinfo/v2/me',
-      { headers: { Authorization: `Bearer ${token}`}}
+    const userData = withGoogle ? (
+      await GoogleService.loadUser(token)
+    ) : (
+      await FacebookService.loadUser(token)
     )
+    setIsLoading(false)
 
-    const status = userData.status
+    if (userData.status === 200) {
+      const {
+        id,
+        name,
+        first_name,
+        email,
+        picture
+      } = await userData.json()
 
-    if (status === 200) {
-      const user = await userData.json()
-
-      console.log(user)
+      console.log({ id, name, first_name, email, picture })
     } else {
-      return Toast.show({
+      Toast.show({
         type: 'error',
         text1: 'Alerta',
         text2: 'Algo deu errado...'
       })
     }
-
-    setIsLoading(false)
   }
 
   return (
