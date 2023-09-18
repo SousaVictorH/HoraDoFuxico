@@ -47,6 +47,10 @@ export const PhotoInput = styled(PhotoInputComponent)`
 export const FormButton = styled(Button)`
   width: 100%;
   height: 60px;
+
+  ${({ theme }: ThemeProps) => css`
+    margin-top: ${theme.spacings.xxl};
+  `}
 `
 
 export const DateTimeInput = styled(DateTimeInputComponent)``

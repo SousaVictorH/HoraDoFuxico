@@ -7,4 +7,5 @@ export type handleSubmitProps = {
   name: string
   birthDate: string
   photo: string
+  phoneNumber: string
 }
