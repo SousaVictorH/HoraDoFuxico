@@ -87,7 +87,7 @@ export const EditProfileScreen = ({
     >
       <Wrapper>
         <HeaderButton
-          onPress={() => navigation.openDrawer()}
+          onPress={() => navigation.goBack()}
           text={editYourInfo}
         />
         <ContentWrapper>

@@ -39,7 +39,7 @@ WebBrowser.maybeCompleteAuthSession()
 export const LandingScreen = ({
   navigation
 }: Props) => {
-  const { setPersonalData } = useUserStore()
+  const { id, token, setPersonalData } = useUserStore()
 
   const [, googleResponse, googlePromptAsync] = Google.useAuthRequest(googleAuthConfig)
   const [, facebookResponse, facebookPromptAsync] = Facebook.useAuthRequest(facebookAuthConfig)
@@ -177,6 +177,13 @@ export const LandingScreen = ({
     }
   }
 
+  const onAnimationFinished = () => {
+    setAnimationFinished(true)
+
+    // If contain user data, go to home
+    if (id && token) navigation.navigate(LOGGED_NAVIGATOR)
+  }
+
   return (
     <ScreenWrapper scroll>
       {
@@ -207,7 +214,7 @@ export const LandingScreen = ({
           <AnimatedLottieView
             ref={animationRef}
             source={animations.landingAnimation.path}
-            onAnimationFinish={() => setAnimationFinished(true)}
+            onAnimationFinish={onAnimationFinished}
             loop={false}
             autoPlay={false}
           />

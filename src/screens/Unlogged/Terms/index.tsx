@@ -6,6 +6,8 @@ import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { images } from 'resources/images'
 import { SIGN_UP_SCREEN } from 'constants/screens'
 
+import { BottomSheet } from 'components/bottomSheet'
+
 import { TermsForm } from 'components/forms/Terms'
 import { dontWorry } from 'constants/texts'
 
@@ -17,7 +19,6 @@ import {
   AppImage,
   FormContainer,
   TermsModal,
-  BottomSheet
 } from './styles'
 import { Props } from './types'
 
@@ -62,6 +63,7 @@ export const TermsScreen = ({
         ref={bottomSheetRef}
         snapPoints={['70%', '82%']}
         enablePanDownToClose
+        shouldRenderBackdrop
         index={-1}
       >
         <TermsModal />

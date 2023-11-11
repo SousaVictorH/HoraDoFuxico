@@ -29,6 +29,12 @@ export const SignInForm = ({
     onSignIn({ areaCode, phoneNumber })
   }
 
+  const handleSetPhoneNumber = (text: string) => {
+    setPhoneNumber(text)
+
+    // if (text.length >= 10) onSignIn({ areaCode, phoneNumber: text })
+  }
+
   return (
     <FormWrapper>
       <Label>{phoneSignIn}</Label>
@@ -36,7 +42,7 @@ export const SignInForm = ({
         areaCode={areaCode}
         setAreaCode={setAreaCode}
         phoneNumber={phoneNumber}
-        setPhoneNumber={setPhoneNumber}
+        setPhoneNumber={handleSetPhoneNumber}
       />
       <FormButton
         onPress={handleSignIn}

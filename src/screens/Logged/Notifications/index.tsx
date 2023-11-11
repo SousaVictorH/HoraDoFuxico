@@ -22,7 +22,7 @@ export const NotificationsScreen = ({
     >
       <Wrapper>
         <HeaderButton
-          onPress={() => navigation.openDrawer()}
+          onPress={() => navigation.goBack()}
           text={notifications}
         />
         <ContentWrapper>

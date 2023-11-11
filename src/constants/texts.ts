@@ -18,6 +18,7 @@ export const add = 'Adicionar'
 export const save = 'Salvar'
 export const help = 'Ajuda'
 export const notifications = 'Notificações'
+export const leave = 'Sair'
 
 export const terms = 'Termos de uso e políticas de privacidade'
 export const goBack = 'Voltar'
@@ -58,6 +59,7 @@ export const selectDay = 'Selecione o dia'
 export const selectTime = 'Selecione o horário'
 
 export const editYourInfo = 'Dados pessoais'
+export const editProfile = 'Editar perfil'
 
 export const namePlaceholder = 'Nome*'
 export const phonePlaceholder = 'Telefone*'
