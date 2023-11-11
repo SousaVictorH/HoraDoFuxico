@@ -18,6 +18,7 @@ export const add = 'Adicionar'
 export const save = 'Salvar'
 export const help = 'Ajuda'
 export const notifications = 'Notificações'
+export const leave = 'Sair'
 
 export const terms = 'Termos de uso e políticas de privacidade'
 export const goBack = 'Voltar'
@@ -33,6 +34,7 @@ export const gossipTimeDescription = '2.1. Para que A Hora do fuxico, primeiro a
 export const providedData = '3. DADOS FORNECIDOS, COLETADOS, USADOS E ARMAZEADOS'
 export const providedDataDescription = '3.1. A Hora do fuxico poderá usar, armazenar, processar os dados coletados, informações e registros de acesso para as seguintes finalidades dos Serviços prestados:\n\n(i) Fiscalizar a idade dos participantes envolvidos\n\n(ii) para aprimorar as suas funcionalidades;\n\n(iii) Permitir ou bloquear usuários com intenções indevidas\n\n(iv) em caso de suspeita de fraudes, violação de direitos de terceiros ou outros ilícitos praticados pelos Usuários, para fins de investigação por terceiros prejudicados e/ou por autoridades competentes;\n\n(v) para mapeamento de informacções de mercado e elaboração de relatórios de dados'
 
+export const phoneInputPlaceholder = 'Número de celular?*'
 export const nameInputPlaceholder = 'Nome do fuxiqueiro?*'
 export const birthDateInputPlaceholder = 'Data de nascimento?*'
 export const photoInputPlaceholder = 'Deseja adicionar uma foto do fuxiqueiro?'
@@ -57,6 +59,7 @@ export const selectDay = 'Selecione o dia'
 export const selectTime = 'Selecione o horário'
 
 export const editYourInfo = 'Dados pessoais'
+export const editProfile = 'Editar perfil'
 
 export const namePlaceholder = 'Nome*'
 export const phonePlaceholder = 'Telefone*'

@@ -28,18 +28,16 @@ export const SignUpScreen = ({
 
   const [isLoading, setIsLoading] = useState(false)
 
-  const { phoneNumber } = route.params
-
   const handleSubmit = async ({
     name,
     birthDate,
+    phoneNumber,
     photo
   }: handleSubmitProps) => {
     if (isLoading) return
-
     setIsLoading(true)
 
-    UserService.signUp(name, birthDate, phoneNumber, photo)
+    UserService.signUp(name, birthDate, phoneNumber, photo, route.params.socialId)
       .then((response: AxiosResponse) => {
         setPersonalData(response.data)
         navigation.navigate(LOGGED_NAVIGATOR)
@@ -65,6 +63,10 @@ export const SignUpScreen = ({
         </ImageWrapper>
         <FormContainer>
           <SignUpForm
+            initialName={route.params.name}
+            initialPhoneNumber={route.params.phoneNumber}
+            initialPhoto={route.params.avatar}
+            showPhoneInput={route.params.socialId ? true : false}
             onSignUp={handleSubmit}
           />
         </FormContainer>

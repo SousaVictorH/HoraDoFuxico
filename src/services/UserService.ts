@@ -3,6 +3,7 @@ import { api } from './api'
 import {
   REQUEST_LOGIN,
   LOGIN,
+  SOCIAL_LOGIN,
   SIGN_UP,
   UPDATE,
   USERS
@@ -23,9 +24,10 @@ export class UserService {
     name: string,
     birthDate: string,
     phoneNumber: string,
-    avatar?: string
+    avatar?: string,
+    socialId?: string
   ) => {
-    const data = { name, birthDate, phoneNumber, avatar }
+    const data = { name, birthDate, phoneNumber, avatar, socialId }
 
     return api.post(SIGN_UP, data)
   }
@@ -50,5 +52,15 @@ export class UserService {
     const url = `${USERS}?page=${page}&limit=${limit}&search=${searchField || ''}`
 
     return api.get(url)
+  }
+
+  public static socialLogin = (
+    id: string,
+    name: string,
+    avatar?: string
+  ) => {
+    const data = { id, name, avatar }
+
+    return api.post(SOCIAL_LOGIN, data)
   }
 }

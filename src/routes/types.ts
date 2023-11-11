@@ -2,7 +2,12 @@ export type RootParamList = {
   LANDING_SCREEN: undefined
   AUTHENTICATION_SCREEN: { phoneNumber: string }
   TERMS_SCREEN: { phoneNumber: string }
-  SIGN_UP_SCREEN: { phoneNumber: string }
+  SIGN_UP_SCREEN: {
+    socialId?: string,
+    name?: string,
+    avatar?: string,
+    phoneNumber?: string
+  }
   TAB_NAVIGATOR: undefined
   STACK_NAVIGATOR: undefined
   NOTIFICATIONS_SCREEN: undefined

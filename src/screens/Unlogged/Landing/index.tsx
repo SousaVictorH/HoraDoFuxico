@@ -10,6 +10,8 @@ import Toast from 'react-native-toast-message'
 
 import { UserService, FacebookService, GoogleService  } from 'services'
 
+import { useUserStore } from 'store/user'
+
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignInForm } from 'components/forms/SignIn'
 
@@ -19,7 +21,7 @@ import { images } from 'resources/images'
 import { googleAuthConfig, facebookAuthConfig } from 'resources/configs'
 
 import { promoteGoodMoments } from 'constants/texts'
-import { AUTHENTICATION_SCREEN } from 'constants/screens'
+import { AUTHENTICATION_SCREEN, LOGGED_NAVIGATOR, SIGN_UP_SCREEN } from 'constants/screens'
 
 import {
   AnimatedView,
@@ -37,6 +39,8 @@ WebBrowser.maybeCompleteAuthSession()
 export const LandingScreen = ({
   navigation
 }: Props) => {
+  const { id, token, setPersonalData } = useUserStore()
+
   const [, googleResponse, googlePromptAsync] = Google.useAuthRequest(googleAuthConfig)
   const [, facebookResponse, facebookPromptAsync] = Facebook.useAuthRequest(facebookAuthConfig)
 
@@ -113,30 +117,71 @@ export const LandingScreen = ({
     if (isLoading) return
 
     setIsLoading(true)
-    const userData = withGoogle ? (
+    const response = withGoogle ? (
       await GoogleService.loadUser(token)
     ) : (
       await FacebookService.loadUser(token)
     )
-    setIsLoading(false)
 
-    if (userData.status === 200) {
+    if (response.status === 200) {
       const {
         id,
         name,
         first_name,
-        email,
         picture
-      } = await userData.json()
+      } = await response.json()
 
-      console.log({ id, name, first_name, email, picture })
+      const avatar = typeof picture === 'object' ?
+        (picture.data?.is_silhouette ? null : picture?.data.url) :
+        picture
+
+      UserService.socialLogin(id, name || first_name, avatar)
+        .then(res => {
+          setPersonalData({ token: res.data.token })
+
+          if (res.data.id) {
+            setPersonalData(res.data)
+            navigation.navigate(LOGGED_NAVIGATOR)
+          } else {
+            const {
+              socialId,
+              name,
+              avatar
+            } = res.data
+
+            navigation.navigate(SIGN_UP_SCREEN, {
+              socialId,
+              name,
+              avatar
+            })
+          }
+        })
+        .catch(() => {
+          Toast.show({
+            type: 'error',
+            text1: 'Alerta',
+            text2: 'Algo deu errado...'
+          })
+        })
+        .finally(() => {
+          setIsLoading(false)
+        })
     } else {
+      setIsLoading(false)
+
       Toast.show({
         type: 'error',
         text1: 'Alerta',
         text2: 'Algo deu errado...'
       })
     }
+  }
+
+  const onAnimationFinished = () => {
+    setAnimationFinished(true)
+
+    // If contain user data, go to home
+    if (id && token) navigation.navigate(LOGGED_NAVIGATOR)
   }
 
   return (
@@ -169,7 +214,7 @@ export const LandingScreen = ({
           <AnimatedLottieView
             ref={animationRef}
             source={animations.landingAnimation.path}
-            onAnimationFinish={() => setAnimationFinished(true)}
+            onAnimationFinish={onAnimationFinished}
             loop={false}
             autoPlay={false}
           />

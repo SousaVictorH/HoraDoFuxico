@@ -22,7 +22,7 @@ export const HelpScreen = ({
     >
       <Wrapper>
         <HeaderButton
-          onPress={() => navigation.openDrawer()}
+          onPress={() => navigation.goBack()}
           text={help}
         />
         <ContentWrapper>
