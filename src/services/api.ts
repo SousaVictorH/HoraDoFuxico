@@ -7,7 +7,7 @@ import { useUserSchedulesStore } from 'store/userSchedules'
 import * as RootNavigation from 'routes/RootNavigation'
 
 export const api = axios.create({
-  baseURL: 'http://192.168.15.5:8000',
+  baseURL: 'http://192.168.15.4:8000',
   timeout: 5000
 })
 
