@@ -6,7 +6,8 @@ import {
   SOCIAL_LOGIN,
   SIGN_UP,
   UPDATE,
-  USERS
+  USERS,
+  VERIFY_TOKEN
 } from 'resources/url'
 
 export class UserService {
@@ -62,5 +63,9 @@ export class UserService {
     const data = { id, name, avatar }
 
     return api.post(SOCIAL_LOGIN, data)
+  }
+
+  public static verifyToken = (id: string) => {
+    return api.post(VERIFY_TOKEN, { id })
   }
 }

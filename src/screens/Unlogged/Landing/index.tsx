@@ -177,11 +177,22 @@ export const LandingScreen = ({
     }
   }
 
-  const onAnimationFinished = () => {
+  const onAnimationFinished = async () => {
     setAnimationFinished(true)
 
-    // If contain user data, go to home
-    if (id && token) navigation.navigate(LOGGED_NAVIGATOR)
+    if (id && token) {
+      setIsLoading(true)
+
+      UserService.verifyToken(id)
+        .then((response: any) => {
+          setPersonalData(response.data)
+          navigation.navigate(LOGGED_NAVIGATOR)
+        })
+        .catch(() => {})
+        .finally(() => {
+          setIsLoading(false)
+        })
+    }
   }
 
   return (

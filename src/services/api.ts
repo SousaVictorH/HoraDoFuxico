@@ -7,7 +7,7 @@ import { useUserSchedulesStore } from 'store/userSchedules'
 import * as RootNavigation from 'routes/RootNavigation'
 
 export const api = axios.create({
-  baseURL: 'http://192.168.15.4:8000',
+  baseURL: 'http://10.0.0.151:8000',
   timeout: 5000
 })
 
@@ -23,8 +23,9 @@ api.interceptors.request.use((req: InternalAxiosRequestConfig<any>) => {
 // Response interceptor
 api.interceptors.response.use(res => res, (error: AxiosResponse<any, any>) => {
   const statusText = error + ''
+  const whitelist = ['/login', '/user/verify-token']
 
-  if ((statusText.indexOf('403') !== -1) && (error.config.url !== '/login')) {
+  if ((statusText.indexOf('403') !== -1) && (!whitelist.includes(error.config.url || ''))) {
     // Expired token
     Toast.show({
       type: 'error',
