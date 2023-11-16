@@ -7,7 +7,7 @@ import {
   SIGN_UP,
   UPDATE,
   USERS,
-  VERIFY_TOKEN
+  VERIFY_USER
 } from 'resources/url'
 
 export class UserService {
@@ -66,6 +66,6 @@ export class UserService {
   }
 
   public static verifyToken = (id: string) => {
-    return api.post(VERIFY_TOKEN, { id })
+    return api.post(VERIFY_USER, { id })
   }
 }
