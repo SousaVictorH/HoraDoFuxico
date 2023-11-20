@@ -26,7 +26,7 @@ export const HomeScreen = ({
   }
 
   const onSchedulePress = (schedule: Schedule) => {
-    navigation.navigate(SCHEDULE_SCREEN, { ...schedule })
+    navigation.navigate(SCHEDULE_SCREEN, { id: schedule.id || '' })
   }
 
   return (

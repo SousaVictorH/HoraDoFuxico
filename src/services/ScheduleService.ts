@@ -25,4 +25,12 @@ export class ScheduleService {
 
     return api.post(url, { category, date, time })
   }
+
+  public static loadSchedule = (
+    scheduleId: string
+  ) => {
+    const url = `${SCHEDULES}details/${scheduleId}`
+
+    return api.get(url)
+  }
 }

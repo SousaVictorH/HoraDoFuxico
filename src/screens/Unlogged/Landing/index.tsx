@@ -11,6 +11,7 @@ import Toast from 'react-native-toast-message'
 import { UserService, FacebookService, GoogleService  } from 'services'
 
 import { useUserStore } from 'store/user'
+import { useUserSchedulesStore } from 'store/userSchedules'
 
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignInForm } from 'components/forms/SignIn'
@@ -40,6 +41,7 @@ export const LandingScreen = ({
   navigation
 }: Props) => {
   const { id, token, setPersonalData } = useUserStore()
+  const { setSchedules } = useUserSchedulesStore()
 
   const [, googleResponse, googlePromptAsync] = Google.useAuthRequest(googleAuthConfig)
   const [, facebookResponse, facebookPromptAsync] = Facebook.useAuthRequest(facebookAuthConfig)
@@ -53,6 +55,9 @@ export const LandingScreen = ({
 
   useEffect(() => {
     setTimeout(() => animationRef.current?.play(), 100)
+
+    // Clear state
+    setSchedules([])
 
     return () => {
       animationRef.current?.reset()
