@@ -23,13 +23,15 @@ export const useUserStore = create<State>()(
   persist(
     (set) => ({
       ...initialState,
-      setPersonalData: (data: PersonalData) => set(() => ({
+      setPersonalData: (data: PersonalData) => set((state) => ({
+        ...state,
         ...data
       })),
       clearPersonalData: () => set(() => ({
         ...initialState
       })),
       addSchedule: (schedule: string) => set((state) => ({
+        ...state,
         schedules: [schedule, ...state.schedules]
       }))
     }),

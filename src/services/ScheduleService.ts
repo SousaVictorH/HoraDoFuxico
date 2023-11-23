@@ -23,7 +23,7 @@ export class ScheduleService {
   ) => {
     const url = `${SCHEDULES}${userId}`
 
-    return api.post(url, { category, date, time })
+    return api.put(url, { category, date, time })
   }
 
   public static loadSchedule = (
@@ -32,5 +32,23 @@ export class ScheduleService {
     const url = `${SCHEDULES}details/${scheduleId}`
 
     return api.get(url)
+  }
+
+  public static schedule = (
+    scheduleId: string,
+    userId: string
+  ) => {
+    const url = `${SCHEDULES}make`
+
+    return api.put(url, { scheduleId, userId })
+  }
+
+  public static cancelSchedule = (
+    scheduleId: string,
+    userId: string
+  ) => {
+    const url = `${SCHEDULES}cancel`
+
+    return api.put(url, { scheduleId, userId })
   }
 }

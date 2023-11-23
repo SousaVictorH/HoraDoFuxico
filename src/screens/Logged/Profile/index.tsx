@@ -43,7 +43,7 @@ export const ProfileScreen = ({
   }
 
   const onSchedulePress = (schedule: Schedule) => {
-    navigation.navigate(SCHEDULE_SCREEN, { id: schedule.id || '' })
+    navigation.push(SCHEDULE_SCREEN, { id: schedule.id || '' })
   }
 
   const renderListHeaderComponent = () => (

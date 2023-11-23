@@ -51,7 +51,7 @@ export const Schedules = ({
         Toast.show({
           type: 'error',
           text1: 'Alerta',
-          text2: 'Algo deu errado...'
+          text2: 'Erro ao carregar agendamentos'
         })
       })
       .finally(() => setIsLoading(false))

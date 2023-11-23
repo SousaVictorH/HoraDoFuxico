@@ -57,7 +57,7 @@ export const NewScheduleScreen = ({
         Toast.show({
           type: 'error',
           text1: 'Alerta',
-          text2: 'Algo deu errado...'
+          text2: 'Algo ao criar agendamento'
         })
       })
       .finally(() => setIsLoading(false))

@@ -54,7 +54,7 @@ export const SearchScreen = ({
         Toast.show({
           type: 'error',
           text1: 'Alerta',
-          text2: 'Algo deu errado...'
+          text2: 'Algo ao carregar usuários'
         })
       })
       .finally(() => {

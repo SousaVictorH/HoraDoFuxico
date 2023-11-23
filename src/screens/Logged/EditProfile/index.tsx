@@ -73,7 +73,7 @@ export const EditProfileScreen = ({
         return Toast.show({
           type: 'error',
           text1: 'Alerta',
-          text2: 'Algo deu errado...'
+          text2: 'Algo ao atualizar os dados'
         })
       })
       .finally(() => setIsLoading(false))

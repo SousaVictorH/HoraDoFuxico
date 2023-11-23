@@ -1,5 +1,8 @@
 import styled, { css } from 'styled-components/native'
 
+import { UserItem as UserItemComponent } from 'components/items/userItem'
+import { Button as ButtonComponent } from 'components/buttons/Button'
+
 import { ThemeProps } from 'styles/types'
 
 export const Wrapper = styled.View`
@@ -29,14 +32,11 @@ export const LoadingIndicator = styled.ActivityIndicator.attrs({
 
 export const ScheduleGroup = styled.View`
   flex-direction: row;
-
-  ${({ theme }: ThemeProps) => css`
-    margin-bottom: ${theme.spacings.xlg};
-  `}
 `
 
 export const ScheduleCategory = styled.Text`
   ${({ theme }: ThemeProps) => css`
+    margin-bottom: ${theme.spacings.xlg};
     font-size: ${theme.typography.elements.caption.fontSize};
     font-family: ${theme.typography.fontFamily.poppins};
     color: ${theme.colors.support.orange};
@@ -52,9 +52,22 @@ export const ScheduleValue = styled.Text`
   `}
 `
 
-export const ScheduleParticipants = styled.View`
+export const ScheduleParticipants = styled.FlatList`
+  flex: 1;
+
   ${({ theme }: ThemeProps) => css`
     margin-top: ${theme.spacings.xlg};
-    margin-left: ${theme.spacings.lg};
   `}
+`
+
+export const UserItem = styled(UserItemComponent)`
+  ${({ theme }: ThemeProps) => css`
+    margin-left: ${theme.spacings.lg};
+    width: auto;
+  `}
+`
+
+export const Button = styled(ButtonComponent)`
+  width: 100%;
+  margin-top: auto;
 `

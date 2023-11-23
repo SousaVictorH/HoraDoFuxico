@@ -12,9 +12,10 @@ import { images } from 'resources/images'
 export const UserItem = ({
   avatar,
   name,
-  onPress
+  onPress,
+  style
 }: Props) => (
-  <ItemWrapper onPress={onPress}>
+  <ItemWrapper onPress={onPress} style={style}>
     <UserAvatar
       source={{ uri: avatar || undefined }}
       defaultSource={images.defaultUser.path}

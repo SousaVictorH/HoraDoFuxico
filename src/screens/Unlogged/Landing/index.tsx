@@ -101,7 +101,7 @@ export const LandingScreen = ({
         Toast.show({
           type: 'error',
           text1: 'Alerta',
-          text2: 'Algo deu errado...'
+          text2: 'Algo ao autenticar o usuário'
         })
       })
       .finally(() => setIsLoading(false))
@@ -165,7 +165,7 @@ export const LandingScreen = ({
           Toast.show({
             type: 'error',
             text1: 'Alerta',
-            text2: 'Algo deu errado...'
+            text2: 'Algo ao fazer login social'
           })
         })
         .finally(() => {
@@ -177,7 +177,7 @@ export const LandingScreen = ({
       Toast.show({
         type: 'error',
         text1: 'Alerta',
-        text2: 'Algo deu errado...'
+        text2: 'Algo ao fazer login social'
       })
     }
   }

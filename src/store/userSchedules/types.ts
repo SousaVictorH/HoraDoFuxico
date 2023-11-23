@@ -7,4 +7,5 @@ export type UserSchedules = {
 export type State = UserSchedules & {
   setSchedules: (schedules: Schedule[]) => void
   addSchedule: (schedule: Schedule) => void
+  removeSchedule: (scheduleId: string) => void
 }
