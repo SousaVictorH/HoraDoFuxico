@@ -1,15 +1,9 @@
 import { api } from './api'
 
-import {
-  SCHEDULES
-} from 'resources/url'
+import { SCHEDULES } from 'resources/url'
 
 export class ScheduleService {
-  public static loadSchedules = (
-    userId: string,
-    page: number,
-    limit = 10
-  ) => {
+  public static loadSchedules = (userId: string, page: number, limit = 10) => {
     const url = `${SCHEDULES}${userId}?page=${page}&limit=${limit}`
 
     return api.get(url)
@@ -19,34 +13,26 @@ export class ScheduleService {
     userId: string,
     category: string,
     date: string,
-    time?: string
+    time?: string,
   ) => {
     const url = `${SCHEDULES}${userId}`
 
-    return api.put(url, { category, date, time })
+    return api.post(url, { category, date, time })
   }
 
-  public static loadSchedule = (
-    scheduleId: string
-  ) => {
+  public static loadSchedule = (scheduleId: string) => {
     const url = `${SCHEDULES}details/${scheduleId}`
 
     return api.get(url)
   }
 
-  public static schedule = (
-    scheduleId: string,
-    userId: string
-  ) => {
+  public static schedule = (scheduleId: string, userId: string) => {
     const url = `${SCHEDULES}make`
 
     return api.put(url, { scheduleId, userId })
   }
 
-  public static cancelSchedule = (
-    scheduleId: string,
-    userId: string
-  ) => {
+  public static cancelSchedule = (scheduleId: string, userId: string) => {
     const url = `${SCHEDULES}cancel`
 
     return api.put(url, { scheduleId, userId })

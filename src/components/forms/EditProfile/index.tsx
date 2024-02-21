@@ -6,7 +6,7 @@ import {
   save,
   namePlaceholder,
   phonePlaceholder,
-  birthDateInputPlaceholder
+  birthDateInputPlaceholder,
 } from 'constants/texts'
 
 import {
@@ -15,7 +15,7 @@ import {
   DateTimeInput,
   PhotoInput,
   Input,
-  Title
+  Title,
 } from './styles'
 import { Props } from './types'
 
@@ -24,7 +24,7 @@ export const EditProfileForm = ({
   handleSubmit,
   name,
   phoneNumber,
-  photo
+  photo,
 }: Props) => {
   const [newName, setNewName] = useState(name)
   const [newPhoneNumber, setNewPhoneNumber] = useState(phoneMask(phoneNumber))
@@ -32,9 +32,9 @@ export const EditProfileForm = ({
   const [newPhoto, setNewPhoto] = useState(photo)
 
   const isValid =
-    (newName.length > 3) &&
-    (newPhoneNumber.length === 12) &&
-    (newBirthDate.length === 10)
+    newName.length > 3 &&
+    newPhoneNumber.length === 12 &&
+    newBirthDate.length === 10
 
   const handlePress = () => {
     handleSubmit(newName, newPhoneNumber, newBirthDate, newPhoto)
@@ -45,34 +45,23 @@ export const EditProfileForm = ({
       <Title>{namePlaceholder}</Title>
       <Input
         value={newName}
-        setValue={text => setNewName(text)}
+        setValue={(text) => setNewName(text)}
         placeholder={namePlaceholder}
         editable
       />
       <Title>{phonePlaceholder}</Title>
       <Input
         value={newPhoneNumber}
-        setValue={text => setNewPhoneNumber(phoneMask(text))}
+        setValue={(text) => setNewPhoneNumber(phoneMask(text))}
         placeholder={phonePlaceholder}
         keyboardType="numeric"
         maxLength={11}
         editable={false}
       />
       <Title>{birthDateInputPlaceholder}</Title>
-      <DateTimeInput
-        value={newBirthDate}
-        setValue={setNewBirthDate}
-        isDate
-      />
-      <PhotoInput
-        photo={newPhoto}
-        setPhoto={setNewPhoto}
-      />
-      <Button
-        text={save}
-        onPress={handlePress}
-        disabled={!isValid}
-      />
+      <DateTimeInput value={newBirthDate} setValue={setNewBirthDate} isDate />
+      <PhotoInput photo={newPhoto} setPhoto={setNewPhoto} />
+      <Button text={save} onPress={handlePress} disabled={!isValid} />
     </Container>
   )
 }

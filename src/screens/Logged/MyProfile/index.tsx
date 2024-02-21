@@ -12,18 +12,12 @@ import {
   ProfileImage,
   ProfileName,
   ProfileAge,
-  ContentWrapper
+  ContentWrapper,
 } from './styles'
 import { Props } from './types'
 
-export const MyProfileScreen = ({
-  navigation
-}: Props) => {
-  const {
-    name,
-    birthDate,
-    avatar
-  } = useUserStore()
+export const MyProfileScreen = ({ navigation }: Props) => {
+  const { name, birthDate, avatar } = useUserStore()
 
   return (
     <LoggedWrapper navigation={navigation}>

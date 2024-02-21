@@ -7,8 +7,8 @@ import { useUserSchedulesStore } from 'store/userSchedules'
 import * as RootNavigation from 'routes/RootNavigation'
 
 export const api = axios.create({
-  baseURL: 'http://10.0.0.151:8000',
-  timeout: 5000
+  baseURL: 'http://192.168.0.105:8000', // http://10.0.0.151:8000
+  timeout: 5000,
 })
 
 // Request interceptor
@@ -21,31 +21,37 @@ api.interceptors.request.use((req: InternalAxiosRequestConfig<any>) => {
 })
 
 // Response interceptor
-api.interceptors.response.use(res => res, (error: AxiosResponse<any, any>) => {
-  const statusText = error + ''
-  const whitelist = ['/login', '/user/verify-token']
+api.interceptors.response.use(
+  (res) => res,
+  (error: AxiosResponse<any, any>) => {
+    const statusText = error + ''
+    const whitelist = ['/login', '/user/verify-token']
 
-  if ((statusText.indexOf('403') !== -1) && (!whitelist.includes(error.config.url || ''))) {
-    // Expired token
-    Toast.show({
-      type: 'error',
-      text1: 'Alerta',
-      text2: 'Seu token expirou, redirecionando...'
-    })
+    if (
+      statusText.indexOf('403') !== -1 &&
+      !whitelist.includes(error.config.url || '')
+    ) {
+      // Expired token
+      Toast.show({
+        type: 'error',
+        text1: 'Alerta',
+        text2: 'Seu token expirou, redirecionando...',
+      })
 
-    setTimeout(() => {
-      const { clearPersonalData } = useUserStore.getState()
-      const { setSchedules } = useUserSchedulesStore.getState()
+      setTimeout(() => {
+        const { clearPersonalData } = useUserStore.getState()
+        const { setSchedules } = useUserSchedulesStore.getState()
 
-      // Reset data
-      clearPersonalData()
-      setSchedules([])
+        // Reset data
+        clearPersonalData()
+        setSchedules([])
 
-      RootNavigation.reset()
-    }, 1800)
+        RootNavigation.reset()
+      }, 1800)
 
-    return {}
-  }
+      return {}
+    }
 
-  throw error
-})
+    throw error
+  },
+)

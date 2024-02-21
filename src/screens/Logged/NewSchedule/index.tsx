@@ -18,19 +18,13 @@ import { schedule } from 'constants/texts'
 import { ContentWrapper } from './styles'
 import { Props } from './types'
 
-export const NewScheduleScreen = ({
-  navigation
-}: Props) => {
+export const NewScheduleScreen = ({ navigation }: Props) => {
   const { id, addSchedule } = useUserStore()
   const userScheduleStore = useUserSchedulesStore()
 
   const [isLoading, setIsLoading] = useState(false)
 
-  const onSubmit = async ({
-    category,
-    date,
-    time
-  }: Schedule) => {
+  const onSubmit = async ({ category, date, time }: Schedule) => {
     if (isLoading) return false
 
     let shouldReset = false
@@ -41,7 +35,7 @@ export const NewScheduleScreen = ({
         Toast.show({
           type: 'success',
           text1: 'Sucesso',
-          text2: 'Agendamento realizado com sucesso'
+          text2: 'Agendamento realizado com sucesso',
         })
 
         const createdSchedule = response.data
@@ -57,7 +51,7 @@ export const NewScheduleScreen = ({
         Toast.show({
           type: 'error',
           text1: 'Alerta',
-          text2: 'Algo ao criar agendamento'
+          text2: 'Algo ao criar agendamento',
         })
       })
       .finally(() => setIsLoading(false))
@@ -66,20 +60,10 @@ export const NewScheduleScreen = ({
   }
 
   return (
-    <LoggedWrapper
-      navigation={navigation}
-      hideHeader
-      scroll
-    >
+    <LoggedWrapper navigation={navigation} hideHeader scroll>
       <ContentWrapper>
-        <HeaderButton
-          onPress={() => navigation.goBack()}
-          text={schedule}
-        />
-        <CreateScheduleForm
-          onSubmit={onSubmit}
-          isLoading={isLoading}
-        />
+        <HeaderButton onPress={() => navigation.goBack()} text={schedule} />
+        <CreateScheduleForm onSubmit={onSubmit} isLoading={isLoading} />
       </ContentWrapper>
     </LoggedWrapper>
   )

@@ -7,11 +7,7 @@ import { hotTopicsList } from 'resources/hotTopics'
 
 import { Schedule } from 'store/user/types'
 
-import {
-  selectCategory,
-  selectDayAndTime,
-  save
-} from 'constants/texts'
+import { selectCategory, selectDayAndTime, save } from 'constants/texts'
 
 import {
   ContentWrapper,
@@ -19,14 +15,11 @@ import {
   RadioInputsContainer,
   RadioInput,
   DateTimeInput,
-  Button
+  Button,
 } from './styles'
 import { Props } from './types'
 
-export const CreateScheduleForm = ({
-  onSubmit,
-  isLoading
-}: Props) => {
+export const CreateScheduleForm = ({ onSubmit, isLoading }: Props) => {
   const [category, setCategory] = useState('')
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
@@ -46,14 +39,14 @@ export const CreateScheduleForm = ({
       return Toast.show({
         type: 'error',
         text1: 'Aleta',
-        text2: 'A data inserida é inválida'
+        text2: 'A data inserida é inválida',
       })
     }
 
     const schedule: Schedule = {
       date,
       time,
-      category
+      category,
     }
 
     const success = await onSubmit(schedule)
@@ -67,22 +60,21 @@ export const CreateScheduleForm = ({
     }
   }
 
-  const isValid = (category.length !== 0) && (date.length === 10) && (time.length === 5)
+  const isValid =
+    category.length !== 0 && date.length === 10 && time.length === 5
 
   return (
     <ContentWrapper>
       <InputCaption>{selectCategory}</InputCaption>
       <RadioInputsContainer>
-        {
-          hotTopicsList.map((hotTopic, index) => (
-            <RadioInput
-              key={index.toString()}
-              active={category === hotTopic.category}
-              onPress={() => setCategory(hotTopic.category)}
-              text={hotTopic.category}
-            />
-          ))
-        }
+        {hotTopicsList.map((hotTopic, index) => (
+          <RadioInput
+            key={index.toString()}
+            active={category === hotTopic.category}
+            onPress={() => setCategory(hotTopic.category)}
+            text={hotTopic.category}
+          />
+        ))}
       </RadioInputsContainer>
       <InputCaption>{selectDayAndTime}</InputCaption>
       <DateTimeInput

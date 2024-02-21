@@ -17,22 +17,11 @@ import { useUserStore } from 'store/user'
 import { validateBirthDate } from 'utils/date'
 
 import { Props } from './types'
-import {
-  Wrapper,
-  ContentWrapper
-} from './styles'
+import { Wrapper, ContentWrapper } from './styles'
 
-export const EditProfileScreen = ({
-  navigation
-}: Props) => {
-  const {
-    id,
-    name,
-    avatar,
-    phoneNumber,
-    birthDate,
-    setPersonalData
-  } = useUserStore()
+export const EditProfileScreen = ({ navigation }: Props) => {
+  const { id, name, avatar, phoneNumber, birthDate, setPersonalData } =
+    useUserStore()
 
   const [isLoading, setIsLoading] = useState(false)
 
@@ -40,7 +29,7 @@ export const EditProfileScreen = ({
     newName: string,
     newPhoneNumber: string,
     newBirthDate: string,
-    newPhoto?: string
+    newPhoto?: string,
   ) => {
     if (isLoading) return
 
@@ -50,7 +39,7 @@ export const EditProfileScreen = ({
       return Toast.show({
         type: 'error',
         text1: 'Alerta',
-        text2: message
+        text2: message,
       })
     }
 
@@ -59,37 +48,31 @@ export const EditProfileScreen = ({
     setIsLoading(true)
 
     UserService.update(id, newName, newBirthDate, newPhone, newPhoto)
-      .then((response: AxiosResponse) => {
+      .then((response: AxiosResponse<any>) => {
         Toast.show({
           type: 'success',
           text1: 'Sucesso',
-          text2: 'Seus dados foram atualizados com sucesso'
+          text2: 'Seus dados foram atualizados com sucesso',
         })
 
         setPersonalData(response.data)
+
         setTimeout(() => navigation.goBack(), 300)
       })
       .catch(() => {
         return Toast.show({
           type: 'error',
           text1: 'Alerta',
-          text2: 'Algo ao atualizar os dados'
+          text2: 'Algo ao atualizar os dados',
         })
       })
       .finally(() => setIsLoading(false))
   }
 
   return (
-    <LoggedWrapper
-      navigation={navigation}
-      hideHeader
-      scroll
-    >
+    <LoggedWrapper navigation={navigation} hideHeader scroll>
       <Wrapper>
-        <HeaderButton
-          onPress={() => navigation.goBack()}
-          text={editYourInfo}
-        />
+        <HeaderButton onPress={() => navigation.goBack()} text={editYourInfo} />
         <ContentWrapper>
           <EditProfileForm
             name={name}

@@ -7,7 +7,7 @@ import {
   SIGN_UP,
   UPDATE,
   USERS,
-  VERIFY_USER
+  VERIFY_USER,
 } from 'resources/url'
 
 export class UserService {
@@ -26,7 +26,7 @@ export class UserService {
     birthDate: string,
     phoneNumber: string,
     avatar?: string,
-    socialId?: string
+    socialId?: string,
   ) => {
     const data = { name, birthDate, phoneNumber, avatar, socialId }
 
@@ -38,28 +38,22 @@ export class UserService {
     name: string,
     birthDate: string,
     phoneNumber: string,
-    avatar?: string
+    avatar?: string,
   ) => {
     const data = { name, birthDate, phoneNumber, avatar }
 
     return api.put(UPDATE + userId, data)
   }
 
-  public static getUsers = (
-    searchField: string,
-    page: number,
-    limit = 10
-  ) => {
-    const url = `${USERS}?page=${page}&limit=${limit}&search=${searchField || ''}`
+  public static getUsers = (searchField: string, page: number, limit = 10) => {
+    const url = `${USERS}?page=${page}&limit=${limit}&search=${
+      searchField || ''
+    }`
 
     return api.get(url)
   }
 
-  public static socialLogin = (
-    id: string,
-    name: string,
-    avatar?: string
-  ) => {
+  public static socialLogin = (id: string, name: string, avatar?: string) => {
     const data = { id, name, avatar }
 
     return api.post(SOCIAL_LOGIN, data)

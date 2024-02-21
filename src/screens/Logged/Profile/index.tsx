@@ -19,22 +19,14 @@ import {
   ProfileWrapper,
   UserImage,
   UserName,
-  SchedulesList
+  SchedulesList,
 } from './styles'
 import { Props } from './types'
 
-export const ProfileScreen = ({
-  navigation,
-  route
-}: Props) => {
+export const ProfileScreen = ({ navigation, route }: Props) => {
   const user = useUserStore()
 
-  const {
-    id,
-    name,
-    birthDate,
-    avatar,
-  } = route.params
+  const { id, name, birthDate, avatar } = route.params
 
   const [schedules, setSchedules] = useState<Schedule[]>([])
 
@@ -65,10 +57,7 @@ export const ProfileScreen = ({
   )
 
   return (
-    <LoggedWrapper
-      navigation={navigation}
-      hideHeader
-    >
+    <LoggedWrapper navigation={navigation} hideHeader>
       <Wrapper>
         <SchedulesList
           navigation={navigation}
