@@ -50,7 +50,7 @@ export const CustomDrawer = ({
   return (
     <Container>
       <ItemContainer onPress={() => handlePress(EDIT_PROFILE_SCREEN)}>
-        <Ionicons name="md-person-outline" size={20} color="#FFF"/>
+        <Ionicons name="person" size={20} color="#FFF"/>
         <ItemLabel>{editProfile}</ItemLabel>
       </ItemContainer>
       <ItemContainer onPress={() => handlePress(HELP_SCREEN)}>

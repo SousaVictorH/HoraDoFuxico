@@ -5,10 +5,9 @@ import * as WebBrowser from 'expo-web-browser'
 import * as Google from 'expo-auth-session/providers/google'
 import * as Facebook from 'expo-auth-session/providers/facebook'
 
-import AnimatedLottieView from 'lottie-react-native'
 import Toast from 'react-native-toast-message'
 
-import { UserService, FacebookService, GoogleService  } from 'services'
+import { UserService, FacebookService, GoogleService } from 'services'
 
 import { useUserStore } from 'store/user'
 import { useUserSchedulesStore } from 'store/userSchedules'
@@ -16,13 +15,16 @@ import { useUserSchedulesStore } from 'store/userSchedules'
 import { ScreenWrapper } from 'templates/ScreenWrapper'
 import { SignInForm } from 'components/forms/SignIn'
 
-import { animations } from 'resources/animations'
 import { images } from 'resources/images'
 
 import { googleAuthConfig, facebookAuthConfig } from 'resources/configs'
 
 import { promoteGoodMoments } from 'constants/texts'
-import { AUTHENTICATION_SCREEN, LOGGED_NAVIGATOR, SIGN_UP_SCREEN } from 'constants/screens'
+import {
+  AUTHENTICATION_SCREEN,
+  LOGGED_NAVIGATOR,
+  SIGN_UP_SCREEN,
+} from 'constants/screens'
 
 import {
   AnimatedView,
@@ -31,47 +33,59 @@ import {
   SubTitle,
   AppImageContainer,
   AppImage,
-  FormContainer
+  FormContainer,
 } from './styles'
 import { Props, OnSignInProps, OnSocialSignInProps } from './types'
 
 WebBrowser.maybeCompleteAuthSession()
 
-export const LandingScreen = ({
-  navigation
-}: Props) => {
+export const LandingScreen = ({ navigation }: Props) => {
   const { id, token, setPersonalData } = useUserStore()
   const { setSchedules } = useUserSchedulesStore()
 
-  const [, googleResponse, googlePromptAsync] = Google.useAuthRequest(googleAuthConfig)
-  const [, facebookResponse, facebookPromptAsync] = Facebook.useAuthRequest(facebookAuthConfig)
+  const [, googleResponse, googlePromptAsync] =
+    Google.useAuthRequest(googleAuthConfig)
+  const [, facebookResponse, facebookPromptAsync] =
+    Facebook.useAuthRequest(facebookAuthConfig)
 
   const [withGoogle, setWithGoogle] = useState(true)
-
-  const [animationFinished, setAnimationFinished] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
-  const animationRef = useRef<any>(null)
-
   useEffect(() => {
-    setTimeout(() => animationRef.current?.play(), 100)
+    setTimeout(() => {
+      // Clear state
+      setSchedules([])
 
-    // Clear state
-    setSchedules([])
+      if (id && token) {
+        setIsLoading(true)
 
-    return () => {
-      animationRef.current?.reset()
-    }
+        UserService.verifyToken(id)
+          .then((response: any) => {
+            setPersonalData(response.data)
+            navigation.navigate(LOGGED_NAVIGATOR)
+          })
+          .catch(() => {})
+          .finally(() => {
+            setIsLoading(false)
+          })
+      }
+    }, 100)
   }, [])
 
   useEffect(() => {
-    if (googleResponse?.type === 'success' && googleResponse.authentication?.accessToken) {
+    if (
+      googleResponse?.type === 'success' &&
+      googleResponse.authentication?.accessToken
+    ) {
       handleSocialSignIn(googleResponse.authentication.accessToken)
     }
   }, [googleResponse])
 
   useEffect(() => {
-    if (facebookResponse?.type === 'success' && facebookResponse.authentication?.accessToken) {
+    if (
+      facebookResponse?.type === 'success' &&
+      facebookResponse.authentication?.accessToken
+    ) {
       handleSocialSignIn(facebookResponse.authentication.accessToken)
     }
   }, [facebookResponse])
@@ -85,7 +99,7 @@ export const LandingScreen = ({
       return Toast.show({
         type: 'error',
         text1: 'Alerta',
-        text2: 'Verifique seu número de celular'
+        text2: 'Verifique seu número de celular',
       })
     }
 
@@ -94,14 +108,16 @@ export const LandingScreen = ({
     UserService.requestLogin(phone)
       .then(() => {
         navigation.navigate(AUTHENTICATION_SCREEN, {
-          phoneNumber: phone
+          phoneNumber: phone,
         })
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err)
+
         Toast.show({
           type: 'error',
           text1: 'Alerta',
-          text2: 'Algo ao autenticar o usuário'
+          text2: 'Algo ao autenticar o usuário',
         })
       })
       .finally(() => setIsLoading(false))
@@ -111,8 +127,7 @@ export const LandingScreen = ({
     if (google) {
       setWithGoogle(true)
       googlePromptAsync()
-    }
-    else if (facebook) {
+    } else if (facebook) {
       setWithGoogle(false)
       facebookPromptAsync()
     }
@@ -122,42 +137,34 @@ export const LandingScreen = ({
     if (isLoading) return
 
     setIsLoading(true)
-    const response = withGoogle ? (
-      await GoogleService.loadUser(token)
-    ) : (
-      await FacebookService.loadUser(token)
-    )
+    const response = withGoogle
+      ? await GoogleService.loadUser(token)
+      : await FacebookService.loadUser(token)
 
     if (response.status === 200) {
-      const {
-        id,
-        name,
-        first_name,
-        picture
-      } = await response.json()
+      const { id, name, first_name, picture } = await response.json()
 
-      const avatar = typeof picture === 'object' ?
-        (picture.data?.is_silhouette ? null : picture?.data.url) :
-        picture
+      const avatar =
+        typeof picture === 'object'
+          ? picture.data?.is_silhouette
+            ? null
+            : picture?.data.url
+          : picture
 
       UserService.socialLogin(id, name || first_name, avatar)
-        .then(res => {
+        .then((res) => {
           setPersonalData({ token: res.data.token })
 
           if (res.data.id) {
             setPersonalData(res.data)
             navigation.navigate(LOGGED_NAVIGATOR)
           } else {
-            const {
-              socialId,
-              name,
-              avatar
-            } = res.data
+            const { socialId, name, avatar } = res.data
 
             navigation.navigate(SIGN_UP_SCREEN, {
               socialId,
               name,
-              avatar
+              avatar,
             })
           }
         })
@@ -165,7 +172,7 @@ export const LandingScreen = ({
           Toast.show({
             type: 'error',
             text1: 'Alerta',
-            text2: 'Algo ao fazer login social'
+            text2: 'Algo ao fazer login social',
           })
         })
         .finally(() => {
@@ -177,65 +184,32 @@ export const LandingScreen = ({
       Toast.show({
         type: 'error',
         text1: 'Alerta',
-        text2: 'Algo ao fazer login social'
+        text2: 'Algo ao fazer login social',
       })
-    }
-  }
-
-  const onAnimationFinished = async () => {
-    setAnimationFinished(true)
-
-    if (id && token) {
-      setIsLoading(true)
-
-      UserService.verifyToken(id)
-        .then((response: any) => {
-          setPersonalData(response.data)
-          navigation.navigate(LOGGED_NAVIGATOR)
-        })
-        .catch(() => {})
-        .finally(() => {
-          setIsLoading(false)
-        })
     }
   }
 
   return (
     <ScreenWrapper scroll>
-      {
-        animationFinished ? (
-          <AnimatedView>
-            <ContentWrapper>
-              <AppNameImage
-                source={images.blueAppName.path}
-                resizeMode="contain"
-              />
-              <SubTitle>{promoteGoodMoments}</SubTitle>
-              <AppImageContainer>
-                <AppImage
-                  source={images.image1.path}
-                  resizeMode="contain"
-                />
-              </AppImageContainer>
-              <FormContainer>
-                <SignInForm
-                  onSignIn={onSignIn}
-                  onSocialSignIn={onSocialSignIn}
-                  isLoading={isLoading}
-                />
-              </FormContainer>
-            </ContentWrapper>
-          </AnimatedView>
-        ) : (
-          <AnimatedLottieView
-            ref={animationRef}
-            source={animations.landingAnimation.path}
-            onAnimationFinish={onAnimationFinished}
-            loop={false}
-            autoPlay={false}
+      <AnimatedView>
+        <ContentWrapper>
+          <AppNameImage
+            source={images.blueAppName.path}
+            resizeMode="contain"
           />
-        )
-      }
+          <SubTitle>{promoteGoodMoments}</SubTitle>
+          <AppImageContainer>
+            <AppImage source={images.image1.path} resizeMode="contain" />
+          </AppImageContainer>
+          <FormContainer>
+            <SignInForm
+              onSignIn={onSignIn}
+              onSocialSignIn={onSocialSignIn}
+              isLoading={isLoading}
+            />
+          </FormContainer>
+        </ContentWrapper>
+      </AnimatedView>
     </ScreenWrapper>
   )
 }
