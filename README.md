@@ -10,26 +10,26 @@ interact with people of the same age group, where they can schedule time to talk
 The project figma is available [Here](https://www.figma.com/file/bsBk3UgwACwS3ozUWUfSln/Empreendedorismo%3A-Hora-do-fuxico?node-id=0%3A1&t=FqzQ2hBDEGWZTYWN-1)
   
 ### :iphone: Here's a few videos of the app on differents iphone versions:
-  
-<h3>Log In</h3>
-
-https://github.com/SousaVictorH/HoraDoFuxico/assets/55806765/a3346c12-05d2-4bed-a812-76af0707be4a
-
-<h3>Search for your friends</h3>
-
-https://github.com/SousaVictorH/HoraDoFuxico/assets/55806765/d0f79bb9-efeb-4718-85ef-011e30b870c0
-
-<h3>Update your infos</h3>
-
-https://github.com/SousaVictorH/HoraDoFuxico/assets/55806765/2eebe0f3-1c1b-4260-96af-4d805f6e2570
 
 <h3>Sign Up</h3>
 
-https://github.com/SousaVictorH/HoraDoFuxico/assets/55806765/1952c5f0-4d9c-476c-b6eb-f8224d4674c1
+https://github.com/SousaVictorH/HoraDoFuxico/assets/55806765/f1f53e6a-a436-467a-bd0e-abbadb6bdd7f
 
-<h3>Schedule a new party</h3>
+<h3>Log In</h3>
 
-https://github.com/SousaVictorH/HoraDoFuxico/assets/55806765/76e6fcf0-7f57-4be4-bf99-f0452039ae6a
+https://github.com/SousaVictorH/HoraDoFuxico/assets/55806765/9cb9e2ca-383f-471e-8eb0-376977c2a04d
+
+<h3>Search for your friends</h3>
+
+https://github.com/SousaVictorH/HoraDoFuxico/assets/55806765/86d0cc12-04e2-44dd-a861-c4ec55af9927
+
+<h3>Edit your infos</h3>
+
+https://github.com/SousaVictorH/HoraDoFuxico/assets/55806765/6c7be8e8-abcc-4d9d-811f-9076b8f5ad7c
+
+<h3>Create a new schedule</h3>
+
+https://github.com/SousaVictorH/HoraDoFuxico/assets/55806765/95854719-7690-4108-8522-fc858aabffdb
 
 ###  :hammer: Made with
 
@@ -49,7 +49,7 @@ npm install
 2. After that, run expo start
 
 ```sh
-expo start
+npx expo start
 ```
 
 3. Then, you're ready to get started, open the QrCode on your phone and enjoy the app
