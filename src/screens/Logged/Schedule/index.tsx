@@ -194,8 +194,7 @@ export const ScheduleScreen = ({
                   renderItem={({ item }: any) => (
                     <UserItem
                       key={item.id}
-                      id={item.id}
-                      name={item.name}
+                      {...item}
                       onPress={() => {
                         navigation.push(PROFILE_SCREEN, { ...item })
                       }}
