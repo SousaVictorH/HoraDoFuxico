@@ -1,4 +1,6 @@
 import React, { useCallback } from 'react'
+import { LogBox } from 'react-native'
+
 import 'react-native-gesture-handler'
 
 import * as SplashScreen from 'expo-splash-screen'
@@ -19,6 +21,8 @@ import { Toast } from 'components/toast'
 import { AppWrapper } from './templates/AppWrapper'
 import { Router } from './routes'
 
+
+LogBox.ignoreAllLogs()
 SplashScreen.preventAutoHideAsync() // Keep the splash screen visible while we fetch resources
 
 const App = () => {

@@ -20,30 +20,6 @@ export const PhotoInput = ({
   setPhoto,
   style
 }: Props) => {
-  const [status, requestPermission] = ImagePicker.useMediaLibraryPermissions()
-
-  const requestImage = async () => {
-    // Check permissions
-    if (!status?.granted) {
-      // If no permission ask for it
-      const response = await requestPermission()
-
-      if (response.status !== 'granted') {
-        // If no permission allowed throw alert
-        Toast.show({
-          type: 'error',
-          text1: 'Aleta',
-          text2: 'Sem permissao para acessar as fotos'
-        })
-      } else {
-        // Else pick image
-        pickImage()
-      }
-    } else {
-      pickImage()
-    }
-  }
-
   const pickImage = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -52,13 +28,21 @@ export const PhotoInput = ({
       quality: 1,
     })
 
-    if (!result.canceled) setPhoto(result.assets[0].uri)
+    if (!result.canceled) {
+      setPhoto(result.assets[0].uri)
+    } else {
+      Toast.show({
+        type: 'error',
+        text1: 'Aleta',
+        text2: 'Sem permissao para acessar as fotos'
+      })
+    }
   }
 
   return (
     <Container style={style}>
       <Caption>{photoInputPlaceholder}</Caption>
-      <ButtonWrapper onPress={() => requestImage()}>
+      <ButtonWrapper onPress={() => pickImage()}>
         <Ionicons
           name="attach-outline"
           size={28}
